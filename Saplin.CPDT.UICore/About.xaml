@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScrollView  
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls"
+    xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels"
+    xmlns:local="clr-namespace:Saplin.CPDT.UICore"
+    x:Class="Saplin.CPDT.UICore.About" VerticalScrollBarVisibility="Never">
+    
+    <Grid Style="{x:StaticResource Key=popUp}" RowSpacing="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+        </Grid.RowDefinitions>
+        <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Close}" Grid.Row="0" Grid.Column="1" 
+                            ChangeCursorOnMouseHover="True" Command="{Binding Close}" 
+                            VerticalOptions="Start" />
+        <Label Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=About1}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start" />
+        <Label Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=About2}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start" />
+        <Label Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=About3}" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start" />
+        <Label Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=About4}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start" />
+        <Label Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=About5}" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start" />
+        <Label Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=About6}" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start" />
+    </Grid>
+    
+</ScrollView>

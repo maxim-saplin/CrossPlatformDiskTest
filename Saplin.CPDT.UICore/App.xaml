@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Saplin.CPDT.UICore" xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" xmlns:csr="clr-namespace:System.Collections.Generic;assembly=System.Runtime" x:Class="Saplin.CPDT.UICore.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--STYLES-->
+            <OnPlatform x:TypeArguments="Font" x:Key="FontNormal">
+                <On Platform="macOS" Value="IBM Plex Mono, 15" />
+                <On Platform="WPF" Value="./Fonts/IBMPlexMono-Regular.ttf#IBM Plex Mono, 15" />
+                <On Platform="Android" Value="IBMPlexMono-Regular.ttf#IBMPlexMono-Regular, 15" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="Font" x:Key="FontButtonNormal">
+                <On Platform="macOS" Value="IBM Plex Mono, 15" />
+                <On Platform="WPF" Value="Consolas, 16" />
+                <On Platform="Android" Value="IBMPlexMono-Regular.ttf#IBMPlexMono-Regular, 15" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="Font" x:Key="FontItalic">
+                <On Platform="macOS" Value="IBM Plex Mono, Italic, 15" />
+                <On Platform="WPF" Value="./Fonts/IBMPlexMono-Italic.ttf#IBM Plex Mono, 15" />
+                <On Platform="Android" Value="IBMPlexMono-Italic.ttf#IBMPlexMono-Italic, 15" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="Font" x:Key="FontItalicSmall">
+                <On Platform="macOS" Value="IBM Plex Mono, Italic, 12" />
+                <On Platform="WPF" Value="./Fonts/IBMPlexMono-Italic.ttf#IBM Plex Mono, 12" />
+                <On Platform="Android" Value="IBMPlexMono-Italic.ttf#IBMPlexMono-Italic, 12" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="Font" x:Key="FontItalicSuperSmall">
+                <On Platform="macOS" Value="IBM Plex Mono, Italic, 10" />
+                <On Platform="WPF" Value="./Fonts/IBMPlexMono-Italic.ttf#IBM Plex Mono, 10" />
+                <On Platform="Android" Value="IBMPlexMono-Italic.ttf#IBMPlexMono-Italic, 10" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="Font" x:Key="FontSuperSmall">
+                <On Platform="macOS" Value="IBM Plex Mono, 10" />
+                <On Platform="WPF" Value="./Fonts/IBMPlexMono-Regular.ttf#IBM Plex Mono, 10" />
+                <On Platform="Android" Value="IBMPlexMono-Regular.ttf#IBMPlexMono-Regular, 10" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="Font" x:Key="FontBold">
+                <On Platform="macOS" Value="IBM Plex Mono Medium, 15" />
+                <On Platform="WPF" Value="./Fonts/IBMPlexMono-Medium.ttf#IBM Plex Mono, 15" />
+                <On Platform="Android" Value="IBMPlexMono-Medium.ttf#IBMPlexMono-Medium, 15" />
+            </OnPlatform>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#FFCFCFCF" />
+                <Setter Property="Font" Value="{StaticResource FontNormal}" />
+            </Style>
+            <Style TargetType="Label" BasedOn="{StaticResource LabelStyle}" />
+            <Style TargetType="ctrl:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
+                <Style.Triggers>
+                    <Trigger TargetType="ctrl:ExtendedLabel" Property="IsEnabled" Value="False">
+                        <Setter Property="TextColor" Value="Gray" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="ctrl:BlinkingCursor" BasedOn="{StaticResource LabelStyle}" />
+            <Style TargetType="ctrl:RollingSelector" BasedOn="{StaticResource LabelStyle}" />
+            <Style x:Key="AccentedSmallLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="#FFCFCFCF" />
+                <Setter Property="Font" Value="{StaticResource FontItalicSmall}" />
+            </Style>
+            <Style x:Key="SmallLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="Font" Value="{StaticResource FontItalicSmall}" />
+            </Style>
+            <Style x:Key="SuperSmallLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
+            </Style>
+            <Style x:Key="AccentedSuperSmallLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="#FFCFCFCF" />
+                <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
+            </Style>
+            <Style x:Key="GrayedLabel" TargetType="ctrl:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="TextColor" Value="#FF808080" />
+                <Setter Property="Font" Value="{StaticResource FontItalic}" />
+            </Style>
+            <Style x:Key="AccentedLabel" TargetType="ctrl:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="Font" Value="{StaticResource FontBold}" />
+            </Style>
+            <Style x:Key="HighlightKeys" TargetType="Span">
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+            <Style x:Key="SmallSpan" TargetType="Span">
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="Font" Value="{StaticResource FontItalicSmall}" />
+            </Style>
+            <Style x:Key="SuperSmallSpan" TargetType="Span">
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
+            </Style>
+            <Style x:Key="AccentedSuperSmallSpan" TargetType="Span">
+                <Setter Property="TextColor" Value="#FFCFCFCF" />
+                <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
+            </Style>
+            <Style x:Key="AccentedSmallSpan" TargetType="Span">
+                <Setter Property="TextColor" Value="#FFCFCFCF" />
+                <Setter Property="Font" Value="{StaticResource FontItalicSmall}" />
+            </Style>
+            <Style x:Key="AccentedSpan" TargetType="Span" >
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="Font" Value="{StaticResource FontBold}" />
+            </Style>
+            <Style x:Key="SpanStyle" TargetType="Span">
+                <Setter Property="TextColor" Value="#FFCFCFCF" />
+                <Setter Property="Font" Value="{StaticResource FontNormal}" />
+            </Style>
+            <Style TargetType="ctrl:MasterDetail">
+                <Style.Triggers>
+                    <Trigger TargetType="ctrl:MasterDetail" Property="IsDetailVisible" Value="True">
+                        <Setter Property="BackgroundColor" Value="#111111" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="Font" Value="{StaticResource FontButtonNormal}" />
+                <Setter Property="BackgroundColor" Value="Blue" />
+                <Setter Property="BorderColor" Value="Blue" />
+                <Setter Property="BorderWidth" Value="0" />
+                <Setter Property="WidthRequest" Value="125" />
+                <Setter Property="Padding" Value="0, 0, 0, 0" />
+                
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android" Value="37" />
+                            <On Platform="macOS, WPF" Value="27" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="Android, macOS, WPF" Value="0, 0, 0, 0" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="popUp" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="#EB3c4f44" />
+                <Setter Property="Padding" Value="10, 10, 10, 10" />
+            </Style>
+            <Style x:Key="popUpError" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="Red" />
+                <Setter Property="Padding" Value="10, 10, 10, 10" />
+            </Style>
+            <Style x:Key="popUpContainer" TargetType="StackLayout">
+                <Setter Property="BackgroundColor">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="Android" Value="#99000000" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="Android" Value="10, 10, 10, 10" />
+                            <On Platform="macOS, WPF" Value="60, 60, 60, 60" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <!--END OF STYLES-->
+            <!-- XAML value converters -->
+            <local:BoolNotConverter x:Key="BoolNot" />
+            <local:StringNotEmptyConverter x:Key="StringNotEmpty" />
+            <local:BytesToAutoConverter x:Key="BytesToAuto" />
+            <local:BytesToAutoShortConverter x:Key="BytesToAutoShort" />
+            <local:MbPerSecondToAutoConverter x:Key="MbPerSecondToAuto" />
+            <local:BytesToAutoUnitConverter x:Key="BytesToAutoUnit" />
+            <local:MbToAutoUnitConverter x:Key="MbToAutoUnit" />
+            <local:MbPerSecondToAutoUnitConverter x:Key="MbPerSecondToAutoUnit" />
+            <local:KeyToL11nConverter x:Key="KeyToL11n" />
+            <local:KeyToL11nShortConverter x:Key="KeyToL11nShort" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Saplin.CPDT.UICore" xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" xmlns:anim="clr-namespace:Saplin.CPDT.UICore.Animations" xmlns:csr="clr-namespace:System.Collections.Generic;assembly=System.Runtime" x:Class="Saplin.CPDT.UICore.MainPage" NavigationPage.HasNavigationBar="False" NavigationPage.HasBackButton="False"
+    BackgroundColor="Black" Padding="0">
+    <ContentPage.Resources>
+        <!-- All global resources (styles, converters etc.) are in App.xaml -->
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="Black" Padding="10, 10, 10, 10">
+            <ScrollView x:Name="scrollView" VerticalScrollBarVisibility="Default" HorizontalScrollBarVisibility="Default" AbsoluteLayout.LayoutBounds="1.0 ,1.0, 1.0, 1.0" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Vertical" BindingContext="{x:Static vm:ViewModelContainer.DriveTestViewModel}">
+                    <StackLayout x:Name="headerLayout" Orientation="Horizontal" Padding="0,0,0,0" HorizontalOptions="FillAndExpand">
+                        <Label x:Name="cpdt" Text="Cross Platform Disk Test" HorizontalOptions="Start" VerticalOptions="Start" Style="{x:StaticResource Key=AccentedLabel}" LineBreakMode="TailTruncation" />
+                        <Label x:Name="bitSystem"  HorizontalOptions="Start" VerticalOptions="Start" Style="{x:StaticResource Key=SmallLabel}" LineBreakMode="TailTruncation" />
+                        <ctrl:ExtendedLabel x:Name="quitButton" ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=Quit}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" VerticalOptions="Start" Style="{x:StaticResource Key=AccentedLabel}" ChangeCursorOnMouseHover="True" Clicked="OnQuit">
+                            <ctrl:ExtendedLabel.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="Android" Value="False" />
+                                    <On Platform="macOS, WPF" Value="True" />
+                                </OnPlatform>
+                            </ctrl:ExtendedLabel.IsVisible>
+                        </ctrl:ExtendedLabel>
+                        <ctrl:ExtendedLabel x:Name="quititingButton" IsVisible="false" Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=Quiting}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" VerticalOptions="Start" />
+                    </StackLayout>
+                    <anim:DriveSelectionAnimation x:Name="drivesAnimation" Target="{x:Reference selectionLayout}" Trigger="{Binding TestStarted, Converter={StaticResource BoolNot}}" />
+                    <anim:HighlightAnimation x:Name="drivesHighlightAnimation" Target="{x:Reference selectionLayout}" OnClickOf="{x:Reference refreshButton}" />
+                    <StackLayout x:Name="selectionLayout" IsClippedToBounds="True" Orientation="Vertical">
+                        
+                        <StackLayout Orientation="Vertical">
+                            <local:AndroidSpacer FontSize="12"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=AvailableDrives}" />
+                                <local:AndroidSpacer/>
+                            </StackLayout>
+                            <ctrl:StackRepeater ItemsSource="{Binding Drives}" IsEnabled="{Binding TestStarted, Converter={StaticResource BoolNot}}">
+
+                                <ctrl:StackRepeater.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Orientation="Vertical">
+                                            <Label IsVisible="{Binding ShowDiveIsSameMessage}">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text=" ⤭ " FontSize="25"/>
+                                                        <Span Text="same drive, different aliases" Style="{StaticResource SmallSpan}" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <local:AndroidSpacer FontSize="6" IsVisible="{Binding ShowDiveIsSameMessage}"/>
+                                            <StackLayout Orientation="Horizontal">
+                                                <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding IndexAndName}" Command="{Binding Source={x:Static vm:ViewModelContainer.DriveTestViewModel}, Path=PickAndTestDrive}" CommandParameter="{Binding Name}" ChangeCursorOnMouseHover="{Binding AvailableForTest}" IsEnabled="{Binding AvailableForTest}" LineBreakMode="MiddleTruncation" >
+                                                    <ctrl:ExtendedLabel.Style>
+                                                        <OnPlatform x:TypeArguments="Style">
+                                                            <On Platform="Android" Value="{StaticResource AccentedLabel}"/>
+                                                        </OnPlatform>  
+                                                    </ctrl:ExtendedLabel.Style>
+                                                </ctrl:ExtendedLabel>
+                                                <ctrl:ExtendedLabel LineBreakMode="TailTruncation" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding GbFree,  Mode=OneWay, StringFormat='{0:0.00}'}" />
+                                                            <Span Text="{Binding GbFree, Source={Static vm:ViewModelContainer.L11n}, Mode=OneWay}" />
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </ctrl:ExtendedLabel>
+                                                <local:AndroidSpacer/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </ctrl:StackRepeater.ItemTemplate>
+                            </ctrl:StackRepeater>
+                            <local:AndroidSpacer FontSize="8"/>
+                        </StackLayout>
+                        <!--<Label Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=PickDrive}" Style="{StaticResource Key=GrayedLabel}" LineBreakMode="TailTruncation"/>-->
+                        <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="0" Padding="0,15,0,0" BindingContext="{x:Static vm:ViewModelContainer.NavigationViewModel}">
+                            <Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=OptionsButton}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding ShowOptions}" ctrl:KeyPress.CommandOnKeyPress="True" />
+                            <Button x:Name="refreshButton" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RefreshButton}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding Refresh}" ctrl:KeyPress.CommandOnKeyPress="True">
+                                <Button.IsVisible>
+                                    <OnPlatform x:TypeArguments="x:Boolean">
+                                        <On Platform="Android" Value="False" />
+                                        <On Platform="macOS, WPF" Value="True" />
+                                    </OnPlatform>
+                                </Button.IsVisible>
+                            </Button>
+                            <Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=HelpButton}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding ShowAbout}" ctrl:KeyPress.CommandOnKeyPress="True" />
+                        </StackLayout>
+                        <local:AndroidSpacer FontSize="12"/>
+                    </StackLayout>
+                    <anim:VisibilityFadeAnimation x:Name="testInProgressAnimation" Target="{x:Reference testInProgressLayout}" Trigger="{Binding TestStarted}" />
+                    <StackLayout x:Name="testInProgressLayout" Orientation="Vertical" IsVisible="False" HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal" IsVisible="{Binding TestStarted}" BackgroundColor="#111111" Padding="0, 8, 0, 8" HorizontalOptions="FillAndExpand">
+                            <Label Text="{Binding SelectedDrive}" HorizontalOptions="Start" VerticalOptions="Center" LineBreakMode="MiddleTruncation" />
+                            <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm:ss}&#10;{0:d.MM.yyyy}'}" Style="{x:StaticResource Key=AccentedSuperSmallLabel}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+                            <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=BreakTest}" ChangeCursorOnMouseHover="true" Command="{Binding BreakTest}" HorizontalOptions="End" VerticalOptions="Center"/>
+                        </StackLayout>
+                        <Label Text="{Binding FileNameAndTime}" Style="{x:StaticResource Key=SmallLabel}" />
+                        <Label Text="{Binding Options}" Style="{x:StaticResource Key=SmallLabel}" />
+                        <!--<ctrl:LabelList x:Name="completedResults" ControlName="completedResults" Orientation="Vertical" ItemsSource="{Binding StringTestResults}"/>-->
+                        <StackLayout x:Name="testResultsPlaceholder">
+                            <local:TestResults ItemsSource="{Binding TestResults}" ShowFooterIfEmptyItems="True" />
+                        </StackLayout>
+                    </StackLayout>
+                    <anim:VisibilityFadeAnimation2 x:Name="testSessionsAnimation" Target="{x:Reference testSessionsPlaceholder}" Trigger="{Binding TestStarted, Converter={StaticResource BoolNot}}" />
+                    <StackLayout x:Name="testSessionsPlaceholder" IsVisible="False">
+                        <local:TestSessions x:Name="testSessions" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" IsVisible="{Binding TestStarted, Converter={StaticResource BoolNot}}">
+                        <Label Text="\&gt;" IsVisible="{Binding StatusMessage, Converter={StaticResource StringNotEmpty}}" VerticalTextAlignment="Start" VerticalOptions="Start" LineBreakMode="NoWrap" />
+                        <Label Text="{Binding StatusMessage}" LineBreakMode="WordWrap" />
+                    </StackLayout>
+                    <ctrl:BlinkingCursor BlinkCursor="{Binding TestStarted, Converter={StaticResource BoolNot}}" />
+                    <!--<Label Text="15" FontSize="15"/>
+                    <Label Text="Micro" FontSize="Micro"/>
+                    <Label Text="Small" FontSize="Small"/>
+                    <Label Text="Default" FontSize="Default"/>
+                    <Label Text="Medium" FontSize="Medium"/>
+                    <Label Text="Large" FontSize="Large"/>-->
+                </StackLayout>
+            </ScrollView>
+            <!-- Pop-ups-->
+            <StackLayout Margin="-10, -10, -10, -10" AbsoluteLayout.LayoutBounds="1.0, 1.0, 1.0, 1.0" AbsoluteLayout.LayoutFlags="All" BindingContext="{x:Static vm:ViewModelContainer.OptionsViewModel}" IsVisible="{Binding IsVisible}" ctrl:KeyPress.ModalParentExclusiveHook="True" Style="{x:StaticResource Key=popUpContainer}">
+                <StackLayout.Effects>
+                    <ctrl:BlurPlatformEffect />
+                </StackLayout.Effects>
+                <local:Options HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+            <StackLayout Margin="-10, -10, -10, -10" AbsoluteLayout.LayoutBounds="1.0, 1.0, 1.0, 1.0" AbsoluteLayout.LayoutFlags="All" BindingContext="{x:Static vm:ViewModelContainer.AboutViewModel}" IsVisible="{Binding IsVisible}" ctrl:KeyPress.ModalParentExclusiveHook="True" Style="{x:StaticResource Key=popUpContainer}">
+                <StackLayout.Effects>
+                    <ctrl:BlurPlatformEffect />
+                </StackLayout.Effects>
+                <local:About HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+            <StackLayout Margin="-10, -10, -10, -10" AbsoluteLayout.LayoutBounds="1.0, 1.0, 1.0, 1.0" AbsoluteLayout.LayoutFlags="All" BindingContext="{x:Static vm:ViewModelContainer.ErrorViewModel}" IsVisible="{Binding IsVisible}" ctrl:KeyPress.ModalParentExclusiveHook="True" Style="{x:StaticResource Key=popUpContainer}">
+                <StackLayout.Effects>
+                    <ctrl:BlurPlatformEffect />
+                </StackLayout.Effects>
+                <local:Error HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

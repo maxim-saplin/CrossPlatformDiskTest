@@ -1,0 +1,22 @@
+################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Saplin.CPDT.UICore/obj
+/Saplin.CPDT.UICore.UWP/obj
+/Saplin.CPDT.UICore/bin
+/Saplin.CPDT.UICore.UWP/bin
+/Saplin.CPDT.Mac/obj
+/Saplin.CPDT.Mac/bin
+/Saplin.CPDT.UICore.WPF/bin/Debug
+/Saplin.CPDT.UICore.WPF/obj/Debug
+/Saplin.CPDT.UICore.WPF/bin/Release
+/Saplin.CPDT.UICore.WPF/obj/Release
+/Saplin.CPDT.WPF/bin
+/Saplin.CPDT.WPF/obj
+/Saplin.CPDT.Android/bin/Debug
+/Saplin.CPDT.Android/obj
+/Saplin.CPDT.Android/bin/Release
+.DS_Store
+/_private

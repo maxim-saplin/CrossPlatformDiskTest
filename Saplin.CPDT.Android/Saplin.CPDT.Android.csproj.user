@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
+    <AndroidDesignerPreferredTheme>Theme.Material</AndroidDesignerPreferredTheme>
+    <SelectedDevice>Essential Products PH-1</SelectedDevice>
+    <DefaultDevice>Android_Accelerated_x86_Oreo</DefaultDevice>
+  </PropertyGroup>
+</Project>

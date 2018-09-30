@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About1" xml:space="preserve">
+    <value>Данное приложение использует  стандартный API операционной системы (WinAPI для Windows, POSIX на Mac и NDK на Android) для измерения скорости передачи данных (мегабайты/гигабайты в секунду) между устройством хранения (HDD, SSD, флешка) и системной памятью (ОЗУ). Вызовы к API опрерационных системы релаизованы через .NET Framework/Mono.</value>
+  </data>
+  <data name="About2" xml:space="preserve">
+    <value>Тесты последовательной записи и чтения измеряют скорость операций, при которых большие блоки (мегабайты) данных передаются последовательно. Данные тесты соответсвуют таким операциям, как копирование больших файлов, кодирование/декодирование видео и т.д.</value>
+  </data>
+  <data name="About3" xml:space="preserve">
+    <value>Тесты с произвольным доступом выполняются на протяжении нескольких дестков секунд и передают небольшиие блоки данных (4КБ) в случайных позициях файла. Данные тесты показывают производительность файловой системы в таких задачах, как время загрузки приложений и ОС, копирование большого количества маленьких файлов, выполнение запросов баз данных и т.п.</value>
+  </data>
+  <data name="About4" xml:space="preserve">
+    <value>В разделе "Опции" вы можете найти следующие параметры, влияющие на результаты тестов:</value>
+  </data>
+  <data name="About5" xml:space="preserve">
+    <value>' Буферизация записи - влияет на тесты записи. При записи ОС может использовать промежуточный буфер в памяти и откладывать фактическую запись до поздних более удобных моментов (например когда соберется некоторое количество данных и можно за раз сохранить большой кусок). Данный режим увеличивает производительность записи за счет меньшей надежности (например при отключении питания часть данных может быть потеряна).</value>
+  </data>
+  <data name="About6" xml:space="preserve">
+    <value>' Файловый кэш в памяти - влияет на тесты чтения. При любых файловых операциях, ОС либо переносит данные с диска в память (чтение), либо из памяти на диск (запись). При этом данные будут оставлены в памяти до тех пор, пока она не потребуется другим приложениям. При получении запроса на чтение из файла, ОС проверит, считывались ли данные из файл ранее и содержится ли они уже в памяти. При наличии закешированных данных в памяти, ОС не будет обращаться к файлу и сделает копипрвание из памяти (которое сущетсвенно быстрее доступа к диску). Включение данной опции по сути тестирует не устройство хранение, а механизм кеширования и ОЗУ.</value>
+  </data>
+  <data name="AvailableDrives" xml:space="preserve">
+    <value>Доступные диски:</value>
+  </data>
+  <data name="b" xml:space="preserve">
+    <value>Б</value>
+  </data>
+  <data name="Block" xml:space="preserve">
+    <value>блок</value>
+  </data>
+  <data name="bps" xml:space="preserve">
+    <value>Б/с</value>
+  </data>
+  <data name="BreakTest" xml:space="preserve">
+    <value>[Esc, B] Прервать тест</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>[Esc] Закрыть</value>
+  </data>
+  <data name="CsvOption" xml:space="preserve">
+    <value>[E] Экспортировать результаты в CSV</value>
+  </data>
+  <data name="FileSizeOption" xml:space="preserve">
+    <value>[F] Размер файла:</value>
+  </data>
+  <data name="gb" xml:space="preserve">
+    <value>ГБ</value>
+  </data>
+  <data name="GbFree" xml:space="preserve">
+    <value>ГБ свободно</value>
+  </data>
+  <data name="gbps" xml:space="preserve">
+    <value>ГБ/с</value>
+  </data>
+  <data name="HelpButton" xml:space="preserve">
+    <value>[?] Помощь</value>
+  </data>
+  <data name="kb" xml:space="preserve">
+    <value>КБ</value>
+  </data>
+  <data name="kbps" xml:space="preserve">
+    <value>КБ/с</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>[L] Язык:</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>Макс</value>
+  </data>
+  <data name="mb" xml:space="preserve">
+    <value>МБ</value>
+  </data>
+  <data name="mbps" xml:space="preserve">
+    <value>МБ/с</value>
+  </data>
+  <data name="MemCacheOption" xml:space="preserve">
+    <value>[M] Файловый кэш в памяти:</value>
+  </data>
+  <data name="MemCopyTest" xml:space="preserve">
+    <value>Копирование памяти</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>Мин</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>(Выкл)</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>(Вкл)</value>
+  </data>
+  <data name="OptionsButton" xml:space="preserve">
+    <value>[O] Опции</value>
+  </data>
+  <data name="PickDrive" xml:space="preserve">
+    <value>- выберите диск и списка выше для запуска теста</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>[Q] Выход</value>
+  </data>
+  <data name="Quiting" xml:space="preserve">
+    <value>Завершение работы</value>
+  </data>
+  <data name="RandomReadTest" xml:space="preserve">
+    <value>Произвольное чтение</value>
+  </data>
+  <data name="RandomWriteTest" xml:space="preserve">
+    <value>Произвольная запись</value>
+  </data>
+  <data name="RefreshButton" xml:space="preserve">
+    <value>[R] Обновить</value>
+  </data>
+  <data name="SequentialReadTest" xml:space="preserve">
+    <value>Последовательное чтение</value>
+  </data>
+  <data name="SequentialWriteTest" xml:space="preserve">
+    <value>Последовательная запись</value>
+  </data>
+  <data name="StatusBreakingTest" xml:space="preserve">
+    <value>ОСТАНОВКА ТЕСТА</value>
+  </data>
+  <data name="StatusTestCompleted" xml:space="preserve">
+    <value>Тест завершен. Тестовый файл удален</value>
+  </data>
+  <data name="StatusTestCsvCompleted" xml:space="preserve">
+    <value>Тест завершен. Результаты сохранены в CSV файл</value>
+  </data>
+  <data name="StatusTestError" xml:space="preserve">
+    <value>Тест прераван из за ошибки</value>
+  </data>
+  <data name="StatusTestInterrupted" xml:space="preserve">
+    <value>Тест прерван. Тестовый файл удален</value>
+  </data>
+  <data name="TestInitMemBuffer" xml:space="preserve">
+    <value>Инициализация тестовых данных в памяти</value>
+  </data>
+  <data name="TestNotEnoughMemory" xml:space="preserve">
+    <value>Недостаточно памяти</value>
+  </data>
+  <data name="TestPurgingMemCache" xml:space="preserve">
+    <value>Очистка кэша в памяти...</value>
+  </data>
+  <data name="TestRunning" xml:space="preserve">
+    <value>Выполнение замеров...</value>
+  </data>
+  <data name="TestStarted" xml:space="preserve">
+    <value>Тест стартовал</value>
+  </data>
+  <data name="TestSummaryFormatString" xml:space="preserve">
+    <value>Размер файла: {0} Гб. Доступно: {1:0.0} Гб. Буферизация записи: {2}. Файловый кэш в памяти: {3}</value>
+  </data>
+  <data name="TestWarmigUp" xml:space="preserve">
+    <value>Разминка...</value>
+  </data>
+  <data name="WriteBufferingOption" xml:space="preserve">
+    <value>[B] Буферизация записи:</value>
+  </data>
+</root>

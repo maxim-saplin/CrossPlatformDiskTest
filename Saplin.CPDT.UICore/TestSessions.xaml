@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ctrl:StackRepeater xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Saplin.CPDT.UICore"
+             xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls"
+             xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels"
+             xmlns:anim="clr-namespace:Saplin.CPDT.UICore.Animations"
+             x:Class="Saplin.CPDT.UICore.TestSessions"
+             BindingContext="{x:Static vm:ViewModelContainer.TestSessionsViewModel}" 
+             ItemsSource="{Binding TestSessions}" 
+             IsVisible="{Binding Source={Static vm:ViewModelContainer.DriveTestViewModel}, TestStarted, Converter={StaticResource BoolNot}}" 
+             Refresh="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _Locale}">
+    <ctrl:StackRepeater.ItemTemplate>
+        <DataTemplate>
+
+            <ctrl:MasterDetail SelectionGroup="testSessions" IsDetailVisible="{Binding Selected}">
+                <ctrl:MasterDetail.MasterTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <ctrl:ExtendedLabel  ChangeCursorOnMouseHover="True" VerticalOptions="Center" ctrl:MasterDetail.ToggleDetailOnClicked="True" LineBreakMode="MiddleTruncation">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding SelectedNodeText, Mode=OneWay}"/>
+                                        <Span Text="{Binding DriveName, StringFormat=' {0}', Mode=OneWay}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                                <ctrl:ExtendedLabel.Style>
+                                    <OnPlatform x:TypeArguments="Style">
+                                        <On Platform="Android" Value="{StaticResource AccentedLabel}"/>
+                                    </OnPlatform>
+                                </ctrl:ExtendedLabel.Style>
+                            </ctrl:ExtendedLabel>
+                            <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm:ss}&#10;{0:d.MM.yyyy}'}" Style="{StaticResource Key=AccentedSuperSmallLabel}" />
+                            <Label IsVisible="{Binding Selected, Converter={StaticResource BoolNot}}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Center" LineBreakMode="WordWrap">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="SqW:" Style="{StaticResource Key=AccentedSmallSpan}"/>
+                                        <Span Text="{Binding SeqWrite, Converter={StaticResource MbPerSecondToAuto}}"  />
+                                        <Span Text="{Binding SeqWrite, Converter={StaticResource MbPerSecondToAutoUnit}}"  />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label IsVisible="{Binding Selected, Converter={StaticResource BoolNot}}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="SqR:" Style="{StaticResource Key=AccentedSmallSpan}"/>
+                                        <Span Text="{Binding SeqRead, Converter={StaticResource MbPerSecondToAuto}}"  />
+                                        <Span Text="{Binding SeqRead, Converter={StaticResource MbPerSecondToAutoUnit}}"  />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label IsVisible="{Binding Selected, Converter={StaticResource BoolNot}}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="RnW:" Style="{StaticResource Key=AccentedSmallSpan}"/>
+                                        <Span Text="{Binding RandWrite, Converter={StaticResource MbPerSecondToAuto}}"  />
+                                        <Span Text="{Binding RandWrite, Converter={StaticResource MbPerSecondToAutoUnit}}"  />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label IsVisible="{Binding Selected, Converter={StaticResource BoolNot}}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="RnR:" Style="{StaticResource Key=AccentedSmallSpan}"/>
+                                        <Span Text="{Binding RandRead, Converter={StaticResource MbPerSecondToAuto}}"  />
+                                        <Span Text="{Binding RandRead, Converter={StaticResource MbPerSecondToAutoUnit}}"  />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label IsVisible="{Binding Selected, Converter={StaticResource BoolNot}}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="MmC:" Style="{StaticResource Key=AccentedSmallSpan}"/>
+                                        <Span Text="{Binding MemCopy, Converter={StaticResource MbPerSecondToAuto}}"  />
+                                        <Span Text="{Binding MemCopy, Converter={StaticResource MbPerSecondToAutoUnit}}"  />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                    </DataTemplate>
+                </ctrl:MasterDetail.MasterTemplate>
+                <ctrl:MasterDetail.DetailTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="0, 0, 0, 10">
+                            <Label Text="{Binding FileNameAndTime}" Style="{x:StaticResource Key=AccentedSmallLabel}"/>
+                            <Label Text="{Binding Options}" Style="{x:StaticResource Key=AccentedSmallLabel}"/>
+                            <ctrl:ExtendedLabel Text="{Binding CsvFileName}" ChangeCursorOnMouseHover="True" Command="{Binding OpenCsvFolder}" IsVisible="{Binding CsvFileName, Converter={StaticResource StringNotEmpty}}" Style="{x:StaticResource Key=AccentedSmallLabel}" />
+                            <local:TestResults IsFooterVisible="False" BindingContext="{Binding Results}"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </ctrl:MasterDetail.DetailTemplate>
+            </ctrl:MasterDetail>
+
+        </DataTemplate>
+    </ctrl:StackRepeater.ItemTemplate>
+</ctrl:StackRepeater>

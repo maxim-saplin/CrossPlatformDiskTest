@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <DebugType>pdbonly</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
+    <PackageReference Include="Mono.Posix.NETStandard" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="TestResult.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Localization\L11ns.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>L11ns.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Options.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="TestSessions.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="About.cs" />
+    <Compile Remove="UsingResxLocalization.cs" />
+    <Compile Remove="ILocalize.cs" />
+    <Compile Remove="Controls\IList.cs" />
+    <Compile Remove="ViewModels\TestResult.cs" />
+    <Compile Remove="Misc\IScreenInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Img\en.png" />
+    <None Remove="Img\fr.png" />
+    <None Remove="Img\ru.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Img\en.png" />
+    <EmbeddedResource Include="Img\fr.png" />
+    <EmbeddedResource Include="Img\ru.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Error.xaml.cs">
+      <DependentUpon>Error.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Localization\L11ns.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>L11ns.resx</DependentUpon>
+    </Compile>
+    <Compile Update="TestResultsNarrow.xaml.cs">
+      <DependentUpon>TestResultsNarrow.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="TestResults.xaml.cs">
+      <DependentUpon>TestResults.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="TestSessionsNarrow.xaml.cs">
+      <DependentUpon>TestSessionsNarrow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Saplin.StorageSpeedMeter">
+      <HintPath>..\References\Saplin.StorageSpeedMeter.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:export-filename="C:\Users\smax\Desktop\icon16.png"
+   inkscape:export-xdpi="21.674654"
+   inkscape:export-ydpi="21.674654"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="Icon.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="7.9195959"
+     inkscape:cx="306.20392"
+     inkscape:cy="434.22814"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g4066"
+     showgrid="false"
+     inkscape:window-width="1858"
+     inkscape:window-height="1057"
+     inkscape:window-x="54"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g4066"
+       transform="matrix(0.26458333,0,0,0.26458333,30.984341,61.799024)"
+       inkscape:transform-center-y="-2.4054257">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4025"
+         style="fill:#111111;fill-opacity:0.87999998;fill-rule:evenodd"
+         d="m 158.8893,475.8102 h 70.8662 v -70.8661 h -70.8662 z" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path4027"
+         style="fill:#0c0c0c;fill-opacity:0.5;fill-rule:evenodd"
+         d="m 226.0038,426.2039 v -17.5081 h -17.5082 v 17.5081 z" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path4029"
+         style="fill:#2d4ad9;fill-opacity:0.85;fill-rule:evenodd"
+         d="m 229.7555,422.4522 v -17.5081 h -17.5081 v 17.5081 z" />
+      <text
+         id="text4033"
+         y="457.35013"
+         x="158.81566">
+        <tspan
+           style="font-weight:bold;font-size:40px;font-family:Consolas;fill:#000000;fill-opacity:1;stroke-opacity:1"
+           id="tspan4031"
+           font-size="40.0000"
+           font-weight="bold">\</tspan>
+      </text>
+      <text
+         id="text4037"
+         y="458.84116"
+         x="180.8376">
+        <tspan
+           style="font-weight:bold;font-size:42px;font-family:Consolas;fill:#000000;fill-opacity:1;stroke-opacity:1"
+           id="tspan4035"
+           font-size="42.0000"
+           font-weight="bold">&gt;</tspan>
+      </text>
+      <text
+         id="text4041"
+         y="454.64709"
+         x="199.98042">
+        <tspan
+           style="font-weight:bold;font-size:42px;font-family:Consolas;fill:#000000;fill-opacity:1;stroke-opacity:1"
+           id="tspan4039"
+           font-size="42.0000"
+           font-weight="bold">_</tspan>
+      </text>
+      <text
+         id="text4045"
+         y="452.24689"
+         x="160.6635">
+        <tspan
+           style="font-weight:bold;font-size:40px;font-family:Consolas;fill:#bfbfbf;fill-opacity:1;stroke-opacity:1"
+           id="tspan4043"
+           font-size="40.0000"
+           font-weight="bold">\&gt;_</tspan>
+      </text>
+    </g>
+  </g>
+</svg>
