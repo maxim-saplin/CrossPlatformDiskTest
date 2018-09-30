@@ -19,4 +19,4 @@ The tests measure time it takes to read/write each block (RAM -> Disk, Disk -> R
 
 ## Technology
 
-Xamarin.Forms, .NET Framework and Xamarin.WPF on Windows, Mono and Xamarin.Mac on macOS, Mono and Xamarin.Android. Quite a few customer controls (Stack and Grid repeaters, clickable label) and reneresers (change mouse cursor when hovering over button and label on desktop)
+Xamarin.Forms, .NET Framework and Xamarin.WPF on Windows, Mono and Xamarin.Mac on macOS, Mono and Xamarin.Android on Android. Quite a few customer controls (Stack and Grid repeaters, clickable label) and reneresers (change mouse cursor when hovering over button and label on desktop)
