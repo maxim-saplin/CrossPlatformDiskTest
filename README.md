@@ -1,7 +1,6 @@
 # Cross Platform Disk Test
 
-![UI]
-(https://raw.githubusercontent.com/maxim-saplin/CrossPlatformDiskTest/master/Img.png)
+![UI](https://raw.githubusercontent.com/maxim-saplin/CrossPlatformDiskTest/master/Img.png)
 
 ## Download & Run
 
