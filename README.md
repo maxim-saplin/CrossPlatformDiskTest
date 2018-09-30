@@ -15,7 +15,7 @@
 
 ## How it works
 
-The tests measure time it takes to read/write each block (RAM -> Disk, Disk -> RAM, RAM ->), conduct operations in sequential and random manner and show, let you choose read/write modes (e.g. turning on/off write buffering and file cache in memory) and show the average thrpughput (total traffic over total time) in MB/s of each test. The tests let you bencmark how same storage operations are handled by different OS across different devices and compare the results.
+The tests measure time it takes to read/write each block (RAM -> Disk, Disk -> RAM, RAM ->), let you choose read/write modes (e.g. turning on/off write buffering and file cache in memory), conduct sereies operations in sequential and random manner and show the average throughput (total traffic over total time) in MB/s for each test. The tests let you bencmark how same storage operations (FileStream.Write and FileStrem.Read) are handled by different OS across different devices and compare the results.
 
 ## Technology
 
