@@ -25,6 +25,8 @@ namespace Saplin.CPDT.Droid
 
             foreach (var e in ext)
             {
+                if (e == null) continue;
+
                 drive = new AndroidDrive();
 
                 drive.AppFolderPath = e.AbsolutePath;
