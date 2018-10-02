@@ -25,6 +25,9 @@
     <EmbeddedResource Update="TestSessions.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="WhiteTheme.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="About.cs" />
@@ -45,6 +48,12 @@
     <EmbeddedResource Include="Img\ru.png" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Saplin.StorageSpeedMeter">
+      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\NetCoreStorageSpeedTest.git\Saplin.StorageSpeedMeter\bin\Debug\netstandard2.0\Saplin.StorageSpeedMeter.dll</HintPath>
+      <HintPath Condition="'$(Configuration)'=='Release'">..\References\netstandard2.0\Saplin.StorageSpeedMeter.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Update="Error.xaml.cs">
       <DependentUpon>Error.xaml</DependentUpon>
     </Compile>
@@ -62,10 +71,5 @@
     <Compile Update="TestSessionsNarrow.xaml.cs">
       <DependentUpon>TestSessionsNarrow.xaml</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Saplin.StorageSpeedMeter">
-      <HintPath>..\References\Saplin.StorageSpeedMeter.dll</HintPath>
-    </Reference>
   </ItemGroup>
 </Project>

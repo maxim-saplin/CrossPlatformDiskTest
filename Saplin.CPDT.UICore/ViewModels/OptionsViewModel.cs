@@ -79,6 +79,29 @@ namespace Saplin.CPDT.UICore.ViewModels
             get { return WriteBuffering == True; }
         }
 
+        public string WhiteTheme
+        {
+            get
+            {
+                if (!App.Current.Properties.ContainsKey(nameof(WhiteTheme))) App.Current.Properties[nameof(WhiteTheme)] = False;
+                return App.Current.Properties[nameof(WhiteTheme)] as string;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value)) value = False;
+
+                if (value != False && value != True) throw new InvalidOperationException("Cant set WhiteTheme to: " + value);
+                App.Current.Properties[nameof(WhiteTheme)] = value;
+                App.Current.SavePropertiesAsync();
+                RaisePropertyChanged();
+            }
+        }
+
+        public bool WhiteThemeBool
+        {
+            get { return WhiteTheme == True; }
+        }
+
         public string FileSizeGb
         {
             get

@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Saplin.CPDT.UICore" xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" xmlns:csr="clr-namespace:System.Collections.Generic;assembly=System.Runtime" x:Class="Saplin.CPDT.UICore.App">
+<Application xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:Saplin.CPDT.UICore" 
+             xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" 
+             xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" 
+             xmlns:csr="clr-namespace:System.Collections.Generic;assembly=System.Runtime" 
+             x:Class="Saplin.CPDT.UICore.App">
     <Application.Resources>
         <ResourceDictionary>
             <!--STYLES-->
+            <!-- FONTS-->
             <OnPlatform x:TypeArguments="Font" x:Key="FontNormal">
                 <On Platform="macOS" Value="IBM Plex Mono, 15" />
                 <On Platform="WPF" Value="./Fonts/IBMPlexMono-Regular.ttf#IBM Plex Mono, 15" />
@@ -38,6 +45,16 @@
                 <On Platform="WPF" Value="./Fonts/IBMPlexMono-Medium.ttf#IBM Plex Mono, 15" />
                 <On Platform="Android" Value="IBMPlexMono-Medium.ttf#IBMPlexMono-Medium, 15" />
             </OnPlatform>
+            <!-- LAYOUTS-->
+            <Style x:Key="mainLayout" TargetType="AbsoluteLayout" >
+                <Setter Property="BackgroundColor" Value="Black" />
+                <Setter Property="Padding" Value="10, 10, 10, 10" />
+            </Style>
+            <Style x:Key="testRunningHeader" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="#111111" />
+                <Setter Property="Padding" Value="0, 8, 0, 8" />
+            </Style>
+            <!-- LABELS-->
             <Style x:Key="LabelStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="#FFCFCFCF" />
                 <Setter Property="Font" Value="{StaticResource FontNormal}" />
@@ -103,6 +120,7 @@
                 <Setter Property="TextColor" Value="#FFCFCFCF" />
                 <Setter Property="Font" Value="{StaticResource FontNormal}" />
             </Style>
+            <!-- MISC-->
             <Style TargetType="ctrl:MasterDetail">
                 <Style.Triggers>
                     <Trigger TargetType="ctrl:MasterDetail" Property="IsDetailVisible" Value="True">
@@ -147,7 +165,7 @@
                 <Setter Property="BackgroundColor">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="Color">
-                            <On Platform="Android" Value="#99000000" />
+                            <On Platform="Android" Value="#88000000" />
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>

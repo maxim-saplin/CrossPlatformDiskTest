@@ -80,7 +80,6 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Saplin.CPDT.UICore\Saplin.CPDT.UICore.csproj">
       <Project>{3116756d-0111-400c-bc53-1dbbc195fbb7}</Project>
@@ -126,12 +125,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\splash.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\mipmap-hdpi\" />
-    <Folder Include="Resources\mipmap-mdpi\" />
-    <Folder Include="Resources\mipmap-xhdpi\" />
-    <Folder Include="Resources\mipmap-xxhdpi\" />
-    <Folder Include="Resources\mipmap-xxxhdpi\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

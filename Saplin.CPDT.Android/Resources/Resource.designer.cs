@@ -4671,6 +4671,9 @@ namespace Saplin.CPDT.Droid
 			// aapt resource value: 0x7f0c0170
 			public const int Base_Widget_Design_TabLayout = 2131493232;
 			
+			// aapt resource value: 0x7f0c018f
+			public const int BlackTheme = 2131493263;
+			
 			// aapt resource value: 0x7f0c000b
 			public const int CardView = 2131492875;
 			
@@ -4679,9 +4682,6 @@ namespace Saplin.CPDT.Droid
 			
 			// aapt resource value: 0x7f0c000e
 			public const int CardView_Light = 2131492878;
-			
-			// aapt resource value: 0x7f0c018f
-			public const int MainTheme = 2131493263;
 			
 			// aapt resource value: 0x7f0c0190
 			public const int MainTheme_Base = 2131493264;

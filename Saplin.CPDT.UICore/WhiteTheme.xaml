@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary 
+             xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" 
+             x:Class="Saplin.CPDT.UICore.WhiteTheme">
+
+    <!--STYLES-->
+    <!-- LAYOUTS-->
+    <Style x:Key="mainLayout" TargetType="AbsoluteLayout" >
+        <Setter Property="BackgroundColor" Value="White" />
+        <Setter Property="Padding" Value="10, 10, 10, 10" />
+    </Style>
+    <Style x:Key="testRunningHeader" TargetType="StackLayout">
+        <Setter Property="BackgroundColor" Value="#EEEEEE" />
+        <Setter Property="Padding" Value="0, 8, 0, 8" />
+    </Style>
+    <!-- LABELS-->
+    <Style x:Key="LabelStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="#FF202020" />
+        <Setter Property="Font" Value="{StaticResource FontNormal}" />
+    </Style>
+    <Style TargetType="Label" BasedOn="{StaticResource LabelStyle}" />
+    <Style TargetType="ctrl:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
+        <Style.Triggers>
+            <Trigger TargetType="ctrl:ExtendedLabel" Property="IsEnabled" Value="False">
+                <Setter Property="TextColor" Value="Gray" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="ctrl:BlinkingCursor" BasedOn="{StaticResource LabelStyle}" />
+    <Style TargetType="ctrl:RollingSelector" BasedOn="{StaticResource LabelStyle}" />
+    
+    <Style x:Key="AccentedSmallLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="#FF202020" />
+        <Setter Property="Font" Value="{StaticResource FontItalicSmall}" />
+    </Style>
+    <Style x:Key="SmallLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="#FF666666" />
+        <Setter Property="Font" Value="{StaticResource FontItalicSmall}" />
+    </Style>
+    <Style x:Key="SuperSmallLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="#FF666666" />
+        <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
+    </Style>
+    <Style x:Key="AccentedSuperSmallLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="#FF202020" />
+        <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
+    </Style>
+
+    <Style x:Key="AccentedLabel" TargetType="ctrl:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="Font" Value="{StaticResource FontBold}" />
+    </Style>
+    <Style x:Key="HighlightKeys" TargetType="Span">
+        <Setter Property="TextColor" Value="Black" />
+    </Style>
+    <Style x:Key="SmallSpan" TargetType="Span">
+        <Setter Property="TextColor" Value="#FF666666" />
+        <Setter Property="Font" Value="{StaticResource FontItalicSmall}" />
+    </Style>
+    <Style x:Key="SuperSmallSpan" TargetType="Span">
+        <Setter Property="TextColor" Value="#FF666666" />
+        <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
+    </Style>
+    <Style x:Key="AccentedSuperSmallSpan" TargetType="Span">
+        <Setter Property="TextColor" Value="#FF202020" />
+        <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
+    </Style>
+    <Style x:Key="AccentedSmallSpan" TargetType="Span">
+        <Setter Property="TextColor" Value="#FF202020" />
+        <Setter Property="Font" Value="{StaticResource FontItalicSmall}" />
+    </Style>
+    <Style x:Key="AccentedSpan" TargetType="Span" >
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="Font" Value="{StaticResource FontBold}" />
+    </Style>
+    
+    
+    
+    <Style x:Key="SpanStyle" TargetType="Span">
+        <Setter Property="TextColor" Value="#FF202020" />
+        <Setter Property="Font" Value="{StaticResource FontNormal}" />
+    </Style>
+    <!-- MISC-->
+    <Style TargetType="ctrl:MasterDetail">
+        <Style.Triggers>
+            <Trigger TargetType="ctrl:MasterDetail" Property="IsDetailVisible" Value="True">
+                <Setter Property="BackgroundColor" Value="#EEEEEE" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="popUp" TargetType="Grid">
+        <Setter Property="BackgroundColor" Value="#EBe4d1dd" />
+        <Setter Property="Padding" Value="10, 10, 10, 10" />
+    </Style>
+    <Style x:Key="popUpContainer" TargetType="StackLayout">
+        <Setter Property="BackgroundColor">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android" Value="#99FFFFFF" />
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="Android" Value="10, 10, 10, 10" />
+                    <On Platform="macOS, WPF" Value="60, 60, 60, 60" />
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--END OF STYLES-->
+
+</ResourceDictionary>

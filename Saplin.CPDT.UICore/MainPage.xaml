@@ -5,7 +5,7 @@
         <!-- All global resources (styles, converters etc.) are in App.xaml -->
     </ContentPage.Resources>
     <ContentPage.Content>
-        <AbsoluteLayout BackgroundColor="Black" Padding="10, 10, 10, 10">
+        <AbsoluteLayout Style="{StaticResource mainLayout}">
             <ScrollView x:Name="scrollView" VerticalScrollBarVisibility="Default" HorizontalScrollBarVisibility="Default" AbsoluteLayout.LayoutBounds="1.0 ,1.0, 1.0, 1.0" AbsoluteLayout.LayoutFlags="All">
                 <StackLayout Orientation="Vertical" BindingContext="{x:Static vm:ViewModelContainer.DriveTestViewModel}">
                     <StackLayout x:Name="headerLayout" Orientation="Horizontal" Padding="0,0,0,0" HorizontalOptions="FillAndExpand">
@@ -23,6 +23,7 @@
                     </StackLayout>
                     <anim:DriveSelectionAnimation x:Name="drivesAnimation" Target="{x:Reference selectionLayout}" Trigger="{Binding TestStarted, Converter={StaticResource BoolNot}}" />
                     <anim:HighlightAnimation x:Name="drivesHighlightAnimation" Target="{x:Reference selectionLayout}" OnClickOf="{x:Reference refreshButton}" />
+
                     <StackLayout x:Name="selectionLayout" IsClippedToBounds="True" Orientation="Vertical">
                         
                         <StackLayout Orientation="Vertical">
@@ -40,7 +41,7 @@
                                                 <Label.FormattedText>
                                                     <FormattedString>
                                                         <Span Text=" ⤭ " FontSize="25"/>
-                                                        <Span Text="same drive, different aliases" Style="{StaticResource SmallSpan}" />
+                                                        <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, androidSameAliases}" Style="{StaticResource SmallSpan}" />
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
@@ -86,7 +87,7 @@
                     </StackLayout>
                     <anim:VisibilityFadeAnimation x:Name="testInProgressAnimation" Target="{x:Reference testInProgressLayout}" Trigger="{Binding TestStarted}" />
                     <StackLayout x:Name="testInProgressLayout" Orientation="Vertical" IsVisible="False" HorizontalOptions="FillAndExpand">
-                        <StackLayout Orientation="Horizontal" IsVisible="{Binding TestStarted}" BackgroundColor="#111111" Padding="0, 8, 0, 8" HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal" IsVisible="{Binding TestStarted}" Style="{StaticResource testRunningHeader}" HorizontalOptions="FillAndExpand">
                             <Label Text="{Binding SelectedDrive}" HorizontalOptions="Start" VerticalOptions="Center" LineBreakMode="MiddleTruncation" />
                             <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm:ss}&#10;{0:d.MM.yyyy}'}" Style="{x:StaticResource Key=AccentedSuperSmallLabel}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
                             <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=BreakTest}" ChangeCursorOnMouseHover="true" Command="{Binding BreakTest}" HorizontalOptions="End" VerticalOptions="Center"/>
@@ -107,12 +108,6 @@
                         <Label Text="{Binding StatusMessage}" LineBreakMode="WordWrap" />
                     </StackLayout>
                     <ctrl:BlinkingCursor BlinkCursor="{Binding TestStarted, Converter={StaticResource BoolNot}}" />
-                    <!--<Label Text="15" FontSize="15"/>
-                    <Label Text="Micro" FontSize="Micro"/>
-                    <Label Text="Small" FontSize="Small"/>
-                    <Label Text="Default" FontSize="Default"/>
-                    <Label Text="Medium" FontSize="Medium"/>
-                    <Label Text="Large" FontSize="Large"/>-->
                 </StackLayout>
             </ScrollView>
             <!-- Pop-ups-->

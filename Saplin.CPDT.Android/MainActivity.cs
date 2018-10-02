@@ -8,7 +8,7 @@ using Android.Views;
 
 namespace Saplin.CPDT.Droid
 {
-    [Activity(Label = "Cross Platfrom Disk Test", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Cross Platfrom Disk Test", Icon = "@mipmap/ic_launcher", Theme = "@style/BlackTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         public static MainActivity Instance { get; protected set; }
@@ -24,7 +24,16 @@ namespace Saplin.CPDT.Droid
             Instance = this;
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new Saplin.CPDT.UICore.App());
+            var app = new Saplin.CPDT.UICore.App();
+            LoadApplication(app);
+
+            if (app.WhiteTheme)
+            {
+                Window.ClearFlags(WindowManagerFlags.TranslucentStatus);
+                Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
+                Window.SetStatusBarColor(Android.Graphics.Color.White);
+                Window.SetNavigationBarColor(Android.Graphics.Color.LightGray);
+            }
         }
 
         public void AdjustFontScale(Configuration config)

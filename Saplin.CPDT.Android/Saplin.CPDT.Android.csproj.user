@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
     <AndroidDesignerPreferredTheme>Theme.Material</AndroidDesignerPreferredTheme>
-    <SelectedDevice>Samsung SM-N910C</SelectedDevice>
+    <SelectedDevice>Android_Accelerated_x86_Oreo</SelectedDevice>
     <DefaultDevice>Android_Accelerated_x86_Oreo</DefaultDevice>
   </PropertyGroup>
 </Project>

@@ -285,4 +285,10 @@
   <data name="SequentialWriteTestShort" xml:space="preserve">
     <value>Seq. write</value>
   </data>
+  <data name="androidSameAliases" xml:space="preserve">
+    <value>same drive, different aliases</value>
+  </data>
+  <data name="whiteTheme" xml:space="preserve">
+    <value>[W]hite theme (restart required)</value>
+  </data>
 </root>

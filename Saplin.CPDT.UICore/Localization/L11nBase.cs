@@ -55,10 +55,12 @@ namespace Saplin.CPDT.UICore.Localization
                 return ResourceManager.GetString(key, resourceCulture);
             }
         }
+
+
         /// <summary>
         ///   Looks up a localized string similar to This application uses standrd OS&apos;s file API (WinAPI on Windows, POSIX on Mac and NDK on Android) to measure the speed of data transfer (in Megabytes per Second) between storage device (HDD, SSD, USB flash drive) and system memory(RAM). API calls are done through .NET Framewor/Mono..
         /// </summary>
-        public string About1
+        public string  About1
         {
             get
             {
@@ -69,7 +71,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Tests include sequential read and sequential write measurements, where big (megabytes) chunks of data are transfered sequentialy. These tests are representative of such disk operstions as large file copying, video encoding/decoding etc..
         /// </summary>
-        public string About2
+        public string  About2
         {
             get
             {
@@ -80,7 +82,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Random tests run for half a minute each and do transfers in small chunks (4KB) at random positions within test file. These tests show how file subsystem&apos;s performance influnce applications&apos; load times, copying multiple small files, runnning database queries etc..
         /// </summary>
-        public string About3
+        public string  About3
         {
             get
             {
@@ -91,7 +93,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to In &apos;Options&apos; section you might find settings which may influence test results:.
         /// </summary>
-        public string About4
+        public string  About4
         {
             get
             {
@@ -102,7 +104,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to &apos; Write buffering - influences write test. Write operations use intermediary memory buffer and postpone data commit to latter more convinient time for better performace at a cost of less resiliant writes (e.g. power failure and not commiting to disk write buffer contents)..
         /// </summary>
-        public string About5
+        public string  About5
         {
             get
             {
@@ -113,7 +115,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to &apos; In-memory file cache - influences read tests. Any file operation requires from OS either transfering file data to memory or memory data to disk, OS will keep those memory pages in RAM until there&apos;s preasure for RAM from other apps. In case OS receives subsequent file read/write requests through API it will simply copy the cached memory pages from previous file operstions and not utilize the actual storage device. Turning this option on is essential a test of OS&apos;s file caching subsystem and RAM speed, rath [rest of string was truncated]&quot;;.
         /// </summary>
-        public string About6
+        public string  About6
         {
             get
             {
@@ -122,9 +124,20 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to same drive, different aliases.
+        /// </summary>
+        public string  androidSameAliases
+        {
+            get
+            {
+                return ResourceManager.GetString("androidSameAliases", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Available drives:.
         /// </summary>
-        public string AvailableDrives
+        public string  AvailableDrives
         {
             get
             {
@@ -135,7 +148,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to B.
         /// </summary>
-        public string b
+        public string  b
         {
             get
             {
@@ -146,7 +159,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to block.
         /// </summary>
-        public string Block
+        public string  Block
         {
             get
             {
@@ -157,7 +170,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to B/s.
         /// </summary>
-        public string bps
+        public string  bps
         {
             get
             {
@@ -168,7 +181,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to [Esc, B]reak test.
         /// </summary>
-        public string BreakTest
+        public string  BreakTest
         {
             get
             {
@@ -179,7 +192,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to [Esc, C]lose.
         /// </summary>
-        public string Close
+        public string  Close
         {
             get
             {
@@ -190,7 +203,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to [E]xport test results to CSV.
         /// </summary>
-        public string CsvOption
+        public string  CsvOption
         {
             get
             {
@@ -201,7 +214,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to [F]ile size:.
         /// </summary>
-        public string FileSizeOption
+        public string  FileSizeOption
         {
             get
             {
@@ -212,7 +225,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to GB.
         /// </summary>
-        public string gb
+        public string  gb
         {
             get
             {
@@ -223,7 +236,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to GB free.
         /// </summary>
-        public string GbFree
+        public string  GbFree
         {
             get
             {
@@ -234,7 +247,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to GB/s.
         /// </summary>
-        public string gbps
+        public string  gbps
         {
             get
             {
@@ -245,7 +258,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to [?, H]elp.
         /// </summary>
-        public string HelpButton
+        public string  HelpButton
         {
             get
             {
@@ -256,7 +269,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to KB.
         /// </summary>
-        public string kb
+        public string  kb
         {
             get
             {
@@ -267,7 +280,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to KB/s.
         /// </summary>
-        public string kbps
+        public string  kbps
         {
             get
             {
@@ -278,7 +291,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to [L]anguage:.
         /// </summary>
-        public string Language
+        public string  Language
         {
             get
             {
@@ -289,7 +302,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Max.
         /// </summary>
-        public string Max
+        public string  Max
         {
             get
             {
@@ -300,7 +313,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to MB.
         /// </summary>
-        public string mb
+        public string  mb
         {
             get
             {
@@ -311,7 +324,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to MB/s.
         /// </summary>
-        public string mbps
+        public string  mbps
         {
             get
             {
@@ -322,7 +335,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to In-[m]emory file cache:.
         /// </summary>
-        public string MemCacheOption
+        public string  MemCacheOption
         {
             get
             {
@@ -333,7 +346,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Memory copy.
         /// </summary>
-        public string MemCopyTest
+        public string  MemCopyTest
         {
             get
             {
@@ -344,7 +357,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Mem. copy.
         /// </summary>
-        public string MemCopyTestShort
+        public string  MemCopyTestShort
         {
             get
             {
@@ -355,7 +368,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Min.
         /// </summary>
-        public string Min
+        public string  Min
         {
             get
             {
@@ -366,7 +379,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to (Off).
         /// </summary>
-        public string Off
+        public string  Off
         {
             get
             {
@@ -377,7 +390,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to (On).
         /// </summary>
-        public string On
+        public string  On
         {
             get
             {
@@ -388,7 +401,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to [O]ptions.
         /// </summary>
-        public string OptionsButton
+        public string  OptionsButton
         {
             get
             {
@@ -399,7 +412,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to - pick any drive to run perofrmance test against it.
         /// </summary>
-        public string PickDrive
+        public string  PickDrive
         {
             get
             {
@@ -410,7 +423,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to [Q]uit.
         /// </summary>
-        public string Quit
+        public string  Quit
         {
             get
             {
@@ -421,7 +434,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Terminating application....
         /// </summary>
-        public string Quiting
+        public string  Quiting
         {
             get
             {
@@ -432,7 +445,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Random read.
         /// </summary>
-        public string RandomReadTest
+        public string  RandomReadTest
         {
             get
             {
@@ -443,7 +456,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Rand. read.
         /// </summary>
-        public string RandomReadTestShort
+        public string  RandomReadTestShort
         {
             get
             {
@@ -454,7 +467,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Random write.
         /// </summary>
-        public string RandomWriteTest
+        public string  RandomWriteTest
         {
             get
             {
@@ -465,7 +478,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Rand. write.
         /// </summary>
-        public string RandomWriteTestShort
+        public string  RandomWriteTestShort
         {
             get
             {
@@ -476,7 +489,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to [R]efresh.
         /// </summary>
-        public string RefreshButton
+        public string  RefreshButton
         {
             get
             {
@@ -487,7 +500,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Sequential read.
         /// </summary>
-        public string SequentialReadTest
+        public string  SequentialReadTest
         {
             get
             {
@@ -498,7 +511,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Seq. read.
         /// </summary>
-        public string SequentialReadTestShort
+        public string  SequentialReadTestShort
         {
             get
             {
@@ -509,7 +522,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Sequential write.
         /// </summary>
-        public string SequentialWriteTest
+        public string  SequentialWriteTest
         {
             get
             {
@@ -520,7 +533,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Seq. write.
         /// </summary>
-        public string SequentialWriteTestShort
+        public string  SequentialWriteTestShort
         {
             get
             {
@@ -531,7 +544,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to BREAKING TEST.
         /// </summary>
-        public string StatusBreakingTest
+        public string  StatusBreakingTest
         {
             get
             {
@@ -542,7 +555,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Test has completed execution. Test file deleted.
         /// </summary>
-        public string StatusTestCompleted
+        public string  StatusTestCompleted
         {
             get
             {
@@ -553,7 +566,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Test execution completed. Test results exported to CVS file.
         /// </summary>
-        public string StatusTestCsvCompleted
+        public string  StatusTestCsvCompleted
         {
             get
             {
@@ -564,7 +577,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Test execution interrupted due to error.
         /// </summary>
-        public string StatusTestError
+        public string  StatusTestError
         {
             get
             {
@@ -575,7 +588,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Test execution interrupted. Test file deleted.
         /// </summary>
-        public string StatusTestInterrupted
+        public string  StatusTestInterrupted
         {
             get
             {
@@ -586,7 +599,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Initializing test data in RAM....
         /// </summary>
-        public string TestInitMemBuffer
+        public string  TestInitMemBuffer
         {
             get
             {
@@ -597,7 +610,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Not enough memory.
         /// </summary>
-        public string TestNotEnoughMemory
+        public string  TestNotEnoughMemory
         {
             get
             {
@@ -608,7 +621,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Purging memory cache....
         /// </summary>
-        public string TestPurgingMemCache
+        public string  TestPurgingMemCache
         {
             get
             {
@@ -619,7 +632,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Running test....
         /// </summary>
-        public string TestRunning
+        public string  TestRunning
         {
             get
             {
@@ -630,7 +643,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Test started.
         /// </summary>
-        public string TestStarted
+        public string  TestStarted
         {
             get
             {
@@ -639,9 +652,9 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to File size: {0} GB. Free space: {1} GB. Write Buffering: {2}. In-memory file cache: {3}.
+        ///   Looks up a localized string similar to File size: {0} GB. Free space: {1:0.0} GB. Write Buffering: {2}. In-memory file cache: {3}.
         /// </summary>
-        public string TestSummaryFormatString
+        public string  TestSummaryFormatString
         {
             get
             {
@@ -652,7 +665,7 @@ namespace Saplin.CPDT.UICore.Localization
         /// <summary>
         ///   Looks up a localized string similar to Warming up....
         /// </summary>
-        public string TestWarmigUp
+        public string  TestWarmigUp
         {
             get
             {
@@ -661,9 +674,20 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to [W]hite theme (restart required).
+        /// </summary>
+        public string  whiteTheme
+        {
+            get
+            {
+                return ResourceManager.GetString("whiteTheme", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Write [b]uffering:.
         /// </summary>
-        public string WriteBufferingOption
+        public string  WriteBufferingOption
         {
             get
             {

@@ -14,6 +14,14 @@ namespace Saplin.CPDT.UICore
 			MainPage = new MainPage();
 		}
 
+        public bool WhiteTheme
+        {
+            get
+            {
+                return ViewModelContainer.OptionsViewModel.WhiteThemeBool;
+            }
+        }
+
 		protected override void OnStart ()
 		{
 			// Handle when your app starts

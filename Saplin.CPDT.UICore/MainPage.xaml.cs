@@ -12,11 +12,31 @@ namespace Saplin.CPDT.UICore
     {
         public MainPage()
         {
+            ApplyTheme();
+
             InitializeComponent();
+
+            //if (ViewModelContainer.OptionsViewModel.WhiteThemeBool) mainLayout.BackgroundColor = Color.White;
 
             AdaptLayoytToScreenWidth();
 
             bitSystem.Text += Environment.Is64BitProcess ? " 64bit" : " 32bit";
+
+
+        }
+
+        private static void ApplyTheme()
+        {
+            if ((App.Current as App).WhiteTheme)
+            {
+                var whiteTheme = new WhiteTheme();
+
+                foreach (var key in whiteTheme.Keys)
+                {
+                    if (Application.Current.Resources.ContainsKey(key))
+                        Application.Current.Resources[key] = whiteTheme[key];
+                }
+            }
         }
 
         private void AdaptLayoytToScreenWidth()
