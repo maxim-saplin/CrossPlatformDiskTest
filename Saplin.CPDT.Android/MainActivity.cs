@@ -32,7 +32,11 @@ namespace Saplin.CPDT.Droid
                 Window.ClearFlags(WindowManagerFlags.TranslucentStatus);
                 Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
                 Window.SetStatusBarColor(Android.Graphics.Color.White);
-                Window.SetNavigationBarColor(Android.Graphics.Color.LightGray);
+                Window.SetNavigationBarColor(Android.Graphics.Color.White);
+                var ui = (int)Window.DecorView.SystemUiVisibility;
+                ui |= (int)Android.Views.SystemUiFlags.LightStatusBar;
+                ui |= (int)Android.Views.SystemUiFlags.LightNavigationBar;
+                Window.DecorView.SystemUiVisibility = (Android.Views.StatusBarVisibility)ui;
             }
         }
 
