@@ -83,7 +83,7 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             get
             {
-                if (!App.Current.Properties.ContainsKey(nameof(WhiteTheme))) App.Current.Properties[nameof(WhiteTheme)] = False;
+                if (!App.Current.Properties.ContainsKey(nameof(WhiteTheme))) App.Current.Properties[nameof(WhiteTheme)] = True;
                 return App.Current.Properties[nameof(WhiteTheme)] as string;
             }
             set
