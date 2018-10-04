@@ -87,7 +87,7 @@
                           SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.OptionsViewModel}, Csv}"
                           x:Name="csvOption"/>
 
-    <ctrl:ExtendedLabel Grid.Row="6" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, whiteTheme}"
+    <ctrl:ExtendedLabel Grid.Row="6" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, WhiteTheme}"
                         ctrl:KeyPress.ClickControl="{x:Reference Name=whiteThemeOption}"/>
     <ctrl:RollingSelector Grid.Row="6" Grid.Column="1" ChangeCursorOnMouseHover="True"  
                           Items="{Binding Source={x:Static vm:ViewModelContainer.L11n}, OnOff}"
@@ -98,7 +98,7 @@
                         Command="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _NextLocale}"/>
     <StackLayout Orientation="Horizontal" Grid.Row="7" Grid.Column="1" >
         <ctrl:RollingSelector ChangeCursorOnMouseHover="True" SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _Locale}" Items="{x:StaticResource Key=LanguageKeys}" />
-        <Image Source="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _LocaleIcon}"  WidthRequest="16" HeightRequest="16" VerticalOptions="End" HorizontalOptions="EndAndExpand"/>
+        <Image Source="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _LocaleIcon}"  WidthRequest="16" HeightRequest="16" VerticalOptions="End" HorizontalOptions="Start"/>
     </StackLayout>
 
     <ctrl:BlinkingCursor Grid.Row="8" BlinkCursor="True"/>

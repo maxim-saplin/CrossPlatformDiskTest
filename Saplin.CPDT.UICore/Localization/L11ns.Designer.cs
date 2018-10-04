@@ -383,15 +383,27 @@ namespace Saplin.CPDT.UICore.Localization {
             }
         }
         
-        public static string androidSameAliases {
+        public static string AndroidSameAliases {
             get {
-                return ResourceManager.GetString("androidSameAliases", resourceCulture);
+                return ResourceManager.GetString("AndroidSameAliases", resourceCulture);
             }
         }
         
-        public static string whiteTheme {
+        public static string WhiteTheme {
             get {
-                return ResourceManager.GetString("whiteTheme", resourceCulture);
+                return ResourceManager.GetString("WhiteTheme", resourceCulture);
+            }
+        }
+        
+        public static string HintAndroid {
+            get {
+                return ResourceManager.GetString("HintAndroid", resourceCulture);
+            }
+        }
+        
+        public static string HintMisc {
+            get {
+                return ResourceManager.GetString("HintMisc", resourceCulture);
             }
         }
     }

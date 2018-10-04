@@ -285,10 +285,16 @@
   <data name="SequentialWriteTestShort" xml:space="preserve">
     <value>Seq. write</value>
   </data>
-  <data name="androidSameAliases" xml:space="preserve">
+  <data name="AndroidSameAliases" xml:space="preserve">
     <value>same drive, different aliases</value>
   </data>
-  <data name="whiteTheme" xml:space="preserve">
+  <data name="WhiteTheme" xml:space="preserve">
     <value>[W]hite theme (restart required)</value>
+  </data>
+  <data name="HintAndroid" xml:space="preserve">
+    <value>To start tap on a drive in the list above</value>
+  </data>
+  <data name="HintMisc" xml:space="preserve">
+    <value>To start tests click on a drive in the list above or press number key</value>
   </data>
 </root>

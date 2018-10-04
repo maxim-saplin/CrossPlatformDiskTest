@@ -48,6 +48,23 @@ namespace Saplin.CPDT.UICore.ViewModels
                     RaisePropertyChanged(nameof(StatusMessage));
                 }
             };
+
+            Device.StartTimer(
+                new TimeSpan(0, 0, 7),
+                () =>
+                {
+                    if (!TestStarted)
+                    {
+                        if (Device.RuntimePlatform == Device.Android)
+                        {
+                            StatusMessage = nameof(ViewModelContainer.L11n.HintAndroid);
+                        }
+                        else StatusMessage = nameof(ViewModelContainer.L11n.HintMisc);
+                    }
+                    return false;
+                }
+            );
+
         }
 
         private void InitDrives()
@@ -154,7 +171,16 @@ namespace Saplin.CPDT.UICore.ViewModels
                 {
                     statusMessage = value;
                     RaisePropertyChanged();
+                    RaisePropertyChanged(nameof(StatusMessageVisible));
                 }
+            }
+        }
+
+        public bool StatusMessageVisible
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(StatusMessage) && !TestStarted;
             }
         }
 
@@ -214,6 +240,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                 {
                     testStartedTime = value;
                     RaisePropertyChanged();
+                    RaisePropertyChanged(nameof(StatusMessageVisible));
                 }
             }
         }
@@ -290,6 +317,8 @@ namespace Saplin.CPDT.UICore.ViewModels
 
                              var optionsVm = ViewModelContainer.OptionsViewModel;
                              var l11n = ViewModelContainer.L11n;
+
+                             StatusMessage = nameof(l11n.TestStarted);
 
                              var memCache = optionsVm.MemCacheBool
                                 ? MemCacheOptions.Enabled

@@ -41,7 +41,7 @@
                                                 <Label.FormattedText>
                                                     <FormattedString>
                                                         <Span Text=" ⤭ " FontSize="25"/>
-                                                        <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, androidSameAliases}" Style="{StaticResource SmallSpan}" />
+                                                        <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, AndroidSameAliases}" Style="{StaticResource SmallSpan}" />
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
@@ -103,7 +103,7 @@
                     <StackLayout x:Name="testSessionsPlaceholder" IsVisible="False">
                         <local:TestSessions x:Name="testSessions" />
                     </StackLayout>
-                    <StackLayout Orientation="Horizontal" IsVisible="{Binding TestStarted, Converter={StaticResource BoolNot}}">
+                    <StackLayout Orientation="Horizontal" IsVisible="{Binding StatusMessageVisible}">
                         <Label Text="\&gt;" IsVisible="{Binding StatusMessage, Converter={StaticResource StringNotEmpty}}" VerticalTextAlignment="Start" VerticalOptions="Start" LineBreakMode="NoWrap" />
                         <Label Text="{Binding StatusMessage}" LineBreakMode="WordWrap" />
                     </StackLayout>
