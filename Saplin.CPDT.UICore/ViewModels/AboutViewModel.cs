@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Saplin.CPDT.UICore.ViewModels
@@ -37,6 +39,16 @@ namespace Saplin.CPDT.UICore.ViewModels
                 else imageSource = ImageSource.FromResource(resourceId, GetType().GetTypeInfo().Assembly);
 
                 return imageSource;
+            }
+        }
+
+        private ICommand navigateToProjectSite = new Command(() => { Device.OpenUri(new Uri(ViewModelContainer.L11n.ProjectLink)); });
+
+        public ICommand NavigateToProjectSite
+        {
+            get
+            {
+                return navigateToProjectSite;
             }
         }
     }

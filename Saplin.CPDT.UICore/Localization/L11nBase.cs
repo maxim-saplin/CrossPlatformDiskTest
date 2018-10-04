@@ -57,7 +57,7 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to This application uses standrd OS&apos;s file API (WinAPI on Windows, POSIX on Mac and NDK on Android) to measure the speed of data transfer (in Megabytes per Second) between storage device (HDD, SSD, USB flash drive) and system memory(RAM). API calls are done through .NET Framewor/Mono..
+        ///   Looks up a localized string similar to This application uses standrd OS&apos;s file API (WinAPI on Windows, POSIX on Mac and NDK on Android) to measure the speed of data transfer (in Megabytes per Second) between storage device (HDD, SSD, USB flash drive) and system memory(RAM). API calls are done through .NET Framework/Mono..
         /// </summary>
         public string About1
         {
@@ -68,7 +68,7 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Tests include sequential read and sequential write measurements, where big (megabytes) chunks of data are transfered sequentialy. These tests are representative of such disk operstions as large file copying, video encoding/decoding etc..
+        ///   Looks up a localized string similar to Sequential read and sequential write tests transfer large chunks of data (megabytes) between RAM and Storage. These tests are representative of such disk operstions as large file copying, video recording/encoding/decoding etc..
         /// </summary>
         public string About2
         {
@@ -79,7 +79,7 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Random tests run for half a minute each and do transfers in small chunks (4KB) at random positions within test file. These tests show how file subsystem&apos;s performance influnce applications&apos; load times, copying multiple small files, runnning database queries etc..
+        ///   Looks up a localized string similar to Random tests run for 7 seconds each and do transfers in small chunks (4KB and 32KB) at random positions within the test file. These tests show how file system performance influnce applications&apos; load times, copying multiple small files, runnning database queries etc..
         /// </summary>
         public string About3
         {
@@ -119,6 +119,28 @@ namespace Saplin.CPDT.UICore.Localization
             get
             {
                 return ResourceManager.GetString("About6", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Operations on computers and smartphones are executed by CPU against data which is loaded in system memory (RAM). This memory is not permament and limited in size, that&apos;s why theres always a permanent storage (SSD, HDD, SD Card - aka &quot;disk/drive&quot;). In many cases the performance of the system is determined not only by CPU (whichs are usualy in the spotlight of advertising and target of numerous benchmarks) but by the performance of memory, specifically RAM and storage. In many cases (especially smartphones) o [rest of string was truncated]&quot;;.
+        /// </summary>
+        public string About7
+        {
+            get
+            {
+                return ResourceManager.GetString("About7", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The application is open-source, you might want to check project&apos;s github at:.
+        /// </summary>
+        public string About8
+        {
+            get
+            {
+                return ResourceManager.GetString("About8", resourceCulture);
             }
         }
 
@@ -438,6 +460,17 @@ namespace Saplin.CPDT.UICore.Localization
             get
             {
                 return ResourceManager.GetString("PickDrive", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to https://github.com/maxim-saplin/CrossPlatformDiskTest.
+        /// </summary>
+        public string ProjectLink
+        {
+            get
+            {
+                return ResourceManager.GetString("ProjectLink", resourceCulture);
             }
         }
 

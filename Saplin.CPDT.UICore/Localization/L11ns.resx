@@ -118,22 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About1" xml:space="preserve">
-    <value>This application uses standrd OS's file API (WinAPI on Windows, POSIX on Mac and NDK on Android) to measure the speed of data transfer (in Megabytes per Second) between storage device (HDD, SSD, USB flash drive) and system memory(RAM). API calls are done through .NET Framewor/Mono.</value>
+    <value>This application uses standrd OS's file API (WinAPI on Windows, POSIX on Mac and NDK on Android) to measure the speed of data transfer (in Megabytes per Second) between storage device (HDD, SSD, USB flash drive) and system memory(RAM). API calls are done through .NET Framework/Mono.</value>
   </data>
   <data name="About2" xml:space="preserve">
-    <value>Tests include sequential read and sequential write measurements, where big (megabytes) chunks of data are transfered sequentialy. These tests are representative of such disk operstions as large file copying, video encoding/decoding etc.</value>
+    <value>Sequential read and sequential write tests transfer large chunks of data (megabytes) between RAM and Storage. These tests are representative of such disk operstions as large file copying, video recording/encoding/decoding etc.</value>
   </data>
   <data name="About3" xml:space="preserve">
-    <value>Random tests run for half a minute each and do transfers in small chunks (4KB) at random positions within test file. These tests show how file subsystem's performance influnce applications' load times, copying multiple small files, runnning database queries etc.</value>
+    <value>Random tests run for 7 seconds each and do transfers in small chunks (4KB and 32KB) at random positions within the test file. These tests show how file system performance influnce applications' load times, copying multiple small files, runnning database queries etc.</value>
   </data>
   <data name="About4" xml:space="preserve">
     <value>In 'Options' section you might find settings which may influence test results:</value>
   </data>
   <data name="About5" xml:space="preserve">
-    <value>' Write buffering - influences write test. Write operations use intermediary memory buffer and postpone data commit to latter more convinient time for better performace at a cost of less resiliant writes (e.g. power failure and not commiting to disk write buffer contents).</value>
+    <value>• Write buffering - influences write test. Write operations use intermediary memory buffer and postpone data commit to latter more convinient time for better performace at a cost of less resiliant writes (e.g. power failure and not commiting to disk write buffer contents).</value>
   </data>
   <data name="About6" xml:space="preserve">
-    <value>' In-memory file cache - influences read tests. Any file operation requires from OS either transfering file data to memory or memory data to disk, OS will keep those memory pages in RAM until there's preasure for RAM from other apps. In case OS receives subsequent file read/write requests through API it will simply copy the cached memory pages from previous file operstions and not utilize the actual storage device. Turning this option on is essential a test of OS's file caching subsystem and RAM speed, rather than storage device test.</value>
+    <value>• In-memory file cache - influences read tests. Any file operation requires from OS either transfering file data to memory or memory data to disk, OS will keep those memory pages in RAM until there's preasure for RAM from other apps. In case OS receives subsequent file read/write requests through API it will simply copy the cached memory pages from previous file operstions and not utilize the actual storage device. Turning this option on is essential a test of OS's file caching subsystem and RAM speed, rather than storage device test.</value>
+  </data>
+  <data name="About7" xml:space="preserve">
+    <value>Operations on computers and smartphones are executed by processor (CPU) against data which is loaded in system memory (RAM). This memory is not permament and limited in size, that's why theres always a permanent storage (SSD, HDD, SD Card - aka "disk/drive"). In many cases the performance of the system is determined not only by CPU (whichs are usualy in the spotlight of advertising and target of numerous benchmarks) but by the performance of memory, specifically RAM and storage. Official specs (especially with smartphones) give little description of storage characterisitcs, beyond capacity. This application attempts to give clear performance characteristics of memory by  isolating and measuring 3 aspects: the speed of reads (transfers from DRIVE-to-RAM). writes (RAM-to-DRIVE) and system memory (copying data from one area in RAM to another).</value>
+  </data>
+  <data name="About8" xml:space="preserve">
+    <value>The application is open-source, you might want to check project's github at:</value>
+  </data>
+  <data name="AndroidSameAliases" xml:space="preserve">
+    <value>same drive, different aliases</value>
   </data>
   <data name="AvailableDrives" xml:space="preserve">
     <value>Available drives:</value>
@@ -171,6 +180,12 @@
   <data name="HelpButton" xml:space="preserve">
     <value>[?, H]elp</value>
   </data>
+  <data name="HintAndroid" xml:space="preserve">
+    <value>To start tap on a drive in the list above</value>
+  </data>
+  <data name="HintMisc" xml:space="preserve">
+    <value>To start tests click on a drive in the list above or press number key</value>
+  </data>
   <data name="kb" xml:space="preserve">
     <value>KB</value>
   </data>
@@ -195,6 +210,9 @@
   <data name="MemCopyTest" xml:space="preserve">
     <value>Memory copy</value>
   </data>
+  <data name="MemCopyTestShort" xml:space="preserve">
+    <value>Mem. copy</value>
+  </data>
   <data name="Min" xml:space="preserve">
     <value>Min</value>
   </data>
@@ -210,6 +228,9 @@
   <data name="PickDrive" xml:space="preserve">
     <value>- pick any drive to run perofrmance test against it</value>
   </data>
+  <data name="ProjectLink" xml:space="preserve">
+    <value>https://github.com/maxim-saplin/CrossPlatformDiskTest</value>
+  </data>
   <data name="Quit" xml:space="preserve">
     <value>[Q]uit</value>
   </data>
@@ -219,8 +240,14 @@
   <data name="RandomReadTest" xml:space="preserve">
     <value>Random read</value>
   </data>
+  <data name="RandomReadTestShort" xml:space="preserve">
+    <value>Rand. read</value>
+  </data>
   <data name="RandomWriteTest" xml:space="preserve">
     <value>Random write</value>
+  </data>
+  <data name="RandomWriteTestShort" xml:space="preserve">
+    <value>Rand. write</value>
   </data>
   <data name="RefreshButton" xml:space="preserve">
     <value>[R]efresh</value>
@@ -228,8 +255,14 @@
   <data name="SequentialReadTest" xml:space="preserve">
     <value>Sequential read</value>
   </data>
+  <data name="SequentialReadTestShort" xml:space="preserve">
+    <value>Seq. read</value>
+  </data>
   <data name="SequentialWriteTest" xml:space="preserve">
     <value>Sequential write</value>
+  </data>
+  <data name="SequentialWriteTestShort" xml:space="preserve">
+    <value>Seq. write</value>
   </data>
   <data name="StatusBreakingTest" xml:space="preserve">
     <value>BREAKING TEST</value>
@@ -267,34 +300,10 @@
   <data name="TestWarmigUp" xml:space="preserve">
     <value>Warming up...</value>
   </data>
-  <data name="WriteBufferingOption" xml:space="preserve">
-    <value>Write [b]uffering:</value>
-  </data>
-  <data name="MemCopyTestShort" xml:space="preserve">
-    <value>Mem. copy</value>
-  </data>
-  <data name="RandomReadTestShort" xml:space="preserve">
-    <value>Rand. read</value>
-  </data>
-  <data name="RandomWriteTestShort" xml:space="preserve">
-    <value>Rand. write</value>
-  </data>
-  <data name="SequentialReadTestShort" xml:space="preserve">
-    <value>Seq. read</value>
-  </data>
-  <data name="SequentialWriteTestShort" xml:space="preserve">
-    <value>Seq. write</value>
-  </data>
-  <data name="AndroidSameAliases" xml:space="preserve">
-    <value>same drive, different aliases</value>
-  </data>
   <data name="WhiteTheme" xml:space="preserve">
     <value>[W]hite theme (restart required)</value>
   </data>
-  <data name="HintAndroid" xml:space="preserve">
-    <value>To start tap on a drive in the list above</value>
-  </data>
-  <data name="HintMisc" xml:space="preserve">
-    <value>To start tests click on a drive in the list above or press number key</value>
+  <data name="WriteBufferingOption" xml:space="preserve">
+    <value>Write [b]uffering:</value>
   </data>
 </root>

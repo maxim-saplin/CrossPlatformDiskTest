@@ -135,6 +135,15 @@
   <data name="About6" xml:space="preserve">
     <value>' Файловый кэш в памяти - влияет на тесты чтения. При любых файловых операциях, ОС либо переносит данные с диска в память (чтение), либо из памяти на диск (запись). При этом данные будут оставлены в памяти до тех пор, пока она не потребуется другим приложениям. При получении запроса на чтение из файла, ОС проверит, считывались ли данные из файл ранее и содержится ли они уже в памяти. При наличии закешированных данных в памяти, ОС не будет обращаться к файлу и сделает копипрвание из памяти (которое сущетсвенно быстрее доступа к диску). Включение данной опции по сути тестирует не устройство хранение, а механизм кеширования и ОЗУ.</value>
   </data>
+  <data name="About7" xml:space="preserve">
+    <value>В компьюбтерах и смартфонах центральный процессор выполняет операции только над данными, которые загружены в оперативную память (ОЗУ). Данная память не постоянная и ограничена в размере, пожтому в система всегда присутсвует постоянное хранилище (SSD, жесткий диск, SD карта - для простоты "диск"). Во многих случая производительность системы определяется не только процессором (который зачастую находятся в центре внимания в рекламе и бенчмарках) но и проихводительностью памяти, в частности ОЗУ и диска. Официальные спецификации (особенно это актуально для смартфонов) дают мало информации о характеристиках памяти, кроме раве что объемов. Данное приложение пытается дать четкие характеристики производительности памяти посредством виджеления и оценки трех аспектов: скорости чтения (передача данных с диска в ОЗУ), записи (ОЗУ-диск) и непосредственно скорости ОЗУ (копирование блоков внутри ОЗУ).</value>
+  </data>
+  <data name="About8" xml:space="preserve">
+    <value>Данное приложение имеет открытый исходный код, заходите на страницу проекта на github:</value>
+  </data>
+  <data name="AndroidSameAliases" xml:space="preserve">
+    <value>один и тот же диск</value>
+  </data>
   <data name="AvailableDrives" xml:space="preserve">
     <value>Доступные диски:</value>
   </data>
@@ -171,6 +180,12 @@
   <data name="HelpButton" xml:space="preserve">
     <value>[?] Помощь</value>
   </data>
+  <data name="HintAndroid" xml:space="preserve">
+    <value>Нажмите на диске выше для старта</value>
+  </data>
+  <data name="HintMisc" xml:space="preserve">
+    <value>Для начала теста кликните по диску выше или нажмите клавишу с его номером</value>
+  </data>
   <data name="kb" xml:space="preserve">
     <value>КБ</value>
   </data>
@@ -194,6 +209,9 @@
   </data>
   <data name="MemCopyTest" xml:space="preserve">
     <value>Копирование памяти</value>
+  </data>
+  <data name="MemCopyTestShort" xml:space="preserve">
+    <value>Коп. памяти</value>
   </data>
   <data name="Min" xml:space="preserve">
     <value>Мин</value>
@@ -219,8 +237,14 @@
   <data name="RandomReadTest" xml:space="preserve">
     <value>Произвольное чтение</value>
   </data>
+  <data name="RandomReadTestShort" xml:space="preserve">
+    <value>Произ. чтение</value>
+  </data>
   <data name="RandomWriteTest" xml:space="preserve">
     <value>Произвольная запись</value>
+  </data>
+  <data name="RandomWriteTestShort" xml:space="preserve">
+    <value>Произв. запись</value>
   </data>
   <data name="RefreshButton" xml:space="preserve">
     <value>[R] Обновить</value>
@@ -228,8 +252,14 @@
   <data name="SequentialReadTest" xml:space="preserve">
     <value>Последовательное чтение</value>
   </data>
+  <data name="SequentialReadTestShort" xml:space="preserve">
+    <value>Посл. чтение</value>
+  </data>
   <data name="SequentialWriteTest" xml:space="preserve">
     <value>Последовательная запись</value>
+  </data>
+  <data name="SequentialWriteTestShort" xml:space="preserve">
+    <value>Посл. запись</value>
   </data>
   <data name="StatusBreakingTest" xml:space="preserve">
     <value>ОСТАНОВКА ТЕСТА</value>
@@ -266,6 +296,9 @@
   </data>
   <data name="TestWarmigUp" xml:space="preserve">
     <value>Разминка...</value>
+  </data>
+  <data name="WhiteTheme" xml:space="preserve">
+    <value>[W] Белая тема (нужен рестарт)</value>
   </data>
   <data name="WriteBufferingOption" xml:space="preserve">
     <value>[B] Буферизация записи:</value>
