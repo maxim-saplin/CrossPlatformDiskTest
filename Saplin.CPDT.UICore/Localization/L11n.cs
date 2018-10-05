@@ -17,7 +17,16 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             if (!App.Current.Properties.ContainsKey(nameof(_Locale)) || !Locales.IsValid(App.Current.Properties[nameof(_Locale)].ToString()))
             {
-                App.Current.Properties[nameof(_Locale)] = Locales.en;
+                var sysLocaleService = DependencyService.Get<IGetSystemLocale>();
+                var sysLocale = "";
+
+                if (sysLocaleService != null)
+                {
+                    sysLocale = sysLocaleService.GetLocale();
+                }
+
+                if (Locales.IsValid(sysLocale)) App.Current.Properties[nameof(_Locale)] = sysLocale;
+                else App.Current.Properties[nameof(_Locale)] = Locales.en;
             }
 
             locale = App.Current.Properties[nameof(_Locale)].ToString();
