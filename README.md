@@ -18,7 +18,7 @@
 
 The tests measure time it takes to read/write each block (RAM -> Disk, Disk -> RAM, RAM ->), let you choose read/write modes (e.g. turning on/off write buffering and file cache in memory), conduct sereies operations in sequential and random manner and show the average throughput (total traffic over total time) in MB/s for each test. The tests let you bencmark how same storage operations (FileStream.Write and FileStrem.Read) are handled by different OS across different devices and compare the results.
 
-![Concept](https://github.com/maxim-saplin/CrossPlatformDiskTest/blob/master/EnBlack.png?raw=true)
+![Concept](https://raw.githubusercontent.com/maxim-saplin/CrossPlatformDiskTest/master/EnBlack.png)
 
 ## Technology
 
