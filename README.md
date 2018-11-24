@@ -14,6 +14,12 @@
   - Play Market: https://play.google.com/store/apps/details?id=com.Saplin.CPDT
   - APK: https://github.com/maxim-saplin/CrossPlatformDiskTest/releases/download/1.0.2/com.Saplin.CPDT.apk
 
+## See test results for some devices
+
+maxim-saplin.github.io/cpdt_results/
+
+![Results](https://raw.githubusercontent.com/maxim-saplin/CrossPlatformDiskTest/master/Results.jpg)
+
 ## How it works
 
 The tests measure time it takes to read/write each block (RAM -> Disk, Disk -> RAM, RAM ->), let you choose read/write modes (e.g. turning on/off write buffering and file cache in memory), conduct sereies operations in sequential and random manner and show the average throughput (total traffic over total time) in MB/s for each test. The tests let you bencmark how same storage operations (FileStream.Write and FileStrem.Read) are handled by different OS across different devices and compare the results.
