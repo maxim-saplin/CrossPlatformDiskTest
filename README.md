@@ -16,7 +16,7 @@
 
 ## See test results for some devices
 
-maxim-saplin.github.io/cpdt_results/
+https://maxim-saplin.github.io/cpdt_results/
 
 ![Results](https://raw.githubusercontent.com/maxim-saplin/CrossPlatformDiskTest/master/Results.jpg)
 
