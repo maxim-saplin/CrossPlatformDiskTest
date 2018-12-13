@@ -1,5 +1,7 @@
 # Cross Platform Disk Test (CPDT)
 
+Measuring storage performance (SSD, HDD, USB Flash etc.) and RAM speed across Windows, macOS and Android devices. Random and sequential throughput (read/write operations) is calculted in MB/s and can be compared in consistent and reliable manner between mobile and desktop platfotms and devices.
+
 ![UI](https://raw.githubusercontent.com/maxim-saplin/CrossPlatformDiskTest/master/Img%203.png)
 
 ## Download & Try
@@ -13,6 +15,12 @@
 - Android 4.4+ 
   - Play Market: https://play.google.com/store/apps/details?id=com.Saplin.CPDT
   - APK: https://github.com/maxim-saplin/CrossPlatformDiskTest/releases/download/1.0.2/com.Saplin.CPDT.apk
+
+## Benchmark chart
+
+https://maxim-saplin.github.io/cpdt_results/
+
+![Results](https://raw.githubusercontent.com/maxim-saplin/CrossPlatformDiskTest/master/Results.jpg)
 
 ## How it works
 
