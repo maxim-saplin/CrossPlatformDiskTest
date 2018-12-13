@@ -10,7 +10,7 @@
     <ReleaseVersion>1.0.2</ReleaseVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
+    <PackageReference Include="Xamarin.Forms" Version="3.2.0.871581" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="TestResult.xaml" />

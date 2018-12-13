@@ -34,14 +34,14 @@
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "sha512-bLpT1f/SFlO1CzqXG12KnJzpZs6lv24uX2Rzi4Fmm0noJpNlnWRVryuO3yK18Ca04t/YHcO1e1Z0WDfjseqNzw==",
       "path": "microsoft.netcore.platforms/1.1.0",
       "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
     },
     "Mono.Posix.NETStandard/1.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-vSN/L1uaVwKsiLa95bYu2SGkF0iY3xMblTfxc8alSziPuVfJpj3geVqHGAA75J7cZkMuKpFVikz82Lo6y6LLdA==",
+      "sha512": "sha512-RtGiutQZJAmajvQ0QvBvh73VJye85iW9f9tjZlzF88idLxNMo4lAktP/4Y9ilCpais0LDO0tpoICt9Hdv6wooA==",
       "path": "mono.posix.netstandard/1.0.0",
       "hashPath": "mono.posix.netstandard.1.0.0.nupkg.sha512"
     },

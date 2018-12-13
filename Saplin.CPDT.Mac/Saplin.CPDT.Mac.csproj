@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Xamarin.Forms.3.2.0.839982\build\netstandard2.0\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.3.2.0.839982\build\netstandard2.0\Xamarin.Forms.props')" />
+  <Import Project="..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard2.0\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard2.0\Xamarin.Forms.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -11,8 +11,8 @@
     <AssemblyName>CPDiskTest</AssemblyName>
     <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
-    <TargetFrameworkIdentifier>Xamarin.Mac</TargetFrameworkIdentifier>
     <ReleaseVersion>1.0.2</ReleaseVersion>
+    <TargetFrameworkIdentifier>Xamarin.Mac</TargetFrameworkIdentifier>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,7 +46,7 @@
     <IncludeMonoRuntime>true</IncludeMonoRuntime>
     <UseSGen>true</UseSGen>
     <UseRefCounting>true</UseRefCounting>
-    <LinkMode>SdkOnly</LinkMode>
+    <LinkMode>None</LinkMode>
     <HttpClientHandler></HttpClientHandler>
     <XamMacArch></XamMacArch>
     <AOTMode>None</AOTMode>
@@ -56,16 +56,16 @@
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.Mac" />
     <Reference Include="Xamarin.Forms.Core">
-      <HintPath>..\packages\Xamarin.Forms.3.2.0.839982\lib\Xamarin.Mac\Xamarin.Forms.Core.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.2.0.871581\lib\Xamarin.Mac\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform">
-      <HintPath>..\packages\Xamarin.Forms.3.2.0.839982\lib\Xamarin.Mac\Xamarin.Forms.Platform.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.2.0.871581\lib\Xamarin.Mac\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform.macOS">
-      <HintPath>..\packages\Xamarin.Forms.3.2.0.839982\lib\Xamarin.Mac\Xamarin.Forms.Platform.macOS.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.2.0.871581\lib\Xamarin.Mac\Xamarin.Forms.Platform.macOS.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
-      <HintPath>..\packages\Xamarin.Forms.3.2.0.839982\lib\Xamarin.Mac\Xamarin.Forms.Xaml.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.2.0.871581\lib\Xamarin.Mac\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -124,5 +124,5 @@
     <BundleResource Include="Resources\Fonts\IBMPlexMono-ThinItalic.ttf" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
-  <Import Project="..\packages\Xamarin.Forms.3.2.0.839982\build\netstandard2.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.2.0.839982\build\netstandard2.0\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard2.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard2.0\Xamarin.Forms.targets')" />
 </Project>
