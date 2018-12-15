@@ -153,6 +153,9 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            <Style x:Key="HighlightedButtonStyle" TargetType="Button" BasedOn="{StaticResource ButtonStyle}">
+                <Setter Property="BackgroundColor" Value="Red" />
+            </Style>
             <Style x:Key="popUp" TargetType="Grid">
                 <Setter Property="BackgroundColor" Value="#EB3c4f44" />
                 <Setter Property="Padding" Value="10, 10, 10, 10" />
@@ -178,6 +181,24 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            <Style x:Key="fullScreenPopUpContainer" TargetType="StackLayout">
+                <Setter Property="BackgroundColor">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="Android" Value="#88000000" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="Android" Value="0, 0, 0, 0" />
+                            <On Platform="macOS, WPF" Value="0, 0, 0, 0" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
             <!--END OF STYLES-->
             <!-- XAML value converters -->
             <local:BoolNotConverter x:Key="BoolNot" />

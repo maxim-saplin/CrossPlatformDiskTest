@@ -25,6 +25,16 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
+        private ICommand showDb = new Command(() => { ViewModelContainer.ResultsDbViewModel.IsVisible = true; });
+
+        public ICommand ShowDb
+        {
+            get
+            {
+                return showDb;
+            }
+        }
+
         private ICommand refresh = new Command(() => { ViewModelContainer.DriveTestViewModel.RefreshDrives(); });
 
         public ICommand Refresh

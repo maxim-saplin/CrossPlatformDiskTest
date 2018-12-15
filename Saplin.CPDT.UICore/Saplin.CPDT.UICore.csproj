@@ -89,4 +89,39 @@
       <DependentUpon>TestSessionsNarrow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <None Update="About.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="AndroidSpacer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Error.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Options.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="TestResults.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="TestResultsNarrow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="TestSessions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="TestSessionsNarrow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="WhiteTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
 </Project>

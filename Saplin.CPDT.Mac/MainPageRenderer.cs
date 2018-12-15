@@ -27,9 +27,11 @@ namespace Saplin.CPDT.UICore.Mac
             NSWindow.Notifications.ObserveWillClose(
                 (s, eargs) =>
                 {
-                    xamarinPage?.CloseAplication();
+                    //xamarinPage?.CloseAplication();
                 }
             );
+
+
         }
 
         private NSEvent KeyboardEventHandler(NSEvent keyEvent)
@@ -49,8 +51,8 @@ namespace Saplin.CPDT.UICore.Mac
                 xamarinPage.OnKeyPressed(key, sysKey);
             }
 
-            return null; // remove beep after press
-            //return (keyEvent);
+            //return null; // remove beep after press
+            return (keyEvent);
         }
 
     }

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ResourceDictionary 
              xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -91,7 +91,7 @@
         </Style.Triggers>
     </Style>
     <Style x:Key="popUp" TargetType="Grid">
-        <Setter Property="BackgroundColor" Value="#EBe4d1dd" />
+        <Setter Property="BackgroundColor" Value="#EBe9e9e9" />
         <Setter Property="Padding" Value="10, 10, 10, 10" />
     </Style>
     <Style x:Key="popUpContainer" TargetType="StackLayout">
@@ -107,6 +107,23 @@
                 <OnPlatform x:TypeArguments="Thickness">
                     <On Platform="Android" Value="10, 10, 10, 10" />
                     <On Platform="macOS, WPF" Value="60, 60, 60, 60" />
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="fullScreenPopUpContainer" TargetType="StackLayout">
+        <Setter Property="BackgroundColor">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android" Value="#99FFFFFF" />
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="Android" Value="0, 0, 0, 0" />
+                    <On Platform="macOS, WPF" Value="0, 0, 0, 0" />
                 </OnPlatform>
             </Setter.Value>
         </Setter>

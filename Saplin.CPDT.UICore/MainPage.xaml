@@ -72,6 +72,7 @@
                         </StackLayout>
                         <!--<Label Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=PickDrive}" Style="{StaticResource Key=GrayedLabel}" LineBreakMode="TailTruncation"/>-->
                         <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="0" Padding="0,15,0,0" BindingContext="{x:Static vm:ViewModelContainer.NavigationViewModel}">
+                            <Button Text="[D]atabase" Style="{x:StaticResource Key=HighlightedButtonStyle}" Command="{Binding ShowDb}" ctrl:KeyPress.CommandOnKeyPress="True" />
                             <Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=OptionsButton}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding ShowOptions}" ctrl:KeyPress.CommandOnKeyPress="True" />
                             <Button x:Name="refreshButton" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RefreshButton}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding Refresh}" ctrl:KeyPress.CommandOnKeyPress="True">
                                 <Button.IsVisible>
@@ -129,6 +130,38 @@
                 </StackLayout.Effects>
                 <local:Error HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
             </StackLayout>
+
+            <!--<StackLayout AbsoluteLayout.LayoutBounds="1.0, 1.0, 1.0, 1.0" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="Black"
+                         BindingContext="{x:Static vm:ViewModelContainer.ResultsDbViewModel}" 
+                         IsVisible="{Binding IsVisible}" 
+                         ctrl:KeyPress.ModalParentExclusiveHook="True" 
+                         Style="{x:StaticResource Key=fullScreenPopUpContainer}">
+                <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Close}"
+                            ChangeCursorOnMouseHover="True" Command="{Binding Close}" 
+                            VerticalOptions="End" />
+                    <WebView Source="{Binding Url}"  />
+            </StackLayout>-->
+
+
+            <WebView x:Name="webView" AbsoluteLayout.LayoutBounds="1.0, 1.0, 1.0, 1.0" 
+                         Margin="-10, -10, -10, -10"
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="Black"
+                         BindingContext="{x:Static vm:ViewModelContainer.ResultsDbViewModel}" 
+                         IsVisible="{Binding IsVisible}"
+                     />
+<!--            <ctrl:ExtendedLabel Text="[C]lose"
+                         AbsoluteLayout.LayoutBounds="0, 0, 1.0, 23" 
+                         AbsoluteLayout.LayoutFlags="WidthProportional" 
+                         ChangeCursorOnMouseHover="True" 
+                         Command="{Binding Close}" 
+                         BackgroundColor="Black"
+                         HorizontalTextAlignment="Start"
+                         BindingContext="{x:Static vm:ViewModelContainer.ResultsDbViewModel}" 
+                         IsVisible="{Binding IsVisible}" />-->
+
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

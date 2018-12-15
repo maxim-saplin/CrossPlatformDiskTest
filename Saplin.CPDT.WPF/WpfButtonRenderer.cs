@@ -16,10 +16,12 @@ namespace Saplin.CPDT.WPF
             if ((Control != null) && (e.NewElement is Button))
             {
                 Control.Cursor = Cursors.Hand;
-
+                
                 var defColor = Control.Foreground;
-                var hoverColor = new SolidColorBrush(System.Windows.Media.Color.FromRgb(0, 0, 0));
+                Control.BorderBrush = Control.Background;
 
+                var hoverColor = new SolidColorBrush(System.Windows.Media.Color.FromRgb(0, 0, 0));
+                
                 Control.MouseLeave += (s, eargs) =>
                 {
                     Control.Foreground = defColor;

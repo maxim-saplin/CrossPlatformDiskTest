@@ -98,8 +98,8 @@
     <Compile Include="MainPageRenderer.cs" />
     <Compile Include="ButtonRenderer.cs" />
     <Compile Include="BlurPlatformEffect.cs" />
-    <Compile Include="FormsApplicationDelegate2.cs" />
     <Compile Include="ShellOpenFileFolder.cs" />
+    <Compile Include="WebViewRenderer2.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Saplin.CPDT.UICore\Saplin.CPDT.UICore.csproj">

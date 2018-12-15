@@ -16,13 +16,20 @@ namespace Saplin.CPDT.UICore
 
             InitializeComponent();
 
-            //if (ViewModelContainer.OptionsViewModel.WhiteThemeBool) mainLayout.BackgroundColor = Color.White;
+            ViewModelContainer.ResultsDbViewModel.BindWebView(webView);
+
+
+            //ViewModelContainer.ResultsDbViewModel.PropertyChanged += (s, e) =>
+            //{
+            //    if (e.PropertyName == nameof(ResultsDbViewModel.IsVisible))
+            //    {
+            //        if (ViewModelContainer.ResultsDbViewModel.IsVisible) webView.;
+            //    }
+            //};
 
             AdaptLayoytToScreenWidth();
 
             bitSystem.Text += Environment.Is64BitProcess ? " 64bit" : " 32bit";
-
-
         }
 
         private static void ApplyTheme()
@@ -145,21 +152,24 @@ namespace Saplin.CPDT.UICore
         // TODO - change to events
         public void OnKeyPressed(char key, SysKeys? sysKey)
         {
-            if (key == 'q')
+            if (!ViewModelContainer.ResultsDbViewModel.IsVisible)
             {
-                CloseAplication();
-            }
-            else if (sysKey != null)
-            {
-                KeyPress.FindAndExecuteCommand(sysKey.Value);
-            }
-            else
-            {
-                KeyPress.FindAndExecuteCommand(key);
+                if (key == 'q')
+                {
+                    CloseAplication();
+                }
+                else if (sysKey != null)
+                {
+                    KeyPress.FindAndExecuteCommand(sysKey.Value);
+                }
+                else
+                {
+                    KeyPress.FindAndExecuteCommand(key);
 
-            }
+                }
 
-            BlinkingCursor.AddBlinkKey(key, sysKey);
+                BlinkingCursor.AddBlinkKey(key, sysKey);
+            }
         }
     }
 }
