@@ -13,6 +13,7 @@ using WebView = Xamarin.Forms.WebView;
 
 namespace Saplin.CPDT.UICore.Mac
 {
+    //TODO - remove the hack with Navigating/Navigated
     public class WebViewRenderer2 : ViewRenderer<WebView, WebKit.WebView>, IWebViewDelegate, WebKit.IWebPolicyDelegate
     {
         bool _disposed;
@@ -217,7 +218,10 @@ namespace Saplin.CPDT.UICore.Mac
                 Renderer._lastEvent = Renderer._lastBackForwardEvent;
 
                 var args = new WebNavigatedEventArgs(Renderer._lastEvent, Renderer.Element?.Source, Renderer.Control.MainFrameUrl, WebNavigationResult.Success);
-                Renderer.Element?.SendNavigated(args); 
+                Renderer.Element?.SendNavigated(args);
+
+                var args2 = new WebNavigatingEventArgs(WebNavigationEvent.Forward, null, null);
+                Renderer.Element?.SendNavigating(args2);
 
 
                 Renderer.UpdateCanGoBackForward();
@@ -235,6 +239,9 @@ namespace Saplin.CPDT.UICore.Mac
                 Renderer._lastEvent = Renderer._lastBackForwardEvent;
 
                 Renderer.Element?.SendNavigated(new WebNavigatedEventArgs(Renderer._lastEvent, new UrlWebViewSource { Url = Renderer.Control.MainFrameUrl }, Renderer.Control.MainFrameUrl, WebNavigationResult.Failure));
+
+                var args = new WebNavigatingEventArgs(WebNavigationEvent.Refresh, null, null);
+                Renderer.Element?.SendNavigating(args);
 
                 Renderer.UpdateCanGoBackForward();
             }

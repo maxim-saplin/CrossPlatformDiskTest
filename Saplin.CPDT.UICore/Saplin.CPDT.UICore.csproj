@@ -49,6 +49,7 @@
     <None Remove="Img\frAboutWhiteTheme.png" />
     <None Remove="Img\ruAboutBlackTheme.png" />
     <None Remove="Img\ruAboutWhiteTheme.png" />
+    <None Remove=".DS_Store" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Img\en.png" />
@@ -90,9 +91,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Update="About.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
     <None Update="AndroidSpacer.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>

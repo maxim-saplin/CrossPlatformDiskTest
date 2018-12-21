@@ -101,7 +101,7 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to &apos; Write buffering - influences write test. Write operations use intermediary memory buffer and postpone data commit to latter more convinient time for better performace at a cost of less resiliant writes (e.g. power failure and not commiting to disk write buffer contents)..
+        ///   Looks up a localized string similar to • Write buffering - influences write test. Write operations use intermediary memory buffer and postpone data commit to latter more convinient time for better performace at a cost of less resiliant writes (e.g. power failure and not commiting to disk write buffer contents)..
         /// </summary>
         public string About5
         {
@@ -112,7 +112,7 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to &apos; In-memory file cache - influences read tests. Any file operation requires from OS either transfering file data to memory or memory data to disk, OS will keep those memory pages in RAM until there&apos;s preasure for RAM from other apps. In case OS receives subsequent file read/write requests through API it will simply copy the cached memory pages from previous file operstions and not utilize the actual storage device. Turning this option on is essential a test of OS&apos;s file caching subsystem and RAM speed, rath [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to • In-memory file cache - influences read tests. Any file operation requires from OS either transfering file data to memory or memory data to disk, OS will keep those memory pages in RAM until there&apos;s preasure for RAM from other apps. In case OS receives subsequent file read/write requests through API it will simply copy the cached memory pages from previous file operstions and not utilize the actual storage device. Turning this option on is essential a test of OS&apos;s file caching subsystem and RAM speed, rath [rest of string was truncated]&quot;;.
         /// </summary>
         public string About6
         {
@@ -123,7 +123,7 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Operations on computers and smartphones are executed by CPU against data which is loaded in system memory (RAM). This memory is not permament and limited in size, that&apos;s why theres always a permanent storage (SSD, HDD, SD Card - aka &quot;disk/drive&quot;). In many cases the performance of the system is determined not only by CPU (whichs are usualy in the spotlight of advertising and target of numerous benchmarks) but by the performance of memory, specifically RAM and storage. In many cases (especially smartphones) o [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Operations on computers and smartphones are executed by processor (CPU) against data which is loaded in system memory (RAM). This memory is not permament and limited in size, that&apos;s why theres always a permanent storage (SSD, HDD, SD Card - aka &quot;disk/drive&quot;). In many cases the performance of the system is determined not only by CPU (whichs are usualy in the spotlight of advertising and target of numerous benchmarks) but by the performance of memory, specifically RAM and storage. Official specs (especially w [rest of string was truncated]&quot;;.
         /// </summary>
         public string About7
         {
@@ -211,6 +211,17 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public string CClose
+        {
+            get
+            {
+                return ResourceManager.GetString("CClose", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to [Esc, C]lose.
         /// </summary>
         public string Close
@@ -229,6 +240,28 @@ namespace Saplin.CPDT.UICore.Localization
             get
             {
                 return ResourceManager.GetString("CsvOption", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to [D]atabase.
+        /// </summary>
+        public string Database
+        {
+            get
+            {
+                return ResourceManager.GetString("Database", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to \&amp;gt; Results Database isn&apos;t available. Check internet connection.
+        /// </summary>
+        public string DbNotAvailable
+        {
+            get
+            {
+                return ResourceManager.GetString("DbNotAvailable", resourceCulture);
             }
         }
 

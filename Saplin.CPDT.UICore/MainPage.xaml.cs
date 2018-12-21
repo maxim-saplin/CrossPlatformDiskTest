@@ -18,15 +18,6 @@ namespace Saplin.CPDT.UICore
 
             ViewModelContainer.ResultsDbViewModel.BindWebView(webView);
 
-
-            //ViewModelContainer.ResultsDbViewModel.PropertyChanged += (s, e) =>
-            //{
-            //    if (e.PropertyName == nameof(ResultsDbViewModel.IsVisible))
-            //    {
-            //        if (ViewModelContainer.ResultsDbViewModel.IsVisible) webView.;
-            //    }
-            //};
-
             AdaptLayoytToScreenWidth();
 
             bitSystem.Text += Environment.Is64BitProcess ? " 64bit" : " 32bit";
@@ -48,8 +39,6 @@ namespace Saplin.CPDT.UICore
 
         private void AdaptLayoytToScreenWidth()
         {
-
-
             var testResultsNarrow = false;
             var testSessionsNarrow = false;
             var narrowWidth = 640;
@@ -147,6 +136,14 @@ namespace Saplin.CPDT.UICore
             {
                 Application.Current.Quit();
             }
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            if (ViewModelContainer.ResultsDbViewModel.IsVisible) ViewModelContainer.ResultsDbViewModel.IsVisible = false;
+            else OnKeyPressed((char)27, SysKeys.Esc);
+
+            return true;
         }
 
         // TODO - change to events

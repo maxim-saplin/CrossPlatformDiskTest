@@ -23,9 +23,6 @@ namespace Saplin.CPDT.WPF
             LoadApplication(new Saplin.CPDT.UICore.App());
 
             MouseMove += OnMouseMove;
-
-           var f = Fonts.GetTypefaces(new Uri("pack://application:,,,/"), "./Fonts/");
-           var ff = new FontFamily(new Uri("pack://application:,,,/"),"./#Fira Mono");
         }
 
         private static void SawapDeserializer()

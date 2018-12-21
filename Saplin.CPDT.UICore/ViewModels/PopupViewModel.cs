@@ -17,32 +17,32 @@ namespace Saplin.CPDT.UICore.ViewModels
             {
                 if (value != isVisible)
                 {
+                    if (!OnVisibilityChanging(value)) return;
                     isVisible = value;
                     RaisePropertyChanged();
                     OnVisibilityChanged(value);
                 }
-                Count++;
+                //Count++;
             }
         }
 
-        public int count = 0;
+        //public int count = 0;
 
-        public int Count
-        {
-            get
-            {
-                return count;
-            }
-            set
-            {
-                if (value != count)
-                {
-                    count = value;
-                    RaisePropertyChanged();
-                }
-            }
-        }
-
+        //public int Count
+        //{
+        //    get
+        //    {
+        //        return count;
+        //    }
+        //    set
+        //    {
+        //        if (value != count)
+        //        {
+        //            count = value;
+        //            RaisePropertyChanged();
+        //        }
+        //    }
+        //}
 
         private ICommand show;
 
@@ -77,9 +77,13 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
+        protected virtual bool OnVisibilityChanging(bool visible)
+        {
+            return true;
+        }
+
         protected virtual void OnVisibilityChanged(bool visible)
         {
-
         }
 
     }

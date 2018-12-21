@@ -306,4 +306,13 @@
   <data name="WriteBufferingOption" xml:space="preserve">
     <value>Write [b]uffering:</value>
   </data>
+  <data name="CClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>[D]atabase</value>
+  </data>
+  <data name="DbNotAvailable" xml:space="preserve">
+    <value>\&gt; Results Database isn't available. Check internet connection</value>
+  </data>
 </root>

@@ -85,13 +85,25 @@
                 <Setter Property="TextColor" Value="#FFCFCFCF" />
                 <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
             </Style>
-            <Style x:Key="GrayedLabel" TargetType="ctrl:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
+            <Style x:Key="GrayedLabel" TargetType="ctrl:ExtendedLabel">
                 <Setter Property="TextColor" Value="#FF808080" />
                 <Setter Property="Font" Value="{StaticResource FontItalic}" />
             </Style>
-            <Style x:Key="AccentedLabel" TargetType="ctrl:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
+            <Style x:Key="AccentedLabel" TargetType="ctrl:ExtendedLabel">
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="Font" Value="{StaticResource FontBold}" />
+            </Style>
+            <Style x:Key="CloseWebViewLabel" TargetType="ctrl:ExtendedLabel">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="Font" Value="{StaticResource FontBold}" />
+                <Setter Property="BackgroundColor">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="Android, macOS" Value="Transparent" />
+                            <On Platform="WPF" Value="Black" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
             </Style>
             <Style x:Key="HighlightKeys" TargetType="Span">
                 <Setter Property="TextColor" Value="White" />
@@ -157,7 +169,7 @@
                 <Setter Property="BackgroundColor" Value="Red" />
             </Style>
             <Style x:Key="popUp" TargetType="Grid">
-                <Setter Property="BackgroundColor" Value="#EB3c4f44" />
+                <Setter Property="BackgroundColor" Value="#EB2f2f2f" />
                 <Setter Property="Padding" Value="10, 10, 10, 10" />
             </Style>
             <Style x:Key="popUpError" TargetType="Grid">

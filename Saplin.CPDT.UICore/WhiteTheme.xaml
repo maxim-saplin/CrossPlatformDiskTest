@@ -30,7 +30,7 @@
     </Style>
     <Style TargetType="ctrl:BlinkingCursor" BasedOn="{StaticResource LabelStyle}" />
     <Style TargetType="ctrl:RollingSelector" BasedOn="{StaticResource LabelStyle}" />
-    
+
     <Style x:Key="AccentedSmallLabel" TargetType="Label">
         <Setter Property="TextColor" Value="#FF202020" />
         <Setter Property="Font" Value="{StaticResource FontItalicSmall}" />
@@ -51,6 +51,18 @@
     <Style x:Key="AccentedLabel" TargetType="ctrl:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
         <Setter Property="TextColor" Value="Black" />
         <Setter Property="Font" Value="{StaticResource FontBold}" />
+    </Style>
+    <Style x:Key="CloseWebViewLabel" TargetType="ctrl:ExtendedLabel">
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="Font" Value="{StaticResource FontBold}" />
+        <Setter Property="BackgroundColor">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android, macOS" Value="Transparent" />
+                    <On Platform="WPF" Value="White" />
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
     </Style>
     <Style x:Key="HighlightKeys" TargetType="Span">
         <Setter Property="TextColor" Value="Black" />
@@ -75,9 +87,7 @@
         <Setter Property="TextColor" Value="Black" />
         <Setter Property="Font" Value="{StaticResource FontBold}" />
     </Style>
-    
-    
-    
+
     <Style x:Key="SpanStyle" TargetType="Span">
         <Setter Property="TextColor" Value="#FF202020" />
         <Setter Property="Font" Value="{StaticResource FontNormal}" />

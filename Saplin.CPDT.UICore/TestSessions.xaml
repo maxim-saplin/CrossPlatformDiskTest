@@ -13,7 +13,6 @@
              Refresh="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _Locale}">
     <ctrl:StackRepeater.ItemTemplate>
         <DataTemplate>
-
             <ctrl:MasterDetail SelectionGroup="testSessions" IsDetailVisible="{Binding Selected}">
                 <ctrl:MasterDetail.MasterTemplate>
                     <DataTemplate>
@@ -72,7 +71,7 @@
                                 </Label.FormattedText>
                             </Label>
 
-                            <Label IsVisible="{Binding Selected, Converter={StaticResource BoolNot}}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Center">
+                            <Label IsVisible="{Binding Selected, Converter={StaticResource BoolNot}}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Center" >
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <Span Text="MmC:" Style="{StaticResource Key=AccentedSmallSpan}"/>
@@ -81,6 +80,18 @@
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
+
+                            <Label HorizontalOptions="StartAndExpand"/>
+                            <ctrl:ExtendedLabel 
+                                ctrl:KeyPress.CommandText="[C]ompare" 
+                                Command="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=Compare}"
+                                CommandParameter="{Binding .}"
+                                IsVisible="{Binding Selected}" 
+                                ChangeCursorOnMouseHover="True"
+                                VerticalOptions="Center" 
+                                HorizontalOptions="End" 
+                                HorizontalTextAlignment="End" 
+                                LineBreakMode="WordWrap"/>
                         </StackLayout>
                     </DataTemplate>
                 </ctrl:MasterDetail.MasterTemplate>

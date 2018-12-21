@@ -424,5 +424,23 @@ namespace Saplin.CPDT.UICore.Localization {
                 return ResourceManager.GetString("WriteBufferingOption", resourceCulture);
             }
         }
+        
+        public static string CClose {
+            get {
+                return ResourceManager.GetString("CClose", resourceCulture);
+            }
+        }
+        
+        public static string Database {
+            get {
+                return ResourceManager.GetString("Database", resourceCulture);
+            }
+        }
+        
+        public static string DbNotAvailable {
+            get {
+                return ResourceManager.GetString("DbNotAvailable", resourceCulture);
+            }
+        }
     }
 }

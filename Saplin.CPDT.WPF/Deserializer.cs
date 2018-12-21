@@ -33,7 +33,6 @@ namespace Saplin.CPDT.WPF
                 }
                 catch (Exception e)
                 {
-                    //Debug.WriteLine("Could not deserialize properties: " + e.Message);
                     Log.Warning("Xamarin.Forms PropertyStore", $"Exception while reading Application properties: {e}");
                 }
 
@@ -56,7 +55,6 @@ namespace Saplin.CPDT.WPF
             }
             catch
             {
-                //Debug.WriteLine("Could not move new serialized property file over old: " + e.Message);
             }
         }
     }

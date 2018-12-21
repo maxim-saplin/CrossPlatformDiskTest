@@ -156,15 +156,29 @@ namespace Saplin.CPDT.UICore.Controls
                 {
                     control.toggleClickAssigned = true;
 
-                    foreach (var c in control.masterView.Children)
+                    //allow 2 level indentation
+                    Func<Element, bool> assignClick = (Element c) =>
                     {
                         if (MasterDetail.GetToggleDetailOnClicked(c))
                         {
                             if (c is Button) (c as Button).Clicked += control.ToggleClicked;
                             else if (c is ExtendedLabel) (c as ExtendedLabel).Clicked += control.ToggleClicked;
 
-                            break;
+                            return true;
                         }
+                        return false;
+                    };
+
+                    foreach (var c in control.masterView.Children)
+                    {
+                        if (c is Layout<View>)
+                        {
+                            foreach (var c2 in (c as Layout<View>).Children)
+                            {
+                                if (assignClick(c2)) break;
+                            }
+                        }
+                        else if (assignClick(c)) break;
                     }
                 }
             }
@@ -305,7 +319,7 @@ namespace Saplin.CPDT.UICore.Controls
 
         private static void ToggleDetailOnClickedChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            if (!(bindable is Button || bindable is ExtendedLabel)) throw new InvalidOperationException("MasterDetail.ToggleDetailOnClicked attached property can only be used with Xamarin.Formsn.Button or Saplin.CPDT.Control.ExtendedLabel");
+            if (!(bindable is Button || bindable is ExtendedLabel)) throw new InvalidOperationException("MasterDetail.ToggleDetailOnClicked attached property can only be used with Xamarin.Formsn.Button or Saplin.CPDT.Control.ExtendedLabel or container containing those");
         }
 
         private static Dictionary<string, List<MasterDetail>> selectionGroups = new Dictionary<string, List<MasterDetail>>();

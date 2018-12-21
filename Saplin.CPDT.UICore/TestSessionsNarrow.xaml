@@ -7,92 +7,112 @@
                 <ctrl:MasterDetail.MasterTemplate>
                     <DataTemplate>
                         <StackLayout Orientation="Vertical">
-                            <ctrl:ExtendedLabel ChangeCursorOnMouseHover="True" VerticalOptions="Start" ctrl:MasterDetail.ToggleDetailOnClicked="True" HorizontalTextAlignment="Start" LineBreakMode="TailTruncation">
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text="{Binding SelectedNodeText, Mode=OneWay}" />
-                                        <Span Text="{Binding DriveName, StringFormat=' {0}', Mode=OneWay}" />
-                                    </FormattedString>
-                                </Label.FormattedText>
-                                <ctrl:ExtendedLabel.Style>
-                                    <OnPlatform x:TypeArguments="Style">
-                                        <On Platform="Android" Value="{StaticResource AccentedLabel}" />
-                                    </OnPlatform>
-                                </ctrl:ExtendedLabel.Style>
-                            </ctrl:ExtendedLabel>
+                            <StackLayout Orientation="Horizontal">
+                                <ctrl:ExtendedLabel 
+                                    ChangeCursorOnMouseHover="True" 
+                                    ctrl:MasterDetail.ToggleDetailOnClicked="True"
+                                    VerticalOptions="Start" 
+                                    HorizontalTextAlignment="Start" 
+                                    LineBreakMode="TailTruncation"
+                                 >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding SelectedNodeText, Mode=OneWay}" />
+                                            <Span Text="{Binding DriveName, StringFormat=' {0}', Mode=OneWay}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                    <ctrl:ExtendedLabel.Style>
+                                        <OnPlatform x:TypeArguments="Style">
+                                            <On Platform="Android" Value="{StaticResource AccentedLabel}" />
+                                        </OnPlatform>
+                                    </ctrl:ExtendedLabel.Style>
+                                </ctrl:ExtendedLabel>
+                                <Label HorizontalOptions="StartAndExpand"/>
+                                <ctrl:ExtendedLabel 
+                                        ctrl:KeyPress.CommandText="[C]ompare" 
+                                        Command="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=Compare}"
+                                        CommandParameter="{Binding .}"
+                                        IsVisible="{Binding Selected}" 
+                                        ctrl:KeyPress.HighlightKeys="True"
+                                        ChangeCursorOnMouseHover="True"
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="End" 
+                                        HorizontalTextAlignment="End" 
+                                        LineBreakMode="WordWrap"/>
+                            </StackLayout>
                             <StackLayout IsVisible="{Binding Selected, Converter={StaticResource BoolNot}}" Orientation="Horizontal">
-                                <Label IsVisible="{Binding Selected, Converter={StaticResource BoolNot}}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                <Label IsVisible="{Binding Selected, Converter={StaticResource BoolNot}}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start" Margin="0, 0, 0, 0" >
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="SqW:" Style="{StaticResource Key=AccentedSmallSpan}" />
                                             <Span Text="{Binding SeqWrite, Converter={StaticResource MbPerSecondToAuto}, StringFormat='&#xA;{0}'}}" />
-                                            <Span Text="{Binding SeqWrite, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#xA;{0}'}}" />
+                                            <Span Text="{Binding SeqWrite, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}}" />
                                         </FormattedString>
                                     </Label.FormattedText>
                                     <Label.HeightRequest>
                                         <OnPlatform x:TypeArguments="x:Double">
-                                            <On Platform="Android" Value="48" />
-                                            <On Platform="macOS, WPF" Value="54" />
+                                            <On Platform="Android" Value="40" />
+                                            <On Platform="macOS, WPF" Value="40" />
                                         </OnPlatform>
                                     </Label.HeightRequest>
                                 </Label>
-                                <Label Style="{StaticResource Key=SmallLabel}" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                <Label Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start" Margin="0, 0, 0, 0">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="SqR:" Style="{StaticResource Key=AccentedSmallSpan}" />
                                             <Span Text="{Binding SeqRead, Converter={StaticResource MbPerSecondToAuto}, StringFormat='&#xA;{0}'}" />
-                                            <Span Text="{Binding SeqRead, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#xA;{0}'}" />
+                                            <Span Text="{Binding SeqRead, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}" />
                                         </FormattedString>
                                     </Label.FormattedText>
                                     <Label.HeightRequest>
                                         <OnPlatform x:TypeArguments="x:Double">
-                                            <On Platform="Android" Value="48" />
-                                            <On Platform="macOS, WPF" Value="54" />
+                                            <On Platform="Android" Value="40" />
+                                            <On Platform="macOS, WPF" Value="40" />
                                         </OnPlatform>
                                     </Label.HeightRequest>
                                 </Label>
-                                <Label Style="{StaticResource Key=SmallLabel}" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                <Label Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start" Margin="0, 0, 0, 0">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="RnW:" Style="{StaticResource Key=AccentedSmallSpan}" />
                                             <Span Text="{Binding RandWrite, Converter={StaticResource MbPerSecondToAuto}, StringFormat='&#xA;{0}'}" />
-                                            <Span Text="{Binding RandWrite, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#xA;{0}'}" />
+                                            <Span Text="{Binding RandWrite, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}" />
                                         </FormattedString>
                                     </Label.FormattedText>
                                     <Label.HeightRequest>
                                         <OnPlatform x:TypeArguments="x:Double">
-                                            <On Platform="Android" Value="48" />
-                                            <On Platform="macOS, WPF" Value="54" />
+                                            <On Platform="Android" Value="40" />
+                                            <On Platform="macOS, WPF" Value="40" />
                                         </OnPlatform>
                                     </Label.HeightRequest>
                                 </Label>
-                                <Label Style="{StaticResource Key=SmallLabel}" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                <Label Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start" Margin="0, 0, 0, 0">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="RnR:" Style="{StaticResource Key=AccentedSmallSpan}" />
                                             <Span Text="{Binding RandRead, Converter={StaticResource MbPerSecondToAuto}, StringFormat='&#xA;{0}'}" />
-                                            <Span Text="{Binding RandRead, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#xA;{0}'}" />
+                                            <Span Text="{Binding RandRead, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}" />
                                         </FormattedString>
                                     </Label.FormattedText>
                                     <Label.HeightRequest>
                                         <OnPlatform x:TypeArguments="x:Double">
-                                            <On Platform="Android" Value="48" />
-                                            <On Platform="macOS, WPF" Value="54" />
+                                            <On Platform="Android" Value="40" />
+                                            <On Platform="macOS, WPF" Value="40" />
                                         </OnPlatform>
                                     </Label.HeightRequest>
                                 </Label>
-                                <Label Style="{StaticResource Key=SmallLabel}" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                <Label Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start" Margin="0, 0, 0, 0">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="MmC:" Style="{StaticResource Key=AccentedSmallSpan}" />
                                             <Span Text="{Binding MemCopy, Converter={StaticResource MbPerSecondToAuto}, StringFormat='&#xA;{0}'}" />
-                                            <Span Text="{Binding MemCopy, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#xA;{0}'}" />
+                                            <Span Text="{Binding MemCopy, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}" />
                                         </FormattedString>
                                     </Label.FormattedText>
                                     <Label.HeightRequest>
                                         <OnPlatform x:TypeArguments="x:Double">
-                                            <On Platform="Android" Value="48" />
-                                            <On Platform="macOS, WPF" Value="54" />
+                                            <On Platform="Android" Value="40" />
+                                            <On Platform="macOS, WPF" Value="40" />
                                         </OnPlatform>
                                     </Label.HeightRequest>
                                 </Label>

@@ -72,7 +72,7 @@
                         </StackLayout>
                         <!--<Label Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=PickDrive}" Style="{StaticResource Key=GrayedLabel}" LineBreakMode="TailTruncation"/>-->
                         <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="0" Padding="0,15,0,0" BindingContext="{x:Static vm:ViewModelContainer.NavigationViewModel}">
-                            <Button Text="[D]atabase" Style="{x:StaticResource Key=HighlightedButtonStyle}" Command="{Binding ShowDb}" ctrl:KeyPress.CommandOnKeyPress="True" />
+                            <Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=Database}" Style="{x:StaticResource Key=HighlightedButtonStyle}" Command="{Binding ShowDb}" ctrl:KeyPress.CommandOnKeyPress="True" IsEnabled="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=IsEnabled}"/>
                             <Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=OptionsButton}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding ShowOptions}" ctrl:KeyPress.CommandOnKeyPress="True" />
                             <Button x:Name="refreshButton" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RefreshButton}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding Refresh}" ctrl:KeyPress.CommandOnKeyPress="True">
                                 <Button.IsVisible>
@@ -82,7 +82,8 @@
                                     </OnPlatform>
                                 </Button.IsVisible>
                             </Button>
-                            <Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=HelpButton}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding ShowAbout}" ctrl:KeyPress.CommandOnKeyPress="True" />
+                            <Button Text="[H, ?]" Style="{x:StaticResource Key=ButtonStyle}" WidthRequest="60" Command="{Binding ShowAbout}" ctrl:KeyPress.CommandOnKeyPress="True" />
+                            <!--<Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=HelpButton}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding ShowAbout}" ctrl:KeyPress.CommandOnKeyPress="True" />-->
                         </StackLayout>
                         <local:AndroidSpacer FontSize="12"/>
                     </StackLayout>
@@ -104,6 +105,7 @@
                     <StackLayout x:Name="testSessionsPlaceholder" IsVisible="False">
                         <local:TestSessions x:Name="testSessions" />
                     </StackLayout>
+                    <Label Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=DbNotAvailable}" BindingContext="{x:Static vm:ViewModelContainer.ResultsDbViewModel}" IsVisible="{Binding NotAvailable}" />
                     <StackLayout Orientation="Horizontal" IsVisible="{Binding StatusMessageVisible}">
                         <Label Text="\&gt;" IsVisible="{Binding StatusMessage, Converter={StaticResource StringNotEmpty}}" VerticalTextAlignment="Start" VerticalOptions="Start" LineBreakMode="NoWrap" />
                         <Label Text="{Binding StatusMessage}" LineBreakMode="WordWrap" />
@@ -131,36 +133,27 @@
                 <local:Error HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
             </StackLayout>
 
-            <!--<StackLayout AbsoluteLayout.LayoutBounds="1.0, 1.0, 1.0, 1.0" 
-                         AbsoluteLayout.LayoutFlags="All" 
-                         BackgroundColor="Black"
-                         BindingContext="{x:Static vm:ViewModelContainer.ResultsDbViewModel}" 
-                         IsVisible="{Binding IsVisible}" 
-                         ctrl:KeyPress.ModalParentExclusiveHook="True" 
-                         Style="{x:StaticResource Key=fullScreenPopUpContainer}">
-                <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Close}"
-                            ChangeCursorOnMouseHover="True" Command="{Binding Close}" 
-                            VerticalOptions="End" />
-                    <WebView Source="{Binding Url}"  />
-            </StackLayout>-->
-
-
             <WebView x:Name="webView" AbsoluteLayout.LayoutBounds="1.0, 1.0, 1.0, 1.0" 
-                         Margin="-10, -10, -10, -10"
                          AbsoluteLayout.LayoutFlags="All" 
                          BackgroundColor="Black"
                          BindingContext="{x:Static vm:ViewModelContainer.ResultsDbViewModel}" 
-                         IsVisible="{Binding IsVisible}"
-                     />
-<!--            <ctrl:ExtendedLabel Text="[C]lose"
+                         IsVisible="{Binding IsVisible}">
+                <WebView.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android, macOS" Value="-10, -10, -10, -10" />
+                        <On Platform="WPF" Value="-10, 23, -10, -10" />
+                    </OnPlatform>
+                </WebView.Margin>
+            </WebView>
+            <ctrl:ExtendedLabel Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=CClose}"
                          AbsoluteLayout.LayoutBounds="0, 0, 1.0, 23" 
                          AbsoluteLayout.LayoutFlags="WidthProportional" 
                          ChangeCursorOnMouseHover="True" 
-                         Command="{Binding Close}" 
-                         BackgroundColor="Black"
-                         HorizontalTextAlignment="Start"
                          BindingContext="{x:Static vm:ViewModelContainer.ResultsDbViewModel}" 
-                         IsVisible="{Binding IsVisible}" />-->
+                         Command="{Binding Close}" 
+                         Style="{StaticResource CloseWebViewLabel}"
+                         HorizontalTextAlignment="End"
+                         IsVisible="{Binding IsVisible}" />
 
         </AbsoluteLayout>
     </ContentPage.Content>

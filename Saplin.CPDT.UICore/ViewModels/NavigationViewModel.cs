@@ -25,7 +25,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
-        private ICommand showDb = new Command(() => { ViewModelContainer.ResultsDbViewModel.IsVisible = true; });
+        private ICommand showDb = new Command(() => { ViewModelContainer.ResultsDbViewModel.IsVisible = true; }, () =>  ViewModelContainer.ResultsDbViewModel.IsEnabled);
 
         public ICommand ShowDb
         {
