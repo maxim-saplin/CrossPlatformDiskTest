@@ -342,8 +342,9 @@ namespace Saplin.CPDT.UICore.ViewModels
                              if (freeMemService != null) freeMem = freeMemService.GetBytesFree;
 
                              testSuite = new BigTest(
-                                driveNameToUse, 
-                                optionsVm.FileSizeBytes, 
+                                driveNameToUse,
+                                //optionsVm.FileSizeBytes,
+                                optionsVm.FileSizeBytes/32, 
                                 optionsVm.WriteBufferingBool, 
                                  memCache, 
                                 freeMem: freeMem);

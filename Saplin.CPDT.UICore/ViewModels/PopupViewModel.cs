@@ -57,7 +57,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
-        public void DoShow(object param)
+        public virtual void DoShow(object param)
         {
             Show.Execute(param);
         }

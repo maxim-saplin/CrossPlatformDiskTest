@@ -67,6 +67,11 @@ namespace Saplin.CPDT.UICore.ViewModels
                     selected = value;
                     RaisePropertyChanged();
                     RaisePropertyChanged(nameof(SelectedNodeText));
+
+                    if (value)
+                    {
+                        ViewModelContainer.ResultsDbViewModel.PreLoadComparison(this);
+                    }
                 }
             }
         }

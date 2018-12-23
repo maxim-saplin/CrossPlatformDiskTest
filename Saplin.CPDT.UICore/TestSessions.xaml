@@ -86,6 +86,7 @@
                                 ctrl:KeyPress.CommandText="[C]ompare" 
                                 Command="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=Compare}"
                                 CommandParameter="{Binding .}"
+                                IsEnabled="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=IsEnabled}"
                                 IsVisible="{Binding Selected}" 
                                 ChangeCursorOnMouseHover="True"
                                 VerticalOptions="Center" 

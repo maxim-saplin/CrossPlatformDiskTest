@@ -5,7 +5,7 @@ namespace Saplin.CPDT.UICore.ViewModels
 {
     public class NavigationViewModel : BaseViewModel
     {
-        private ICommand showOptions = new Command(() => { ViewModelContainer.OptionsViewModel.IsVisible = true; });
+        private ICommand showOptions = new Command(() => { ViewModelContainer.OptionsViewModel.DoShow(null); });
 
         public ICommand ShowOptions
         {
@@ -15,7 +15,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
-        private ICommand showAbout = new Command(() => { ViewModelContainer.AboutViewModel.IsVisible = true; });
+        private ICommand showAbout = new Command(() => { ViewModelContainer.AboutViewModel.DoShow(null); });
 
         public ICommand ShowAbout
         {
@@ -25,7 +25,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
-        private ICommand showDb = new Command(() => { ViewModelContainer.ResultsDbViewModel.IsVisible = true; }, () =>  ViewModelContainer.ResultsDbViewModel.IsEnabled);
+        private ICommand showDb = new Command(() => { ViewModelContainer.ResultsDbViewModel.DoShow(null); }, () =>  ViewModelContainer.ResultsDbViewModel.IsEnabled);
 
         public ICommand ShowDb
         {

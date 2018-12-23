@@ -47,15 +47,19 @@ namespace Saplin.CPDT.UICore.ViewModels
                     compare = new Command((object param) =>
                     {
                         var session = param as TestSession;
-                        webView.Source = GetCompareUrl(session);
+                        PreLoadComparison(session);
                         IsVisible = true;
-                        compareUrlOpened = true;
                     });
 
                 return compare;
             }
         }
 
+        public void PreLoadComparison(TestSession session)
+        {
+            var url = GetCompareUrl(session);
+            if ((webView.Source as UrlWebViewSource).Url != url) webView.Source = url;
+        }
         public string Url
         {
             get
@@ -90,8 +94,6 @@ namespace Saplin.CPDT.UICore.ViewModels
             [DataMember] public double randRead; // MB/s
             [DataMember] public double memCopy; // GB/s
         }
-
-        private bool compareUrlOpened = false;
 
         public string GetCompareUrl(TestSession session)
         {
@@ -174,6 +176,12 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
+        public override void DoShow(object param)
+        {
+            if ((webView.Source as UrlWebViewSource).Url != Url) webView.Source = Url;
+            base.DoShow(param);
+        }
+
         protected override bool OnVisibilityChanging(bool visible)
         {
             if (Device.RuntimePlatform == Device.WPF)
@@ -188,12 +196,6 @@ namespace Saplin.CPDT.UICore.ViewModels
                         return false;
                     }
                 }
-            }
-
-            if (compareUrlOpened)
-            {
-                compareUrlOpened = false;
-                webView.Source = Url;
             }
 
             return true;

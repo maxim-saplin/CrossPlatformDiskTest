@@ -118,7 +118,6 @@ namespace Saplin.CPDT.UICore.Controls
                     {
                         var visibleEnabled = (attachedControls[i].bindable as VisualElement).IsEnabled
                                              && (attachedControls[i].bindable as VisualElement).IsVisible
-                                             //&& !(attachedControls[i].bindable as VisualElement).Bounds.IsEmpty
                                              && !attachedControls[i].AnyParentInvisible;
 
                         if (visibleEnabled && modalParents.Count > 0) visibleEnabled = attachedControls[i].IsParent(modalParents.Peek());
