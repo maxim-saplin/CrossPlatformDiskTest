@@ -154,7 +154,7 @@
                 <Setter Property="WidthRequest">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="Android" Value="100" />
+                            <On Platform="Android" Value="125" />
                             <On Platform="macOS, WPF" Value="125" />
                         </OnPlatform>
                     </Setter.Value>
@@ -162,7 +162,7 @@
                 <Setter Property="HeightRequest">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="Android" Value="30" />
+                            <On Platform="Android" Value="35" />
                             <On Platform="macOS, WPF" Value="27" />
                         </OnPlatform>
                     </Setter.Value>
@@ -175,8 +175,27 @@
                     </Setter.Value>
                 </Setter>
             </Style>
-            <Style x:Key="HighlightedButtonStyle" TargetType="Button" BasedOn="{StaticResource ButtonStyle}">
-                <Setter Property="BackgroundColor" Value="Red" />
+            <Style x:Key="NarrowButtonStyle" TargetType="Button" BasedOn="ButtonStyle">
+                <Setter Property="TextColor" Value="White" />
+                 <Setter Property="BackgroundColor" Value="Blue" />
+                <Setter Property="BorderColor" Value="Blue" />
+                <Setter Property="BorderWidth" Value="0" />
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android" Value="100" />
+                            <On Platform="macOS, WPF" Value="100" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>  
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android" Value="30" />
+                            <On Platform="macOS, WPF" Value="27" />
+                        </OnPlatform>
+                    </Setter.Value>     
+                </Setter> 
             </Style>
             <Style x:Key="VerticalLine" TargetType="BoxView">
                 <Setter Property="WidthRequest" Value="2"/>

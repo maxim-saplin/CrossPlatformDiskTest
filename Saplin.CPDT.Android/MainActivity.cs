@@ -40,33 +40,23 @@ namespace Saplin.CPDT.Droid
             }
         }
 
-        public void AdjustFontScale()
-        {
-            //var configuration = new Configuration(config);
-            var configuration = Resources.Configuration;
-            configuration.FontScale = 0.5f;
-
-            var metrics = Resources.DisplayMetrics;
-            //var wm = GetSystemService(Context.WindowService).JavaCast<IWindowManager>();
-            //wm.DefaultDisplay.GetMetrics(metrics);
-
-            //metrics.ScaledDensity = configuration.FontScale * metrics.Density;
-
-            //Application.Context.Resources.DisplayMetrics.SetTo(metrics);
-            //metrics.SetTo(metrics);
-
-            //Application.Context.CreateConfigurationContext(configuration);
-            //Application.Context.Resources.UpdateConfiguration(configuration, metrics);
-        }
-
         protected override void AttachBaseContext(Context @base)
         {
             var configuration = new Configuration(@base.Resources.Configuration);
-            if (@base.Resources.Configuration.ScreenWidthDp > 360)
+
+            int minDimension = @base.Resources.Configuration.ScreenWidthDp > @base.Resources.Configuration.ScreenHeightDp
+               ? @base.Resources.Configuration.ScreenHeightDp : @base.Resources.Configuration.ScreenWidthDp;
+
+            if (minDimension > 640)
+            {
+                configuration.FontScale = 1.2f;
+            }
+            else if (minDimension > 360)
             {
                 configuration.FontScale = 1f;
             }
             else configuration.FontScale = 0.8f;
+
             var config =  Application.Context.CreateConfigurationContext(configuration);
 
             base.AttachBaseContext(config);

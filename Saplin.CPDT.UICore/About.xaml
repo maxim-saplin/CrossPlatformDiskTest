@@ -11,7 +11,7 @@
         <Grid.Padding>
             <OnPlatform x:TypeArguments="Thickness">
                 <On Platform="WPF, macOS" Value="25, 15, 25, 10"/>
-                <On Platform="Android" Value="10, 10, 10, 10"/>
+                <On Platform="Android" Value="10, 5, 10, 5"/>
             </OnPlatform>
         </Grid.Padding>
         <Grid.ColumnDefinitions>

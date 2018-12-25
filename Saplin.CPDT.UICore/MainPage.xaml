@@ -22,7 +22,7 @@
                         <ctrl:ExtendedLabel x:Name="quititingButton" IsVisible="false" Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=Quiting}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" VerticalOptions="Start" />
                     </StackLayout>
                     <anim:DriveSelectionAnimation x:Name="drivesAnimation" Target="{x:Reference selectionLayout}" Trigger="{Binding TestStarted, Converter={StaticResource BoolNot}}" />
-                    <anim:HighlightAnimation x:Name="drivesHighlightAnimation" Target="{x:Reference selectionLayout}" OnClickOf="{x:Reference refreshButton}" />
+                    <anim:HighlightAnimation x:Name="drivesHighlightAnimation" Target="{x:Reference selectionLayout}" OnClickOf="{x:DynamicResource refreshButton}" />
 
                     <StackLayout x:Name="selectionLayout" IsClippedToBounds="True" Orientation="Vertical" >
                         
@@ -40,8 +40,9 @@
                                             <Label IsVisible="{Binding ShowDiveIsSameMessage}">
                                                 <Label.FormattedText>
                                                     <FormattedString>
-                                                        <Span Text=" ⤭ " FontSize="25"/>
+                                                        <Span Text="   ↖ ↗&#xA;" FontSize="20"/>
                                                         <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, AndroidSameAliases, Mode=OneWay}" Style="{StaticResource SmallSpan}" />
+                                                        <Span Text="&#xA;   ↙ ↘" FontSize="20"/>
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
@@ -71,24 +72,11 @@
                             <local:AndroidSpacer FontSize="8"/>
                         </StackLayout>
                         <!--<Label Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=PickDrive}" Style="{StaticResource Key=GrayedLabel}" LineBreakMode="TailTruncation"/>-->
-                        <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="0" Padding="0,15,0,0" BindingContext="{x:Static vm:ViewModelContainer.NavigationViewModel}">
-                            <Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=Database}" Style="{x:StaticResource Key=HighlightedButtonStyle}" Command="{Binding ShowDb}" ctrl:KeyPress.CommandOnKeyPress="True" IsEnabled="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=IsEnabled}"/>
-                            <Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=OptionsButton}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding ShowOptions}" ctrl:KeyPress.CommandOnKeyPress="True" />
-                            <Button x:Name="refreshButton" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RefreshButton}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding Refresh}" ctrl:KeyPress.CommandOnKeyPress="True">
-                                <Button.IsVisible>
-                                    <OnPlatform x:TypeArguments="x:Boolean">
-                                        <On Platform="Android" Value="False" />
-                                        <On Platform="macOS, WPF" Value="True" />
-                                    </OnPlatform>
-                                </Button.IsVisible>
-                            </Button>
-                            <Button Text="[H, ?]" Style="{x:StaticResource Key=ButtonStyle}" WidthRequest="60" Command="{Binding ShowAbout}" ctrl:KeyPress.CommandOnKeyPress="True" />
-                            <!--<Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=HelpButton}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding ShowAbout}" ctrl:KeyPress.CommandOnKeyPress="True" />-->
-                        </StackLayout>
+                        <local:MainPageButtons x:Name="buttons"/>
                         <local:AndroidSpacer FontSize="12"/>
                     </StackLayout>
                     <anim:VisibilityFadeAnimation x:Name="testInProgressAnimation" Target="{x:Reference testInProgressLayout}" Trigger="{Binding TestStarted}" />
-                    <StackLayout x:Name="testInProgressLayout" Orientation="Vertical" IsVisible="False" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="10, 0, 10, 0">
+                    <StackLayout x:Name="testInProgressLayout" Orientation="Vertical" IsVisible="False" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="16, 0, 16, 0">
                         <StackLayout Orientation="Horizontal" IsVisible="{Binding TestStarted}" Style="{StaticResource testRunningHeader}" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="10, 6, 10, 6">
                             <Label Text="{Binding SelectedDrive}" HorizontalOptions="Start" VerticalOptions="Center" LineBreakMode="MiddleTruncation" />
                             <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm}'}" Style="{x:StaticResource Key=AccentedSuperSmallLabel}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />

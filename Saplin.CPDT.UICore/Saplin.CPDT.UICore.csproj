@@ -37,6 +37,7 @@
     <Compile Remove="Controls\IList.cs" />
     <Compile Remove="ViewModels\TestResult.cs" />
     <Compile Remove="Misc\IScreenInfo.cs" />
+    <Compile Remove="MainPageButtons.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Img\en.png" />

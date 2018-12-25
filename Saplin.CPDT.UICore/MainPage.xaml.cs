@@ -48,6 +48,8 @@ namespace Saplin.CPDT.UICore
 
             SizeChanged += (s, e) =>
             {
+                buttons.AdaptLayoytToScreenWidth(Width < narrowWidth);
+
                 if (Width < narrowWidth)
                 {
                     if (!testResultsNarrow)

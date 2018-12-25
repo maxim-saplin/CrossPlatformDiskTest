@@ -21,10 +21,10 @@ namespace Saplin.CPDT.Droid
 
             if (el != null && el.JustifyText)
             {
-                //if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O)
-                //{
-                Control.JustificationMode = Android.Text.JustificationMode.InterWord;
-                //}
+                if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O)
+                {
+                    Control.JustificationMode = Android.Text.JustificationMode.InterWord;
+                }
                     
             }
         }
