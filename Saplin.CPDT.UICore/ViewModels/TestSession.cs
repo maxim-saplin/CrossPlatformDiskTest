@@ -9,12 +9,14 @@ namespace Saplin.CPDT.UICore.ViewModels
     {
         public DateTime TestStartedTime { get; set; }
         public string FileNameAndTime { get; set; }
+        public string FileName { get; set; }
         public string DriveName { get; set; }
         public string CsvFileName { get; set; }
         public bool MemCache { get; set; }
         public bool WriteBuffering { get; set; }
         public long FileSizeBytes { get; set; }
         public long FreeSpaceBytes { get; set; }
+        public int OrderNumber { get; set; }
 
         public string Options
         {
@@ -80,8 +82,12 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             get
             {
-                if (Selected) return "(-)";
-                return "(+)";
+                //if (Selected) return "(-)";
+                //return "(+)";
+
+                if (Selected) return "   \n   \n  ↘";
+                return "  →\n  →\n   ";
+
             }
         }
 

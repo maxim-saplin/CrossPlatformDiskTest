@@ -213,6 +213,9 @@
   <data name="MemCopyTestShort" xml:space="preserve">
     <value>Mem. copy</value>
   </data>
+  <data name="Compare" xml:space="preserve">
+    <value>[C]ompare</value>
+  </data>
   <data name="Min" xml:space="preserve">
     <value>Min</value>
   </data>

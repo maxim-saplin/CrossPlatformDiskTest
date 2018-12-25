@@ -781,5 +781,13 @@ namespace Saplin.CPDT.UICore.Localization
                 return ResourceManager.GetString("WriteBufferingOption", resourceCulture);
             }
         }
+
+        public string Compare
+        {
+            get
+            {
+                return ResourceManager.GetString("Compare", resourceCulture);
+            }
+        }
     }
 }

@@ -7,7 +7,13 @@
     xmlns:local="clr-namespace:Saplin.CPDT.UICore"
     x:Class="Saplin.CPDT.UICore.About" VerticalScrollBarVisibility="Never">
     
-    <Grid Style="{x:StaticResource Key=popUp}" RowSpacing="10" Padding="25, 15, 25, 10">
+    <Grid Style="{x:StaticResource Key=popUp}" RowSpacing="10">
+        <Grid.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="WPF, macOS" Value="25, 15, 25, 10"/>
+                <On Platform="Android" Value="10, 10, 10, 10"/>
+            </OnPlatform>
+        </Grid.Padding>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>

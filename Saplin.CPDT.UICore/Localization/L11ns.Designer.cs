@@ -239,6 +239,12 @@ namespace Saplin.CPDT.UICore.Localization {
             }
         }
         
+        public static string Compare {
+            get {
+                return ResourceManager.GetString("Compare", resourceCulture);
+            }
+        }
+        
         public static string Min {
             get {
                 return ResourceManager.GetString("Min", resourceCulture);

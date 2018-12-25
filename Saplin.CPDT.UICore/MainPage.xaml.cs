@@ -23,7 +23,7 @@ namespace Saplin.CPDT.UICore
             bitSystem.Text += Environment.Is64BitProcess ? " 64bit" : " 32bit";
         }
 
-        private static void ApplyTheme()
+        private void ApplyTheme()
         {
             if ((App.Current as App).WhiteTheme)
             {
@@ -33,8 +33,11 @@ namespace Saplin.CPDT.UICore
                 {
                     if (Application.Current.Resources.ContainsKey(key))
                         Application.Current.Resources[key] = whiteTheme[key];
+
+
                 }
             }
+
         }
 
         private void AdaptLayoytToScreenWidth()

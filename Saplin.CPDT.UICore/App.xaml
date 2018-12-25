@@ -48,7 +48,7 @@
             <!-- LAYOUTS-->
             <Style x:Key="mainLayout" TargetType="AbsoluteLayout" >
                 <Setter Property="BackgroundColor" Value="Black" />
-                <Setter Property="Padding" Value="10, 10, 10, 10" />
+                <Setter Property="Padding" Value="0, 0, 0, 0" />
             </Style>
             <Style x:Key="testRunningHeader" TargetType="StackLayout">
                 <Setter Property="BackgroundColor" Value="#111111" />
@@ -128,6 +128,10 @@
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="Font" Value="{StaticResource FontBold}" />
             </Style>
+             <Style x:Key="GrayedSpan" TargetType="Span">
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="Font" Value="{StaticResource FontItalic}" />
+            </Style>
             <Style x:Key="SpanStyle" TargetType="Span">
                 <Setter Property="TextColor" Value="#FFCFCFCF" />
                 <Setter Property="Font" Value="{StaticResource FontNormal}" />
@@ -136,7 +140,7 @@
             <Style TargetType="ctrl:MasterDetail">
                 <Style.Triggers>
                     <Trigger TargetType="ctrl:MasterDetail" Property="IsDetailVisible" Value="True">
-                        <Setter Property="BackgroundColor" Value="#111111" />
+                        <Setter Property="BackgroundColor" Value="#191919" />
                     </Trigger>
                 </Style.Triggers>
             </Style>
@@ -146,13 +150,19 @@
                 <Setter Property="BackgroundColor" Value="Blue" />
                 <Setter Property="BorderColor" Value="Blue" />
                 <Setter Property="BorderWidth" Value="0" />
-                <Setter Property="WidthRequest" Value="125" />
                 <Setter Property="Padding" Value="0, 0, 0, 0" />
-                
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android" Value="100" />
+                            <On Platform="macOS, WPF" Value="125" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="HeightRequest">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="Android" Value="37" />
+                            <On Platform="Android" Value="30" />
                             <On Platform="macOS, WPF" Value="27" />
                         </OnPlatform>
                     </Setter.Value>
@@ -167,6 +177,14 @@
             </Style>
             <Style x:Key="HighlightedButtonStyle" TargetType="Button" BasedOn="{StaticResource ButtonStyle}">
                 <Setter Property="BackgroundColor" Value="Red" />
+            </Style>
+            <Style x:Key="VerticalLine" TargetType="BoxView">
+                <Setter Property="WidthRequest" Value="2"/>
+                <Setter Property="Color" Value="White" />
+            </Style>
+            <Style x:Key="VerticalLineGray" TargetType="BoxView">
+                <Setter Property="WidthRequest" Value="2"/>
+                <Setter Property="Color" Value="Gray" />
             </Style>
             <Style x:Key="popUp" TargetType="Grid">
                 <Setter Property="BackgroundColor" Value="#EB2f2f2f" />
@@ -218,6 +236,7 @@
             <local:BytesToAutoConverter x:Key="BytesToAuto" />
             <local:BytesToAutoShortConverter x:Key="BytesToAutoShort" />
             <local:MbPerSecondToAutoConverter x:Key="MbPerSecondToAuto" />
+            <local:MbPerSecondToAutoShortConverter x:Key="MbPerSecondToAutoShort" />
             <local:BytesToAutoUnitConverter x:Key="BytesToAutoUnit" />
             <local:MbToAutoUnitConverter x:Key="MbToAutoUnit" />
             <local:MbPerSecondToAutoUnitConverter x:Key="MbPerSecondToAutoUnit" />

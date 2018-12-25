@@ -312,4 +312,7 @@
   <data name="DbNotAvailable" xml:space="preserve">
     <value>\&gt; База результатов недоступна. Проверьте соединение с интернетом</value>
   </data>
+  <data name="Compare" xml:space="preserve">
+    <value>[C] Сравнить</value>
+  </data>
 </root>
