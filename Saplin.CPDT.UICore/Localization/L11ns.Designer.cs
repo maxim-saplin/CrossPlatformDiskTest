@@ -239,6 +239,12 @@ namespace Saplin.CPDT.UICore.Localization {
             }
         }
         
+        public static string Compare {
+            get {
+                return ResourceManager.GetString("Compare", resourceCulture);
+            }
+        }
+        
         public static string Min {
             get {
                 return ResourceManager.GetString("Min", resourceCulture);
@@ -422,6 +428,24 @@ namespace Saplin.CPDT.UICore.Localization {
         public static string WriteBufferingOption {
             get {
                 return ResourceManager.GetString("WriteBufferingOption", resourceCulture);
+            }
+        }
+        
+        public static string CClose {
+            get {
+                return ResourceManager.GetString("CClose", resourceCulture);
+            }
+        }
+        
+        public static string Database {
+            get {
+                return ResourceManager.GetString("Database", resourceCulture);
+            }
+        }
+        
+        public static string DbNotAvailable {
+            get {
+                return ResourceManager.GetString("DbNotAvailable", resourceCulture);
             }
         }
     }

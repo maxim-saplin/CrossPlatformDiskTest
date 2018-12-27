@@ -50,6 +50,11 @@ namespace Saplin.CPDT.UICore.ViewModels
             get { return ViewModelContainer.GetSingletonInstance<ErrorViewModel>(); }
         }
 
+        public static ResultsDbViewModel ResultsDbViewModel
+        {
+            get { return ViewModelContainer.GetSingletonInstance<ResultsDbViewModel>(); }
+        }
+
         public static L11n L11n
         {
             get { return ViewModelContainer.GetSingletonInstance<L11n>(); }

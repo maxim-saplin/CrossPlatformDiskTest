@@ -4,11 +4,12 @@ using Android.Content.PM;
 using Android.Content.Res;
 using Android.OS;
 using Android.Runtime;
+using Android.Util;
 using Android.Views;
 
 namespace Saplin.CPDT.Droid
 {
-    [Activity(Label = "Cross Platfrom Disk Test", Icon = "@mipmap/ic_launcher", Theme = "@style/BlackTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Cross Platfrom Disk Test", Icon = "@mipmap/ic_launcher", Theme = "@style/BlackTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.FontScale)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         public static MainActivity Instance { get; protected set; }
@@ -19,7 +20,6 @@ namespace Saplin.CPDT.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
-            AdjustFontScale(Resources.Configuration);
 
             Instance = this;
 
@@ -40,16 +40,26 @@ namespace Saplin.CPDT.Droid
             }
         }
 
-        public void AdjustFontScale(Configuration config)
+        protected override void AttachBaseContext(Context @base)
         {
-            var configuration = new Configuration(config);
-            configuration.FontScale = 1.0f;
-            var metrics = Resources.DisplayMetrics;
-            var wm = GetSystemService(Context.WindowService).JavaCast<IWindowManager>();
-            wm.DefaultDisplay.GetMetrics(metrics);
-            metrics.ScaledDensity = configuration.FontScale * metrics.Density;
-            //Application.Context.CreateConfigurationContext(configuration);
-            Application.Context.Resources.UpdateConfiguration(configuration, metrics);
+            var configuration = new Configuration(@base.Resources.Configuration);
+
+            int minDimension = @base.Resources.Configuration.ScreenWidthDp > @base.Resources.Configuration.ScreenHeightDp
+               ? @base.Resources.Configuration.ScreenHeightDp : @base.Resources.Configuration.ScreenWidthDp;
+
+            if (minDimension > 640)
+            {
+                configuration.FontScale = 1.2f;
+            }
+            else if (minDimension > 360)
+            {
+                configuration.FontScale = 1f;
+            }
+            else configuration.FontScale = 0.8f;
+
+            var config =  Application.Context.CreateConfigurationContext(configuration);
+
+            base.AttachBaseContext(config);
         }
     }
 }

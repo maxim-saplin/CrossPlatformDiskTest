@@ -16,16 +16,14 @@ namespace Saplin.CPDT.UICore
 
             InitializeComponent();
 
-            //if (ViewModelContainer.OptionsViewModel.WhiteThemeBool) mainLayout.BackgroundColor = Color.White;
+            ViewModelContainer.ResultsDbViewModel.BindWebView(webView);
 
             AdaptLayoytToScreenWidth();
 
             bitSystem.Text += Environment.Is64BitProcess ? " 64bit" : " 32bit";
-
-
         }
 
-        private static void ApplyTheme()
+        private void ApplyTheme()
         {
             if ((App.Current as App).WhiteTheme)
             {
@@ -37,18 +35,19 @@ namespace Saplin.CPDT.UICore
                         Application.Current.Resources[key] = whiteTheme[key];
                 }
             }
+
         }
 
         private void AdaptLayoytToScreenWidth()
         {
-
-
             var testResultsNarrow = false;
             var testSessionsNarrow = false;
             var narrowWidth = 640;
 
             SizeChanged += (s, e) =>
             {
+                buttons.AdaptLayoytToScreenWidth(Width < narrowWidth);
+
                 if (Width < narrowWidth)
                 {
                     if (!testResultsNarrow)
@@ -71,7 +70,7 @@ namespace Saplin.CPDT.UICore
                     {
                         testSessionsNarrow = true;
 
-                        var ts = new TestSessionsNarrow(); 
+                        var ts = new TestSessionsNarrow();
 
                         testSessionsPlaceholder.Children.Clear();
                         testSessionsPlaceholder.Children.Add(ts);
@@ -142,24 +141,35 @@ namespace Saplin.CPDT.UICore
             }
         }
 
+        protected override bool OnBackButtonPressed()
+        {
+            if (ViewModelContainer.ResultsDbViewModel.IsVisible) ViewModelContainer.ResultsDbViewModel.IsVisible = false;
+            else OnKeyPressed((char)27, SysKeys.Esc);
+
+            return true;
+        }
+
         // TODO - change to events
         public void OnKeyPressed(char key, SysKeys? sysKey)
         {
-            if (key == 'q')
+            if (!ViewModelContainer.ResultsDbViewModel.IsVisible)
             {
-                CloseAplication();
-            }
-            else if (sysKey != null)
-            {
-                KeyPress.FindAndExecuteCommand(sysKey.Value);
-            }
-            else
-            {
-                KeyPress.FindAndExecuteCommand(key);
+                if (key == 'q')
+                {
+                    CloseAplication();
+                }
+                else if (sysKey != null)
+                {
+                    KeyPress.FindAndExecuteCommand(sysKey.Value);
+                }
+                else
+                {
+                    KeyPress.FindAndExecuteCommand(key);
 
-            }
+                }
 
-            BlinkingCursor.AddBlinkKey(key, sysKey);
+                BlinkingCursor.AddBlinkKey(key, sysKey);
+            }
         }
     }
 }

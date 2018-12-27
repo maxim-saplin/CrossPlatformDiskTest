@@ -48,7 +48,7 @@
             <!-- LAYOUTS-->
             <Style x:Key="mainLayout" TargetType="AbsoluteLayout" >
                 <Setter Property="BackgroundColor" Value="Black" />
-                <Setter Property="Padding" Value="10, 10, 10, 10" />
+                <Setter Property="Padding" Value="0, 0, 0, 0" />
             </Style>
             <Style x:Key="testRunningHeader" TargetType="StackLayout">
                 <Setter Property="BackgroundColor" Value="#111111" />
@@ -85,13 +85,28 @@
                 <Setter Property="TextColor" Value="#FFCFCFCF" />
                 <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
             </Style>
-            <Style x:Key="GrayedLabel" TargetType="ctrl:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
+            <Style x:Key="GrayedLabel" TargetType="ctrl:ExtendedLabel">
                 <Setter Property="TextColor" Value="#FF808080" />
                 <Setter Property="Font" Value="{StaticResource FontItalic}" />
             </Style>
-            <Style x:Key="AccentedLabel" TargetType="ctrl:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
+            <Style x:Key="AccentedLabel" TargetType="ctrl:ExtendedLabel">
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="Font" Value="{StaticResource FontBold}" />
+            </Style>
+            <Style x:Key="CloseWebViewLabel" TargetType="ctrl:ExtendedLabel">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="Font" Value="{StaticResource FontBold}" />
+                <Setter Property="BackgroundColor">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="Android, macOS" Value="Transparent" />
+                            <On Platform="WPF" Value="Black" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="ShadeBox" TargetType="BoxView">
+                <Setter Property="BackgroundColor" Value="Black"/>
             </Style>
             <Style x:Key="HighlightKeys" TargetType="Span">
                 <Setter Property="TextColor" Value="White" />
@@ -116,6 +131,10 @@
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="Font" Value="{StaticResource FontBold}" />
             </Style>
+             <Style x:Key="GrayedSpan" TargetType="Span">
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="Font" Value="{StaticResource FontItalic}" />
+            </Style>
             <Style x:Key="SpanStyle" TargetType="Span">
                 <Setter Property="TextColor" Value="#FFCFCFCF" />
                 <Setter Property="Font" Value="{StaticResource FontNormal}" />
@@ -124,7 +143,7 @@
             <Style TargetType="ctrl:MasterDetail">
                 <Style.Triggers>
                     <Trigger TargetType="ctrl:MasterDetail" Property="IsDetailVisible" Value="True">
-                        <Setter Property="BackgroundColor" Value="#111111" />
+                        <Setter Property="BackgroundColor" Value="#191919" />
                     </Trigger>
                 </Style.Triggers>
             </Style>
@@ -134,13 +153,19 @@
                 <Setter Property="BackgroundColor" Value="Blue" />
                 <Setter Property="BorderColor" Value="Blue" />
                 <Setter Property="BorderWidth" Value="0" />
-                <Setter Property="WidthRequest" Value="125" />
                 <Setter Property="Padding" Value="0, 0, 0, 0" />
-                
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android" Value="125" />
+                            <On Platform="macOS, WPF" Value="125" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="HeightRequest">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="Android" Value="37" />
+                            <On Platform="Android" Value="35" />
                             <On Platform="macOS, WPF" Value="27" />
                         </OnPlatform>
                     </Setter.Value>
@@ -153,8 +178,38 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            <Style x:Key="NarrowButtonStyle" TargetType="Button" BasedOn="ButtonStyle">
+                <Setter Property="TextColor" Value="White" />
+                 <Setter Property="BackgroundColor" Value="Blue" />
+                <Setter Property="BorderColor" Value="Blue" />
+                <Setter Property="BorderWidth" Value="0" />
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android" Value="100" />
+                            <On Platform="macOS, WPF" Value="100" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>  
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android" Value="30" />
+                            <On Platform="macOS, WPF" Value="27" />
+                        </OnPlatform>
+                    </Setter.Value>     
+                </Setter> 
+            </Style>
+            <Style x:Key="VerticalLine" TargetType="BoxView">
+                <Setter Property="WidthRequest" Value="2"/>
+                <Setter Property="Color" Value="White" />
+            </Style>
+            <Style x:Key="VerticalLineGray" TargetType="BoxView">
+                <Setter Property="WidthRequest" Value="2"/>
+                <Setter Property="Color" Value="Gray" />
+            </Style>
             <Style x:Key="popUp" TargetType="Grid">
-                <Setter Property="BackgroundColor" Value="#EB3c4f44" />
+                <Setter Property="BackgroundColor" Value="#EB2f2f2f" />
                 <Setter Property="Padding" Value="10, 10, 10, 10" />
             </Style>
             <Style x:Key="popUpError" TargetType="Grid">
@@ -178,6 +233,24 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            <Style x:Key="fullScreenPopUpContainer" TargetType="StackLayout">
+                <Setter Property="BackgroundColor">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="Android" Value="#88000000" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="Android" Value="0, 0, 0, 0" />
+                            <On Platform="macOS, WPF" Value="0, 0, 0, 0" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
             <!--END OF STYLES-->
             <!-- XAML value converters -->
             <local:BoolNotConverter x:Key="BoolNot" />
@@ -185,6 +258,7 @@
             <local:BytesToAutoConverter x:Key="BytesToAuto" />
             <local:BytesToAutoShortConverter x:Key="BytesToAutoShort" />
             <local:MbPerSecondToAutoConverter x:Key="MbPerSecondToAuto" />
+            <local:MbPerSecondToAutoShortConverter x:Key="MbPerSecondToAutoShort" />
             <local:BytesToAutoUnitConverter x:Key="BytesToAutoUnit" />
             <local:MbToAutoUnitConverter x:Key="MbToAutoUnit" />
             <local:MbPerSecondToAutoUnitConverter x:Key="MbPerSecondToAutoUnit" />

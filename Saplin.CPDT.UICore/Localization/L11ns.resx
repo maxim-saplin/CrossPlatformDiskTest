@@ -213,6 +213,9 @@
   <data name="MemCopyTestShort" xml:space="preserve">
     <value>Mem. copy</value>
   </data>
+  <data name="Compare" xml:space="preserve">
+    <value>[C]ompare</value>
+  </data>
   <data name="Min" xml:space="preserve">
     <value>Min</value>
   </data>
@@ -305,5 +308,14 @@
   </data>
   <data name="WriteBufferingOption" xml:space="preserve">
     <value>Write [b]uffering:</value>
+  </data>
+  <data name="CClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>[D]atabase</value>
+  </data>
+  <data name="DbNotAvailable" xml:space="preserve">
+    <value>\&gt; Results Database isn't available. Check internet connection</value>
   </data>
 </root>

@@ -22,6 +22,7 @@ namespace Saplin.CPDT.Mac
             _window.StandardWindowButton(NSWindowButton.CloseButton).Hidden = true;
             _window.StandardWindowButton(NSWindowButton.ZoomButton).Hidden = true;
             _window.StandardWindowButton(NSWindowButton.MiniaturizeButton).Hidden = true;
+            _window.MakeKeyWindow();
         }
 
         public override NSWindow MainWindow

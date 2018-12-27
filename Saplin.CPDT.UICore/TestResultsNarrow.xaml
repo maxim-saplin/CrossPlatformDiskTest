@@ -87,7 +87,14 @@
                 <Label x:Name="statusBadge" IsVisible="{Binding TestStarted}" TextColor="Orange" Text="🔥" Opacity="0.5" Grid.Column="2" LineBreakMode="NoWrap" HorizontalOptions="Center" VerticalOptions="Start"/>  
                 <anim:BounceAnimation x:Name="badgeAnimation" Target="{x:Reference statusBadge}" />
 
-                <Label Text="{Binding TestStatusMessage}" IsVisible="{Binding ShowTestStatusMessage}" Style="{StaticResource GrayedLabel}" HorizontalOptions="Fill" VerticalOptions="Start" VerticalTextAlignment="Start" Grid.Column="3" Grid.ColumnSpan="3" HeightRequest="40"/>
+                <Label Text="{Binding TestStatusMessage}" IsVisible="{Binding ShowTestStatusMessage}" Style="{StaticResource GrayedLabel}" HorizontalOptions="Fill" VerticalOptions="Start" VerticalTextAlignment="Start" Grid.Column="3" Grid.ColumnSpan="3">
+                    <Label.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="macOS" Value="24"/> <!-- macOS hack to avoid aligning percent to the bottom, VerticalOptions not working -->
+                            <On Platform="Android, WPF" Value="40"/>
+                        </OnPlatform>
+                    </Label.HeightRequest>
+                </Label>
 
                 <!-- 
                 There's a bug in Xamarin.Platform.WPF and LabelRenderre in case a Label is created with IsVisible=false (e.g. the bellow example in First version was created as invisible)
@@ -97,7 +104,7 @@
                 
                 Probably that's because Span(s ) have default binding set to OneTime and no tests are done for OneWay
                 -->
-                <Label IsVisible="{Binding ShowCurrentSpeed}" Style="{StaticResource AccentedLabel}" VerticalTextAlignment="Start" VerticalOptions="Start" Grid.Column="3" HeightRequest="40">
+                <Label IsVisible="{Binding ShowCurrentSpeed}" Style="{StaticResource AccentedLabel}" VerticalTextAlignment="Start" VerticalOptions="Start" Grid.Column="3" HeightRequest="40" WidthRequest="60">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="{Binding RecentResultMbps, Mode=OneWay, Converter={StaticResource MbPerSecondToAuto}" />
@@ -107,7 +114,14 @@
                 </Label>
 
                 <Label Text="{Binding ProgressPercent, StringFormat='{0:0}%&#10;'}" Style="{StaticResource GrayedLabel}" 
-                    IsVisible="{Binding ShowTestStatusMessage, Converter={StaticResource BoolNot}}" WidthRequest="40" HeightRequest="40" VerticalOptions="Start" VerticalTextAlignment="Start" Grid.Column="4" Grid.ColumnSpan="2" />
+                    IsVisible="{Binding ShowTestStatusMessage, Converter={StaticResource BoolNot}}" WidthRequest="40" VerticalOptions="Start" VerticalTextAlignment="Start" Grid.Column="4" Grid.ColumnSpan="2">
+                    <Label.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="macOS" Value="24"/> <!-- macOS hack to avoid aligning percent to the bottom, VerticalOptions not working -->
+                            <On Platform="Android, WPF" Value="40"/>
+                        </OnPlatform>
+                    </Label.HeightRequest>
+                </Label>
 
             </ctrl:GridItem>
         </DataTemplate>

@@ -7,6 +7,7 @@ namespace Saplin.CPDT.UICore.Animations
     {
         //private double previousHeight = -1;
 
+        #pragma warning disable CS4014
         protected override async Task Animate()
         {
             if (Trigger) // IsVisible

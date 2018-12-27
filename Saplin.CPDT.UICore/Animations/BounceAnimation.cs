@@ -9,6 +9,7 @@ namespace Saplin.CPDT.UICore.Animations
             Infinite = true;
         }
 
+        #pragma warning disable CS4014
         protected override async Task Animate()
         {
             FadeTo(1.0, 750);

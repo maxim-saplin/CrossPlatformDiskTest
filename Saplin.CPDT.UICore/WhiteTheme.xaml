@@ -1,15 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ResourceDictionary 
-             xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" 
-             x:Class="Saplin.CPDT.UICore.WhiteTheme">
-
+<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" x:Class="Saplin.CPDT.UICore.WhiteTheme">
     <!--STYLES-->
     <!-- LAYOUTS-->
-    <Style x:Key="mainLayout" TargetType="AbsoluteLayout" >
+    <Style x:Key="mainLayout" TargetType="AbsoluteLayout">
         <Setter Property="BackgroundColor" Value="White" />
-        <Setter Property="Padding" Value="10, 10, 10, 10" />
+        <Setter Property="Padding" Value="0, 0, 0, 0" />
     </Style>
     <Style x:Key="testRunningHeader" TargetType="StackLayout">
         <Setter Property="BackgroundColor" Value="#EEEEEE" />
@@ -30,7 +25,6 @@
     </Style>
     <Style TargetType="ctrl:BlinkingCursor" BasedOn="{StaticResource LabelStyle}" />
     <Style TargetType="ctrl:RollingSelector" BasedOn="{StaticResource LabelStyle}" />
-    
     <Style x:Key="AccentedSmallLabel" TargetType="Label">
         <Setter Property="TextColor" Value="#FF202020" />
         <Setter Property="Font" Value="{StaticResource FontItalicSmall}" />
@@ -47,10 +41,24 @@
         <Setter Property="TextColor" Value="#FF202020" />
         <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
     </Style>
-
     <Style x:Key="AccentedLabel" TargetType="ctrl:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
         <Setter Property="TextColor" Value="Black" />
         <Setter Property="Font" Value="{StaticResource FontBold}" />
+    </Style>
+    <Style x:Key="CloseWebViewLabel" TargetType="ctrl:ExtendedLabel">
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="Font" Value="{StaticResource FontBold}" />
+        <Setter Property="BackgroundColor">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android, macOS" Value="Transparent" />
+                    <On Platform="WPF" Value="White" />
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ShadeBox" TargetType="BoxView">
+        <Setter Property="BackgroundColor" Value="White"/>
     </Style>
     <Style x:Key="HighlightKeys" TargetType="Span">
         <Setter Property="TextColor" Value="Black" />
@@ -71,16 +79,21 @@
         <Setter Property="TextColor" Value="#FF202020" />
         <Setter Property="Font" Value="{StaticResource FontItalicSmall}" />
     </Style>
-    <Style x:Key="AccentedSpan" TargetType="Span" >
+    <Style x:Key="AccentedSpan" TargetType="Span">
         <Setter Property="TextColor" Value="Black" />
         <Setter Property="Font" Value="{StaticResource FontBold}" />
     </Style>
-    
-    
-    
     <Style x:Key="SpanStyle" TargetType="Span">
         <Setter Property="TextColor" Value="#FF202020" />
         <Setter Property="Font" Value="{StaticResource FontNormal}" />
+    </Style>
+    <Style x:Key="VerticalLine" TargetType="BoxView">
+        <Setter Property="WidthRequest" Value="2" />
+        <Setter Property="Color" Value="#FF202020" />
+    </Style>
+    <Style x:Key="VerticalLineGray" TargetType="BoxView">
+        <Setter Property="WidthRequest" Value="2" />
+        <Setter Property="Color" Value="#FF666666" />
     </Style>
     <!-- MISC-->
     <Style TargetType="ctrl:MasterDetail">
@@ -91,7 +104,7 @@
         </Style.Triggers>
     </Style>
     <Style x:Key="popUp" TargetType="Grid">
-        <Setter Property="BackgroundColor" Value="#EBe4d1dd" />
+        <Setter Property="BackgroundColor" Value="#EBe9e9e9" />
         <Setter Property="Padding" Value="10, 10, 10, 10" />
     </Style>
     <Style x:Key="popUpContainer" TargetType="StackLayout">
@@ -111,7 +124,22 @@
             </Setter.Value>
         </Setter>
     </Style>
-
+    <Style x:Key="fullScreenPopUpContainer" TargetType="StackLayout">
+        <Setter Property="BackgroundColor">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android" Value="#99FFFFFF" />
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="Android" Value="0, 0, 0, 0" />
+                    <On Platform="macOS, WPF" Value="0, 0, 0, 0" />
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <!--END OF STYLES-->
-
 </ResourceDictionary>

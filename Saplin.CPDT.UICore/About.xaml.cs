@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Reflection;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Saplin.CPDT.UICore
@@ -9,6 +10,7 @@ namespace Saplin.CPDT.UICore
         public About()
         {
             InitializeComponent ();
+            version.Text = "v. "+ Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
     }
 }

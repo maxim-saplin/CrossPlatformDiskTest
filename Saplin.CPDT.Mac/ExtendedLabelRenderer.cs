@@ -104,6 +104,11 @@ namespace Saplin.CPDT.Mac
 
                 newControl.Cell = Control.Cell;
 
+                if ((Element as ExtendedLabel).JustifyText)
+                {
+                    newControl.Alignment = NSTextAlignment.Justified;
+                }
+
                 SetNativeControl(newControl);
             }
         }

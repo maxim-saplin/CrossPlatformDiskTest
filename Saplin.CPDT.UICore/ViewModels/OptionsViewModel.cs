@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using Xamarin.Forms;
-using Xamarin.Forms.Internals;
 
 namespace Saplin.CPDT.UICore.ViewModels
 {
@@ -83,7 +81,7 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             get
             {
-                if (!App.Current.Properties.ContainsKey(nameof(WhiteTheme))) App.Current.Properties[nameof(WhiteTheme)] = True;
+                if (!App.Current.Properties.ContainsKey(nameof(WhiteTheme))) App.Current.Properties[nameof(WhiteTheme)] = False;
                 return App.Current.Properties[nameof(WhiteTheme)] as string;
             }
             set

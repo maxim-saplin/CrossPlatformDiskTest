@@ -14,6 +14,7 @@ namespace Saplin.CPDT.WPF
     {
         const string PropertyStoreFile = "PropertyStore.forms";
 
+        #pragma warning disable CS1998
         public async Task<IDictionary<string, object>> DeserializePropertiesAsync()
         {
             IsolatedStorageFile isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Assembly, null, null);
@@ -33,7 +34,6 @@ namespace Saplin.CPDT.WPF
                 }
                 catch (Exception e)
                 {
-                    //Debug.WriteLine("Could not deserialize properties: " + e.Message);
                     Log.Warning("Xamarin.Forms PropertyStore", $"Exception while reading Application properties: {e}");
                 }
 
@@ -56,7 +56,6 @@ namespace Saplin.CPDT.WPF
             }
             catch
             {
-                //Debug.WriteLine("Could not move new serialized property file over old: " + e.Message);
             }
         }
     }

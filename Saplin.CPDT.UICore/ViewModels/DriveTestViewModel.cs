@@ -184,9 +184,24 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
-        private string fileName;
+        private string fileNameAndTime;
 
         public string FileNameAndTime
+        {
+            get { return fileNameAndTime; }
+            set
+            {
+                if (fileNameAndTime != value)
+                {
+                    fileNameAndTime = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        private string fileName;
+
+        public string FileName
         {
             get { return fileName; }
             set
@@ -342,13 +357,15 @@ namespace Saplin.CPDT.UICore.ViewModels
                              if (freeMemService != null) freeMem = freeMemService.GetBytesFree;
 
                              testSuite = new BigTest(
-                                driveNameToUse, 
-                                optionsVm.FileSizeBytes, 
+                                driveNameToUse,
+                                optionsVm.FileSizeBytes,
+                                //optionsVm.FileSizeBytes/64, 
                                 optionsVm.WriteBufferingBool, 
                                  memCache, 
                                 freeMem: freeMem);
 
                              FileNameAndTime = testSuite.FilePath+", "+string.Format("{0:HH:mm:ss} {0:d.MM.yyyy}", TestStartedTime);
+                             FileName = testSuite.FilePath;
                              Options = string.Format(l11n.TestSummaryFormatString,
                                  optionsVm.FileSizeGb,
                                  (double)freeSpace/1024/1024/1024,
@@ -359,6 +376,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                              {
                                  TestStartedTime = TestStartedTime,
                                  FileNameAndTime = FileNameAndTime,
+                                 FileName = FileName,
                                  DriveName = SelectedDrive,
                                  FileSizeBytes = optionsVm.FileSizeBytes,
                                  FreeSpaceBytes = freeSpace,

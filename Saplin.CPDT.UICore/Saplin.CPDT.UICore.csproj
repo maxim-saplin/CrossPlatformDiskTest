@@ -7,7 +7,10 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
     <DebugType>pdbonly</DebugType>
-    <ReleaseVersion>1.0.2</ReleaseVersion>
+    <ReleaseVersion>2.0.0</ReleaseVersion>
+    <Version>2.0.0</Version>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.2.0.871581" />
@@ -37,6 +40,7 @@
     <Compile Remove="Controls\IList.cs" />
     <Compile Remove="ViewModels\TestResult.cs" />
     <Compile Remove="Misc\IScreenInfo.cs" />
+    <Compile Remove="MainPageButtons.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Img\en.png" />
@@ -49,6 +53,7 @@
     <None Remove="Img\frAboutWhiteTheme.png" />
     <None Remove="Img\ruAboutBlackTheme.png" />
     <None Remove="Img\ruAboutWhiteTheme.png" />
+    <None Remove=".DS_Store" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Img\en.png" />
@@ -88,5 +93,43 @@
     <Compile Update="TestSessionsNarrow.xaml.cs">
       <DependentUpon>TestSessionsNarrow.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="About.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="AndroidSpacer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Error.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="MainPageButtons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Options.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="TestResults.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="TestResultsNarrow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="TestSessions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="TestSessionsNarrow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="WhiteTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
   </ItemGroup>
 </Project>

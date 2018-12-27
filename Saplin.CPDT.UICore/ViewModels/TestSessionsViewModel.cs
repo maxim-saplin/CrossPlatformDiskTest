@@ -6,9 +6,14 @@
 
         public void Add(TestSession testSession)
         {
+            var orderNumber = testSessions.Count;
             foreach (var t in testSessions)
+            {
                 t.Selected = false;
+                t.OrderNumber = orderNumber--;
+            }
 
+            testSession.OrderNumber = testSessions.Count+1;
             testSessions.Add(testSession);
 
             testSession.Selected = true;

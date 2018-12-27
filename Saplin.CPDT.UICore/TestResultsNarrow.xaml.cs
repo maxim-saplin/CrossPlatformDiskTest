@@ -8,5 +8,10 @@ namespace Saplin.CPDT.UICore
         {
             InitializeComponent();
         }
+
+        public void Clear()
+        {
+
+        }
     }
 }

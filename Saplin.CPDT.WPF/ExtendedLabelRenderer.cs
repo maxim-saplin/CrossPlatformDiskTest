@@ -20,19 +20,7 @@ namespace Saplin.CPDT.WPF
             {
                 if (label.ChangeCursorOnMouseHover) Control.Cursor = Cursors.Hand;
 
-                //if (label.FormattedText != null && label.FormattedText.Spans != null && label.FormattedText.Spans.Count > 0 && Control.Inlines != null && Control.Inlines.Count == label.FormattedText.Spans.Count)
-                //{
-                //    var i = 0;
-                //    foreach (var inl in Control.Inlines)
-                //    {
-                //        if (!string.IsNullOrEmpty(label.FormattedText.Spans[i].FontFamily))
-                //        {
-                //            inl.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), label.FormattedText.Spans[i].FontFamily);
-                //        }
-
-                //        i++;
-                //    }
-                //}
+                if (label.JustifyText) Control.TextAlignment = System.Windows.TextAlignment.Justify;
             }
         }
     }
