@@ -196,6 +196,8 @@ namespace Saplin.CPDT.UICore.Controls
             }
         }
 
+        protected WeakReference<Layout> detailViewCached = null;
+
         private static void DetailIsVisibleChanged(BindableObject bindable, object oldValue, object newValue)
         {
             var control = bindable as MasterDetail;
@@ -206,7 +208,20 @@ namespace Saplin.CPDT.UICore.Controls
             {
                 if (control.detailView == null)
                 {
-                    control.detailView = control.ViewFromTemplate(control.DetailTemplate, control.DetailBindingContext ?? control.BindingContext);
+                    Layout cached = null;
+                    control.detailViewCached?.TryGetTarget(out cached);
+
+                    if (cached != null)
+                    {
+                        control.detailView = cached;
+                    }
+                    else
+                    {
+                        control.detailView = control.ViewFromTemplate(control.DetailTemplate, control.DetailBindingContext ?? control.BindingContext);
+                        if (control.detailViewCached == null) control.detailViewCached = new WeakReference<Layout>(control.detailView);
+                        else control.detailViewCached.SetTarget(control.detailView);
+                    }
+
                     control.detailView.IsVisible = false;
                     control.Children.Add(control.detailView);
                     control.detailView.IsVisible = true;
@@ -257,7 +272,7 @@ namespace Saplin.CPDT.UICore.Controls
                 propertyName: nameof(MasterDestroyInvisible),
                 returnType: typeof(bool),
                 declaringType: typeof(MasterDetail),
-                defaultValue: false,
+                defaultValue: true,
                 defaultBindingMode: BindingMode.OneWay
             );
 
@@ -276,7 +291,7 @@ namespace Saplin.CPDT.UICore.Controls
                 propertyName: nameof(DetailDestroyInvisible),
                 returnType: typeof(bool),
                 declaringType: typeof(MasterDetail),
-                defaultValue: true,
+                defaultValue: false,
                 defaultBindingMode: BindingMode.OneWay
             );
 
@@ -294,8 +309,16 @@ namespace Saplin.CPDT.UICore.Controls
         {
             base.OnParentSet();
 
-            MasterIsVisibleChanged(this, null, IsMasterVisible);
-            DetailIsVisibleChanged(this, null, IsDetailVisible);
+            if (Parent != null)
+            {
+                MasterIsVisibleChanged(this, null, IsMasterVisible);
+                DetailIsVisibleChanged(this, null, IsDetailVisible);
+            }
+            else
+            {
+                Children.Clear();
+                BindingContext = null;
+            }
         }
 
         public static readonly BindableProperty ToggleDetailOnClickedProperty =

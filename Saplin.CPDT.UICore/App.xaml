@@ -105,6 +105,9 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            <Style x:Key="ShadeBox" TargetType="BoxView">
+                <Setter Property="BackgroundColor" Value="Black"/>
+            </Style>
             <Style x:Key="HighlightKeys" TargetType="Span">
                 <Setter Property="TextColor" Value="White" />
             </Style>

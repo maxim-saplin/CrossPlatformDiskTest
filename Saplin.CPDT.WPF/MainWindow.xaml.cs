@@ -4,7 +4,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.WPF;
 using System;
 using System.Collections.Generic;
-using System.Windows.Media;
+using System.Reflection;
 
 namespace Saplin.CPDT.WPF
 {

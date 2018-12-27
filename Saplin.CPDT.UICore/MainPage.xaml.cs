@@ -33,8 +33,6 @@ namespace Saplin.CPDT.UICore
                 {
                     if (Application.Current.Resources.ContainsKey(key))
                         Application.Current.Resources[key] = whiteTheme[key];
-
-
                 }
             }
 
@@ -72,7 +70,7 @@ namespace Saplin.CPDT.UICore
                     {
                         testSessionsNarrow = true;
 
-                        var ts = new TestSessionsNarrow(); 
+                        var ts = new TestSessionsNarrow();
 
                         testSessionsPlaceholder.Children.Clear();
                         testSessionsPlaceholder.Children.Add(ts);

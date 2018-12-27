@@ -24,13 +24,21 @@
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                     <Label Text="{Binding OrderNumber, StringFormat='#{0}'}" />
                                     <Label Text="{Binding DriveName}" />
-                                    <Label HorizontalOptions="FillAndExpand"/>
-                                    <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Compare}" Command="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=Compare}" CommandParameter="{Binding .}" IsEnabled="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=IsEnabled}" IsVisible="{Binding Selected}" ChangeCursorOnMouseHover="True" VerticalOptions="Start" HorizontalOptions="End" HorizontalTextAlignment="End" LineBreakMode="WordWrap" />
+                                    <StackLayout IsVisible="{Binding Selected}" HorizontalOptions="EndAndExpand">
+                                        <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Compare}" 
+                                                            Command="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=Compare}" 
+                                                            CommandParameter="{Binding .}" IsEnabled="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=IsEnabled}" 
+                                                            ChangeCursorOnMouseHover="True" 
+                                                            VerticalOptions="Start" 
+                                                            HorizontalOptions="End"
+                                                            HorizontalTextAlignment="End"
+                                                            LineBreakMode="WordWrap" />
+                                    </StackLayout>
                                 </StackLayout>
                                 <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm:ss} {0:d.MM.yyyy}'}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start" Margin="0, -6, 0, 4" />
                                     
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0, -6, 0, 0">
-                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" VerticalOptions="Start">
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" VerticalOptions="Start" VerticalTextAlignment="Start">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=SequentialWriteTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>
@@ -39,7 +47,7 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" VerticalOptions="Start">
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" VerticalOptions="Start" VerticalTextAlignment="Start">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=SequentialReadTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>
@@ -48,7 +56,7 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" VerticalOptions="Start">
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" VerticalOptions="Start" VerticalTextAlignment="Start">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RandomWriteTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>
@@ -57,7 +65,7 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" VerticalOptions="Start">
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" VerticalOptions="Start" VerticalTextAlignment="Start">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RandomReadTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>
@@ -66,7 +74,7 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" VerticalOptions="Start">
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" VerticalOptions="Start" VerticalTextAlignment="Start">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=MemCopyTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>

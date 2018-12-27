@@ -14,6 +14,7 @@ namespace Saplin.CPDT.WPF
     {
         const string PropertyStoreFile = "PropertyStore.forms";
 
+        #pragma warning disable CS1998
         public async Task<IDictionary<string, object>> DeserializePropertiesAsync()
         {
             IsolatedStorageFile isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Assembly, null, null);

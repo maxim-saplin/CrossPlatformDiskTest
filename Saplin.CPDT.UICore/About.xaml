@@ -16,7 +16,7 @@
         </Grid.Padding>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="120"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
@@ -32,9 +32,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
-        <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Close}" Grid.Row="0" Grid.Column="1" 
+        <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Close}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
                             ChangeCursorOnMouseHover="True" Command="{Binding Close}" 
-                            VerticalOptions="Start" />
+                            VerticalOptions="Start" HorizontalOptions="End" />
         <ctrl:ExtendedLabel JustifyText="True" Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=About1}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start" />
         <ctrl:ExtendedLabel JustifyText="True" Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=About7}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start" />
         <Image Source="{Binding AboutImage}" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Aspect="AspectFit" HorizontalOptions="Center">
@@ -57,8 +57,7 @@
         <ctrl:ExtendedLabel JustifyText="True" Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=About5}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start" />
         <ctrl:ExtendedLabel JustifyText="True" Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=About6}" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start" />
         <ctrl:ExtendedLabel JustifyText="True" Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=About8}" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2"  />
-        <ctrl:ExtendedLabel Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=ProjectLink}" ChangeCursorOnMouseHover="True" TextColor="BlueViolet" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Command="{Binding NavigateToProjectSite}"  />
-
+        <ctrl:ExtendedLabel Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=ProjectLink}" ChangeCursorOnMouseHover="True" TextColor="Green" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Command="{Binding NavigateToProjectSite}"  />
+        <Label x:Name="version"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start" HorizontalOptions="Start" />
     </Grid>
-    
 </ScrollView>

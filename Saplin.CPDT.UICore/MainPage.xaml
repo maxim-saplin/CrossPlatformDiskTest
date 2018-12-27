@@ -40,13 +40,13 @@
                                             <Label IsVisible="{Binding ShowDiveIsSameMessage}">
                                                 <Label.FormattedText>
                                                     <FormattedString>
-                                                        <Span Text="   ↖ ↗&#xA;" FontSize="20"/>
+                                                        <Span Text="   ↖ ↗&#xA;" FontSize="18"/>
                                                         <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, AndroidSameAliases, Mode=OneWay}" Style="{StaticResource SmallSpan}" />
-                                                        <Span Text="&#xA;   ↙ ↘" FontSize="20"/>
+                                                        <Span Text="&#xA;   ↙ ↘" FontSize="18"/>
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
-                                            <local:AndroidSpacer FontSize="6" IsVisible="{Binding ShowDiveIsSameMessage}"/>
+                                            <local:AndroidSpacer FontSize="2" IsVisible="{Binding ShowDiveIsSameMessage}"/>
                                             <StackLayout Orientation="Horizontal">
                                                 <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding IndexAndName}" Command="{Binding Source={x:Static vm:ViewModelContainer.DriveTestViewModel}, Path=PickAndTestDrive}" CommandParameter="{Binding Name}" ChangeCursorOnMouseHover="{Binding AvailableForTest}" IsEnabled="{Binding AvailableForTest}" LineBreakMode="MiddleTruncation" >
                                                     <ctrl:ExtendedLabel.Style>
@@ -76,8 +76,8 @@
                         <local:AndroidSpacer FontSize="12"/>
                     </StackLayout>
                     <anim:VisibilityFadeAnimation x:Name="testInProgressAnimation" Target="{x:Reference testInProgressLayout}" Trigger="{Binding TestStarted}" />
-                    <StackLayout x:Name="testInProgressLayout" Orientation="Vertical" IsVisible="False" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="16, 0, 16, 0">
-                        <StackLayout Orientation="Horizontal" IsVisible="{Binding TestStarted}" Style="{StaticResource testRunningHeader}" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="10, 6, 10, 6">
+                    <StackLayout x:Name="testInProgressLayout" Orientation="Vertical" IsVisible="False" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="6, 0, 6, 0">
+                        <StackLayout Orientation="Horizontal" IsVisible="{Binding TestStarted}" Style="{StaticResource testRunningHeader}" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="10, 9, 10, 9">
                             <Label Text="{Binding SelectedDrive}" HorizontalOptions="Start" VerticalOptions="Center" LineBreakMode="MiddleTruncation" />
                             <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm}'}" Style="{x:StaticResource Key=AccentedSuperSmallLabel}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
                             <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=BreakTest}" ChangeCursorOnMouseHover="true" Command="{Binding BreakTest}" HorizontalOptions="End" VerticalOptions="Center"/>
@@ -89,8 +89,8 @@
                             <local:TestResults ItemsSource="{Binding TestResults}" ShowFooterIfEmptyItems="True" />
                         </StackLayout>
                     </StackLayout>
-                    <anim:VisibilityFadeAnimation2 x:Name="testSessionsAnimation" Target="{x:Reference testSessionsPlaceholder}" Trigger="{Binding TestStarted, Converter={StaticResource BoolNot}}" />
-                    <StackLayout x:Name="testSessionsPlaceholder" IsVisible="False" Margin="-10, 0, -10, 0" Padding="10, 0, 10, 0">
+                    <!--<anim:VisibilityFadeAnimation2 x:Name="testSessionsAnimation" Target="{x:Reference testSessionsPlaceholder}" Trigger="{Binding TestStarted, Converter={StaticResource BoolNot}}" />-->
+                    <StackLayout x:Name="testSessionsPlaceholder" IsVisible="True" Margin="-10, 0, -10, 0" Padding="10, 0, 10, 0">
                         <local:TestSessions x:Name="testSessions"/>
                     </StackLayout>
                     <StackLayout IsVisible="{Binding TestStarted, Converter={StaticResource BoolNot}}">
@@ -123,24 +123,28 @@
                 <local:Error HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
             </StackLayout>
 
+            <BoxView AbsoluteLayout.LayoutBounds="1.0, 1.0, 1.0, 1.0" 
+                     AbsoluteLayout.LayoutFlags="All" 
+                     Style="{StaticResource ShadeBox}"
+                     IsVisible="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=IsVisible}">
+            </BoxView>
             <WebView x:Name="webView" AbsoluteLayout.LayoutBounds="1.0, 1.0, 1.0, 1.0" 
                          AbsoluteLayout.LayoutFlags="All" 
                          BackgroundColor="Black"
-                         BindingContext="{x:Static vm:ViewModelContainer.ResultsDbViewModel}" 
-                         IsVisible="{Binding IsVisible}">
+                         IsVisible="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=IsVisible}">
                 <WebView.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
                         <On Platform="Android, macOS" Value="0, 0, 0, 0" />
-                        <On Platform="WPF" Value="0, 13, 0, 0" />
+                        <On Platform="WPF" Value="0, 33, 0, 0" />
                     </OnPlatform>
                 </WebView.Margin>
             </WebView>
             <ctrl:ExtendedLabel Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=CClose}"
-                         AbsoluteLayout.LayoutBounds="0, 0, 1.0, 33" 
+                         AbsoluteLayout.LayoutBounds="0, 10, 1.0, 33" 
                          AbsoluteLayout.LayoutFlags="WidthProportional"
                          Margin="0, 0, 10, 0"
+                         BindingContext="{x:Static vm:ViewModelContainer.ResultsDbViewModel}"
                          ChangeCursorOnMouseHover="True" 
-                         BindingContext="{x:Static vm:ViewModelContainer.ResultsDbViewModel}" 
                          Command="{Binding Close}" 
                          Style="{StaticResource CloseWebViewLabel}"
                          HorizontalTextAlignment="End"

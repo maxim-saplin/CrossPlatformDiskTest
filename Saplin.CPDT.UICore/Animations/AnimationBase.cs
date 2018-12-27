@@ -152,6 +152,7 @@ namespace Saplin.CPDT.UICore.Animations
             ViewExtensions.CancelAnimations(target);
         }
 
+        #pragma warning disable CS1998
         private static async void TargetChanged(BindableObject bindable, object oldValue, object newValue)
         {
             var control = bindable as AnimationBase;

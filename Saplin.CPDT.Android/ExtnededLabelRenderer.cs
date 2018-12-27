@@ -1,5 +1,4 @@
-﻿using System;
-using Android.Content;
+﻿using Android.Content;
 using Saplin.CPDT.UICore.Controls;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;

@@ -11,7 +11,7 @@
                 <ctrl:MasterDetail.MasterTemplate>
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="10, 4, 10, 0">
-                            <ctrl:ExtendedLabel Text="{Binding SelectedNodeText, Mode=OneWay}" MinimumWidthRequest="40" ChangeCursorOnMouseHover="True" VerticalOptions="Center" ctrl:MasterDetail.ToggleDetailOnClicked="True" LineBreakMode="CharacterWrap">
+                            <ctrl:ExtendedLabel Text="{Binding SelectedNodeText}" MinimumWidthRequest="40" ChangeCursorOnMouseHover="True" VerticalOptions="Center" ctrl:MasterDetail.ToggleDetailOnClicked="True" LineBreakMode="CharacterWrap">
                                 <ctrl:ExtendedLabel.Style>
                                     <OnPlatform x:TypeArguments="Style">
                                         <On Platform="Android" Value="{StaticResource AccentedLabel}" />
@@ -25,8 +25,16 @@
                                     <Label Text="{Binding OrderNumber, StringFormat='#{0}:'}" />
                                     <Label Text="{Binding DriveName}" />
                                     <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm:ss} {0:d.MM.yyyy}'}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start" />
-                                    <Label HorizontalOptions="FillAndExpand"/>
-                                    <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Compare}" Command="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=Compare}" CommandParameter="{Binding .}" IsEnabled="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=IsEnabled}" IsVisible="{Binding Selected}" ChangeCursorOnMouseHover="True" VerticalOptions="Start" HorizontalOptions="End" HorizontalTextAlignment="End" LineBreakMode="WordWrap" />
+                                    <StackLayout IsVisible="{Binding Selected}" HorizontalOptions="EndAndExpand">
+                                        <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Compare}" 
+                                                            Command="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=Compare}" 
+                                                            CommandParameter="{Binding .}" IsEnabled="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=IsEnabled}" 
+                                                            ChangeCursorOnMouseHover="True" 
+                                                            VerticalOptions="Start" 
+                                                            HorizontalOptions="End"
+                                                            HorizontalTextAlignment="End"
+                                                            LineBreakMode="WordWrap" />
+                                    </StackLayout>
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0, -6, 0, 0">
                                     <Label LineBreakMode="WordWrap" Margin="0, 0, 6, 0">

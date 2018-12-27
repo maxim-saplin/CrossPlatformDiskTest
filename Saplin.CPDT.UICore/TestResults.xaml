@@ -83,10 +83,10 @@
                 <Label Text="{Binding TestStatusMessage}" IsVisible="{Binding ShowTestStatusMessage}" Style="{StaticResource GrayedLabel}" HorizontalOptions="Fill" LineBreakMode="TailTruncation" Grid.Column="3" Grid.ColumnSpan="2"/>
 
                 <!-- 
-                There's a bug in Xamarin.Platform.WPF and LabelRenderre in case a Label is created with IsVisible=false (e.g. the bellow example in First version was created as invisible)
+                There's a bug in Xamarin.Platform.WPF and LabelRenderer in case a Label is created with IsVisible=false (e.g. the bellow example in First version was created as invisible)
                 in some cases within Grid Layout while measuring the contol in it's internals, System.OutOfMemoryExpcetion could occur. Investigation showed this was due to
                 endless loop at Xamarin.Forms.Platform.UAP.TextBlockExtensions.cs line 78 'lineHeights.Add(lineHeight);'. The reason for that is 'defaultLineHeight' set to 0
-                in LabelRenderer.UpdateText where heights are set to 0 to all spans within invisbl labels and TextBlockExtensions.RecalculateSpanPositions loop not accounting for that case
+                in LabelRenderer.UpdateText where heights are set to 0 to all spans within invisble labels and TextBlockExtensions.RecalculateSpanPositions loop not accounting for that case
                 -->
                 <Label IsVisible="{Binding ShowCurrentSpeed}" Style="{StaticResource AccentedLabel}" VerticalOptions="Start" Grid.Column="3" LineBreakMode="NoWrap" WidthRequest="90">
                     <Label.FormattedText>

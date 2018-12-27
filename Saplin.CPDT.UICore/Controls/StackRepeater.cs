@@ -102,9 +102,14 @@ namespace Saplin.CPDT.UICore.Controls
         {
             base.OnParentSet();
 
-            if (ItemsSource == null && BindingContext is IEnumerable)
+            if (ItemsSource == null && BindingContext is IEnumerable && Parent != null)
             {
                 ItemsSource = BindingContext as IEnumerable;
+            }
+            else if (Parent == null)
+            {
+                ItemsSource = null;
+                Children.Clear();
             }
         }
 
