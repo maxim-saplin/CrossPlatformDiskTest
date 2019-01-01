@@ -1,4 +1,4 @@
-﻿using Saplin.StorageSpeedMeter;
+﻿ using Saplin.StorageSpeedMeter;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -447,7 +447,7 @@ namespace Saplin.CPDT.UICore.ViewModels
 
                                          if (optionsVm.CsvBool && !breakingTest)
                                          {
-                                             testSession.CsvFileName = testSuite.ExportToCsv(Path.Combine(testSuite.FileFolderPath, testResultsFolder), false, testSession.TestStartedTime)[0];
+                                             testSession.CsvFileName = testSuite.ExportToCsv(Path.Combine(testSuite.FileFolderPath, testResultsFolder), true, testSession.TestStartedTime)[0];
                                          }
                                      }
 
