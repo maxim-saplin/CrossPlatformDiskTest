@@ -14,7 +14,7 @@ Measuring storage performance (SSD, HDD, USB Flash etc.) and RAM speed across Wi
 
 - Android 4.4+ 
   - Play Market: https://play.google.com/store/apps/details?id=com.Saplin.CPDT
-  - APK: https://github.com/maxim-saplin/CrossPlatformDiskTest/releases/download/2.0.0/com.Saplin.CPDT.apk
+  - APK: https://github.com/maxim-saplin/CrossPlatformDiskTest/releases/download/2.0.1/com.Saplin.CPDT.apk
 
 ## Benchmark chart
 
