@@ -238,7 +238,7 @@
     <value>Произвольное чтение</value>
   </data>
   <data name="RandomReadTestShort" xml:space="preserve">
-    <value>Произ. чтение</value>
+    <value>Произв. чтение</value>
   </data>
   <data name="RandomWriteTest" xml:space="preserve">
     <value>Произвольная запись</value>
