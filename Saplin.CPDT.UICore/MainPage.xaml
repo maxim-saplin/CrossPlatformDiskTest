@@ -140,7 +140,7 @@
                 </WebView.Margin>
             </WebView>
             <ctrl:ExtendedLabel Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=CClose}"
-                         AbsoluteLayout.LayoutBounds="0, 10, 1.0, 33" 
+                         AbsoluteLayout.LayoutBounds="0, 0, 1.0, 33" 
                          AbsoluteLayout.LayoutFlags="WidthProportional"
                          Margin="0, 0, 10, 0"
                          BindingContext="{x:Static vm:ViewModelContainer.ResultsDbViewModel}"
