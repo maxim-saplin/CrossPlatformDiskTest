@@ -142,13 +142,19 @@
             <ctrl:ExtendedLabel Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=CClose}"
                          AbsoluteLayout.LayoutBounds="0, 0, 1.0, 33" 
                          AbsoluteLayout.LayoutFlags="WidthProportional"
-                         Margin="0, 0, 10, 0"
                          BindingContext="{x:Static vm:ViewModelContainer.ResultsDbViewModel}"
                          ChangeCursorOnMouseHover="True" 
                          Command="{Binding Close}" 
                          Style="{StaticResource CloseWebViewLabel}"
                          HorizontalTextAlignment="End"
-                         IsVisible="{Binding IsVisible}" />
+                         IsVisible="{Binding IsVisible}">
+                <ctrl:ExtendedLabel.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android, macOS" Value="0, 0, 10, 0" />
+                        <On Platform="WPF" Value="0, 10, 10, 0" />
+                     </OnPlatform>
+                </ctrl:ExtendedLabel.Margin>
+            </ctrl:ExtendedLabel>
 
         </AbsoluteLayout>
     </ContentPage.Content>
