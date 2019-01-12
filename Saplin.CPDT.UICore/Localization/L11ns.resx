@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,28 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About1" xml:space="preserve">
-    <value>This application uses standrd OS's file API (WinAPI on Windows, POSIX on Mac and NDK on Android) to measure the speed of data transfer (in Megabytes per Second) between storage device (HDD, SSD, USB flash drive) and system memory(RAM). API calls are done through .NET Framework/Mono.</value>
+    <value>This application uses standard OS's file API (WinAPI on Windows, POSIX on Mac and NDK on Android) to measure the speed of data transfer (in Megabytes per Second) between storage device (HDD, SSD, USB flash drive) and system memory(RAM). API calls are done through .NET Framework/Mono.</value>
   </data>
   <data name="About2" xml:space="preserve">
-    <value>Sequential read and sequential write tests transfer large chunks of data (megabytes) between RAM and Storage. These tests are representative of such disk operstions as large file copying, video recording/encoding/decoding etc.</value>
+    <value>Sequential read and sequential write tests transfer large chunks of data (megabytes) between RAM and Storage. These tests are representative of such disk operations as large file copying, video recording/encoding/decoding etc.</value>
   </data>
   <data name="About3" xml:space="preserve">
-    <value>Random tests run for 7 seconds each and do transfers in small chunks (4KB and 32KB) at random positions within the test file. These tests show how file system performance influnce applications' load times, copying multiple small files, runnning database queries etc.</value>
+    <value>Random tests run for 7 seconds each and do transfers in small chunks (4KB and 32KB) at random positions within the test file. These tests show how file system performance influence applications' load times, copying multiple small files, running database queries etc.</value>
   </data>
   <data name="About4" xml:space="preserve">
     <value>In 'Options' section you might find settings which may influence test results:</value>
   </data>
   <data name="About5" xml:space="preserve">
-    <value>• Write buffering - influences write test. Write operations use intermediary memory buffer and postpone data commit to latter more convinient time for better performace at a cost of less resiliant writes (e.g. power failure and not commiting to disk write buffer contents).</value>
+    <value>• Write buffering - influences write test. Write operations use intermediary memory buffer and postpone data commit to latter more convenient time for better performance at a cost of less resilient writes (e.g. power failure and not committing to disk write buffer contents).</value>
   </data>
   <data name="About6" xml:space="preserve">
-    <value>• In-memory file cache - influences read tests. Any file operation requires from OS either transfering file data to memory or memory data to disk, OS will keep those memory pages in RAM until there's preasure for RAM from other apps. In case OS receives subsequent file read/write requests through API it will simply copy the cached memory pages from previous file operstions and not utilize the actual storage device. Turning this option on is essential a test of OS's file caching subsystem and RAM speed, rather than storage device test.</value>
+    <value>• In-memory file cache - influences read tests. Any file operation requires from OS either transferring file data to memory or memory data to disk, OS will keep those memory pages in RAM until there's pressure for RAM from other apps. In case OS receives subsequent file read/write requests through API it will simply copy the cached memory pages from previous file operations and not utilize the actual storage device. Turning this option on is essential a test of OS's file caching subsystem and RAM speed, rather than storage device test.</value>
   </data>
   <data name="About7" xml:space="preserve">
-    <value>Operations on computers and smartphones are executed by processor (CPU) against data which is loaded in system memory (RAM). This memory is not permament and limited in size, that's why theres always a permanent storage (SSD, HDD, SD Card - aka "disk/drive"). In many cases the performance of the system is determined not only by CPU (whichs are usualy in the spotlight of advertising and target of numerous benchmarks) but by the performance of memory, specifically RAM and storage. Official specs (especially with smartphones) give little description of storage characterisitcs, beyond capacity. This application attempts to give clear performance characteristics of memory by  isolating and measuring 3 aspects: the speed of reads (transfers from DRIVE-to-RAM). writes (RAM-to-DRIVE) and system memory (copying data from one area in RAM to another).</value>
+    <value>Operations on computers and smartphones are executed by processor (CPU) against data which is loaded in system memory (RAM). This memory is not permanent and limited in size, that's why theres always a permanent storage (SSD, HDD, SD Card - aka "disk/drive"). In many cases the performance of the system is determined not only by CPU (which are usually in the spotlight of advertising and target of numerous benchmarks) but by the performance of memory, specifically RAM and storage. Official specs (especially with smartphones) give little description of storage characteristics, beyond capacity. This application attempts to give clear performance characteristics of memory by  isolating and measuring 3 aspects: the speed of reads (transfers from DRIVE-to-RAM). writes (RAM-to-DRIVE) and system memory (copying data from one area in RAM to another).</value>
   </data>
   <data name="About8" xml:space="preserve">
-    <value>The application is open-source, you might want to check project's github at:</value>
+    <value>The application is open-source, you might want to check project's GitHub at:</value>
   </data>
   <data name="AndroidSameAliases" xml:space="preserve">
     <value>same drive, different aliases</value>
