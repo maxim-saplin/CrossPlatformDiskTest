@@ -151,7 +151,7 @@
                 <ctrl:ExtendedLabel.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
                         <On Platform="Android, macOS" Value="0, 0, 10, 0" />
-                        <On Platform="WPF" Value="0, 10, 10, 0" />
+                        <On Platform="WPF" Value="0, 5, 10, 0" />
                      </OnPlatform>
                 </ctrl:ExtendedLabel.Margin>
             </ctrl:ExtendedLabel>
