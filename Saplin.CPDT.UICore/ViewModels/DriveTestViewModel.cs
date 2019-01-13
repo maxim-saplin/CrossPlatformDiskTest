@@ -352,6 +352,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                      {
                                          driveNameToUse = ad.AppFolderPath;
                                          freeSpace = ad.BytesFree;
+                                         totalSpace = ad.TotalBytes;
                                      }
                              }
                              else {

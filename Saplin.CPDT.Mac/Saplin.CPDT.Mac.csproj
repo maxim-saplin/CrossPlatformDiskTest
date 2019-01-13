@@ -100,6 +100,7 @@
     <Compile Include="BlurPlatformEffect.cs" />
     <Compile Include="ShellOpenFileFolder.cs" />
     <Compile Include="WebViewRenderer2.cs" />
+    <Compile Include="MacDeviceInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Saplin.CPDT.UICore\Saplin.CPDT.UICore.csproj">

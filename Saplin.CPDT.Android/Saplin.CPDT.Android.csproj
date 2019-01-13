@@ -64,6 +64,7 @@
     <Compile Include="AndroidDrives.cs" />
     <Compile Include="GetSystemLocale.cs" />
     <Compile Include="ExtnededLabelRenderer.cs" />
+    <Compile Include="AndroidDeviceInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
