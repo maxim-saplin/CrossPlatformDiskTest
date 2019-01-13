@@ -55,6 +55,7 @@ namespace Saplin.CPDT.Droid
 
             var stats = new StatFs(drive.AppFolderPath);
             drive.BytesFree = stats.AvailableBlocksLong * stats.BlockSizeLong;
+            drive.TotalBytes = stats.BlockCountLong * stats.BlockSizeLong;
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Saplin.CPDT.UICore.ViewModels
         public bool WriteBuffering { get; set; }
         public long FileSizeBytes { get; set; }
         public long FreeSpaceBytes { get; set; }
+        public long TotalSpaceBytes { get; set; }
         public int OrderNumber { get; set; }
 
         public string Options

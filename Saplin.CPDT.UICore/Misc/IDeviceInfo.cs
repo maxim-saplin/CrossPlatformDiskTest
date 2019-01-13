@@ -1,7 +1,9 @@
 ﻿namespace Saplin.CPDT.UICore.Misc
 {
-    public interface IWpfDeviceInfo
+    public interface IDeviceInfo
     {
-        string GetIEVersion();
+        string GetModelName();
+        string GetCPU();
+        float GetRamSizeGb();
     }
 }

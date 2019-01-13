@@ -18,6 +18,12 @@ namespace Saplin.CPDT.UICore.ViewModels
         const string locale_param = "lang=";
         const string inapp_param = "inapp=";
         const string yd_param = "yd=";
+        const string buf_param = "buf=";
+        const string cach_param = "cach=";
+        const string i_param = "i=";
+        const string cpu_param = "cpu=";
+        const string ram_param = "ram=";
+        const string mdl_param = "mdl=";
         const string close_param = "close";
 
         WebView webView;
@@ -60,16 +66,46 @@ namespace Saplin.CPDT.UICore.ViewModels
             var url = GetCompareUrl(session);
             if ((webView.Source as UrlWebViewSource).Url != url) webView.Source = url;
         }
+
+        private string GetParams()
+        {
+            var prms =  locale_param + ViewModelContainer.L11n._Locale +
+                        (ViewModelContainer.OptionsViewModel.WhiteThemeBool ?
+                            "&" + white_theme_param :
+                            "") +
+                         "&" + i_param + ViewModelContainer.OptionsViewModel.IID;
+
+            var di = DependencyService.Get<IDeviceInfo>();
+
+            if (di != null)
+            {
+                prms += "&" + cpu_param + Uri.EscapeUriString(di.GetCPU());
+                prms += "&" + mdl_param + Uri.EscapeUriString(di.GetModelName());
+                prms += "&" + ram_param + Uri.EscapeUriString(Math.Round(di.GetRamSizeGb(),1).ToString());
+            }
+
+            return prms;
+        }
+
+        private string TrimQueryString(string prms)
+        {
+            if (prms.Length > 1023)
+            {
+                return prms.Substring(0, 1023);
+            }
+
+            return prms;
+        }
+
         public string Url
         {
             get
             {
-                return cpdt_web_url + "?" +
-                        inapp_param + Device.RuntimePlatform + "&" +
-                        locale_param + ViewModelContainer.L11n._Locale +
-                        (ViewModelContainer.OptionsViewModel.WhiteThemeBool ?
-                            "&" + white_theme_param :
-                            "");
+                var prms = inapp_param + Device.RuntimePlatform + "&" + GetParams();
+
+                prms = TrimQueryString(prms);
+
+                return cpdt_web_url + "?" + prms;
             }
         }
 
@@ -77,11 +113,11 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             get
             {
-                return cpdt_web_url + "?" +
-                        locale_param + ViewModelContainer.L11n._Locale +
-                        (ViewModelContainer.OptionsViewModel.WhiteThemeBool ?
-                            "&" + white_theme_param :
-                            "");
+                var prms = GetParams();
+
+                prms = TrimQueryString(prms);
+
+                return cpdt_web_url + "?" + prms;
             }
         }
 
@@ -93,6 +129,9 @@ namespace Saplin.CPDT.UICore.ViewModels
             [DataMember] public double randWrite; // MB/s
             [DataMember] public double randRead; // MB/s
             [DataMember] public double memCopy; // GB/s
+            [DataMember] public double free; // Free space GB
+            [DataMember] public double total; // Total space GB
+            [DataMember] public double size; // file size GB
         }
 
         public string GetCompareUrl(TestSession session)
@@ -103,7 +142,10 @@ namespace Saplin.CPDT.UICore.ViewModels
                 seqRead = Math.Round(session.SeqRead, 2),
                 randWrite = Math.Round(session.RandWrite, 2),
                 randRead = Math.Round(session.RandRead, 2),
-                memCopy = Math.Round(session.MemCopy/1024, 2)
+                memCopy = Math.Round(session.MemCopy/1024, 2),
+                free = Math.Round((double)session.FreeSpaceBytes /1024/1024/1024, 1),
+                total = Math.Round((double)session.TotalSpaceBytes / 1024 / 1024 / 1024, 1),
+                size = Math.Round((double)session.FileSizeBytes / 1024 / 1024 / 1024, 1),
             };
 
             var json = "";
@@ -117,7 +159,15 @@ namespace Saplin.CPDT.UICore.ViewModels
 
             json = Uri.EscapeDataString(json);
 
-            return Url + "&" + yd_param + json;
+            var prms = inapp_param + Device.RuntimePlatform + 
+                "&" + yd_param + json + 
+                "&" + buf_param + (session.WriteBuffering ? "1" : "0") +
+                "&" + cach_param + (session.MemCache ? "1" : "0") +
+                "&" + GetParams();
+
+            prms = TrimQueryString(prms);
+
+            return cpdt_web_url + "?" + prms;
         }
 
         public void Navigating(object sender, WebNavigatingEventArgs e)
@@ -125,7 +175,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             if (e.Source != null)
             {
                 //if (e.Url.Contains(close_param)) this.IsVisible = false;
-                if (!e.Url.StartsWith(Url)) NavigatedNotSuccesfully(); // WPF, IE11 - if the URL is incorrect, the page is being redirected to some other URL, though Navigated will still get Success and original URL
+                if (!e.Url.StartsWith(cpdt_web_url)) NavigatedNotSuccesfully(); // WPF, IE11 - if the URL is incorrect, the page is being redirected to some other URL, though Navigated will still get Success and original URL
             }
             else if (e.NavigationEvent == WebNavigationEvent.Forward) NavigatedSuccesfully(); // macOS hack
         }
@@ -186,7 +236,7 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             if (Device.RuntimePlatform == Device.WPF)
             {
-                var di = DependencyService.Get<IWpfDeviceInfo>();
+                var di = DependencyService.Get<IWpfWebViewInfo>();
                 if (di != null)
                 {
                     var v = di.GetIEVersion();

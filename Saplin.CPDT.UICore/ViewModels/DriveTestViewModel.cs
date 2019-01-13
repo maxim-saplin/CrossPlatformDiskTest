@@ -107,15 +107,18 @@ namespace Saplin.CPDT.UICore.ViewModels
                         dd.Name = d.Name;
 
                         long size = -1;
+                        long free = -1;
 
                         try
                         {
-                            size = d.TotalFreeSpace; // requesting disk size might throw access exceptions
+                            free = d.TotalFreeSpace; // requesting disk size might throw access exceptions
+                            size = d.TotalSize;
                         }
                         catch { }
 
                         
-                        dd.BytesFree = size;
+                        dd.BytesFree = free;
+                        dd.TotalBytes = size;
 
                         setAvailableAndIndex(dd, i);
                         i++;
@@ -340,6 +343,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                 : Device.RuntimePlatform == Device.Android ? MemCacheOptions.DisabledEmulation : MemCacheOptions.Disabled;
 
                              long freeSpace = 0;
+                             long totalSpace = 0;
 
                              if (Device.RuntimePlatform == Device.Android)
                              {
@@ -350,7 +354,11 @@ namespace Saplin.CPDT.UICore.ViewModels
                                          freeSpace = ad.BytesFree;
                                      }
                              }
-                             else { freeSpace = drives.Where(d => d.Name == driveNameToUse).First().BytesFree; }
+                             else {
+                                 var dd = drives.Where(d => d.Name == driveNameToUse).First();
+                                 freeSpace = dd.BytesFree;
+                                 totalSpace = dd.TotalBytes;
+                             }
 
                              Func<long> freeMem = null;
                              var freeMemService = DependencyService.Get<IFreeMemory>();
@@ -380,6 +388,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                  DriveName = SelectedDrive,
                                  FileSizeBytes = optionsVm.FileSizeBytes,
                                  FreeSpaceBytes = freeSpace,
+                                 TotalSpaceBytes = totalSpace,
                                  MemCache = optionsVm.MemCacheBool,
                                  WriteBuffering = optionsVm.WriteBufferingBool
                              };

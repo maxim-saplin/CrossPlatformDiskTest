@@ -119,6 +119,15 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
+        public string IID
+        {
+            get
+            {
+                if (!Application.Current.Properties.ContainsKey("IID")) Application.Current.Properties["IID"] = Guid.NewGuid().ToString("N");
+                return Application.Current.Properties["IID"] as string;
+            }
+        }
+
         public long FileSizeBytes
         {
             get
