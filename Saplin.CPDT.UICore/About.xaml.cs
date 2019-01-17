@@ -9,8 +9,8 @@ namespace Saplin.CPDT.UICore
     {
         public About()
         {
-            InitializeComponent ();
-            version.Text = "v. "+ Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            InitializeComponent();
+            version.Text = "v. "+ Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0,5);
         }
     }
 }

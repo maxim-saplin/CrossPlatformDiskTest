@@ -211,7 +211,7 @@
     <value>Memory copy</value>
   </data>
   <data name="MemCopyTestShort" xml:space="preserve">
-    <value>Mem. copy</value>
+    <value>Mem.&#10;copy</value>
   </data>
   <data name="Compare" xml:space="preserve">
     <value>[C]ompare</value>
@@ -244,13 +244,13 @@
     <value>Random read</value>
   </data>
   <data name="RandomReadTestShort" xml:space="preserve">
-    <value>Rand. read</value>
+    <value>Rand.&#10;read</value>
   </data>
   <data name="RandomWriteTest" xml:space="preserve">
     <value>Random write</value>
   </data>
   <data name="RandomWriteTestShort" xml:space="preserve">
-    <value>Rand. write</value>
+    <value>Rand.&#10;write</value>
   </data>
   <data name="RefreshButton" xml:space="preserve">
     <value>[R]efresh</value>
@@ -259,13 +259,13 @@
     <value>Sequential read</value>
   </data>
   <data name="SequentialReadTestShort" xml:space="preserve">
-    <value>Seq. read</value>
+    <value>Seq.&#10;read</value>
   </data>
   <data name="SequentialWriteTest" xml:space="preserve">
     <value>Sequential write</value>
   </data>
   <data name="SequentialWriteTestShort" xml:space="preserve">
-    <value>Seq. write</value>
+    <value>Seq.&#10;write</value>
   </data>
   <data name="StatusBreakingTest" xml:space="preserve">
     <value>BREAKING TEST</value>

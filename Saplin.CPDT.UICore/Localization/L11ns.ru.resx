@@ -211,7 +211,7 @@
     <value>Копирование памяти</value>
   </data>
   <data name="MemCopyTestShort" xml:space="preserve">
-    <value>Коп. памяти</value>
+    <value>Коп.&#10;памяти</value>
   </data>
   <data name="Min" xml:space="preserve">
     <value>Мин</value>
@@ -238,13 +238,13 @@
     <value>Произвольное чтение</value>
   </data>
   <data name="RandomReadTestShort" xml:space="preserve">
-    <value>Произв. чтение</value>
+    <value>Произв.&#10;чтение</value>
   </data>
   <data name="RandomWriteTest" xml:space="preserve">
     <value>Произвольная запись</value>
   </data>
   <data name="RandomWriteTestShort" xml:space="preserve">
-    <value>Произв. запись</value>
+    <value>Произв.&#10;запись</value>
   </data>
   <data name="RefreshButton" xml:space="preserve">
     <value>[R] Обновить</value>
@@ -253,13 +253,13 @@
     <value>Последовательное чтение</value>
   </data>
   <data name="SequentialReadTestShort" xml:space="preserve">
-    <value>Посл. чтение</value>
+    <value>Посл.&#10;чтение</value>
   </data>
   <data name="SequentialWriteTest" xml:space="preserve">
     <value>Последовательная запись</value>
   </data>
   <data name="SequentialWriteTestShort" xml:space="preserve">
-    <value>Посл. запись</value>
+    <value>Посл.&#10;запись</value>
   </data>
   <data name="StatusBreakingTest" xml:space="preserve">
     <value>ОСТАНОВКА ТЕСТА</value>

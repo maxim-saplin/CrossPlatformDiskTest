@@ -40,7 +40,7 @@ namespace Saplin.CPDT.Droid
                             {
 
                                 var key = data[0].Trim().Replace(" ", "_");
-                                if (key.Equals("model_name")) key = "cpu_model";
+                                if (key.Equals("model_name") || key.Equals("Hardware")) key = "cpu_model";
 
                                 var value = data[1].Trim();
 

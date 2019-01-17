@@ -65,6 +65,7 @@
     <Compile Include="GetSystemLocale.cs" />
     <Compile Include="ExtnededLabelRenderer.cs" />
     <Compile Include="AndroidDeviceInfo.cs" />
+    <Compile Include="FileSync.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

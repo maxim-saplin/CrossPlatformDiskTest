@@ -25,17 +25,15 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="{Binding Result.TestName, Converter={StaticResource KeyToL11nShort}}" Style="{StaticResource SpanStyle}" />
-                            <Span Text="&#10;("/>
-                            <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Block}"/>
-                            <Span Text="{Binding Result.BlockSizeBytes, StringFormat=' {0}', Converter={StaticResource BytesToAutoShort}}"/>
-                            <Span Text="{Binding Result.BlockSizeBytes, StringFormat='{0})', Converter={StaticResource BytesToAutoUnit}}"/>
+                            <Span Text="{Binding Result.BlockSizeBytes, StringFormat='({0}', Converter={StaticResource BytesToAutoShort}}"/>
+                            <Span Text="{Binding Result.BlockSizeBytes, StringFormat=' {0})', Converter={StaticResource BytesToAutoUnit}}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
                 
                 <Label Grid.Column="3" Grid.ColumnSpan="3" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, TestNotEnoughMemory}" LineBreakMode="TailTruncation" VerticalOptions="Start" IsVisible="{Binding NotEnoughMemory}"/>
 
-                <Label Grid.Column="3" Style="{StaticResource AccentedLabel}" HeightRequest="40" IsVisible="{Binding NotEnoughMemory, Converter={StaticResource BoolNot}}">
+                <Label Grid.Column="3" Style="{StaticResource AccentedLabel}" HeightRequest="40" WidthRequest="60" IsVisible="{Binding NotEnoughMemory, Converter={StaticResource BoolNot}}">
                     <Label.FormattedText >
                         <FormattedString>
                             <Span Text="{Binding Result.AvgThroughput, Converter={StaticResource MbPerSecondToAuto}}" />
@@ -75,19 +73,19 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="{Binding CurrentTest, Converter={StaticResource KeyToL11nShort}, Mode=OneWay}" Style="{StaticResource SpanStyle}" />
-                            <Span Text="&#10;(" />
-                            <Span Text="{Binding Block, Mode=OneWay, Source={x:Static vm:ViewModelContainer.L11n}}" />
-                            <Span Text="{Binding BlockSizeBytes, Mode=OneWay, StringFormat=' {0}', Converter={StaticResource BytesToAutoShort}}" />
-                            <Span Text="{Binding BlockSizeBytes, Mode=OneWay, StringFormat='{0})', Converter={StaticResource BytesToAutoUnit}}" />
+                            <Span Text="{Binding BlockSizeBytes, StringFormat='({0}', Converter={StaticResource BytesToAutoShort}}"/>
+                            <Span Text="{Binding BlockSizeBytes, StringFormat=' {0})', Converter={StaticResource BytesToAutoUnit}}"/>
                             <Span Text=" " />
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
                 
-                <Label x:Name="statusBadge" IsVisible="{Binding TestStarted}" TextColor="Orange" Text="🔥" Opacity="0.5" Grid.Column="2" LineBreakMode="NoWrap" HorizontalOptions="Center" VerticalOptions="Start"/>  
+                <Label x:Name="statusBadge" IsVisible="{Binding TestStarted}" TextColor="Orange" Text="🔥" Opacity="0.5" Grid.Column="2" 
+                       LineBreakMode="NoWrap" HorizontalOptions="Center" VerticalOptions="Start"/>  
                 <anim:BounceAnimation x:Name="badgeAnimation" Target="{x:Reference statusBadge}" />
 
-                <Label Text="{Binding TestStatusMessage}" IsVisible="{Binding ShowTestStatusMessage}" Style="{StaticResource GrayedLabel}" HorizontalOptions="Fill" VerticalOptions="Start" VerticalTextAlignment="Start" Grid.Column="3" Grid.ColumnSpan="3">
+                <Label Text="{Binding TestStatusMessage}" IsVisible="{Binding ShowTestStatusMessage}" Style="{StaticResource GrayedLabel}" 
+                       HorizontalOptions="Fill" VerticalOptions="Start" VerticalTextAlignment="Start" Grid.Column="3" Grid.ColumnSpan="3">
                     <Label.HeightRequest>
                         <OnPlatform x:TypeArguments="x:Double">
                             <On Platform="macOS" Value="24"/> <!-- macOS hack to avoid aligning percent to the bottom, VerticalOptions not working -->
@@ -114,7 +112,8 @@
                 </Label>
 
                 <Label Text="{Binding ProgressPercent, StringFormat='{0:0}%&#10;'}" Style="{StaticResource GrayedLabel}" 
-                    IsVisible="{Binding ShowTestStatusMessage, Converter={StaticResource BoolNot}}" WidthRequest="40" VerticalOptions="Start" VerticalTextAlignment="Start" Grid.Column="4" Grid.ColumnSpan="2">
+                    IsVisible="{Binding ShowTestStatusMessage, Converter={StaticResource BoolNot}}" WidthRequest="40" VerticalOptions="Start" 
+                    VerticalTextAlignment="Start" Grid.Column="4" Grid.ColumnSpan="2">
                     <Label.HeightRequest>
                         <OnPlatform x:TypeArguments="x:Double">
                             <On Platform="macOS" Value="24"/> <!-- macOS hack to avoid aligning percent to the bottom, VerticalOptions not working -->

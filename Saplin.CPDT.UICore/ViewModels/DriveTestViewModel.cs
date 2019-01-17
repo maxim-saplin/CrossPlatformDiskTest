@@ -1,4 +1,5 @@
-﻿ using Saplin.StorageSpeedMeter;
+﻿using Saplin.CPDT.UICore.Misc;
+using Saplin.StorageSpeedMeter;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -361,17 +362,19 @@ namespace Saplin.CPDT.UICore.ViewModels
                                  totalSpace = dd.TotalBytes;
                              }
 
-                             Func<long> freeMem = null;
                              var freeMemService = DependencyService.Get<IFreeMemory>();
-                             if (freeMemService != null) freeMem = freeMemService.GetBytesFree;
+                             var flushService = DependencyService.Get<IFileSync>();
 
                              testSuite = new BigTest(
                                 driveNameToUse,
                                 optionsVm.FileSizeBytes,
                                 //optionsVm.FileSizeBytes/64, 
                                 optionsVm.WriteBufferingBool, 
-                                 memCache, 
-                                freeMem: freeMem);
+                                memCache, 
+                                freeMem: freeMemService == null ? null : (Func<long>)(freeMemService.GetBytesFree),
+                                flusher: flushService == null ? null : 
+                                    new WriteBufferFlusher(flushService.OpenFile, flushService.Flush, flushService.Close)
+                            );
 
                              FileNameAndTime = testSuite.FilePath+", "+string.Format("{0:HH:mm:ss} {0:d.MM.yyyy}", TestStartedTime);
                              FileName = testSuite.FilePath;
