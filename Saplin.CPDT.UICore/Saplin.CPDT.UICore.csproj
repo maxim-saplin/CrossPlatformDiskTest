@@ -7,10 +7,10 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
     <DebugType>pdbonly</DebugType>
-    <ReleaseVersion>2.0.2</ReleaseVersion>
-    <Version>2.0.3</Version>
-    <AssemblyVersion>2.0.3.0</AssemblyVersion>
-    <FileVersion>2.0.0.0</FileVersion>
+    <ReleaseVersion>2.0.4</ReleaseVersion>
+    <Version>2.0.4</Version>
+    <AssemblyVersion>2.0.4.0</AssemblyVersion>
+    <FileVersion>2.0.4.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.2.0.871581" />
