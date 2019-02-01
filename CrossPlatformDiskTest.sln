@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saplin.CPDT.Mac", "Saplin.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saplin.CPDT.Android", "Saplin.CPDT.Android\Saplin.CPDT.Android.csproj", "{6A84BA8D-A85D-4293-BC21-EE856012ADA3}"
 EndProject
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "Saplin.CPDT.WPF", "Saplin.CPDT.WPF\Saplin.CPDT.WPF.csproj", "{05D74C71-E0CB-4449-A343-04C828A148C7}"
+Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "Saplin.CPDT.WPF", "Saplin.CPDT.WPF\Saplin.CPDT.WPF.csproj", "{FB5C19CB-C882-4F5C-9797-7E2B51E3EFAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,22 +78,22 @@ Global
 		{6A84BA8D-A85D-4293-BC21-EE856012ADA3}.Release|x86.ActiveCfg = Release|Any CPU
 		{6A84BA8D-A85D-4293-BC21-EE856012ADA3}.Release|x86.Build.0 = Release|Any CPU
 		{6A84BA8D-A85D-4293-BC21-EE856012ADA3}.Release|x86.Deploy.0 = Release|Any CPU
-		{05D74C71-E0CB-4449-A343-04C828A148C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05D74C71-E0CB-4449-A343-04C828A148C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05D74C71-E0CB-4449-A343-04C828A148C7}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{05D74C71-E0CB-4449-A343-04C828A148C7}.Debug|ARM.Build.0 = Debug|Any CPU
-		{05D74C71-E0CB-4449-A343-04C828A148C7}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{05D74C71-E0CB-4449-A343-04C828A148C7}.Debug|x64.Build.0 = Debug|Any CPU
-		{05D74C71-E0CB-4449-A343-04C828A148C7}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{05D74C71-E0CB-4449-A343-04C828A148C7}.Debug|x86.Build.0 = Debug|Any CPU
-		{05D74C71-E0CB-4449-A343-04C828A148C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05D74C71-E0CB-4449-A343-04C828A148C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{05D74C71-E0CB-4449-A343-04C828A148C7}.Release|ARM.ActiveCfg = Release|Any CPU
-		{05D74C71-E0CB-4449-A343-04C828A148C7}.Release|ARM.Build.0 = Release|Any CPU
-		{05D74C71-E0CB-4449-A343-04C828A148C7}.Release|x64.ActiveCfg = Release|Any CPU
-		{05D74C71-E0CB-4449-A343-04C828A148C7}.Release|x64.Build.0 = Release|Any CPU
-		{05D74C71-E0CB-4449-A343-04C828A148C7}.Release|x86.ActiveCfg = Release|Any CPU
-		{05D74C71-E0CB-4449-A343-04C828A148C7}.Release|x86.Build.0 = Release|Any CPU
+		{FB5C19CB-C882-4F5C-9797-7E2B51E3EFAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB5C19CB-C882-4F5C-9797-7E2B51E3EFAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB5C19CB-C882-4F5C-9797-7E2B51E3EFAC}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{FB5C19CB-C882-4F5C-9797-7E2B51E3EFAC}.Debug|ARM.Build.0 = Debug|Any CPU
+		{FB5C19CB-C882-4F5C-9797-7E2B51E3EFAC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FB5C19CB-C882-4F5C-9797-7E2B51E3EFAC}.Debug|x64.Build.0 = Debug|Any CPU
+		{FB5C19CB-C882-4F5C-9797-7E2B51E3EFAC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FB5C19CB-C882-4F5C-9797-7E2B51E3EFAC}.Debug|x86.Build.0 = Debug|Any CPU
+		{FB5C19CB-C882-4F5C-9797-7E2B51E3EFAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB5C19CB-C882-4F5C-9797-7E2B51E3EFAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB5C19CB-C882-4F5C-9797-7E2B51E3EFAC}.Release|ARM.ActiveCfg = Release|Any CPU
+		{FB5C19CB-C882-4F5C-9797-7E2B51E3EFAC}.Release|ARM.Build.0 = Release|Any CPU
+		{FB5C19CB-C882-4F5C-9797-7E2B51E3EFAC}.Release|x64.ActiveCfg = Release|Any CPU
+		{FB5C19CB-C882-4F5C-9797-7E2B51E3EFAC}.Release|x64.Build.0 = Release|Any CPU
+		{FB5C19CB-C882-4F5C-9797-7E2B51E3EFAC}.Release|x86.ActiveCfg = Release|Any CPU
+		{FB5C19CB-C882-4F5C-9797-7E2B51E3EFAC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -104,6 +104,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		version = 2.0.4
+		version = 2.0.6
 	EndGlobalSection
 EndGlobal

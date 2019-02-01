@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="8" android:versionName="2.0.4" package="com.Saplin.CPDT" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10" android:versionName="2.0.6" package="com.Saplin.CPDT" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="27" />
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
 	<application android:label="Cross Platform Disk Test" android:icon="@mipmap/ic_launcher" android:largeHeap="true"></application>

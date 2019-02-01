@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.IO;
+using System.Reflection;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using System.Windows.Input;
@@ -24,6 +25,8 @@ namespace Saplin.CPDT.UICore.ViewModels
         const string cpu_param = "cpu=";
         const string ram_param = "ram=";
         const string mdl_param = "mdl=";
+        const string v_param = "v=";
+        const string d_param = "d=";
         const string close_param = "close";
 
         WebView webView;
@@ -73,7 +76,9 @@ namespace Saplin.CPDT.UICore.ViewModels
                         (ViewModelContainer.OptionsViewModel.WhiteThemeBool ?
                             "&" + white_theme_param :
                             "") +
-                         "&" + i_param + ViewModelContainer.OptionsViewModel.IID;
+                         "&" + i_param + ViewModelContainer.OptionsViewModel.IID +
+                         "&" + v_param + Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5).Replace(".","") +
+                         "&" + d_param + DateTime.UtcNow.ToString("ddMMyyHHmmss");
 
             var di = DependencyService.Get<IDeviceInfo>();
 
@@ -132,6 +137,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             [DataMember] public double free; // Free space GB
             [DataMember] public double total; // Total space GB
             [DataMember] public double size; // file size GB
+            [DataMember] public string drive; // drive path
         }
 
         public string GetCompareUrl(TestSession session)
@@ -146,6 +152,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                 free = Math.Round((double)session.FreeSpaceBytes /1024/1024/1024, 1),
                 total = Math.Round((double)session.TotalSpaceBytes / 1024 / 1024 / 1024, 1),
                 size = Math.Round((double)session.FileSizeBytes / 1024 / 1024 / 1024, 1),
+                drive = session.DriveName
             };
 
             var json = "";
