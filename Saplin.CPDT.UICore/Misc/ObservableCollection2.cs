@@ -5,6 +5,10 @@ using System.Collections.ObjectModel;
 
 namespace Saplin.CPDT.UICore
 {
+    /// <summary>
+    /// With reverse order enumerator
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class ObservableCollection2<T> : ObservableCollection<T>, IEnumerable <T>, IEnumerable
     {
         public ObservableCollection2(bool yieldInReverse)

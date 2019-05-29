@@ -1,0 +1,527 @@
+<doc>
+    <assembly>
+        <name>SkiaSharp.Views.UWP</name>
+    </assembly>
+    <members>
+        <member name="T:SkiaSharp.Views.UWP.AngleSwapChainPanel">
+            <summary>A SwapChainPanel that wraps an ANGLE OpenGL ES context.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.UWP.AngleSwapChainPanel">
+            <summary>Creates a new instance of <see cref="T:SkiaSharp.Views.UWP.AngleSwapChainPanel" />.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.AngleSwapChainPanel.BackingOption">
+            <summary>Gets or sets the value for how the drawable surface retains its contents after displaying them.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.AngleSwapChainPanel.ContentsScale">
+            <summary>Gets or sets the scaling for the renderbuffer dimensions.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.AngleSwapChainPanel.Context">
+            <summary>Get or sets the ANGLE OpenGL ES context.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.AngleSwapChainPanel.DepthFormat">
+            <summary>Gets or sets the format of the depth renderbuffer.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.AngleSwapChainPanel.DrawInBackground">
+            <summary>Gets or sets a value indicating whether drawing occurs on a background thread, or the main UI thread</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.AngleSwapChainPanel.EnableRenderLoop">
+            <summary>Gets or sets a value indicating whether to use a render loop, or on-demand rendering.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.AngleSwapChainPanel.Invalidate">
+            <summary>Invalidates the entire surface of the control and causes the control to be redrawn.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.AngleSwapChainPanel.Multisampling">
+            <summary>Gets or sets the format of the multisampling buffer.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.AngleSwapChainPanel.OnRenderFrame(Windows.Foundation.Rect)">
+            <param name="rect">The rectangle to draw.</param>
+            <summary>Called to draw the current frame within the passed-in rectangle.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.AngleSwapChainPanel.StencilFormat">
+            <summary>Gets or sets the format of the stencil renderbuffer.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.UWP.Extensions">
+            <summary>Various extension methods to convert between SkiaSharp types and platform types.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.UWP.GlesBackingOption">
+            <summary>Values for whether the drawable surface retains its contents after displaying them.</summary>
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.UWP.GlesBackingOption.Detroyed">
+            <summary>The drawable surface may destroy its contents.</summary>
+        </member>
+        <member name="F:SkiaSharp.Views.UWP.GlesBackingOption.Retained">
+            <summary>The drawable surface retains its contents.</summary>
+        </member>
+        <member name="T:SkiaSharp.Views.UWP.GlesContext">
+            <summary>A <see cref="T:SkiaSharp.Views.UWP.GlesContext" /> object manages an ANGLE OpenGL ES rendering context.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.UWP.GlesContext">
+            <summary>Creates a new <see cref="T:SkiaSharp.Views.UWP.GlesContext" /> instance.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.GlesContext.CurrentContext">
+            <summary>Gets or sets the current ANGLE OpenGL ES rendering context.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.GlesContext.Dispose">
+            <summary>Releases all resources used by this <see cref="T:SkiaSharp.Views.UWP.GlesContext" />.</summary>
+            <remarks>Always dispose the object before you release your last reference to the <see cref="T:SkiaSharp.Views.UWP.GlesContext" />. Otherwise, the resources it is using will not be freed until the garbage collector calls the finalizer.</remarks>
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.GlesContext.HasValidSurface">
+            <summary>Gets a value indicating whether the current context has a valid rending surface.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.GlesContext.Reset">
+            <summary>Resets the current context, and reinitializes it.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.GlesContext.SetSurface(Windows.UI.Xaml.Controls.SwapChainPanel,System.Int32,System.Int32,SkiaSharp.Views.UWP.GlesBackingOption,SkiaSharp.Views.UWP.GlesMultisampling,SkiaSharp.Views.UWP.GlesRenderTarget)">
+            <param name="swapChainPanel">The SwapChainPanel to use as the drawing surface.</param>
+            <param name="rbWidth">The width of the renderbuffer.</param>
+            <param name="rbHeight">The height of the renderbuffer.</param>
+            <param name="backingOption">The backing option.</param>
+            <param name="multisampling">The format of the multisampling buffer.</param>
+            <param name="renderTarget">The ANGLE OpenGL ES binding point.</param>
+            <summary>Specifies that the current context should use the specified swap chain panel for the drawing surface.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.GlesContext.SetViewportSize(System.Int32,System.Int32)">
+            <param name="width">The width of the viewport.</param>
+            <param name="height">The height of the viewport.</param>
+            <summary>Sets the current viewport to the specified dimensions.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.GlesContext.SwapBuffers(SkiaSharp.Views.UWP.GlesRenderTarget,System.Int32,System.Int32)">
+            <param name="renderTarget">The ANGLE OpenGL ES binding point.</param>
+            <param name="width">The width of the renderbuffer.</param>
+            <param name="height">The height of the renderbuffer.</param>
+            <summary>Swaps the buffers, displaying the renderbuffer's contents on screen.</summary>
+            <returns>Returns true if the swap was successful, otherwise false.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.UWP.GlesDepthFormat">
+            <summary>The format of the depth renderbuffer.</summary>
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.UWP.GlesDepthFormat.Format16">
+            <summary>A 16-bit depth entry for each pixel.</summary>
+        </member>
+        <member name="F:SkiaSharp.Views.UWP.GlesDepthFormat.Format24">
+            <summary>A 24-bit depth entry for each pixel.</summary>
+        </member>
+        <member name="F:SkiaSharp.Views.UWP.GlesDepthFormat.None">
+            <summary>The underlying framebuffer object has no depth buffer.</summary>
+        </member>
+        <member name="T:SkiaSharp.Views.UWP.GlesMultisampling">
+            <summary>The format of the multisampling buffer.</summary>
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.UWP.GlesMultisampling.FourTimes">
+            <summary>Multisampling is enabled at 4x.</summary>
+        </member>
+        <member name="F:SkiaSharp.Views.UWP.GlesMultisampling.None">
+            <summary>Multisampling is not enabled.</summary>
+        </member>
+        <member name="T:SkiaSharp.Views.UWP.GlesRenderTarget">
+            <summary>The ANGLE OpenGL ES binding point for a currently bound renderbuffer.</summary>
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.UWP.GlesRenderTarget.Renderbuffer">
+            <summary>The currently bound target is the renderbuffer.</summary>
+        </member>
+        <member name="T:SkiaSharp.Views.UWP.GlesStencilFormat">
+            <summary>The format of the stencil renderbuffer.</summary>
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.UWP.GlesStencilFormat.Format8">
+            <summary>An 8-bit stencil entry for each pixel.</summary>
+        </member>
+        <member name="F:SkiaSharp.Views.UWP.GlesStencilFormat.None">
+            <summary>The underlying framebuffer object has no stencil buffer.</summary>
+        </member>
+        <member name="T:SkiaSharp.Views.UWP.SKPaintGLSurfaceEventArgs">
+            <summary>Provides data for the <see cref="E:SkiaSharp.Views.UWP.SKSwapChainPanel.PaintSurface" /> event.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.UWP.SKPaintGLSurfaceEventArgs(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTarget)">
+            <param name="surface">The surface that is being drawn on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.UWP.SKPaintGLSurfaceEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.UWP.SKPaintGLSurfaceEventArgs(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)">
+            <param name="surface">The surface that is being drawn on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.UWP.SKPaintGLSurfaceEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.UWP.SKPaintGLSurfaceEventArgs(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTarget,SkiaSharp.GRSurfaceOrigin,SkiaSharp.SKColorType)">
+            <param name="surface">The surface that is being drawn on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <param name="origin">The surface origin of the render target.</param>
+            <param name="colorType">The color type of the render target.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.UWP.SKPaintGLSurfaceEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.SKPaintGLSurfaceEventArgs.BackendRenderTarget">
+            <summary>Gets the render target that is currently being drawn.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.SKPaintGLSurfaceEventArgs.ColorType">
+            <summary>Gets the color type of the render target.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.SKPaintGLSurfaceEventArgs.Origin">
+            <summary>Gets the surface origin of the render target.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.SKPaintGLSurfaceEventArgs.RenderTarget">
+            <summary>Gets the render target that is currently being drawn.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.SKPaintGLSurfaceEventArgs.Surface">
+            <summary>Gets the surface that is currently being drawn on.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.UWP.SKPaintSurfaceEventArgs">
+            <summary>Provides data for the <see cref="E:SkiaSharp.Views.UWP.SKXamlCanvas.PaintSurface" /> event.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.UWP.SKPaintSurfaceEventArgs(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)">
+            <param name="surface">The surface that is being drawn on.</param>
+            <param name="info">The information about the surface.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.tvOS.SKPaintSurfaceEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.SKPaintSurfaceEventArgs.Info">
+            <summary>Gets the information about the surface that is currently being drawn.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.SKPaintSurfaceEventArgs.Surface">
+            <summary>Gets the surface that is currently being drawn on.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.UWP.SKSwapChainPanel">
+            <summary>A SwapChainPanel that can be drawn on using SkiaSharp drawing commands.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.UWP.SKSwapChainPanel">
+            <summary>Creates a new instance of <see cref="T:SkiaSharp.Views.UWP.SKSwapChainPanel" />.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.SKSwapChainPanel.ArrangeOverride(Windows.Foundation.Size)">
+            <param name="finalSize">The available size that this object can give to child objects. Infinity can be specified as a value to indicate that the object will size to whatever content is available.</param>
+            <summary>Provides the behavior for the "Measure" pass of the layout cycle. Classes can override this method to define their own "Measure" pass behavior.</summary>
+            <returns>The size that this object determines it needs during layout, based on its calculations of the allocated sizes for child objects or based on other considerations such as a fixed container size.</returns>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.SKSwapChainPanel.CanvasSize">
+            <summary>Gets the current canvas size.</summary>
+            <value />
+            <remarks>The canvas size may be different to the view size as a result of the current device's pixel density.</remarks>
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.SKSwapChainPanel.GRContext">
+            <summary>Gets the current GPU context.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.SKSwapChainPanel.OnPaintSurface(SkiaSharp.Views.UWP.SKPaintGLSurfaceEventArgs)">
+            <param name="e">The event arguments that contain the drawing surface and information.</param>
+            <summary>Implement this to draw on the canvas.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.UWP.SKSwapChainPanel.OnPaintSurface(SkiaSharp.Views.UWP.SKPaintGLSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.UWP.SKSwapChainPanel.PaintSurface>
+event.
+
+> [!IMPORTANT]
+> If this method is overridden, then the base must be called, otherwise the
+> event will not be fired.
+
+## Examples
+
+```csharp
+protected override void OnPaintSurface (SKPaintGLSurfaceEventArgs e)
+{
+    // call the base method
+    base.OnPaintSurface (e);
+
+    var surface = e.Surface;
+    var surfaceWidth = e.BackendRenderTarget.Width;
+    var surfaceHeight = e.BackendRenderTarget.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+}
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.SKSwapChainPanel.OnRenderFrame(Windows.Foundation.Rect)">
+            <param name="rect">The rectangle to draw.</param>
+            <summary>Called to draw the current frame within the passed-in rectangle.</summary>
+            <remarks />
+        </member>
+        <member name="E:SkiaSharp.Views.UWP.SKSwapChainPanel.PaintSurface">
+            <summary>Occurs when the surface needs to be redrawn.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.UWP.SKSwapChainPanel.OnPaintSurface(SkiaSharp.Views.UWP.SKPaintGLSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.UWP.SKSwapChainPanel.PaintSurface>
+event.
+
+## Examples
+
+```csharp
+myView.PaintSurface += (sender, e) => {
+    var surface = e.Surface;
+    var surfaceWidth = e.BackendRenderTarget.Width;
+    var surfaceHeight = e.BackendRenderTarget.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+};
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="T:SkiaSharp.Views.UWP.SKXamlCanvas">
+            <summary>A XAML canvas that can be drawn on using SkiaSharp drawing commands.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.UWP.SKXamlCanvas">
+            <summary>Creates a new instance of <see cref="T:SkiaSharp.Views.UWP.SKXamlCanvas" />.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.SKXamlCanvas.CanvasSize">
+            <summary>Gets the current canvas size.</summary>
+            <value />
+            <remarks>The canvas size may be different to the view size as a result of the current device's pixel density.</remarks>
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.SKXamlCanvas.Dpi">
+            <summary>Gets the current DPI for the canvas.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.UWP.SKXamlCanvas.IgnorePixelScaling">
+            <summary>Gets or sets a value indicating whether the drawing canvas should be resized on high resolution displays.</summary>
+            <value />
+            <remarks>By default, when <see langword="false" />, the canvas is resized to 1 canvas pixel per display pixel. When <see langword="true" />, the canvas is resized to device independent pixels, and then stretched to fill the view. Although performance is improved and all objects are the same size on different display densities, blurring and pixelation may occur.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.SKXamlCanvas.Invalidate">
+            <summary>Invalidates the entire surface of the control and causes the control to be redrawn.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.SKXamlCanvas.OnPaintSurface(SkiaSharp.Views.UWP.SKPaintSurfaceEventArgs)">
+            <param name="e">The event arguments that contain the drawing surface and information.</param>
+            <summary>Implement this to draw on the canvas.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.UWP.SKXamlCanvas.OnPaintSurface(SkiaSharp.Views.UWP.SKPaintSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.UWP.SKXamlCanvas.PaintSurface>
+event.
+
+> [!IMPORTANT]
+> If this method is overridden, then the base must be called, otherwise the
+> event will not be fired.
+
+## Examples
+
+```csharp
+protected override void OnPaintSurface (SKPaintSurfaceEventArgs e)
+{
+    // call the base method
+    base.OnPaintSurface (e);
+
+    var surface = e.Surface;
+    var surfaceWidth = e.Info.Width;
+    var surfaceHeight = e.Info.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+}
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="E:SkiaSharp.Views.UWP.SKXamlCanvas.PaintSurface">
+            <summary>Occurs when the surface needs to be redrawn.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.UWP.SKXamlCanvas.OnPaintSurface(SkiaSharp.Views.UWP.SKPaintSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.UWP.SKXamlCanvas.PaintSurface>
+event.
+
+## Examples
+
+```csharp
+myView.PaintSurface += (sender, e) => {
+    var surface = e.Surface;
+    var surfaceWidth = e.Info.Width;
+    var surfaceHeight = e.Info.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+};
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="T:SkiaSharp.Views.UWP.UWPExtensions">
+            <summary>Various extension methods to convert between SkiaSharp types and Windows types.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.UWPExtensions.ToColor(SkiaSharp.SKColor)">
+            <param name="color">The SkiaSharp color.</param>
+            <summary>Converts a SkiaSharp color into a Windows color.</summary>
+            <returns>Returns a Windows color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.UWPExtensions.ToPoint(SkiaSharp.SKPoint)">
+            <param name="point">The SkiaSharp point.</param>
+            <summary>Converts a SkiaSharp point into a Windows point.</summary>
+            <returns>Returns a Windows point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.UWPExtensions.ToRect(SkiaSharp.SKRect)">
+            <param name="rect">The SkiaSharp rectangle.</param>
+            <summary>Converts a SkiaSharp rectangle into a Windows rectangle.</summary>
+            <returns>Returns a Windows rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.UWPExtensions.ToSize(SkiaSharp.SKSize)">
+            <param name="size">The SkiaSharp size.</param>
+            <summary>Converts a SkiaSharp size into a Windows size.</summary>
+            <returns>Returns a Windows size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.UWPExtensions.ToSKBitmap(Windows.UI.Xaml.Media.Imaging.WriteableBitmap)">
+            <param name="bitmap">The Windows WriteableBitmap.</param>
+            <summary>Converts a Windows WriteableBitmap into a SkiaSharp bitmap.</summary>
+            <returns>Returns a copy of the bitmap data as a SkiaSharp bitmap.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.UWPExtensions.ToSKColor(Windows.UI.Color)">
+            <param name="color">The Windows color.</param>
+            <summary>Converts a Windows color into a SkiaSharp color.</summary>
+            <returns>Returns a SkiaSharp color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.UWPExtensions.ToSKImage(Windows.UI.Xaml.Media.Imaging.WriteableBitmap)">
+            <param name="bitmap">The Windows WriteableBitmap.</param>
+            <summary>Converts a Windows WriteableBitmap into a SkiaSharp image.</summary>
+            <returns>Returns a copy of the bitmap data as a SkiaSharp image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.UWPExtensions.ToSKPixmap(Windows.UI.Xaml.Media.Imaging.WriteableBitmap,SkiaSharp.SKPixmap)">
+            <param name="bitmap">The Windows WriteableBitmap to convert.</param>
+            <param name="pixmap">The SkiaSharp pixmap to hold the copy of the bitmap data.</param>
+            <summary>Converts a Windows WriteableBitmap into a SkiaSharp pixmap.</summary>
+            <returns>Returns <see langword="true" /> if the copy was successful, otherwise <see langword="false" />.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.UWPExtensions.ToSKPoint(Windows.Foundation.Point)">
+            <param name="point">The Windows point.</param>
+            <summary>Converts a Windows point into a SkiaSharp point.</summary>
+            <returns>Returns a SkiaSharp point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.UWPExtensions.ToSKRect(Windows.Foundation.Rect)">
+            <param name="rect">The Windows rectangle</param>
+            <summary>Converts a Windows rectangle into a SkiaSharp rectangle.</summary>
+            <returns>Returns a SkiaSharp rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.UWPExtensions.ToSKSize(Windows.Foundation.Size)">
+            <param name="size">The Windows size.</param>
+            <summary>Converts a Windows size into a SkiaSharp size.</summary>
+            <returns>Returns a SkiaSharp size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.UWPExtensions.ToWriteableBitmap(SkiaSharp.SKBitmap)">
+            <param name="skiaBitmap">The SkiaSharp bitmap.</param>
+            <summary>Converts a SkiaSharp bitmap into a Windows WriteableBitmap.</summary>
+            <returns>Returns a copy of the bitmap data as a Windows WriteableBitmap.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.UWPExtensions.ToWriteableBitmap(SkiaSharp.SKImage)">
+            <param name="skiaImage">The SkiaSharp image.</param>
+            <summary>Converts a SkiaSharp image into a Windows WriteableBitmap.</summary>
+            <returns>Returns a copy of the image data as a Windows WriteableBitmap.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.UWPExtensions.ToWriteableBitmap(SkiaSharp.SKPixmap)">
+            <param name="pixmap">The SkiaSharp pixmap.</param>
+            <summary>Converts a SkiaSharp pixmap into a Windows WriteableBitmap.</summary>
+            <returns>Returns a copy of the pixel data as a Windows WriteableBitmap.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.UWP.UWPExtensions.ToWriteableBitmap(SkiaSharp.SKPicture,SkiaSharp.SKSizeI)">
+            <param name="picture">The SkiaSharp picture.</param>
+            <param name="dimensions">The dimensions of the picture.</param>
+            <summary>Converts a SkiaSharp picture into a Windows WriteableBitmap.</summary>
+            <returns>Returns a copy of the picture as a Windows WriteableBitmap.</returns>
+            <remarks />
+        </member>
+    </members>
+</doc>

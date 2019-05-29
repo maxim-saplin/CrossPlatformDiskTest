@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard2.0\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard2.0\Xamarin.Forms.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -11,7 +10,8 @@
     <AssemblyName>CPDT</AssemblyName>
     <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
-    <ReleaseVersion>2.0.6</ReleaseVersion>
+    <ReleaseVersion>2.1.5</ReleaseVersion>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
     <TargetFrameworkIdentifier>Xamarin.Mac</TargetFrameworkIdentifier>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -29,10 +29,11 @@
     <IncludeMonoRuntime>false</IncludeMonoRuntime>
     <UseSGen>true</UseSGen>
     <UseRefCounting>true</UseRefCounting>
-    <HttpClientHandler></HttpClientHandler>
-    <LinkMode></LinkMode>
-    <XamMacArch></XamMacArch>
+    <HttpClientHandler>HttpClientHandler</HttpClientHandler>
+    <LinkMode>None</LinkMode>
+    <XamMacArch>x86_64</XamMacArch>
     <AOTMode>None</AOTMode>
+    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
@@ -47,26 +48,38 @@
     <UseSGen>true</UseSGen>
     <UseRefCounting>true</UseRefCounting>
     <LinkMode>None</LinkMode>
-    <HttpClientHandler></HttpClientHandler>
-    <XamMacArch></XamMacArch>
+    <HttpClientHandler>HttpClientHandler</HttpClientHandler>
+    <XamMacArch>x86_64</XamMacArch>
     <AOTMode>None</AOTMode>
+    <CodeSigningKey>Mac Developer</CodeSigningKey>
+    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Xamarin.Mac" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="Xamarin.Mac" />
     <Reference Include="Xamarin.Forms.Core">
-      <HintPath>..\packages\Xamarin.Forms.3.2.0.871581\lib\Xamarin.Mac\Xamarin.Forms.Core.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.4.0.0.425677\lib\Xamarin.Mac\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform">
-      <HintPath>..\packages\Xamarin.Forms.3.2.0.871581\lib\Xamarin.Mac\Xamarin.Forms.Platform.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.4.0.0.425677\lib\Xamarin.Mac\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform.macOS">
-      <HintPath>..\packages\Xamarin.Forms.3.2.0.871581\lib\Xamarin.Mac\Xamarin.Forms.Platform.macOS.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.4.0.0.425677\lib\Xamarin.Mac\Xamarin.Forms.Platform.macOS.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
-      <HintPath>..\packages\Xamarin.Forms.3.2.0.871581\lib\Xamarin.Mac\Xamarin.Forms.Xaml.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.4.0.0.425677\lib\Xamarin.Mac\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
+        <Reference Include="netstandard" />
+        <Reference Include="SkiaSharp">
+          <HintPath>..\packages\SkiaSharp.1.68.0\lib\Xamarin.Mac20\SkiaSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="SkiaSharp.Views.Mac">
+          <HintPath>..\packages\SkiaSharp.Views.1.68.0\lib\Xamarin.Mac20\SkiaSharp.Views.Mac.dll</HintPath>
+        </Reference>
+        <Reference Include="SkiaSharp.Views.Forms">
+          <HintPath>..\packages\SkiaSharp.Views.Forms.1.68.0\lib\Xamarin.Mac20\SkiaSharp.Views.Forms.dll</HintPath>
+        </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -125,5 +138,6 @@
     <BundleResource Include="Resources\Fonts\IBMPlexMono-ThinItalic.ttf" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
-  <Import Project="..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard2.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard2.0\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.4.0.0.425677\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.4.0.0.425677\build\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
 </Project>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls"
+             xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels"
+             xmlns:l11n="clr-namespace:Saplin.CPDT.UICore.Localization"
+             xmlns:local="clr-namespace:Saplin.CPDT.UICore"
+             x:Class="Saplin.CPDT.UICore.Options" 
+            Style="{x:StaticResource Key=popUp}">
+    <Grid.Resources>
+        <ResourceDictionary>
+            <x:Array Type="{x:Type ctrl:KeyValue}" x:Key="LanguageKeys">
+                <ctrl:KeyValue Key="{x:Static l11n:Locales.en}" Value="(English)"/>
+                <ctrl:KeyValue Key="{x:Static l11n:Locales.ru}" Value="(Русский)"/>
+                <!--<ctrl:KeyValue Key="{x:Static l11n:Locales.fr}" Value="(Français)"/>-->
+            </x:Array>
+            <x:Array Type="{x:Type ctrl:KeyValue}" x:Key="FileSizeKeys">
+                <ctrl:KeyValue Key="1" Value="(1 GB)"/>
+                <ctrl:KeyValue Key="2" Value="(2 GB)"/>
+                <ctrl:KeyValue Key="4" Value="(4 GB)"/>
+                <ctrl:KeyValue Key="8" Value="(8 GB)"/>
+                <ctrl:KeyValue Key="16" Value="(16 GB)"/>
+            </x:Array>
+        </ResourceDictionary>
+    </Grid.Resources>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition>
+            <ColumnDefinition.Width>
+                <OnPlatform x:TypeArguments="GridLength">
+                    <On Platform="Android" Value="*" />
+                    <On Platform="WPF, macOS" Value="340" />
+                </OnPlatform>
+             </ColumnDefinition.Width>
+        </ColumnDefinition>
+        <ColumnDefinition>
+            <ColumnDefinition.Width>
+                <OnPlatform x:TypeArguments="GridLength">
+                    <On Platform="Android" Value="120" />
+                    <On Platform="WPF, macOS" Value="130" />
+                </OnPlatform>
+             </ColumnDefinition.Width>
+        </ColumnDefinition>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="10"/>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="25"/>
+    </Grid.RowDefinitions>
+    
+    <ctrl:ExtendedLabel x:Name="closeLabel" ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Close}" Grid.Row="0" Grid.Column="1" 
+                        ChangeCursorOnMouseHover="True" Command="{Binding Source={x:Static vm:ViewModelContainer.OptionsViewModel}, Close}" 
+                        VerticalOptions="Start" HorizontalOptions="Start" LineBreakMode="NoWrap" WidthRequest="130" />
+    <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="[?]" ChangeCursorOnMouseHover="True" 
+                        Command="{Binding ShowAbout, Source={Static vm:ViewModelContainer.NavigationViewModel}}" Grid.Row="0" Grid.Column="0"
+                        VerticalOptions="Start" HorizontalOptions="Start" LineBreakMode="NoWrap"/>
+    
+    <ctrl:ExtendedLabel Grid.Row="2" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, FileSizeOption}"
+                        ctrl:KeyPress.ClickControl="{x:Reference Name=fileSizeOption}" VerticalOptions="End"/>
+    <ctrl:RollingSelector Grid.Row="2" Grid.Column="1" ChangeCursorOnMouseHover="True" Items="{x:StaticResource Key=FileSizeKeys}"
+                          SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.OptionsViewModel}, FileSizeGb}"
+                          x:Name="fileSizeOption" VerticalOptions="End"/>
+    
+    <ctrl:ExtendedLabel Grid.Row="3" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, WriteBufferingOption}"
+                        ctrl:KeyPress.ClickControl="{x:Reference Name=writeBufferOption}"/>
+    <ctrl:RollingSelector Grid.Row="3" Grid.Column="1" ChangeCursorOnMouseHover="True" 
+                          Items="{Binding Source={x:Static vm:ViewModelContainer.L11n}, OnOff}"
+                          SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.OptionsViewModel}, WriteBuffering}"
+                          x:Name="writeBufferOption"/>
+    
+    <ctrl:ExtendedLabel Grid.Row="4" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, MemCacheOption}"
+                        ctrl:KeyPress.ClickControl="{x:Reference Name=memCacheOption}"/>
+    <ctrl:RollingSelector Grid.Row="4" Grid.Column="1" ChangeCursorOnMouseHover="True"  
+                          Items="{Binding Source={x:Static vm:ViewModelContainer.L11n}, OnOff}"
+                          SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.OptionsViewModel}, MemCache}"
+                          x:Name="memCacheOption"/>
+    
+    <ctrl:ExtendedLabel Grid.Row="5" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, CsvOption}"
+                        ctrl:KeyPress.ClickControl="{x:Reference Name=csvOption}"/>
+    <ctrl:RollingSelector Grid.Row="5" Grid.Column="1" ChangeCursorOnMouseHover="True"  
+                          Items="{Binding Source={x:Static vm:ViewModelContainer.L11n}, OnOff}"
+                          SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.OptionsViewModel}, Csv}"
+                          x:Name="csvOption"/>
+
+    <ctrl:ExtendedLabel Grid.Row="6" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, WhiteTheme}"
+                        ctrl:KeyPress.ClickControl="{x:Reference Name=whiteThemeOption}"/>
+    <ctrl:RollingSelector Grid.Row="6" Grid.Column="1" ChangeCursorOnMouseHover="True"  
+                          Items="{Binding Source={x:Static vm:ViewModelContainer.L11n}, OnOff}"
+                          SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.OptionsViewModel}, WhiteTheme}"
+                          x:Name="whiteThemeOption"/>
+            
+    <ctrl:ExtendedLabel Grid.Row="7" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Language}" 
+                        Command="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _NextLocale}"/>
+    <StackLayout Orientation="Horizontal" Grid.Row="7" Grid.Column="1" >
+        <ctrl:RollingSelector ChangeCursorOnMouseHover="True" SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _Locale}" Items="{x:StaticResource Key=LanguageKeys}" />
+        <Image Source="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _LocaleIcon}"  WidthRequest="16" HeightRequest="16" VerticalOptions="End" HorizontalOptions="Start"/>
+    </StackLayout>
+
+    <ctrl:BlinkingCursor Grid.Row="8" BlinkCursor="True"/>
+</Grid>

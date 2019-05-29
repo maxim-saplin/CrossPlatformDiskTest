@@ -51,6 +51,18 @@ namespace Saplin.CPDT.UICore.ViewModels
                 return navigateToProjectSite;
             }
         }
+
+        private ICommand navigateToDownloadSite = new Command(() => { Device.OpenUri(new Uri(ViewModelContainer.L11n.DownloadLink)); });
+
+        public ICommand NavigateToDownloadSite
+        {
+            get
+            {
+                return navigateToDownloadSite;
+            }
+        }
+
+        
     }
 }
 

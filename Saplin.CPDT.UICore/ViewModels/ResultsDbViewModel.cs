@@ -64,11 +64,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
-        public void PreLoadComparison(TestSession session)
-        {
-            var url = GetCompareUrl(session);
-            if ((webView.Source as UrlWebViewSource).Url != url) webView.Source = url;
-        }
+        private const string d_param_format = "ddMMyyHHmmss";
 
         private string GetParams()
         {
@@ -78,7 +74,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                             "") +
                          "&" + i_param + ViewModelContainer.OptionsViewModel.IID +
                          "&" + v_param + Assembly.GetExecutingAssembly().GetName().Version.ToString().Substring(0, 5).Replace(".","") +
-                         "&" + d_param + DateTime.UtcNow.ToString("ddMMyyHHmmss");
+                         "&" + d_param + DateTime.UtcNow.ToString(d_param_format);
 
             var di = DependencyService.Get<IDeviceInfo>();
 
@@ -177,26 +173,44 @@ namespace Saplin.CPDT.UICore.ViewModels
             return cpdt_web_url + "?" + prms;
         }
 
+        public void PreLoadComparison(TestSession session)
+        {
+            var url = GetCompareUrl(session);
+            if (CheckUrlChanged(url)) webView.Source = url;
+        }
+
         public void Navigating(object sender, WebNavigatingEventArgs e)
         {
             if (e.Source != null)
             {
-                //if (e.Url.Contains(close_param)) this.IsVisible = false;
-                if (!e.Url.StartsWith(cpdt_web_url)) NavigatedNotSuccesfully(); // WPF, IE11 - if the URL is incorrect, the page is being redirected to some other URL, though Navigated will still get Success and original URL
+                if (!e.Url.StartsWith(cpdt_web_url))
+                {
+                    wpfFail = true;
+                    NavigatedNotSuccesfully(); // WPF, IE11 - if the URL is incorrect, the page is being redirected to some other URL, though Navigated will still get Success and original URL
+                }
+                else wpfFail = false;
             }
             else if (e.NavigationEvent == WebNavigationEvent.Forward) NavigatedSuccesfully(); // macOS hack
         }
 
         public void Navigated(object sender, WebNavigatedEventArgs e)
         {
-            if (e.Result == WebNavigationResult.Success) NavigatedSuccesfully();
+            if (e.Result == WebNavigationResult.Success && !wpfFail) NavigatedSuccesfully();
             else NavigatedNotSuccesfully();
         }
 
         private void NavigatedSuccesfully()
         {
-            if (navigatedNotSuccesfully) return;
+            //if (navigatedNotSuccesfully) return;
             IsEnabled = true;
+            navigatedNotSuccesfully = false;
+            RaisePropertyChanged(nameof(NotAvailable));
+
+            if (doShowAfterNavigated)
+            {
+                base.DoShow(doShowAfterNavigated);
+                doShowAfterNavigated = false;
+            }
         }
 
         private bool navigatedNotSuccesfully = false;
@@ -205,6 +219,18 @@ namespace Saplin.CPDT.UICore.ViewModels
             IsEnabled = false;
             navigatedNotSuccesfully = true;
             RaisePropertyChanged(nameof(NotAvailable));
+            doShowAfterNavigated = false;
+
+            // Start reconnection attempts only only for non WPF apps. In WPF WebView failed browsing attempts can't be traced
+            if (Device.RuntimePlatform != Device.WPF) Device.StartTimer(TimeSpan.FromSeconds(5), () =>
+            {
+                if (navigatedNotSuccesfully && !ViewModelContainer.DriveTestViewModel.TestStarted)
+                {
+                    webView.Source = Url;
+                }
+
+                return false;
+            });
         }
 
         public bool NotAvailable
@@ -233,10 +259,42 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
+        private bool doShowAfterNavigated = false;
+        private bool wpfFail;
+
+        private bool CheckUrlChanged(string url)
+        {
+            var webViewUrl = (webView.Source as UrlWebViewSource).Url;
+
+            var d = "&" + d_param;
+
+            if (webViewUrl.Contains(d))
+            {
+                var index = webViewUrl.IndexOf(d, StringComparison.InvariantCulture);
+                webViewUrl = webViewUrl.Remove(index, d.Length + d_param_format.Length);
+            }
+
+            if (url.Contains(d))
+            {
+                var index = url.IndexOf(d, StringComparison.InvariantCulture);
+                url = url.Remove(index, d.Length + d_param_format.Length);
+            }
+
+            return url != webViewUrl;
+        }
+
         public override void DoShow(object param)
         {
-            if ((webView.Source as UrlWebViewSource).Url != Url) webView.Source = Url;
-            base.DoShow(param);
+            if (CheckUrlChanged(Url))
+            {
+                webView.Source = Url;
+                doShowAfterNavigated = true;
+            }
+            else
+            {
+                base.DoShow(null);
+            }
+
         }
 
         protected override bool OnVisibilityChanging(bool visible)

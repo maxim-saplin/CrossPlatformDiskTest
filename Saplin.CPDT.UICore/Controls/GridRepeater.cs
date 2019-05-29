@@ -242,7 +242,7 @@ namespace Saplin.CPDT.UICore.Controls
             if (control.Rows.Count <= row)
             {
                 control.Rows.Add(new List<View>());
-                if (control.RowHeight.Value != 0) control.RowDefinitions.Add(new RowDefinition() {Height = control.RowHeight });
+                if (!control.RowHeight.IsAuto) control.RowDefinitions.Add(new RowDefinition() {Height = control.RowHeight });
             }
 
             control.Rows[row].Add(child);
@@ -345,7 +345,7 @@ namespace Saplin.CPDT.UICore.Controls
                     Children.Remove(c);
                 }
                 Rows.RemoveAt(FooterRow);
-                RowDefinitions.RemoveAt(FooterRow);
+                if (RowDefinitions.Count > FooterRow) RowDefinitions.RemoveAt(FooterRow);
                 FooterRow = -1;
             }
         }

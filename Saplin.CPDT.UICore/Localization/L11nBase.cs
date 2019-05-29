@@ -57,7 +57,7 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to This application uses standrd OS&apos;s file API (WinAPI on Windows, POSIX on Mac and NDK on Android) to measure the speed of data transfer (in Megabytes per Second) between storage device (HDD, SSD, USB flash drive) and system memory(RAM). API calls are done through .NET Framework/Mono..
+        ///   Looks up a localized string similar to This application uses standard OS&apos;s file API (WinAPI on Windows, POSIX on Mac and NDK on Android) to measure the speed of data transfer (in Megabytes per Second) between storage device (HDD, SSD, USB flash drive) and system memory(RAM). API calls are done through .NET Framework/Mono..
         /// </summary>
         public string About1
         {
@@ -68,7 +68,7 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Sequential read and sequential write tests transfer large chunks of data (megabytes) between RAM and Storage. These tests are representative of such disk operstions as large file copying, video recording/encoding/decoding etc..
+        ///   Looks up a localized string similar to Sequential read and sequential write tests transfer large chunks of data (megabytes) between RAM and Storage. These tests are representative of such disk operations as large file copying, video recording/encoding/decoding etc..
         /// </summary>
         public string About2
         {
@@ -79,7 +79,7 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Random tests run for 7 seconds each and do transfers in small chunks (4KB and 32KB) at random positions within the test file. These tests show how file system performance influnce applications&apos; load times, copying multiple small files, runnning database queries etc..
+        ///   Looks up a localized string similar to Random tests run for 7 seconds each and do transfers in small chunks (4KB and 32KB) at random positions within the test file. These tests show how file system performance influence applications&apos; load times, copying multiple small files, running database queries etc..
         /// </summary>
         public string About3
         {
@@ -101,7 +101,7 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to • Write buffering - influences write test. Write operations use intermediary memory buffer and postpone data commit to latter more convinient time for better performace at a cost of less resiliant writes (e.g. power failure and not commiting to disk write buffer contents)..
+        ///   Looks up a localized string similar to • Write buffering - influences write test. Write operations use intermediary memory buffer and postpone data commit to latter more convenient time for better performance at a cost of less resilient writes (e.g. power failure and not committing to disk write buffer contents)..
         /// </summary>
         public string About5
         {
@@ -112,7 +112,7 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to • In-memory file cache - influences read tests. Any file operation requires from OS either transfering file data to memory or memory data to disk, OS will keep those memory pages in RAM until there&apos;s preasure for RAM from other apps. In case OS receives subsequent file read/write requests through API it will simply copy the cached memory pages from previous file operstions and not utilize the actual storage device. Turning this option on is essential a test of OS&apos;s file caching subsystem and RAM speed, rath [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to • In-memory file cache - influences read tests. Any file operation requires from OS either transferring file data to memory or memory data to disk, OS will keep those memory pages in RAM until there&apos;s pressure for RAM from other apps. In case OS receives subsequent file read/write requests through API it will simply copy the cached memory pages from previous file operations and not utilize the actual storage device. Turning this option on is essential a test of OS&apos;s file caching subsystem and RAM speed, rat [rest of string was truncated]&quot;;.
         /// </summary>
         public string About6
         {
@@ -123,7 +123,7 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Operations on computers and smartphones are executed by processor (CPU) against data which is loaded in system memory (RAM). This memory is not permament and limited in size, that&apos;s why theres always a permanent storage (SSD, HDD, SD Card - aka &quot;disk/drive&quot;). In many cases the performance of the system is determined not only by CPU (whichs are usualy in the spotlight of advertising and target of numerous benchmarks) but by the performance of memory, specifically RAM and storage. Official specs (especially w [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Operations on computers and smartphones are executed by processor (CPU) against data which is loaded in system memory (RAM). This memory is not permanent and limited in size, that&apos;s why theres always a permanent storage (SSD, HDD, SD Card - aka &quot;disk/drive&quot;). In many cases the performance of the system is determined not only by CPU (which are usually in the spotlight of advertising and target of numerous benchmarks) but by the performance of memory, specifically RAM and storage. Official specs (especially w [rest of string was truncated]&quot;;.
         /// </summary>
         public string About7
         {
@@ -134,13 +134,24 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to The application is open-source, you might want to check project&apos;s github at:.
+        ///   Looks up a localized string similar to The application is open-source, you might want to check project&apos;s GitHub at:.
         /// </summary>
         public string About8
         {
             get
             {
                 return ResourceManager.GetString("About8", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to You can download the app for different platforms (Windows, macOS, Android/APK) at the following link:.
+        /// </summary>
+        public string About9
+        {
+            get
+            {
+                return ResourceManager.GetString("About9", resourceCulture);
             }
         }
 
@@ -233,6 +244,17 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to [C]ompare.
+        /// </summary>
+        public string Compare
+        {
+            get
+            {
+                return ResourceManager.GetString("Compare", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to [E]xport test results to CSV.
         /// </summary>
         public string CsvOption
@@ -255,13 +277,24 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to \&amp;gt; Results Database isn&apos;t available. Check internet connection.
+        ///   Looks up a localized string similar to Results Database isn&apos;t available. Check internet connection.
         /// </summary>
         public string DbNotAvailable
         {
             get
             {
                 return ResourceManager.GetString("DbNotAvailable", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to https://maxim-saplin.github.io/cpdt_results/?download=&amp;lang=en&amp;app=.
+        /// </summary>
+        public string DownloadLink
+        {
+            get
+            {
+                return ResourceManager.GetString("DownloadLink", resourceCulture);
             }
         }
 
@@ -431,13 +464,25 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Mem. copy.
+        ///   Looks up a localized string similar to Mem.
+        ///copy.
         /// </summary>
         public string MemCopyTestShort
         {
             get
             {
                 return ResourceManager.GetString("MemCopyTestShort", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Mem. copy.
+        /// </summary>
+        public string MemCopyTestShortNB
+        {
+            get
+            {
+                return ResourceManager.GetString("MemCopyTestShortNB", resourceCulture);
             }
         }
 
@@ -541,13 +586,25 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Rand. read.
+        ///   Looks up a localized string similar to Rand.
+        ///read.
         /// </summary>
         public string RandomReadTestShort
         {
             get
             {
                 return ResourceManager.GetString("RandomReadTestShort", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Rand. read.
+        /// </summary>
+        public string RandomReadTestShortNB
+        {
+            get
+            {
+                return ResourceManager.GetString("RandomReadTestShortNB", resourceCulture);
             }
         }
 
@@ -563,13 +620,25 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Rand. write.
+        ///   Looks up a localized string similar to Rand.
+        ///write.
         /// </summary>
         public string RandomWriteTestShort
         {
             get
             {
                 return ResourceManager.GetString("RandomWriteTestShort", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Rand. write.
+        /// </summary>
+        public string RandomWriteTestShortNB
+        {
+            get
+            {
+                return ResourceManager.GetString("RandomWriteTestShortNB", resourceCulture);
             }
         }
 
@@ -596,13 +665,25 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Seq. read.
+        ///   Looks up a localized string similar to Seq.
+        ///read.
         /// </summary>
         public string SequentialReadTestShort
         {
             get
             {
                 return ResourceManager.GetString("SequentialReadTestShort", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Seq. read.
+        /// </summary>
+        public string SequentialReadTestShortNB
+        {
+            get
+            {
+                return ResourceManager.GetString("SequentialReadTestShortNB", resourceCulture);
             }
         }
 
@@ -618,13 +699,25 @@ namespace Saplin.CPDT.UICore.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Seq. write.
+        ///   Looks up a localized string similar to Seq.
+        ///write.
         /// </summary>
         public string SequentialWriteTestShort
         {
             get
             {
                 return ResourceManager.GetString("SequentialWriteTestShort", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Seq. write.
+        /// </summary>
+        public string SequentialWriteTestShortNB
+        {
+            get
+            {
+                return ResourceManager.GetString("SequentialWriteTestShortNB", resourceCulture);
             }
         }
 
@@ -782,11 +875,27 @@ namespace Saplin.CPDT.UICore.Localization
             }
         }
 
-        public string Compare
+        public string DownloadLinkShort
         {
             get
             {
-                return ResourceManager.GetString("Compare", resourceCulture);
+                return ResourceManager.GetString("DownloadLinkShort", resourceCulture);
+            }
+        }
+
+        public string ModeH
+        {
+            get
+            {
+                return ResourceManager.GetString("ModeH", resourceCulture);
+            }
+        }
+
+        public string About10
+        {
+            get
+            {
+                return ResourceManager.GetString("About10", resourceCulture);
             }
         }
     }

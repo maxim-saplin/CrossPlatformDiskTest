@@ -16,6 +16,7 @@ namespace Saplin.CPDT.UICore.Controls
         {
             if (queueSize == 0) return null;
 
+
             var pointer = queuePointer - queueSize + 1;
             if (pointer < 0) pointer += queueMaxSize;
 

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ctrl:StackRepeater xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Saplin.CPDT.UICore" xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" xmlns:anim="clr-namespace:Saplin.CPDT.UICore.Animations" x:Class="Saplin.CPDT.UICore.TestSessions" 
+                    BindingContext="{x:Static vm:ViewModelContainer.TestSessionsViewModel}" 
+                    ItemsSource="{Binding TestSessions}" 
+                    IsVisible="{Binding Source={Static vm:ViewModelContainer.DriveTestViewModel}, TestStarted, Converter={StaticResource BoolNot}}"
+                    Margin="-10, 0, -10, 0" Padding="10, 0, 10, 0"
+    Refresh="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _Locale}">
+    <ctrl:StackRepeater.ItemTemplate>
+        <DataTemplate>
+            <ctrl:MasterDetail SelectionGroup="testSessions" IsDetailVisible="{Binding Selected}" Margin="-10, 0, -10, 0" Padding="10, 0, 10, 0" ToggleOnMasterClick="True">
+                <ctrl:MasterDetail.MasterTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="10, 4, 10, 0">
+                            <ctrl:ExtendedLabel Text="{Binding SelectedNodeText}" MinimumWidthRequest="40" ChangeCursorOnMouseHover="True" VerticalOptions="Center" ctrl:MasterDetail.ToggleDetailOnClicked="True" LineBreakMode="CharacterWrap">
+                                <ctrl:ExtendedLabel.Style>
+                                    <OnPlatform x:TypeArguments="Style">
+                                        <On Platform="Android" Value="{StaticResource AccentedLabel}" />
+                                    </OnPlatform>
+                                </ctrl:ExtendedLabel.Style>
+                            </ctrl:ExtendedLabel>
+                            <BoxView Style="{StaticResource VerticalLine}" IsVisible="{Binding Selected}" Margin="0, 0, 4, 0" />
+                            <BoxView Style="{StaticResource VerticalLineGray}" IsVisible="{Binding Selected, Converter={StaticResource BoolNot}" Margin="0, 0, 4, 0" />
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal" >
+                                    <Label Text="{Binding OrderNumber, StringFormat='#{0}:'}" />
+                                    <Label Text="{Binding DriveName}" />
+                                    <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm:ss} {0:d.MM.yyyy}'}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start" />
+                                    <StackLayout IsVisible="{Binding Selected}" HorizontalOptions="EndAndExpand">
+                                        <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Compare}" 
+                                                            Command="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=Compare}" 
+                                                            CommandParameter="{Binding .}" 
+                                                            IsEnabled="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=IsEnabled, Mode=OneWay}" 
+                                                            ChangeCursorOnMouseHover="True" 
+                                                            VerticalOptions="Start" 
+                                                            HorizontalOptions="End"
+                                                            HorizontalTextAlignment="End"
+                                                            LineBreakMode="WordWrap" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0, -6, 0, 0">
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 6, 0">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=SequentialWriteTestShortNB, StringFormat='{0}:'}" Style="{StaticResource Key=GrayedSpan}"/>
+                                                <Span Text="{Binding SeqWrite, Converter={StaticResource MbPerSecondToAuto}, StringFormat='&#xA;{0}'}}" />
+                                                <Span Text="{Binding SeqWrite, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}" Style="{StaticResource Key=GrayedSpan}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 6, 0">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=SequentialReadTestShortNB, StringFormat='{0}:'}" Style="{StaticResource Key=GrayedSpan}"/>
+                                                <Span Text="{Binding SeqRead, Converter={StaticResource MbPerSecondToAuto}, StringFormat='&#xA;{0}'}}" />
+                                                <Span Text="{Binding SeqRead, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}}" Style="{StaticResource Key=GrayedSpan}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 6, 0">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RandomWriteTestShortNB, StringFormat='{0}:'}" Style="{StaticResource Key=GrayedSpan}"/>
+                                                <Span Text="{Binding RandWrite, Converter={StaticResource MbPerSecondToAuto}, StringFormat='&#xA;{0}'}}" />
+                                                <Span Text="{Binding RandWrite, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}}" Style="{StaticResource Key=GrayedSpan}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 6, 0">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RandomReadTestShortNB, StringFormat='{0}:'}" Style="{StaticResource Key=GrayedSpan}"/>
+                                                <Span Text="{Binding RandRead, Converter={StaticResource MbPerSecondToAuto}, StringFormat='&#xA;{0}'}}" />
+                                                <Span Text="{Binding RandRead, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}}" Style="{StaticResource Key=GrayedSpan}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 6, 0">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=MemCopyTestShortNB, StringFormat='{0}:'}" Style="{StaticResource Key=GrayedSpan}"/>
+                                                <Span Text="{Binding MemCopy, Converter={StaticResource MbPerSecondToAuto}, StringFormat='&#xA;{0}'}}" />
+                                                <Span Text="{Binding MemCopy, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}}" Style="{StaticResource Key=GrayedSpan}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </ctrl:MasterDetail.MasterTemplate>
+                <ctrl:MasterDetail.DetailTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="-10, 0, -10, 0" Padding="10, 0, 10, 10">
+                            <Label Text="{Binding FileName}" Style="{x:StaticResource Key=SmallLabel}" />
+                            <Label Text="{Binding Options}" Style="{x:StaticResource Key=SmallLabel}" />
+                            <ctrl:ExtendedLabel Text="{Binding CsvFileName}" ChangeCursorOnMouseHover="True" Command="{Binding OpenCsvFolder}" IsVisible="{Binding CsvFileName, Converter={StaticResource StringNotEmpty}}" Style="{x:StaticResource Key=AccentedSmallLabel}" />
+                            <local:TestResults IsFooterVisible="False" BindingContext="{Binding Results}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </ctrl:MasterDetail.DetailTemplate>
+            </ctrl:MasterDetail>
+        </DataTemplate>
+    </ctrl:StackRepeater.ItemTemplate>
+</ctrl:StackRepeater>

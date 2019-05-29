@@ -1,0 +1,112 @@
+<doc>
+    <assembly>
+        <name>SkiaSharp.Views.Gtk</name>
+    </assembly>
+    <members>
+        <member name="T:SkiaSharp.Views.Gtk.SKWidget">
+            <summary>A GTK# view that can be drawn on using SkiaSharp drawing commands.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Gtk.SKWidget">
+            <summary>Default constructor that initializes a new instance of <see cref="T:SkiaSharp.Views.Gtk.SKWidget" />.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Gtk.SKWidget.CanvasSize">
+            <summary>Gets the current canvas size.</summary>
+            <value />
+            <remarks>The canvas size may be different to the view size as a result of the current device's pixel density.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.SKWidget.Destroy">
+            <summary>Destroys a widget.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.SKWidget.Dispose">
+            <summary>Releases all resources used by this <see cref="T:SkiaSharp.Views.Gtk.SKWidget" />.</summary>
+            <remarks>Always dispose the object before you release your last reference to the <see cref="T:SkiaSharp.Views.Gtk.SKWidget" />. Otherwise, the resources it is using will not be freed until the garbage collector calls the finalizer.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.SKWidget.Dispose(System.Boolean)">
+            <param name="disposing">
+                <see langword="true" /> to release both managed and unmanaged resources; <see langword="false" /> to release only unmanaged resources.</param>
+            <summary>Releases the unmanaged resources used by the <see cref="T:SkiaSharp.Views.Gtk.SKWidget" /> and optionally releases the managed resources.</summary>
+            <remarks>Always dispose the object before you release your last reference to the <see cref="T:SkiaSharp.Views.Gtk.SKWidget" />. Otherwise, the resources it is using will not be freed until the garbage collector calls the finalizer.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.SKWidget.Finalize">
+            <summary>Allows an object to try to free resources and perform other cleanup operations before it is reclaimed by garbage collection.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.SKWidget.OnExposeEvent(Gdk.EventExpose)">
+            <param name="evnt">a <see cref="T:Gdk.EventExpose" />.</param>
+            <summary>Default handler for the Gtk.Widget.ExposeEvent event.</summary>
+            <returns>a <see cref="T:System.Boolean" />.</returns>
+            <remarks>Override this method in a subclass to provide a default handler for the Gtk.Widget.ExposeEvent event.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.SKWidget.OnPaintSurface(SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs)">
+            <param name="e">The event arguments that contain the drawing surface and information.</param>
+            <summary>Implement this to draw on the canvas.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Gtk.SKWidget.OnPaintSurface(SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Gtk.SKWidget.PaintSurface>
+event.
+
+> [!IMPORTANT]
+> If this method is overridden, then the base must be called, otherwise the
+> event will not be fired.
+
+## Examples
+
+```csharp
+protected override void OnPaintSurface (SKPaintSurfaceEventArgs e)
+{
+    // call the base method
+    base.OnPaintSurface (e);
+
+    var surface = e.Surface;
+    var surfaceWidth = e.Info.Width;
+    var surfaceHeight = e.Info.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+}
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="E:SkiaSharp.Views.Gtk.SKWidget.PaintSurface">
+            <summary>Occurs when the the canvas needs to be redrawn.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Gtk.SKWidget.OnPaintSurface(SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Gtk.SKWidget.PaintSurface>
+event.
+
+## Examples
+
+```csharp
+myView.PaintSurface += (sender, e) => {
+    var surface = e.Surface;
+    var surfaceWidth = e.Info.Width;
+    var surfaceHeight = e.Info.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+    canvas.Flush ();
+};
+```
+]]></format>
+            </remarks>
+        </member>
+    </members>
+</doc>

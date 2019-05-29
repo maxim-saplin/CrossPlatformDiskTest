@@ -1,0 +1,305 @@
+<doc>
+    <assembly>
+        <name>SkiaSharp.Views.watchOS</name>
+    </assembly>
+    <members>
+        <member name="T:SkiaSharp.Views.watchOS.AppleExtensions">
+            <summary>Various extension methods to convert between SkiaSharp types and CoreGraphics types.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.AppleExtensions.ToCGColor(SkiaSharp.SKColor)">
+            <param name="color">The SkiaSharp color.</param>
+            <summary>Converts a SkiaSharp color into a CoreGraphics color.</summary>
+            <returns>Returns a CoreGraphics color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.AppleExtensions.ToCGImage(SkiaSharp.SKBitmap)">
+            <param name="skiaBitmap">The SkiaSharp bitmap.</param>
+            <summary>Converts a SkiaSharp bitmap into a CoreGraphics image.</summary>
+            <returns>Returns a copy of the bitmap data as a CoreGraphics image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.AppleExtensions.ToCGImage(SkiaSharp.SKImage)">
+            <param name="skiaImage">The SkiaSharp image.</param>
+            <summary>Converts a SkiaSharp image into a CoreGraphics image.</summary>
+            <returns>Returns a copy of the image data as a CoreGraphics image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.AppleExtensions.ToCGImage(SkiaSharp.SKPixmap)">
+            <param name="skiaPixmap">The SkiaSharp pixmap.</param>
+            <summary>Converts a SkiaSharp pixmap into a CoreGraphics image.</summary>
+            <returns>Returns a copy of the pixel data as a CoreGraphics image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.AppleExtensions.ToCGImage(SkiaSharp.SKPicture,SkiaSharp.SKSizeI)">
+            <param name="skiaPicture">The SkiaSharp picture.</param>
+            <param name="dimensions">The dimensions of the picture.</param>
+            <summary>Converts a SkiaSharp picture into a CoreGraphics image.</summary>
+            <returns>Returns a copy of the picture as a CoreGraphics image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.AppleExtensions.ToNSData(SkiaSharp.SKData)">
+            <param name="skiaData">The SkiaSharp data object.</param>
+            <summary>Converts a SkiaSharp data object into a NSData.</summary>
+            <returns>Returns a copy of the data as a NSData.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.AppleExtensions.ToPoint(SkiaSharp.SKPoint)">
+            <param name="point">The SkiaSharp point.</param>
+            <summary>Converts a SkiaSharp point into a CoreGraphics point.</summary>
+            <returns>Returns a CoreGraphics point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.AppleExtensions.ToRect(SkiaSharp.SKRect)">
+            <param name="rect">The SkiaSharp rectangle.</param>
+            <summary>Converts a SkiaSharp rectangle into a CoreGraphics rectangle.</summary>
+            <returns>Returns a CoreGraphics rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.AppleExtensions.ToSize(SkiaSharp.SKSize)">
+            <param name="size">The SkiaSharp size.</param>
+            <summary>Converts a SkiaSharp size into a CoreGraphics size.</summary>
+            <returns>Returns a CoreGraphics size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.AppleExtensions.ToSKBitmap(CoreGraphics.CGImage)">
+            <param name="cgImage">The CoreGraphics image.</param>
+            <summary>Converts a CoreGraphics image into a SkiaSharp bitmap.</summary>
+            <returns>Returns a copy of the image data as a SkiaSharp bitmap.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.AppleExtensions.ToSKColor(CoreGraphics.CGColor)">
+            <param name="color">The CoreGraphics color.</param>
+            <summary>Converts a CoreGraphics color into a SkiaSharp color.</summary>
+            <returns>Returns a SkiaSharp color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.AppleExtensions.ToSKData(Foundation.NSData)">
+            <param name="nsData">The NSData.</param>
+            <summary>Converts a NSData into a SkiaSharp data object.</summary>
+            <returns>Returns a copy of the data as a SkiaSharp data object.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.AppleExtensions.ToSKImage(CoreGraphics.CGImage)">
+            <param name="cgImage">The CoreGraphics image.</param>
+            <summary>Converts a CoreGraphics image into a SkiaSharp image.</summary>
+            <returns>Returns a copy of the image data as a SkiaSharp image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.AppleExtensions.ToSKPixmap(CoreGraphics.CGImage,SkiaSharp.SKPixmap)">
+            <param name="cgImage">The CoreGraphics image.</param>
+            <param name="pixmap">The SkiaSharp pixmap to hold the copy of the image data.</param>
+            <summary>Converts a CoreGraphics image into a SkiaSharp pixmap.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.AppleExtensions.ToSKPoint(CoreGraphics.CGPoint)">
+            <param name="point">The CoreGraphics point.</param>
+            <summary>Converts a CoreGraphics point into a SkiaSharp point.</summary>
+            <returns>Returns a SkiaSharp point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.AppleExtensions.ToSKRect(CoreGraphics.CGRect)">
+            <param name="rect">The CoreGraphics rectangle.</param>
+            <summary>Converts a CoreGraphics rectangle into a SkiaSharp rectangle.</summary>
+            <returns>Returns a SkiaSharp rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.AppleExtensions.ToSKSize(CoreGraphics.CGSize)">
+            <param name="size">The CoreGraphics size.</param>
+            <summary>Converts a CoreGraphics size into a SkiaSharp size.</summary>
+            <returns>Returns a SkiaSharp size.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.watchOS.Extensions">
+            <summary>Various extension methods to convert between SkiaSharp types and System.Drawing types.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.Extensions.ToDrawingPoint(SkiaSharp.SKPoint)">
+            <param name="point">The SkiaSharp point.</param>
+            <summary>Converts a SkiaSharp point into a System.Drawing point.</summary>
+            <returns>Returns a System.Drawing point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.Extensions.ToDrawingPoint(SkiaSharp.SKPointI)">
+            <param name="point">The SkiaSharp point.</param>
+            <summary>Converts a SkiaSharp point into a System.Drawing point.</summary>
+            <returns>Returns a System.Drawing point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.Extensions.ToDrawingRect(SkiaSharp.SKRect)">
+            <param name="rect">The SkiaSharp rectangle.</param>
+            <summary>Converts a SkiaSharp rectangle into a System.Drawing rectangle.</summary>
+            <returns>Returns a System.Drawing rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.Extensions.ToDrawingRect(SkiaSharp.SKRectI)">
+            <param name="rect">The SkiaSharp rectangle.</param>
+            <summary>Converts a SkiaSharp rectangle into a System.Drawing rectangle.</summary>
+            <returns>Returns a System.Drawing rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.Extensions.ToDrawingSize(SkiaSharp.SKSize)">
+            <param name="size">The SkiaSharp size.</param>
+            <summary>Converts a SkiaSharp size into a System.Drawing size.</summary>
+            <returns>Returns a System.Drawing size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.Extensions.ToDrawingSize(SkiaSharp.SKSizeI)">
+            <param name="size">The SkiaSharp size.</param>
+            <summary>Converts a SkiaSharp size into a System.Drawing size.</summary>
+            <returns>Returns a System.Drawing size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.Extensions.ToSKPoint(System.Drawing.Point)">
+            <param name="point">The System.Drawing point.</param>
+            <summary>Converts a System.Drawing point into a SkiaSharp point.</summary>
+            <returns>Returns a SkiaSharp point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.Extensions.ToSKPoint(System.Drawing.PointF)">
+            <param name="point">The System.Drawing point.</param>
+            <summary>Converts a System.Drawing point into a SkiaSharp point.</summary>
+            <returns>Returns a SkiaSharp point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.Extensions.ToSKRect(System.Drawing.Rectangle)">
+            <param name="rect">The System.Drawing rectangle.</param>
+            <summary>Converts a System.Drawing rectangle into a SkiaSharp rectangle.</summary>
+            <returns>Returns a SkiaSharp rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.Extensions.ToSKRect(System.Drawing.RectangleF)">
+            <param name="rect">The System.Drawing rectangle.</param>
+            <summary>Converts a System.Drawing rectangle into a SkiaSharp rectangle.</summary>
+            <returns>Returns a SkiaSharp rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.Extensions.ToSKSize(System.Drawing.Size)">
+            <param name="size">The System.Drawing size.</param>
+            <summary>Converts a System.Drawing size into a SkiaSharp size.</summary>
+            <returns>Returns a SkiaSharp size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.Extensions.ToSKSize(System.Drawing.SizeF)">
+            <param name="size">The System.Drawing size.</param>
+            <summary>Converts a System.Drawing size into a SkiaSharp size.</summary>
+            <returns>Returns a SkiaSharp size.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.watchOS.iOSExtensions">
+            <summary>Various extension methods to convert between SkiaSharp types and UIKit types.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.iOSExtensions.ToSKBitmap(UIKit.UIImage)">
+            <param name="uiImage">The UIKit image.</param>
+            <summary>Converts a UIKit image into a SkiaSharp bitmap.</summary>
+            <returns>Returns a copy of the image data as a SkiaSharp bitmap.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.iOSExtensions.ToSKColor(UIKit.UIColor)">
+            <param name="color">The UIKit color</param>
+            <summary>Converts a UIKit color into a SkiaSharp color.</summary>
+            <returns>Returns a SkiaSharp color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.iOSExtensions.ToSKImage(UIKit.UIImage)">
+            <param name="uiImage">The UIKit image.</param>
+            <summary>Converts a UIKit image into a SkiaSharp image.</summary>
+            <returns>Returns a copy of the image data as a SkiaSharp image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.iOSExtensions.ToSKPixmap(UIKit.UIImage,SkiaSharp.SKPixmap)">
+            <param name="uiImage">The UIKit image.</param>
+            <param name="pixmap">The SkiaSharp pixmap to hold the copy of the image data.</param>
+            <summary>Converts a SkiaSharp pixmap into a UIKit image.</summary>
+            <returns>Returns <see langword="true" /> if the copy was successful, otherwise <see langword="false" />.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.iOSExtensions.ToUIColor(SkiaSharp.SKColor)">
+            <param name="color">The SkiaSharp color</param>
+            <summary>Converts a SkiaSharp color into a UIKit color.</summary>
+            <returns>Returns a UIKit color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.iOSExtensions.ToUIImage(SkiaSharp.SKBitmap)">
+            <param name="skiaBitmap">The SkiaSharp bitmap.</param>
+            <summary>Converts a SkiaSharp bitmap into a UIKit image.</summary>
+            <returns>Returns a copy of the bitmap data as a UIKit image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.iOSExtensions.ToUIImage(SkiaSharp.SKImage)">
+            <param name="skiaImage">The SkiaSharp image.</param>
+            <summary>Converts a SkiaSharp image into a UIKit image.</summary>
+            <returns>Returns a copy of the image data as a UIKit image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.iOSExtensions.ToUIImage(SkiaSharp.SKPixmap)">
+            <param name="skiaPixmap">The SkiaSharp pixmap.</param>
+            <summary>Converts a SkiaSharp pixmap into a UIKit image.</summary>
+            <returns>Returns a copy of the pixel data as a UIKit image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.iOSExtensions.ToUIImage(SkiaSharp.SKPicture,SkiaSharp.SKSizeI)">
+            <param name="skiaPicture">The SkiaSharp picture.</param>
+            <param name="dimensions">The dimensions of the picture.</param>
+            <summary>Converts a SkiaSharp picture into a UIKit image.</summary>
+            <returns>Returns a copy of the picture as a UIKit image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.iOSExtensions.ToUIImage(SkiaSharp.SKBitmap,System.nfloat,UIKit.UIImageOrientation)">
+            <param name="skiaBitmap">The SkiaSharp bitmap.</param>
+            <param name="scale">The scale factor for the image. A factor of 1.0 is the original size of the image.</param>
+            <param name="orientation">The rotation that is to be applied to the image.</param>
+            <summary>Converts a SkiaSharp bitmap into a UIKit image.</summary>
+            <returns>Returns a copy of the bitmap data as a UIKit image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.iOSExtensions.ToUIImage(SkiaSharp.SKPixmap,System.nfloat,UIKit.UIImageOrientation)">
+            <param name="skiaPixmap">The SkiaSharp pixmap.</param>
+            <param name="scale">The scale factor for the image. A factor of 1.0 is the original size of the image.</param>
+            <param name="orientation">The rotation that is to be applied to the image.</param>
+            <summary>Converts a SkiaSharp pixmap into a UIKit image.</summary>
+            <returns>Returns a copy of the pixel data as a UIKit image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.iOSExtensions.ToUIImage(SkiaSharp.SKPicture,SkiaSharp.SKSizeI,System.nfloat,UIKit.UIImageOrientation)">
+            <param name="skiaPicture">The SkiaSharp picture.</param>
+            <param name="dimensions">The dimensions of the picture.</param>
+            <param name="scale">The scale factor for the image. A factor of 1.0 is the original size of the image.</param>
+            <param name="orientation">The rotation that is to be applied to the image.</param>
+            <summary>Converts a SkiaSharp picture into a UIKit image.</summary>
+            <returns>Returns a copy of the picture as a UIKit image.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.watchOS.ISKCanvasLayerDelegate">
+            <summary>Delegate interface for <see cref="T:SkiaSharp.Views.iOS.SKCanvasLayer" />.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.watchOS.ISKCanvasLayerDelegate.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)">
+            <param name="surface">The surface to draw on.</param>
+            <param name="info">The information about the surface.</param>
+            <summary>Implement this to draw on the canvas.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.watchOS.SKPaintSurfaceEventArgs">
+            <summary>Provides data for the <see cref="E:SkiaSharp.Views.iOS.SKCanvasView.PaintSurface" /> event.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.watchOS.SKPaintSurfaceEventArgs(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)">
+            <param name="surface">The surface that is being drawn on.</param>
+            <param name="info">The information about the surface.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.iOS.SKPaintSurfaceEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.watchOS.SKPaintSurfaceEventArgs.Info">
+            <summary>Gets the information about the surface that is currently being drawn.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.watchOS.SKPaintSurfaceEventArgs.Surface">
+            <summary>Gets the surface that is currently being drawn on.</summary>
+            <value />
+            <remarks />
+        </member>
+    </members>
+</doc>

@@ -86,7 +86,7 @@ namespace Saplin.CPDT.UICore.Controls
 
         private void ToggleClicked(object sender, EventArgs e)
         {
-            if (MasterDetail.GetToggleDetailOnClicked(sender as View))
+            if (MasterDetail.GetToggleDetailOnClicked(sender as View) || ToggleOnMasterClick)
             {
                 if (!string.IsNullOrEmpty(SelectionGroup) && !IsDetailVisible)
                 {
@@ -105,6 +105,11 @@ namespace Saplin.CPDT.UICore.Controls
             }
         }
 
+        /// <summary>
+        /// Clicking in any place of Master will toggle teh Master/Detail, ToggleDetailOnClicked is an attached property which can be used to track clicks on specific chile items within Master
+        /// </summary>
+        public bool ToggleOnMasterClick { get; set; }
+
         private static void MasterIsVisibleChanged(BindableObject bindable, object oldValue, object newValue)
         {
             var control = bindable as MasterDetail;
@@ -116,6 +121,14 @@ namespace Saplin.CPDT.UICore.Controls
                 if (control.masterView == null)
                 {
                     control.masterView = control.ViewFromTemplate(control.MasterTemplate, control.BindingContext);
+
+                    if (control.ToggleOnMasterClick)
+                    {
+                        var g = new TapGestureRecognizer();
+                        g.Tapped += (s, e) => { control.ToggleClicked(s, e); };
+                        control.masterView.GestureRecognizers.Add(g);
+                    }
+
                     if (control.detailAdded) control.Children.Clear();
                     control.Children.Add(control.masterView);
 
@@ -152,7 +165,7 @@ namespace Saplin.CPDT.UICore.Controls
                     control.masterView.IsVisible = true;
                 }
 
-                if (!control.toggleClickAssigned)
+                if (!control.toggleClickAssigned && !control.ToggleOnMasterClick)
                 {
                     control.toggleClickAssigned = true;
 

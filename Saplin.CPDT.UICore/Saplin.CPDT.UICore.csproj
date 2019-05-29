@@ -7,13 +7,14 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
     <DebugType>pdbonly</DebugType>
-    <ReleaseVersion>2.0.5</ReleaseVersion>
-    <Version>2.0.6</Version>
-    <AssemblyVersion>2.0.6.0</AssemblyVersion>
-    <FileVersion>2.0.6.0</FileVersion>
+    <ReleaseVersion>2.0.6</ReleaseVersion>
+    <Version>2.1.5</Version>
+    <AssemblyVersion>2.1.5.0</AssemblyVersion>
+    <FileVersion>2.1.5.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.2.0.871581" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.0" />
+    <PackageReference Include="Xamarin.Forms" Version="4.0.0.425677" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="TestResult.xaml" />
@@ -22,12 +23,6 @@
     <EmbeddedResource Update="Localization\L11ns.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>L11ns.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Options.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="TestSessions.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="WhiteTheme.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -54,6 +49,7 @@
     <None Remove="Img\ruAboutBlackTheme.png" />
     <None Remove="Img\ruAboutWhiteTheme.png" />
     <None Remove=".DS_Store" />
+    <None Remove="Views\MainPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Img\en.png" />
@@ -67,16 +63,20 @@
     <EmbeddedResource Include="Img\ruAboutWhiteTheme.png" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Saplin.StorageSpeedMeter">
-      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\NetCoreStorageSpeedTest.git\Saplin.StorageSpeedMeter\bin\Debug\netstandard2.0\Saplin.StorageSpeedMeter.dll</HintPath>
-      <HintPath Condition="'$(Configuration)'=='Release'">..\References\netstandard2.0\Saplin.StorageSpeedMeter.dll</HintPath>
+    <Reference Include="CPDT.Extra">
+      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra.git\CPDT.Extra\bin\Debug\CPDT.Extra.dll</HintPath>
+      <HintPath Condition="'$(Configuration)'=='Release'">..\References\CPDT.Extra.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Posix.NETStandard">
       <HintPath>..\References\Mono.Posix.NETStandard.dll</HintPath>
     </Reference>
+    <Reference Include="Saplin.StorageSpeedMeter">
+      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\NetCoreStorageSpeedTest.git\Saplin.StorageSpeedMeter\bin\Debug\netstandard2.0\Saplin.StorageSpeedMeter.dll</HintPath>
+      <HintPath Condition="'$(Configuration)'=='Release'">..\References\Saplin.StorageSpeedMeter.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Error.xaml.cs">
+    <Compile Update="Views\Error.xaml.cs">
       <DependentUpon>Error.xaml</DependentUpon>
     </Compile>
     <Compile Update="Localization\L11ns.Designer.cs">
@@ -84,13 +84,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>L11ns.resx</DependentUpon>
     </Compile>
-    <Compile Update="TestResultsNarrow.xaml.cs">
+    <Compile Update="Views\TestResultsNarrow.xaml.cs">
       <DependentUpon>TestResultsNarrow.xaml</DependentUpon>
     </Compile>
-    <Compile Update="TestResults.xaml.cs">
+    <Compile Update="Views\TestResults.xaml.cs">
       <DependentUpon>TestResults.xaml</DependentUpon>
     </Compile>
-    <Compile Update="TestSessionsNarrow.xaml.cs">
+    <Compile Update="Views\TestSessionsNarrow.xaml.cs">
       <DependentUpon>TestSessionsNarrow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>

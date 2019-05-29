@@ -85,14 +85,19 @@ namespace Saplin.CPDT.UICore.ViewModels
                     androidDrives = DependencyService.Get<IAndroidDrives>()?.GetDrives();
 
                     var i = 0;
-                    long prevSize = -1;
+                    string prevDrive = "";
+
+                    const string d1 = "/data/user";
+                    const string d2 = "/storage/emulated/0";
 
                     foreach (var ad in androidDrives)
                     {
                         setAvailableAndIndex(ad, i);
                         i++;
-                        if (ad.BytesFree == prevSize) ad.ShowDiveIsSameMessage = true;
-                        prevSize = ad.BytesFree;
+
+                        if ( (prevDrive.Contains(d1) && ad.Name.Contains(d2)) || (prevDrive.Contains(d2) && ad.Name.Contains(d1))) ad.ShowDiveIsSameMessage = true;
+
+                        prevDrive = ad.Name;
                     }
                 }
                 else
@@ -346,6 +351,8 @@ namespace Saplin.CPDT.UICore.ViewModels
                              long freeSpace = 0;
                              long totalSpace = 0;
 
+                             string androidCachePurgeFile = null;
+
                              if (Device.RuntimePlatform == Device.Android)
                              {
                                  foreach (var ad in androidDrives)
@@ -355,6 +362,8 @@ namespace Saplin.CPDT.UICore.ViewModels
                                          freeSpace = ad.BytesFree;
                                          totalSpace = ad.TotalBytes;
                                      }
+
+                                 androidCachePurgeFile = Path.Combine(androidDrives.First<AndroidDrive>().AppFolderPath, "CPDT_CachePurging.dat");
                              }
                              else {
                                  var dd = drives.Where(d => d.Name == driveNameToUse).First();
@@ -371,9 +380,11 @@ namespace Saplin.CPDT.UICore.ViewModels
                                 //optionsVm.FileSizeBytes/64, 
                                 optionsVm.WriteBufferingBool, 
                                 memCache, 
+                                purgingFilePath: androidCachePurgeFile,
                                 freeMem: freeMemService == null ? null : (Func<long>)(freeMemService.GetBytesFree),
                                 flusher: flushService == null ? null : 
-                                    new WriteBufferFlusher(flushService.OpenFile, flushService.Flush, flushService.Close)
+                                    new WriteBufferFlusher(flushService.OpenFile, flushService.Flush, flushService.Close),
+                                mockFileStream: false
                             );
 
                              FileNameAndTime = testSuite.FilePath+", "+string.Format("{0:HH:mm:ss} {0:d.MM.yyyy}", TestStartedTime);
@@ -409,6 +420,12 @@ namespace Saplin.CPDT.UICore.ViewModels
                                          case TestStatus.Started:
                                              ShowTestStatusMessage = ShowTestProgress = true;
                                              ShowCurrentSpeed = false;
+
+                                             ShowTimeSeries = sender is SequentialTest || sender is MemCopyTest;
+                                             SeqTotalBlocks = sender is SequentialTest ? (int)(sender as SequentialTest).TotalBlocks :
+                                                                sender is MemCopyTest ? (int)(sender as MemCopyTest).TotalBlocks : -1;
+                                             SmoothTimeSeries = sender is MemCopyTest;
+
                                              TestStatusMessage = l11n.TestStarted;
                                              CurrentTest = test.Name;
                                              BlockSizeBytes = test.BlockSizeBytes;
@@ -431,9 +448,16 @@ namespace Saplin.CPDT.UICore.ViewModels
                                              ShowCurrentSpeed = true;
                                              if (e.RecentResult.HasValue) RecentResultMbps = e.RecentResult.Value;
                                              if (e.ProgressPercent.HasValue) ProgressPercent = e.ProgressPercent;
+                                             if (e.Results != RecentResults) RecentResults = e.Results;
                                              break;
                                          case TestStatus.Completed:
-                                             if (CurrentTestNumber - 1 == testSuite.TotalTests || testSuite.TotalTests == 0 /**already disposed*/) ShowTestProgress = false; // last test
+                                             if (CurrentTestNumber == testSuite.TotalTests || testSuite.TotalTests == 0 /**already disposed*/) ShowTestProgress = false; // last test
+
+                                             RecentResults = null;
+                                             ProgressPercent = 0;
+
+                                             ShowTimeSeries = false;
+
                                              if (e.Results != null)
                                              {
                                                  var bullet = "*";
@@ -441,7 +465,6 @@ namespace Saplin.CPDT.UICore.ViewModels
                                                      bullet = (testNumber++).ToString();
 
                                                  TestResults.Add(new TestResultsDetailed(e.Results) { BulletPoint = bullet });
-                                                
                                              }
 
                                              break;
@@ -612,6 +635,36 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
+        private bool showTimeSeries= false;
+
+        public bool ShowTimeSeries
+        {
+            get => showTimeSeries;
+            set
+            {
+                if (value != showTimeSeries)
+                {
+                    showTimeSeries = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        private bool smoothTimeSeries = false;
+
+        public bool SmoothTimeSeries
+        {
+            get => smoothTimeSeries;
+            set
+            {
+                if (value != smoothTimeSeries)
+                {
+                    smoothTimeSeries = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
         private double? progressPercent = 100;
 
         public double? ProgressPercent
@@ -642,6 +695,21 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
+        private Saplin.StorageSpeedMeter.TestResults recentResults = null;
+
+        public Saplin.StorageSpeedMeter.TestResults RecentResults
+        {
+            get => recentResults;
+            set
+            {
+                if (value != recentResults)
+                {
+                    recentResults = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
         private long blockSizeBytes;
 
         public long BlockSizeBytes
@@ -652,6 +720,21 @@ namespace Saplin.CPDT.UICore.ViewModels
                 if (value != blockSizeBytes)
                 {
                     blockSizeBytes = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        private int seqTotalBlocks = -1;
+
+        public int SeqTotalBlocks
+        {
+            get => seqTotalBlocks;
+            set
+            {
+                if (value != seqTotalBlocks)
+                {
+                    seqTotalBlocks = value;
                     RaisePropertyChanged();
                 }
             }

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:TestResultsBase 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Saplin.CPDT.UICore.TestResultsNarrow" 
+    xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls"
+    xmlns:ctrl2="clr-namespace:Saplin.CPDT.UICore.Controls;assembly=CPDT.Extra"
+    xmlns:anim="clr-namespace:Saplin.CPDT.UICore.Animations"
+    xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels"
+    xmlns:local="clr-namespace:Saplin.CPDT.UICore"
+    RowSpacing="0" HorizontalOptions="Fill" IsFooterVisible="{Binding ShowTestProgress}">
+    <Grid.RowHeight>
+        <OnPlatform x:TypeArguments="GridLength">
+            <On Platform="WPF" Value="36"/>  
+            <On Platform="macOS" Value="48"/> 
+            <On Platform="Android" Value="44"/>
+        </OnPlatform>
+    </Grid.RowHeight>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+    <ctrl:GridRepeater.ItemTemplate>
+        <DataTemplate>
+            <ctrl:GridItem>
+                <!-- col 0-->
+                <Label Text="{Binding BulletPoint, StringFormat='{0}.'}" LineBreakMode="NoWrap" WidthRequest="20" VerticalOptions="CenterAndExpand">
+<!--                   <Label.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="WPF" Value="36"/>  
+                            <On Platform="macOS" Value="-1"/> 
+                            <On Platform="Android" Value="38"/>
+                        </OnPlatform>
+                    </Label.HeightRequest>-->
+                </Label>
+                <!-- col 1-->
+                <Label Style="{StaticResource SmallLabel}" VerticalOptions="CenterAndExpand">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding Result.TestName, Converter={StaticResource KeyToL11nShort}}" Style="{StaticResource SpanStyle}" />
+                            <Span Text="{Binding Result.BlockSizeBytes, StringFormat='({0}', Converter={StaticResource BytesToAutoShort}}"/>
+                            <Span Text="{Binding Result.BlockSizeBytes, StringFormat=' {0})', Converter={StaticResource BytesToAutoUnit}}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <!-- col 2-4-->
+                <Label Grid.Column="2" Grid.ColumnSpan="3" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, TestNotEnoughMemory}" 
+                        LineBreakMode="TailTruncation" IsVisible="{Binding NotEnoughMemory}" VerticalOptions="CenterAndExpand">
+                </Label>
+                <!-- col 2-->
+                <Label Grid.Column="2" Style="{StaticResource AccentedLabel}" IsVisible="{Binding NotEnoughMemory, Converter={StaticResource BoolNot}}" VerticalOptions="CenterAndExpand">
+                    <Label.FormattedText >
+                        <FormattedString>
+                            <Span Text="{Binding Result.AvgThroughput, Converter={StaticResource MbPerSecondToAuto}}" />
+                            <Span Text="{Binding Result.AvgThroughput, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#10;{0}'}" Style="{StaticResource GrayedSpan}"  />
+                        </FormattedString>
+                    </Label.FormattedText>
+<!--                    <Label.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="macOS, WPF" Value="-1"/> 
+                            <On Platform="Android" Value="-1"/>
+                        </OnPlatform>
+                    </Label.HeightRequest>-->
+                    <Label.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="macOS, WPF" Value="60"/> 
+                            <On Platform="Android" Value="55"/>
+                        </OnPlatform>
+                    </Label.WidthRequest>
+                </Label>
+                <!-- col 3-4-->
+                <ctrl2:TimeSeriesGraph VerticalOptions="CenterAndExpand" Results="{Binding Result}" Trigger="{Binding Result}" IsVisible="{Binding ShowTimeSeries}" Smoothing="{Binding SmoothTimeSeries}"
+                         Clip="True" Color="{StaticResource DefaultColor}" Grid.Column="3" Grid.ColumnSpan="2" HeightRequest="38">
+                    <ctrl2:TimeSeriesGraph.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="macOS, WPF" Value="4, 2, 4, 2"/> 
+                            <On Platform="Android" Value="4, 3, 4, 4"/>
+                        </OnPlatform>
+                    </ctrl2:TimeSeriesGraph.Margin>
+                </ctrl2:TimeSeriesGraph>
+
+                <ctrl2:HistogramGraph VerticalOptions="CenterAndExpand" Results="{Binding Result}" Trigger="{Binding Result}" BinsNumber="12" IsVisible="{Binding ShowHistogram}" 
+                                     MinH="{Binding MinAdjusted}" MaxH="{Binding MaxAdjusted}" ModeH="{Binding ModeH}" ModeHPercent="{Binding ModeHPercent}"
+                                     Color="{StaticResource DefaultColor}" Grid.Column="3" Grid.ColumnSpan="2" HeightRequest="38">
+                    <ctrl2:HistogramGraph.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="macOS, WPF" Value="4, 2, 4, 2"/> 
+                            <On Platform="Android" Value="4, 3, 4, 4"/>
+                        </OnPlatform>
+                    </ctrl2:HistogramGraph.Margin>
+                </ctrl2:HistogramGraph>
+                <!-- col 3-->
+                <StackLayout Grid.Column="3" Grid.ColumnSpan="2" Opacity="0" IsEnabled="false" IsVisible="{Binding ShowMin}" Margin="6, 0, 0, 0"
+                             Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand"> <!-- TODO, check on Android, macOS-->
+                    <Label Style="{StaticResource SmallLabel}" HorizontalOptions="Start" >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding MinAdjusted, Converter={StaticResource MbPerSecondToAuto}}" />
+                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Min, StringFormat='&#10;{0}, '}" Style="{StaticResource SuperSmallSpan}"/>
+                                <Span Text="{Binding MinAdjusted, Converter={StaticResource MbPerSecondToAutoUnit}}" Style="{StaticResource SuperSmallSpan}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Style="{StaticResource SmallLabel}" HorizontalOptions="Start" IsVisible="{Binding ShowModeH}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding ModeH, Converter={StaticResource MbPerSecondToAuto}}" />
+                                <Span Text="{Binding ModeHPercent, StringFormat='÷{0}%'}" />
+                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, ModeH, StringFormat='&#10;{0}, '}" Style="{StaticResource SuperSmallSpan}"/>
+                                <Span Text="{Binding ModeH, Converter={StaticResource MbPerSecondToAutoUnit}}" Style="{StaticResource SuperSmallSpan}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Style="{StaticResource SmallLabel}" HorizontalOptions="Start">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding MaxAdjusted, Converter={StaticResource MbPerSecondToAuto}}"  />
+                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Max, StringFormat='&#10;{0}, '}" Style="{StaticResource SuperSmallSpan}"/>
+                                <Span Text="{Binding MaxAdjusted, StringFormat='{0} ', Converter={StaticResource MbPerSecondToAutoUnit}}" Style="{StaticResource SuperSmallSpan}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+            </ctrl:GridItem>
+        </DataTemplate>
+    </ctrl:GridRepeater.ItemTemplate>
+    <ctrl:GridRepeater.FooterTemplate>
+        <DataTemplate>
+            <ctrl:GridItem>
+                <!-- col 0-->
+                <Label Text="{Binding ProgressPercent, StringFormat='{0:0}&#10;%'}" HorizontalTextAlignment="Start" 
+                       VerticalOptions="CenterAndExpand" Style="{StaticResource SmallLabel}">
+                    <Label.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="macOS, WPF" Value="32"/> 
+                            <On Platform="Android" Value="20"/>
+                        </OnPlatform>
+                    </Label.WidthRequest>
+                </Label>
+                <!-- col 1-->
+                <Label Style="{StaticResource SmallLabel}" VerticalOptions="CenterAndExpand"> 
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding CurrentTest, Mode=OneWay, Converter={StaticResource KeyToL11nShort}}" Style="{StaticResource SpanStyle}" />
+                            <Span Text="{Binding BlockSizeBytes, Mode=OneWay, StringFormat='({0}', Converter={StaticResource BytesToAutoShort}}"/>
+                            <Span Text="{Binding BlockSizeBytes, Mode=OneWay, StringFormat=' {0})', Converter={StaticResource BytesToAutoUnit}}"/>
+                            <Span Text=" " />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <!-- col 2-4-->
+                <Label Text="{Binding TestStatusMessage}" IsVisible="{Binding ShowTestStatusMessage}" Style="{StaticResource GrayedLabel}"
+                       HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Start" Grid.Column="2" Grid.ColumnSpan="3">
+                    <Label.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="macOS" Value="24"/> <!-- macOS hack to avoid aligning percent to the bottom, VerticalOptions not working -->
+                            <On Platform="Android, WPF" Value="-1"/>
+                        </OnPlatform>
+                    </Label.HeightRequest>
+                </Label>
+                <!-- col 2-->
+                <Label IsVisible="{Binding ShowCurrentSpeed}" Style="{StaticResource AccentedLabel}" VerticalOptions="CenterAndExpand" Grid.Column="2">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding RecentResultMbps, Mode=OneWay, Converter={StaticResource MbPerSecondToAuto}" />
+                            <Span Text="{Binding RecentResultMbps, Mode=OneWay, Converter={StaticResource MbPerSecondToAutoUnit} , StringFormat='&#10;{0}'}}" Style="{StaticResource GrayedSpan}" /> 
+                        </FormattedString>
+                    </Label.FormattedText>
+<!--                    <Label.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="macOS, WPF" Value="-1"/> 
+                            <On Platform="Android" Value="-1"/>
+                        </OnPlatform>
+                    </Label.HeightRequest>-->
+                    <Label.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="macOS, WPF" Value="60"/> 
+                            <On Platform="Android" Value="55"/>
+                        </OnPlatform>
+                    </Label.WidthRequest>
+                </Label>
+                
+                <!-- col 3-4 -->
+                <ctrl2:TimeSeriesGraph VerticalOptions="CenterAndExpand" Results="{Binding RecentResults}" Trigger="{Binding ProgressPercent}" IsVisible="{Binding ShowTimeSeries}" Color="{StaticResource DefaultColor}"
+                                      TotalPoints="{Binding SeqTotalBlocks}" Clip="True" Smoothing="{Binding SmoothTimeSeries}" Grid.Column="3" Grid.ColumnSpan="2" HeightRequest="38">
+                    <ctrl2:TimeSeriesGraph.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="macOS, WPF" Value="4, 2, 4, 2"/> 
+                            <On Platform="Android" Value="4, 3, 4, 4"/>
+                        </OnPlatform>
+                    </ctrl2:TimeSeriesGraph.Margin>
+                </ctrl2:TimeSeriesGraph>
+
+                <ctrl2:HistogramGraph VerticalOptions="CenterAndExpand" Results="{Binding RecentResults}" Trigger="{Binding ProgressPercent}" BinsNumber="12" IsVisible="{Binding ShowTimeSeries, Converter={StaticResource BoolNot}}" 
+                                     Color="{StaticResource DefaultColor}" Grid.Column="3" Grid.ColumnSpan="2" HeightRequest="38">
+                    <ctrl2:HistogramGraph.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="macOS, WPF" Value="4, 2, 4, 2"/> 
+                            <On Platform="Android" Value="4, 3, 4, 4"/>
+                        </OnPlatform>
+                    </ctrl2:HistogramGraph.Margin>
+                </ctrl2:HistogramGraph>
+               
+            </ctrl:GridItem>
+        </DataTemplate>
+    </ctrl:GridRepeater.FooterTemplate>
+</local:TestResultsBase>

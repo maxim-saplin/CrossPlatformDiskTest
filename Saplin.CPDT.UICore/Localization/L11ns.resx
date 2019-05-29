@@ -211,7 +211,11 @@
     <value>Memory copy</value>
   </data>
   <data name="MemCopyTestShort" xml:space="preserve">
-    <value>Mem.&#10;copy</value>
+    <value>Mem.
+copy</value>
+  </data>
+  <data name="MemCopyTestShortNB" xml:space="preserve">
+    <value>Mem. copy</value>
   </data>
   <data name="Compare" xml:space="preserve">
     <value>[C]ompare</value>
@@ -244,13 +248,21 @@
     <value>Random read</value>
   </data>
   <data name="RandomReadTestShort" xml:space="preserve">
-    <value>Rand.&#10;read</value>
+    <value>Rand.
+read</value>
+  </data>
+  <data name="RandomReadTestShortNB" xml:space="preserve">
+    <value>Rand. read</value>
   </data>
   <data name="RandomWriteTest" xml:space="preserve">
     <value>Random write</value>
   </data>
   <data name="RandomWriteTestShort" xml:space="preserve">
-    <value>Rand.&#10;write</value>
+    <value>Rand.
+write</value>
+  </data>
+  <data name="RandomWriteTestShortNB" xml:space="preserve">
+    <value>Rand. write</value>
   </data>
   <data name="RefreshButton" xml:space="preserve">
     <value>[R]efresh</value>
@@ -259,13 +271,21 @@
     <value>Sequential read</value>
   </data>
   <data name="SequentialReadTestShort" xml:space="preserve">
-    <value>Seq.&#10;read</value>
+    <value>Seq.
+read</value>
+  </data>
+  <data name="SequentialReadTestShortNB" xml:space="preserve">
+    <value>Seq. read</value>
   </data>
   <data name="SequentialWriteTest" xml:space="preserve">
     <value>Sequential write</value>
   </data>
   <data name="SequentialWriteTestShort" xml:space="preserve">
-    <value>Seq.&#10;write</value>
+    <value>Seq.
+write</value>
+  </data>
+  <data name="SequentialWriteTestShortNB" xml:space="preserve">
+    <value>Seq. write</value>
   </data>
   <data name="StatusBreakingTest" xml:space="preserve">
     <value>BREAKING TEST</value>
@@ -316,6 +336,21 @@
     <value>[D]atabase</value>
   </data>
   <data name="DbNotAvailable" xml:space="preserve">
-    <value>\&gt; Results Database isn't available. Check internet connection</value>
+    <value>Results Database isn't available. Check internet connection</value>
+  </data>
+  <data name="DownloadLink" xml:space="preserve">
+    <value>https://maxim-saplin.github.io/cpdt_results/?download=&amp;lang=en&amp;app=</value>
+  </data>
+  <data name="About9" xml:space="preserve">
+    <value>You can download the app for different platforms (Windows, macOS, Android/APK) at the following link:</value>
+  </data>
+  <data name="DownloadLinkShort" xml:space="preserve">
+    <value>https://maxim-saplin.github.io/cpdt_results/?download=</value>
+  </data>
+  <data name="ModeH" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="About10" xml:space="preserve">
+    <value>Each of the tests is accompanied by a graph. Sequential and memory copy tests show immediate throughputs (measure for a single block) plotted against blocks' positions. I.e. you can see how speed changes with the progression of the reads/writes toward end of test file. E.g. you might notice that sometimes storage shows lags at the begining of the operation (typical for Android). Random tests show histogram, where each individual's block throughput is placed into a specific bin/range, and the graph shows how read/write operations are distributed depedning on their speed. Long tails can be minimized, i.e. those thorghputs on the low and on the high side (ammounting to less than 3% of total measures each) will be combined into single bins on the left and on the right of the graph. If there're vertical lines with arrows on the sides of the histogram, this means that tails have been minimized (in some cases it's not needed) and the bins between those lines with arrows account for 94% of all meaures (min and max values in this case are adjuted to tails and do not show the absolute measured minimum and maximum values). The bin outlined with 2 arrows is the Mode -  the most frequent bin's throughput value (middle point of the bin range).</value>
   </data>
 </root>

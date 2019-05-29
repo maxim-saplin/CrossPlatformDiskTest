@@ -211,7 +211,11 @@
     <value>Копирование памяти</value>
   </data>
   <data name="MemCopyTestShort" xml:space="preserve">
-    <value>Коп.&#10;памяти</value>
+    <value>Коп.
+памяти</value>
+  </data>
+  <data name="MemCopyTestShortNB" xml:space="preserve">
+    <value>Коп. памяти</value>
   </data>
   <data name="Min" xml:space="preserve">
     <value>Мин</value>
@@ -238,13 +242,21 @@
     <value>Произвольное чтение</value>
   </data>
   <data name="RandomReadTestShort" xml:space="preserve">
-    <value>Произв.&#10;чтение</value>
+    <value>Произв.
+чтение</value>
+  </data>
+  <data name="RandomReadTestShortNB" xml:space="preserve">
+    <value>Произв. чтение</value>
   </data>
   <data name="RandomWriteTest" xml:space="preserve">
     <value>Произвольная запись</value>
   </data>
   <data name="RandomWriteTestShort" xml:space="preserve">
-    <value>Произв.&#10;запись</value>
+    <value>Произв.
+запись</value>
+  </data>
+  <data name="RandomWriteTestShortNB" xml:space="preserve">
+    <value>Произв. запись</value>
   </data>
   <data name="RefreshButton" xml:space="preserve">
     <value>[R] Обновить</value>
@@ -253,13 +265,21 @@
     <value>Последовательное чтение</value>
   </data>
   <data name="SequentialReadTestShort" xml:space="preserve">
-    <value>Посл.&#10;чтение</value>
+    <value>Посл.
+чтение</value>
+  </data>
+  <data name="SequentialReadTestShortNB" xml:space="preserve">
+    <value>Посл. чтение</value>
   </data>
   <data name="SequentialWriteTest" xml:space="preserve">
     <value>Последовательная запись</value>
   </data>
   <data name="SequentialWriteTestShort" xml:space="preserve">
-    <value>Посл.&#10;запись</value>
+    <value>Посл.
+запись</value>
+  </data>
+  <data name="SequentialWriteTestShortNB" xml:space="preserve">
+    <value>Посл. запись</value>
   </data>
   <data name="StatusBreakingTest" xml:space="preserve">
     <value>ОСТАНОВКА ТЕСТА</value>
@@ -310,9 +330,21 @@
     <value>[D] База</value>
   </data>
   <data name="DbNotAvailable" xml:space="preserve">
-    <value>\&gt; База результатов недоступна. Проверьте соединение с интернетом</value>
+    <value>База результатов недоступна. Проверьте соединение с интернетом</value>
   </data>
   <data name="Compare" xml:space="preserve">
     <value>[C] Сравнить</value>
+  </data>
+  <data name="About9" xml:space="preserve">
+    <value>Приложения для других платформ (Windows, macOS, Android/APK) может быть найдено по ссылке:</value>
+  </data>
+  <data name="DownloadLink" xml:space="preserve">
+    <value>https://maxim-saplin.github.io/cpdt_results/?download=&amp;lang=ru&amp;app=</value>
+  </data>
+  <data name="ModeH" xml:space="preserve">
+    <value>Мода</value>
+  </data>
+  <data name="About10" xml:space="preserve">
+    <value>Для каждого из тестов приводится график. Последовательные тесты и тест копирования памяти представлены линейным графиком мгновенной скорости - т.е. скорости, измеренные для каждого из блоков, преставлены координатой Х, а позиции данных блоков в файле - координатой Y. Т.о. вы можете увидеть как изменяется скорость устройства при продвижении к концу тестовго файла. К примеру, в некоторых сулчаях можно наблюдать пониженную производительность в начале теста (наиболее характерно для Androi). Произвольные тесты представлены гистограммой, где скорости, измеренные для блоков, распределяются по диапазонам и столбики показывают частоту того или иного диапазона. При наличии вертикальных линий со стрелкам с краев гистрограммы, левый и правый столбик отображают все наименьшие и все наибольшие измерения, частота встречаемости которых меньше 3-х процентов. Другими словами "длинные" хвосты гистограммы объеденяются в отдельные столбики, столбики в центре отображат данные по 94% всех измерений. Минимальное и максимальное значение в таком случае приводяться не для всех измерений, а только для средних значений. Столбик, выделенный двумя стрелками - это мода, среднее значение диапазон с наибольшей частотой.</value>
   </data>
 </root>

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Xamarin.Forms.3.4.0.1008975\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.3.4.0.1008975\build\Xamarin.Forms.props')" />
+  <Import Project="..\packages\Xamarin.Forms.4.0.0.425677\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.4.0.0.425677\build\Xamarin.Forms.props')" />
+  <Import Project="..\packages\Costura.Fody.4.0.0\build\Costura.Fody.props" Condition="Exists('..\packages\Costura.Fody.4.0.0\build\Costura.Fody.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -30,7 +31,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>2.0.6.0</ApplicationVersion>
+    <ApplicationVersion>2.1.5.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -59,8 +60,20 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Costura, Version=3.1.2.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
-      <HintPath>..\packages\Costura.Fody.3.1.2\lib\net46\Costura.dll</HintPath>
+    <Reference Include="Costura, Version=4.0.0.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Costura.Fody.4.0.0\lib\net40\Costura.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp, Version=1.68.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.1.68.0\lib\net45\SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.Desktop, Version=1.68.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.Views.1.68.0\lib\net45\SkiaSharp.Views.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.Forms, Version=1.68.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.Views.Forms.1.68.0\lib\netstandard1.3\SkiaSharp.Views.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.WPF, Version=1.68.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.Views.1.68.0\lib\net45\SkiaSharp.Views.WPF.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
@@ -77,20 +90,20 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="WpfLightToolkit, Version=1.0.0.27, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WpfLightToolkit.1.0.1\lib\net45\WpfLightToolkit.dll</HintPath>
+    <Reference Include="WpfLightToolkit, Version=1.0.3.36, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfLightToolkit.1.0.3\lib\net45\WpfLightToolkit.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.3.4.0.1008975\lib\netstandard2.0\Xamarin.Forms.Core.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.4.0.0.425677\lib\netstandard2.0\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.3.4.0.1008975\lib\netstandard2.0\Xamarin.Forms.Platform.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.4.0.0.425677\lib\netstandard2.0\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform.WPF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.Platform.WPF.3.4.0.1008975\lib\net45\Xamarin.Forms.Platform.WPF.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.Platform.WPF.4.0.0.425677\lib\net45\Xamarin.Forms.Platform.WPF.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.3.4.0.1008975\lib\netstandard2.0\Xamarin.Forms.Xaml.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.4.0.0.425677\lib\netstandard2.0\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +111,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SKCanvasViewRenderer.cs" />
+    <Compile Include="SKCanvasViewRendererBase.cs" />
     <Compile Include="WpfDeviceInfo.cs" />
     <Compile Include="WpfWebViewInfo.cs" />
     <Page Include="MainWindow.xaml">
@@ -142,6 +157,7 @@
     <Resource Include="Fonts\IBMPlexMono-Italic.ttf" />
     <Resource Include="Fonts\IBMPlexMono-Medium.ttf" />
     <Resource Include="Fonts\IBMPlexMono-Regular.ttf" />
+    <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -177,17 +193,23 @@
   <ItemGroup>
     <Resource Include="Icon.ico" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Costura32\libSkiaSharp.dll" />
+    <EmbeddedResource Include="Costura64\libSkiaSharp.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Fody.3.2.4\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.3.2.4\build\Fody.targets'))" />
-    <Error Condition="!Exists('..\packages\Costura.Fody.3.1.2\build\Costura.Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.3.1.2\build\Costura.Fody.targets'))" />
-    <Error Condition="!Exists('..\packages\Xamarin.Forms.3.4.0.1008975\build\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.3.4.0.1008975\build\Xamarin.Forms.props'))" />
-    <Error Condition="!Exists('..\packages\Xamarin.Forms.3.4.0.1008975\build\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.3.4.0.1008975\build\Xamarin.Forms.targets'))" />
+    <Error Condition="!Exists('..\packages\SkiaSharp.1.68.0\build\net45\SkiaSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SkiaSharp.1.68.0\build\net45\SkiaSharp.targets'))" />
+    <Error Condition="!Exists('..\packages\Fody.5.0.6\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.5.0.6\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.4.0.0\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.4.0.0\build\Costura.Fody.props'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.4.0.0.425677\build\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.4.0.0.425677\build\Xamarin.Forms.props'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.4.0.0.425677\build\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.4.0.0.425677\build\Xamarin.Forms.targets'))" />
   </Target>
-  <Import Project="..\packages\Fody.3.2.4\build\Fody.targets" Condition="Exists('..\packages\Fody.3.2.4\build\Fody.targets')" />
-  <Import Project="..\packages\Costura.Fody.3.1.2\build\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.3.1.2\build\Costura.Fody.targets')" />
-  <Import Project="..\packages\Xamarin.Forms.3.4.0.1008975\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.4.0.1008975\build\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\SkiaSharp.1.68.0\build\net45\SkiaSharp.targets" Condition="Exists('..\packages\SkiaSharp.1.68.0\build\net45\SkiaSharp.targets')" />
+  <Import Project="..\packages\Fody.5.0.6\build\Fody.targets" Condition="Exists('..\packages\Fody.5.0.6\build\Fody.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.4.0.0.425677\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.4.0.0.425677\build\Xamarin.Forms.targets')" />
 </Project>

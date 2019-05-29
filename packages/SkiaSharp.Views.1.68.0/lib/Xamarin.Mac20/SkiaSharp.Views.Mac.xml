@@ -1,0 +1,1052 @@
+<doc>
+    <assembly>
+        <name>SkiaSharp.Views.Mac</name>
+    </assembly>
+    <members>
+        <member name="T:SkiaSharp.Views.Mac.AppleExtensions">
+            <summary>Various extension methods to convert between SkiaSharp types and CoreGraphics types.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToCGColor(SkiaSharp.SKColor)">
+            <param name="color">The SkiaSharp color.</param>
+            <summary>Converts a SkiaSharp color into a CoreGraphics color.</summary>
+            <returns>Returns a CoreGraphics color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToCGImage(SkiaSharp.SKBitmap)">
+            <param name="skiaBitmap">The SkiaSharp bitmap.</param>
+            <summary>Converts a SkiaSharp bitmap into a CoreGraphics image.</summary>
+            <returns>Returns a copy of the bitmap data as a CoreGraphics image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToCGImage(SkiaSharp.SKImage)">
+            <param name="skiaImage">The SkiaSharp image.</param>
+            <summary>Converts a SkiaSharp image into a CoreGraphics image.</summary>
+            <returns>Returns a copy of the image data as a CoreGraphics image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToCGImage(SkiaSharp.SKPixmap)">
+            <param name="skiaPixmap">The SkiaSharp pixmap.</param>
+            <summary>Converts a SkiaSharp pixmap into a CoreGraphics image.</summary>
+            <returns>Returns a copy of the pixel data as a CoreGraphics image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToCGImage(SkiaSharp.SKPicture,SkiaSharp.SKSizeI)">
+            <param name="skiaPicture">The SkiaSharp picture.</param>
+            <param name="dimensions">The dimensions of the picture.</param>
+            <summary>Converts a SkiaSharp picture into a CoreGraphics image.</summary>
+            <returns>Returns a copy of the picture as a CoreGraphics image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToCIColor(SkiaSharp.SKColor)">
+            <param name="color">The SkiaSharp color.</param>
+            <summary>Converts a SkiaSharp color into a CoreImage color.</summary>
+            <returns>Returns a CoreImage color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToCIImage(SkiaSharp.SKBitmap)">
+            <param name="skiaBitmap">The SkiaSharp bitmap.</param>
+            <summary>Converts a SkiaSharp bitmap into a CoreImage image.</summary>
+            <returns>Returns a copy of the bitmap data as a CoreImage image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToCIImage(SkiaSharp.SKImage)">
+            <param name="skiaImage">The SkiaSharp image.</param>
+            <summary>Converts a SkiaSharp image into a CoreImage image.</summary>
+            <returns>Returns a copy of the image data as a CoreImage image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToCIImage(SkiaSharp.SKPixmap)">
+            <param name="skiaPixmap">The SkiaSharp pixmap.</param>
+            <summary>Converts a SkiaSharp pixmap into a CoreImage image.</summary>
+            <returns>Returns a copy of the pixel data as a CoreImage image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToCIImage(SkiaSharp.SKPicture,SkiaSharp.SKSizeI)">
+            <param name="skiaPicture">The SkiaSharp picture.</param>
+            <param name="dimensions">The dimensions of the picture.</param>
+            <summary>Converts a SkiaSharp picture into a CoreImage image.</summary>
+            <returns>Returns a copy of the picture as a CoreImage image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToNSData(SkiaSharp.SKData)">
+            <param name="skiaData">The SkiaSharp data object.</param>
+            <summary>Converts a SkiaSharp data object into a NSData.</summary>
+            <returns>Returns a copy of the data as a NSData.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToPoint(SkiaSharp.SKPoint)">
+            <param name="point">The SkiaSharp point.</param>
+            <summary>Converts a SkiaSharp point into a CoreGraphics point.</summary>
+            <returns>Returns a CoreGraphics point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToRect(SkiaSharp.SKRect)">
+            <param name="rect">The SkiaSharp rectangle.</param>
+            <summary>Converts a SkiaSharp rectangle into a CoreGraphics rectangle.</summary>
+            <returns>Returns a CoreGraphics rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToSize(SkiaSharp.SKSize)">
+            <param name="size">The SkiaSharp size.</param>
+            <summary>Converts a SkiaSharp size into a CoreGraphics size.</summary>
+            <returns>Returns a CoreGraphics size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToSKBitmap(CoreGraphics.CGImage)">
+            <param name="cgImage">The CoreGraphics image.</param>
+            <summary>Converts a CoreGraphics image into a SkiaSharp bitmap.</summary>
+            <returns>Returns a copy of the image data as a SkiaSharp bitmap.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToSKBitmap(CoreImage.CIImage)">
+            <param name="ciImage">The CoreImage image.</param>
+            <summary>Converts a CoreImage image into a SkiaSharp bitmap.</summary>
+            <returns>Returns a copy of the image data as a SkiaSharp bitmap.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToSKColor(CoreGraphics.CGColor)">
+            <param name="color">The CoreGraphics color.</param>
+            <summary>Converts a CoreGraphics color into a SkiaSharp color.</summary>
+            <returns>Returns a SkiaSharp color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToSKColor(CoreImage.CIColor)">
+            <param name="color">The CoreImage color.</param>
+            <summary>Converts a CoreImage color into a SkiaSharp color.</summary>
+            <returns>Returns a SkiaSharp color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToSKData(Foundation.NSData)">
+            <param name="nsData">The NSData.</param>
+            <summary>Converts a NSData into a SkiaSharp data object.</summary>
+            <returns>Returns a copy of the data as a SkiaSharp data object.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToSKImage(CoreGraphics.CGImage)">
+            <param name="cgImage">The CoreGraphics image.</param>
+            <summary>Converts a CoreGraphics image into a SkiaSharp image.</summary>
+            <returns>Returns a copy of the image data as a SkiaSharp image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToSKImage(CoreImage.CIImage)">
+            <param name="ciImage">The CoreImage image.</param>
+            <summary>Converts a CoreImage image into a SkiaSharp image.</summary>
+            <returns>Returns a copy of the image data as a SkiaSharp image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToSKPixmap(CoreGraphics.CGImage,SkiaSharp.SKPixmap)">
+            <param name="cgImage">The CoreGraphics image.</param>
+            <param name="pixmap">The SkiaSharp pixmap to hold the copy of the image data.</param>
+            <summary>Converts a CoreGraphics image into a SkiaSharp pixmap.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToSKPixmap(CoreImage.CIImage,SkiaSharp.SKPixmap)">
+            <param name="ciImage">The CoreImage image.</param>
+            <param name="pixmap">The SkiaSharp pixmap to hold the copy of the image data.</param>
+            <summary>Converts a CoreImage image into a SkiaSharp pixmap.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToSKPoint(CoreGraphics.CGPoint)">
+            <param name="point">The CoreGraphics point.</param>
+            <summary>Converts a CoreGraphics point into a SkiaSharp point.</summary>
+            <returns>Returns a SkiaSharp point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToSKRect(CoreGraphics.CGRect)">
+            <param name="rect">The CoreGraphics rectangle.</param>
+            <summary>Converts a CoreGraphics rectangle into a SkiaSharp rectangle.</summary>
+            <returns>Returns a SkiaSharp rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.AppleExtensions.ToSKSize(CoreGraphics.CGSize)">
+            <param name="size">The CoreGraphics size.</param>
+            <summary>Converts a CoreGraphics size into a SkiaSharp size.</summary>
+            <returns>Returns a SkiaSharp size.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Mac.Extensions">
+            <summary>Various extension methods to convert between SkiaSharp types and System.Drawing types.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.Extensions.ToDrawingPoint(SkiaSharp.SKPoint)">
+            <param name="point">The SkiaSharp point.</param>
+            <summary>Converts a SkiaSharp point into a System.Drawing point.</summary>
+            <returns>Returns a System.Drawing point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.Extensions.ToDrawingPoint(SkiaSharp.SKPointI)">
+            <param name="point">The SkiaSharp point.</param>
+            <summary>Converts a SkiaSharp point into a System.Drawing point.</summary>
+            <returns>Returns a System.Drawing point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.Extensions.ToDrawingRect(SkiaSharp.SKRect)">
+            <param name="rect">The SkiaSharp rectangle.</param>
+            <summary>Converts a SkiaSharp rectangle into a System.Drawing rectangle.</summary>
+            <returns>Returns a System.Drawing rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.Extensions.ToDrawingRect(SkiaSharp.SKRectI)">
+            <param name="rect">The SkiaSharp rectangle.</param>
+            <summary>Converts a SkiaSharp rectangle into a System.Drawing rectangle.</summary>
+            <returns>Returns a System.Drawing rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.Extensions.ToDrawingSize(SkiaSharp.SKSize)">
+            <param name="size">The SkiaSharp size.</param>
+            <summary>Converts a SkiaSharp size into a System.Drawing size.</summary>
+            <returns>Returns a System.Drawing size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.Extensions.ToDrawingSize(SkiaSharp.SKSizeI)">
+            <param name="size">The SkiaSharp size.</param>
+            <summary>Converts a SkiaSharp size into a System.Drawing size.</summary>
+            <returns>Returns a System.Drawing size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.Extensions.ToSKPoint(System.Drawing.Point)">
+            <param name="point">The System.Drawing point.</param>
+            <summary>Converts a System.Drawing point into a SkiaSharp point.</summary>
+            <returns>Returns a SkiaSharp point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.Extensions.ToSKPoint(System.Drawing.PointF)">
+            <param name="point">The System.Drawing point.</param>
+            <summary>Converts a System.Drawing point into a SkiaSharp point.</summary>
+            <returns>Returns a SkiaSharp point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.Extensions.ToSKRect(System.Drawing.Rectangle)">
+            <param name="rect">The System.Drawing rectangle.</param>
+            <summary>Converts a System.Drawing rectangle into a SkiaSharp rectangle.</summary>
+            <returns>Returns a SkiaSharp rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.Extensions.ToSKRect(System.Drawing.RectangleF)">
+            <param name="rect">The System.Drawing rectangle.</param>
+            <summary>Converts a System.Drawing rectangle into a SkiaSharp rectangle.</summary>
+            <returns>Returns a SkiaSharp rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.Extensions.ToSKSize(System.Drawing.Size)">
+            <param name="size">The System.Drawing size.</param>
+            <summary>Converts a System.Drawing size into a SkiaSharp size.</summary>
+            <returns>Returns a SkiaSharp size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.Extensions.ToSKSize(System.Drawing.SizeF)">
+            <param name="size">The System.Drawing size.</param>
+            <summary>Converts a System.Drawing size into a SkiaSharp size.</summary>
+            <returns>Returns a SkiaSharp size.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Mac.ISKCanvasLayerDelegate">
+            <summary>Delegate interface for <see cref="T:SkiaSharp.Views.Mac.SKCanvasLayer" />.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.ISKCanvasLayerDelegate.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)">
+            <param name="surface">The surface to draw on.</param>
+            <param name="info">The information about the surface.</param>
+            <summary>Implement this to draw on the canvas.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Mac.ISKGLLayerDelegate">
+            <summary>Delegate interface for <see cref="T:SkiaSharp.Views.iOS.SKGLLayer" />.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.ISKGLLayerDelegate.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)">
+            <param name="surface">The surface to draw on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <summary>Implement this to draw on the render target.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Mac.MacExtensions">
+            <summary>Various extension methods to convert between SkiaSharp types and AppKit types.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.MacExtensions.ToNSColor(SkiaSharp.SKColor)">
+            <param name="color">The SkiaSharp color.</param>
+            <summary>Converts a SkiaSharp color into an AppKit color.</summary>
+            <returns>Return an AppKit color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.MacExtensions.ToNSImage(SkiaSharp.SKBitmap)">
+            <param name="skiaBitmap">The SkiaSharp bitmap.</param>
+            <summary>Converts a SkiaSharp bitmap into a AppKit image.</summary>
+            <returns>Returns a copy of the bitmap data as a AppKit image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.MacExtensions.ToNSImage(SkiaSharp.SKImage)">
+            <param name="skiaImage">The SkiaSharp image.</param>
+            <summary>Converts a SkiaSharp image into a AppKit image.</summary>
+            <returns>Returns a copy of the image data as a AppKit image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.MacExtensions.ToNSImage(SkiaSharp.SKPixmap)">
+            <param name="skiaPixmap">The SkiaSharp pixmap.</param>
+            <summary>Converts a SkiaSharp pixmap into a AppKit image.</summary>
+            <returns>Returns a copy of the pixel data as a AppKit image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.MacExtensions.ToNSImage(SkiaSharp.SKPicture,SkiaSharp.SKSizeI)">
+            <param name="skiaPicture">The SkiaSharp picture.</param>
+            <param name="dimensions">The dimensions of the picture.</param>
+            <summary>Converts a SkiaSharp picture into a AppKit image.</summary>
+            <returns>Returns a copy of the picture as a AppKit image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.MacExtensions.ToSKBitmap(AppKit.NSImage)">
+            <param name="nsImage">The AppKit image.</param>
+            <summary>Converts a AppKit image into a SkiaSharp bitmap.</summary>
+            <returns>Returns a copy of the image data as a SkiaSharp bitmap.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.MacExtensions.ToSKColor(AppKit.NSColor)">
+            <param name="color">The AppKit color.</param>
+            <summary>Converts a AppKit color into an SkiaSharp color.</summary>
+            <returns>Returns a SkiaSharp color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.MacExtensions.ToSKImage(AppKit.NSImage)">
+            <param name="nsImage">The AppKit image.</param>
+            <summary>Converts a AppKit image into a SkiaSharp image.</summary>
+            <returns>Returns a copy of the image data as a SkiaSharp image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.MacExtensions.ToSKPixmap(AppKit.NSImage,SkiaSharp.SKPixmap)">
+            <param name="nsImage">The AppKit image.</param>
+            <param name="pixmap">The SkiaSharp pixmap to hold the copy of the image data.</param>
+            <summary>Converts a SkiaSharp pixmap into a AppKit image.</summary>
+            <returns>Returns <see langword="true" /> if the copy was successful, otherwise <see langword="false" />.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Mac.SKCanvasLayer">
+            <summary>A CoreAnimation layer that can be drawn on using SkiaSharp drawing commands.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Mac.SKCanvasLayer">
+            <summary>Default constructor that initializes a new instance of <see cref="T:SkiaSharp.Views.Mac.SKCanvasLayer" />.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Mac.SKCanvasLayer.CanvasSize">
+            <summary>Gets the current canvas size.</summary>
+            <value />
+            <remarks>The canvas size may be different to the view size as a result of the current device's pixel density.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKCanvasLayer.Dispose(System.Boolean)">
+            <param name="disposing">
+                <see langword="true" /> to release both managed and unmanaged resources; <see langword="false" /> to release only unmanaged resources.</param>
+            <summary>Releases the unmanaged resources used by the <see cref="T:SkiaSharp.Views.Mac.SKCanvasLayer" /> and optionally releases the managed resources.</summary>
+            <remarks>Always dispose the object before you release your last reference to the <see cref="T:SkiaSharp.Views.Mac.SKCanvasLayer" />. Otherwise, the resources it is using will not be freed until the garbage collector calls the finalizer.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKCanvasLayer.DrawInContext(CoreGraphics.CGContext)">
+            <param name="ctx">The prepared context to draw into.</param>
+            <summary>Draws the layer on the specified context.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKCanvasLayer.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)">
+            <param name="surface">The surface to draw on.</param>
+            <param name="info">The information about the surface.</param>
+            <summary>Implement this to draw on the canvas.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Mac.SKCanvasLayer.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Mac.SKCanvasLayer.PaintSurface>
+event.
+
+> [!IMPORTANT]
+> If this method is overridden, then the base must be called, otherwise the
+> event may not be fired.
+
+> [!NOTE]
+> If SkiaSharp version v1.68.x or greater is being used, then the
+> <xref:SkiaSharp.Views.Mac.SKCanvasLayer.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintSurfaceEventArgs)>
+> method should be overridden instead of
+> <xref:SkiaSharp.Views.Mac.SKCanvasLayer.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)>.
+
+## Examples
+
+```csharp
+public override void DrawInSurface (SKSurface surface, SKImageInfo info)
+{
+    // call the base method
+    base.DrawInSurface (surface, info);
+
+    var surfaceWidth = info.Width;
+    var surfaceHeight = info.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+}
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="P:SkiaSharp.Views.Mac.SKCanvasLayer.IgnorePixelScaling">
+            <summary>Gets or sets a value indicating whether the drawing canvas should be resized on high resolution displays.</summary>
+            <value />
+            <remarks>By default, when false, the canvas is resized to 1 canvas pixel per display pixel. When true, the canvas is resized to device independent pixels, and then stretched to fill the view. Although performance is improved and all objects are the same size on different display densities, blurring and pixelation may occur.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKCanvasLayer.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintSurfaceEventArgs)">
+            <param name="e">The event arguments that contain the drawing surface and information.</param>
+            <summary>Implement this to draw on the canvas.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Mac.SKCanvasLayer.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Mac.SKCanvasLayer.PaintSurface>
+event.
+
+> [!IMPORTANT]
+> If this method is overridden, then the base must be called, otherwise the
+> event will not be fired.
+
+> [!NOTE]
+> If a version of SkiaSharp prior to version v1.68.x is being used, then the
+> <xref:SkiaSharp.Views.Mac.SKCanvasLayer.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)>
+> method should be overridden instead of
+> <xref:SkiaSharp.Views.Mac.SKCanvasLayer.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintSurfaceEventArgs)>.
+
+## Examples
+
+```csharp
+protected override void OnPaintSurface (SKPaintSurfaceEventArgs e)
+{
+    // call the base method
+    base.OnPaintSurface (e);
+
+    var surface = e.Surface;
+    var surfaceWidth = e.Info.Width;
+    var surfaceHeight = e.Info.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+}
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="E:SkiaSharp.Views.Mac.SKCanvasLayer.PaintSurface">
+            <summary>Occurs when the the canvas needs to be redrawn.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Mac.SKCanvasLayer.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Mac.SKCanvasLayer.PaintSurface>
+event.
+
+> [!NOTE]
+> If a version of SkiaSharp prior to version v1.68.x is being used, then the
+> <xref:SkiaSharp.Views.Mac.SKCanvasLayer.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)>
+> method should be overridden instead of
+> <xref:SkiaSharp.Views.Mac.SKCanvasLayer.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintSurfaceEventArgs)>.
+
+## Examples
+
+```csharp
+myLayer.PaintSurface += (sender, e) => {
+    var surface = e.Surface;
+    var surfaceWidth = e.Info.Width;
+    var surfaceHeight = e.Info.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+};
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="P:SkiaSharp.Views.Mac.SKCanvasLayer.SKDelegate">
+            <summary>Gets or sets the layer's delegate object.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Mac.SKCanvasView">
+            <summary>A view that can be drawn on using SkiaSharp drawing commands.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Mac.SKCanvasView">
+            <summary>Default constructor that initializes a new instance of <see cref="T:SkiaSharp.Views.Mac.SKCanvasView" />.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Mac.SKCanvasView(CoreGraphics.CGRect)">
+            <param name="frame">The frame used by the view.</param>
+            <summary>Initializes the <see cref="T:SkiaSharp.Views.Mac.SKCanvasView" /> with the specified frame.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Mac.SKCanvasView(System.IntPtr)">
+            <param name="p">The pointer (handle) to the unmanaged object.</param>
+            <summary>A constructor used when creating managed representations of unmanaged objects; Called by the runtime.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKCanvasView.AwakeFromNib">
+            <summary>Called after the object has been loaded from the nib file. Overriders must call the base method.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Mac.SKCanvasView.CanvasSize">
+            <summary>Gets the current canvas size.</summary>
+            <value />
+            <remarks>The canvas size may be different to the view size as a result of the current device's pixel density.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKCanvasView.Dispose(System.Boolean)">
+            <param name="disposing">
+                <see langword="true" /> to release both managed and unmanaged resources; <see langword="false" /> to release only unmanaged resources.</param>
+            <summary>Releases the unmanaged resources used by the <see cref="T:SkiaSharp.Views.Mac.SKCanvasView" /> and optionally releases the managed resources.</summary>
+            <remarks>Always dispose the object before you release your last reference to the <see cref="T:SkiaSharp.Views.Mac.SKCanvasView" />. Otherwise, the resources it is using will not be freed until the garbage collector calls the finalizer.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKCanvasView.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)">
+            <param name="surface">The surface to draw on.</param>
+            <param name="info">The information about the surface.</param>
+            <summary>Implement this to draw on the canvas.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Mac.SKCanvasView.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Mac.SKCanvasView.PaintSurface>
+event.
+
+> [!IMPORTANT]
+> If this method is overridden, then the base must be called, otherwise the
+> event may not be fired.
+
+> [!NOTE]
+> If SkiaSharp version v1.68.x or greater is being used, then the
+> <xref:SkiaSharp.Views.Mac.SKCanvasView.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintSurfaceEventArgs)>
+> method should be overridden instead of
+> <xref:SkiaSharp.Views.Mac.SKCanvasView.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)>.
+
+## Examples
+
+```csharp
+public override void DrawInSurface (SKSurface surface, SKImageInfo info)
+{
+    // call the base method
+    base.DrawInSurface (surface, info);
+
+    var surfaceWidth = info.Width;
+    var surfaceHeight = info.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+}
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKCanvasView.DrawRect(CoreGraphics.CGRect)">
+            <param name="dirtyRect">The rectangle to draw.</param>
+            <summary>Draws the view within the passed-in rectangle.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Mac.SKCanvasView.IgnorePixelScaling">
+            <summary>Gets or sets a value indicating whether the drawing canvas should be resized on high resolution displays.</summary>
+            <value />
+            <remarks>By default, when false, the canvas is resized to 1 canvas pixel per display pixel. When true, the canvas is resized to device independent pixels, and then stretched to fill the view. Although performance is improved and all objects are the same size on different display densities, blurring and pixelation may occur.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKCanvasView.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintSurfaceEventArgs)">
+            <param name="e">The event arguments that contain the drawing surface and information.</param>
+            <summary>Implement this to draw on the canvas.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Mac.SKCanvasView.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Mac.SKCanvasView.PaintSurface>
+event.
+
+> [!IMPORTANT]
+> If this method is overridden, then the base must be called, otherwise the
+> event will not be fired.
+
+> [!NOTE]
+> If a version of SkiaSharp prior to version v1.68.x is being used, then the
+> <xref:SkiaSharp.Views.Mac.SKCanvasView.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)>
+> method should be overridden instead of
+> <xref:SkiaSharp.Views.Mac.SKCanvasView.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintSurfaceEventArgs)>.
+
+## Examples
+
+```csharp
+protected override void OnPaintSurface (SKPaintSurfaceEventArgs e)
+{
+    // call the base method
+    base.OnPaintSurface (e);
+
+    var surface = e.Surface;
+    var surfaceWidth = e.Info.Width;
+    var surfaceHeight = e.Info.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+}
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="E:SkiaSharp.Views.Mac.SKCanvasView.PaintSurface">
+            <summary>Occurs when the the canvas needs to be redrawn.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Mac.SKCanvasView.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Mac.SKCanvasView.PaintSurface>
+event.
+
+> [!NOTE]
+> If a version of SkiaSharp prior to version v1.68.x is being used, then the
+> <xref:SkiaSharp.Views.Mac.SKCanvasView.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)>
+> method should be overridden instead of
+> <xref:SkiaSharp.Views.Mac.SKCanvasView.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintSurfaceEventArgs)>.
+
+## Examples
+
+```csharp
+myView.PaintSurface += (sender, e) => {
+    var surface = e.Surface;
+    var surfaceWidth = e.Info.Width;
+    var surfaceHeight = e.Info.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+};
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="T:SkiaSharp.Views.Mac.SKGLLayer">
+            <summary>A CoreAnimation OpenGL layer that can be drawn on using SkiaSharp drawing commands.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Mac.SKGLLayer">
+            <summary>Default constructor that initializes a new instance of <see cref="T:SkiaSharp.Views.Mac.SKGLLayer" />.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Mac.SKGLLayer.CanvasSize">
+            <summary>Gets the current canvas size.</summary>
+            <value />
+            <remarks>The canvas size may be different to the view size as a result of the current device's pixel density.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKGLLayer.DrawInCGLContext(OpenGL.CGLContext,OpenGL.CGLPixelFormat,System.Double,CoreVideo.CVTimeStamp@)">
+            <param name="glContext">The rendering context in to which the OpenGL content should be rendered.</param>
+            <param name="pixelFormat">The pixel format used when the context was created.</param>
+            <param name="timeInterval">The current layer time.</param>
+            <param name="timeStamp">The display timestamp associated with the time interval. Can be <see langword="null" />.</param>
+            <summary>Draws the OpenGL content for the specified time.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKGLLayer.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)">
+            <param name="surface">The surface to draw on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <summary>Implement this to draw on the canvas.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Mac.SKGLLayer.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Mac.SKGLLayer.PaintSurface>
+event.
+
+> [!IMPORTANT]
+> If this method is overridden, then the base must be called, otherwise the
+> event may not be fired.
+
+> [!NOTE]
+> If SkiaSharp version v1.68.x or greater is being used, then the
+> <xref:SkiaSharp.Views.Mac.SKGLLayer.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs)>
+> method should be overridden instead of
+> <xref:SkiaSharp.Views.Mac.SKGLLayer.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)>.
+
+## Examples
+
+```csharp
+public override void DrawInSurface (SKSurface surface, SKBackendRenderTargetDesc renderTarget)
+{
+    // call the base method
+    base.DrawInSurface (surface, renderTarget);
+
+    var surfaceWidth = renderTarget.Width;
+    var surfaceHeight = renderTarget.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+}
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="P:SkiaSharp.Views.Mac.SKGLLayer.GRContext">
+            <summary>Gets the current GPU context.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKGLLayer.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs)">
+            <param name="e">The event arguments that contain the drawing surface and information.</param>
+            <summary>Implement this to draw on the canvas.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Mac.SKGLLayer.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Mac.SKGLLayer.PaintSurface>
+event.
+
+> [!IMPORTANT]
+> If this method is overridden, then the base must be called, otherwise the
+> event will not be fired.
+
+> [!NOTE]
+> If a version of SkiaSharp prior to version v1.68.x is being used, then the
+> <xref:SkiaSharp.Views.Mac.SKGLLayer.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)>
+> method should be overridden instead of
+> <xref:SkiaSharp.Views.Mac.SKGLLayer.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs)>.
+
+## Examples
+
+```csharp
+protected override void OnPaintSurface (SKPaintGLSurfaceEventArgs e)
+{
+    // call the base method
+    base.OnPaintSurface (e);
+
+    var surface = e.Surface;
+    var surfaceWidth = e.BackendRenderTarget.Width;
+    var surfaceHeight = e.BackendRenderTarget.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+}
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="E:SkiaSharp.Views.Mac.SKGLLayer.PaintSurface">
+            <summary>Occurs when the the canvas needs to be redrawn.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Mac.SKGLLayer.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Mac.SKGLLayer.PaintSurface>
+event.
+
+> [!NOTE]
+> If a version of SkiaSharp prior to version v1.68.x is being used, then the
+> <xref:SkiaSharp.Views.Mac.SKGLLayer.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)>
+> method should be overridden instead of
+> <xref:SkiaSharp.Views.Mac.SKGLLayer.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs)>.
+
+## Examples
+
+```csharp
+myLayer.PaintSurface += (sender, e) => {
+    var surface = e.Surface;
+    var surfaceWidth = e.BackendRenderTarget.Width;
+    var surfaceHeight = e.BackendRenderTarget.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+};
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKGLLayer.Release(OpenGL.CGLContext)">
+            <param name="glContext">The rendering context to release.</param>
+            <summary>Releases the specified rendering context.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Mac.SKGLLayer.SKDelegate">
+            <summary>Gets or sets the layer's delegate object.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Mac.SKGLView">
+            <summary>A hardware-accelerated view that can be drawn on using SkiaSharp drawing commands.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Mac.SKGLView">
+            <summary>Default constructor that initializes a new instance of <see cref="T:SkiaSharp.Views.Mac.SKGLView" />.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Mac.SKGLView(CoreGraphics.CGRect)">
+            <param name="frame">The frame used by the view, expressed in Mac points.</param>
+            <summary>Initializes the <see cref="T:SkiaSharp.Views.Mac.SKGLView" /> with the specified frame.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Mac.SKGLView(System.IntPtr)">
+            <param name="p">The pointer (handle) to the unmanaged object.</param>
+            <summary>A constructor used when creating managed representations of unmanaged objects; Called by the runtime.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKGLView.AwakeFromNib">
+            <summary>Called after the object has been loaded from the nib file. Overriders must call the base method.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Mac.SKGLView.CanvasSize">
+            <summary>Gets the current canvas size.</summary>
+            <value />
+            <remarks>The canvas size may be different to the view size as a result of the current device's pixel density.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKGLView.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)">
+            <param name="surface">The surface to draw on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <summary>Implement this to draw on the canvas.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Mac.SKGLView.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Mac.SKGLView.PaintSurface>
+event.
+
+> [!IMPORTANT]
+> If this method is overridden, then the base must be called, otherwise the
+> event may not be fired.
+
+> [!NOTE]
+> If SkiaSharp version v1.68.x or greater is being used, then the
+> <xref:SkiaSharp.Views.Mac.SKGLView.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs)>
+> method should be overridden instead of
+> <xref:SkiaSharp.Views.Mac.SKGLView.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)>.
+
+## Examples
+
+```csharp
+public override void DrawInSurface (SKSurface surface, SKBackendRenderTargetDesc renderTarget)
+{
+    // call the base method
+    base.DrawInSurface (surface, renderTarget);
+
+    var surfaceWidth = renderTarget.Width;
+    var surfaceHeight = renderTarget.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+}
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKGLView.DrawRect(CoreGraphics.CGRect)">
+            <param name="dirtyRect">The rectangle to draw.</param>
+            <summary>Draws the view within the passed-in rectangle.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Mac.SKGLView.GRContext">
+            <summary>Gets the current GPU context.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKGLView.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs)">
+            <param name="e">The event arguments that contain the drawing surface and information.</param>
+            <summary>Implement this to draw on the canvas.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Mac.SKGLView.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Mac.SKGLView.PaintSurface>
+event.
+
+> [!IMPORTANT]
+> If this method is overridden, then the base must be called, otherwise the
+> event will not be fired.
+
+> [!NOTE]
+> If a version of SkiaSharp prior to version v1.68.x is being used, then the
+> <xref:SkiaSharp.Views.Mac.SKGLView.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)>
+> method should be overridden instead of
+> <xref:SkiaSharp.Views.Mac.SKGLView.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs)>.
+
+## Examples
+
+```csharp
+protected override void OnPaintSurface (SKPaintGLSurfaceEventArgs e)
+{
+    // call the base method
+    base.OnPaintSurface (e);
+
+    var surface = e.Surface;
+    var surfaceWidth = e.BackendRenderTarget.Width;
+    var surfaceHeight = e.BackendRenderTarget.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+}
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="E:SkiaSharp.Views.Mac.SKGLView.PaintSurface">
+            <summary>Occurs when the surface needs to be redrawn.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Mac.SKGLView.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Mac.SKGLView.PaintSurface>
+event.
+
+> [!NOTE]
+> If a version of SkiaSharp prior to version v1.68.x is being used, then the
+> <xref:SkiaSharp.Views.Mac.SKGLView.DrawInSurface(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)>
+> method should be overridden instead of
+> <xref:SkiaSharp.Views.Mac.SKGLView.OnPaintSurface(SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs)>.
+
+## Examples
+
+```csharp
+myView.PaintSurface += (sender, e) => {
+    var surface = e.Surface;
+    var surfaceWidth = e.BackendRenderTarget.Width;
+    var surfaceHeight = e.BackendRenderTarget.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+};
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Mac.SKGLView.PrepareOpenGL">
+            <summary>Used by subclasses to initialize OpenGL state.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs">
+            <summary>Provides data for the <see cref="E:SkiaSharp.Views.Mac.SKGLView.PaintSurface" /> event.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTarget)">
+            <param name="surface">The surface that is being drawn on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)">
+            <param name="surface">The surface that is being drawn on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTarget,SkiaSharp.GRSurfaceOrigin,SkiaSharp.SKColorType)">
+            <param name="surface">The surface that is being drawn on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <param name="origin">The surface origin of the render target.</param>
+            <param name="colorType">The color type of the render target.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs.BackendRenderTarget">
+            <summary>Gets the render target that is currently being drawn.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs.ColorType">
+            <summary>Gets the color type of the render target.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs.Origin">
+            <summary>Gets the surface origin of the render target.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs.RenderTarget">
+            <summary>Gets the render target that is currently being drawn.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Mac.SKPaintGLSurfaceEventArgs.Surface">
+            <summary>Gets the surface that is currently being drawn on.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Mac.SKPaintSurfaceEventArgs">
+            <summary>Provides data for the <see cref="E:SkiaSharp.Views.Mac.SKCanvasView.PaintSurface" /> event.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Mac.SKPaintSurfaceEventArgs(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)">
+            <param name="surface">The surface that is being drawn on.</param>
+            <param name="info">The information about the surface.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.Mac.SKPaintSurfaceEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Mac.SKPaintSurfaceEventArgs.Info">
+            <summary>Gets the information about the surface that is currently being drawn.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Mac.SKPaintSurfaceEventArgs.Surface">
+            <summary>Gets the surface that is currently being drawn on.</summary>
+            <value />
+            <remarks />
+        </member>
+    </members>
+</doc>

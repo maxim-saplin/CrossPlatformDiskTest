@@ -1,5 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Weavers>
-  <Costura />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Weavers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="FodyWeavers.xsd">
+  <Costura></Costura>
 </Weavers>
 <!--https://github.com/Fody/Costura#how-it-works-->
+<!-- libSkiaSharp.dll native library must be manually copied to Costura32 and Costura64 and set to EmbeddedReousrce-->
+<!-- Native libraries can be loaded by Costura automatically. To include a native library include it in your project as an Embedded Resource in a folder called costura32 or costura64 depending on the bittyness of the library.-->

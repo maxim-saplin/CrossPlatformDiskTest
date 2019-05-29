@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:Saplin.CPDT.UICore" 
@@ -117,11 +117,11 @@
             </Style>
             <Style x:Key="SuperSmallSpan" TargetType="Span">
                 <Setter Property="TextColor" Value="Gray" />
-                <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
+                <Setter Property="Font" Value="{StaticResource FontItalicSuperSmall}" />
             </Style>
             <Style x:Key="AccentedSuperSmallSpan" TargetType="Span">
                 <Setter Property="TextColor" Value="#FFCFCFCF" />
-                <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
+                <Setter Property="Font" Value="{StaticResource FontItalicSuperSmall}" />
             </Style>
             <Style x:Key="AccentedSmallSpan" TargetType="Span">
                 <Setter Property="TextColor" Value="#FFCFCFCF" />
@@ -178,7 +178,7 @@
                     </Setter.Value>
                 </Setter>
             </Style>
-            <Style x:Key="NarrowButtonStyle" TargetType="Button" BasedOn="ButtonStyle">
+            <Style x:Key="NarrowButtonStyle" TargetType="Button" BasedOn="{StaticResource ButtonStyle}">
                 <Setter Property="TextColor" Value="White" />
                  <Setter Property="BackgroundColor" Value="Blue" />
                 <Setter Property="BorderColor" Value="Blue" />
@@ -250,11 +250,16 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            
+            <Color x:Key="DefaultColor">
+                 #FFCFCFCF
+            </Color>
 
             <!--END OF STYLES-->
             <!-- XAML value converters -->
             <local:BoolNotConverter x:Key="BoolNot" />
             <local:StringNotEmptyConverter x:Key="StringNotEmpty" />
+            <local:DoubleIsPositiveConverter x:Key="DoubleIsPositive" />
             <local:BytesToAutoConverter x:Key="BytesToAuto" />
             <local:BytesToAutoShortConverter x:Key="BytesToAutoShort" />
             <local:MbPerSecondToAutoConverter x:Key="MbPerSecondToAuto" />

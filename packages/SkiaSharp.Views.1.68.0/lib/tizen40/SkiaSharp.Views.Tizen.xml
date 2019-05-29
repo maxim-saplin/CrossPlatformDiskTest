@@ -1,0 +1,495 @@
+<doc>
+    <assembly>
+        <name>SkiaSharp.Views.Tizen</name>
+    </assembly>
+    <members>
+        <member name="T:SkiaSharp.Views.Tizen.CustomRenderingView">
+            <summary>An abstract view that can be inherited from to allow drawing on using SkiaSharp drawing commands.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Tizen.CustomRenderingView(ElmSharp.EvasObject)">
+            <param name="parent">The parent object.</param>
+            <summary>Simple constructor to use when creating a <see cref="SkiaSharp.Views.Tizen.CustomRenderingView" /> from code.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Tizen.CustomRenderingView.CanvasSize">
+            <summary>Gets the current canvas size.</summary>
+            <value />
+            <remarks>The canvas size may be different to the view size as a result of the current device's pixel density.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.CustomRenderingView.CreateDrawingSurface">
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to construct the drawing surface.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.CustomRenderingView.CreateHandle(ElmSharp.EvasObject)">
+            <param name="parent">The parent object.</param>
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to creates a Widget handle.</summary>
+            <returns>Returns the pointer to the new handle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.CustomRenderingView.CreateNativeResources(ElmSharp.EvasObject)">
+            <param name="parent">The parent object.</param>
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to create the native resources which should be present throughout whole life of the control.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.CustomRenderingView.DestroyDrawingSurface">
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to destroy the drawing surface.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.CustomRenderingView.DestroyNativeResources">
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to destroy the native resources.</summary>
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.Tizen.CustomRenderingView.evasImage">
+            <summary>The pointer to the underlying control which provides the native drawing surface.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.CustomRenderingView.GetSurfaceSize">
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to provide the dimensions of the current drawing surface.</summary>
+            <returns>Returns the current drawing surface dimensions.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.CustomRenderingView.Invalidate">
+            <summary>Invalidates the entire surface of the control and causes the control to be redrawn.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.CustomRenderingView.OnDrawFrame">
+            <summary>Invalidates the entire surface of the control and causes the control to be redrawn.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.CustomRenderingView.OnResized">
+            <summary>Indicate to the control that the it has been resized.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.CustomRenderingView.OnUnrealize">
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to clean up resources used by the control.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Tizen.CustomRenderingView.RenderingMode">
+            <summary>Gets or sets the rendering mode.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.CustomRenderingView.UpdateSurfaceSize(ElmSharp.Rect)">
+            <param name="geometry">The current geometry of the control.</param>
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to update the drawing surface dimensions.</summary>
+            <returns>Returns <see langword="true" /> if the size has changed, otherwise <see langword="false" />.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Tizen.Extensions">
+            <summary>Various extension methods to convert between SkiaSharp types and System.Drawing types.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Tizen.RenderingMode">
+            <summary>Various options for rendering a view.</summary>
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.Tizen.RenderingMode.Continuously">
+            <summary>The view is repainted continuously.</summary>
+        </member>
+        <member name="F:SkiaSharp.Views.Tizen.RenderingMode.WhenDirty">
+            <summary>The view only redraws the surface when the it is created, resized, or when <see cref="M:SkiaSharp.Views.Tizen.CustomRenderingView.Invalidate" /> is called.</summary>
+        </member>
+        <member name="T:SkiaSharp.Views.Tizen.ScalingInfo">
+            <summary>A utility class that can be used to determine screen densities.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Tizen.ScalingInfo.Dpi">
+            <summary>Gets the DPI of the screen.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.ScalingInfo.FromPixel(System.Double)">
+            <param name="v">The raw pixel dimension.</param>
+            <summary>Convert from raw pixels into device-independent pixels.</summary>
+            <returns>Returns the device-independent pixel dimension.</returns>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Tizen.ScalingInfo.Profile">
+            <summary>Gets the device profile.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Tizen.ScalingInfo.ScalingFactor">
+            <summary>The scaling factor to convert between raw pixels and device-independent pixels.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.ScalingInfo.ToPixel(System.Double)">
+            <param name="v">The device-independent pixel dimension.</param>
+            <summary>Convert from device-independent pixels into raw pixels.</summary>
+            <returns>Returns the raw pixel dimension.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Tizen.SKCanvasView">
+            <summary>A view that can be drawn on using SkiaSharp drawing commands.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Tizen.SKCanvasView(ElmSharp.EvasObject)">
+            <param name="parent">The parent object.</param>
+            <summary>Simple constructor to use when creating a <see cref="T:SkiaSharp.Views.Tizen.SKCanvasView" /> from code.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.SKCanvasView.GetSurfaceSize">
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to provide the dimensions of the current drawing surface.</summary>
+            <returns>Returns the current drawing surface dimensions.</returns>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Tizen.SKCanvasView.IgnorePixelScaling">
+            <summary>Gets or sets a value indicating whether the drawing canvas should be resized on high resolution displays.</summary>
+            <value />
+            <remarks>By default, when <see langword="false" />, the canvas is resized to 1 canvas pixel per display pixel. When <see langword="true" />, the canvas is resized to device independent pixels, and then stretched to fill the view. Although performance is improved and all objects are the same size on different display densities, blurring and pixelation may occur.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.SKCanvasView.OnDrawFrame">
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to draw the next frame or paint the control.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.SKCanvasView.OnDrawFrame(SkiaSharp.Views.Tizen.SKPaintSurfaceEventArgs)">
+            <param name="e">The event arguments that contain the drawing surface and information.</param>
+            <summary>Implement this to draw on the canvas.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Tizen.SKCanvasView.OnDrawFrame(SkiaSharp.Views.Tizen.SKPaintSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Tizen.SKCanvasView.PaintSurface>
+event.
+
+> [!IMPORTANT]
+> If this method is overridden, then the base must be called, otherwise the
+> event will not be fired.
+
+## Examples
+
+```csharp
+protected override void OnPaintSurface (SKPaintSurfaceEventArgs e)
+{
+    // call the base method
+    base.OnPaintSurface (e);
+
+    var surface = e.Surface;
+    var surfaceWidth = e.Info.Width;
+    var surfaceHeight = e.Info.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+}
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="E:SkiaSharp.Views.Tizen.SKCanvasView.PaintSurface">
+            <summary>Occurs when the surface needs to be redrawn.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Tizen.SKCanvasView.OnDrawFrame(SkiaSharp.Views.Tizen.SKPaintSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Tizen.SKCanvasView.PaintSurface>
+event.
+
+## Examples
+
+```csharp
+myView.PaintSurface += (sender, e) => {
+    var surface = e.Surface;
+    var surfaceWidth = e.Info.Width;
+    var surfaceHeight = e.Info.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+};
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.SKCanvasView.UpdateSurfaceSize(ElmSharp.Rect)">
+            <param name="geometry">The current geometry of the control.</param>
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to update the drawing surface dimensions.</summary>
+            <returns>Returns <see langword="true" /> if the size has changed, otherwise <see langword="false" />.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Tizen.SKGLSurfaceView">
+            <summary>A hardware-accelerated view that can be drawn on using SkiaSharp drawing commands.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Tizen.SKGLSurfaceView(ElmSharp.EvasObject)">
+            <param name="parent">The parent object.</param>
+            <summary>Simple constructor to use when creating a <see cref="T:SkiaSharp.Views.Tizen.SKGLSurfaceView" /> from code.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.SKGLSurfaceView.CreateDrawingSurface">
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to construct the drawing surface.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.SKGLSurfaceView.CreateNativeResources(ElmSharp.EvasObject)">
+            <param name="parent">The parent object.</param>
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to create the native resources which should be present throughout whole life of the control.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.SKGLSurfaceView.DestroyDrawingSurface">
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to destroy the drawing surface.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.SKGLSurfaceView.DestroyNativeResources">
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to destroy the native resources.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.SKGLSurfaceView.GetSurfaceSize">
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to provide the dimensions of the current drawing surface.</summary>
+            <returns>Returns the current drawing surface dimensions.</returns>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Tizen.SKGLSurfaceView.GRContext">
+            <summary>Gets the current GPU context.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.SKGLSurfaceView.OnDrawFrame">
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to draw the next frame or paint the control.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.SKGLSurfaceView.OnDrawFrame(SkiaSharp.Views.Tizen.SKPaintGLSurfaceEventArgs)">
+            <param name="e">The event arguments that contain the drawing surface and information.</param>
+            <summary>Implement this to draw on the canvas.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Tizen.SKGLSurfaceView.OnDrawFrame(SkiaSharp.Views.Tizen.SKPaintGLSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Tizen.SKGLSurfaceView.PaintSurface>
+event.
+
+> [!IMPORTANT]
+> If this method is overridden, then the base must be called, otherwise the
+> event will not be fired.
+
+## Examples
+
+```csharp
+protected override void OnDrawFrame (SKPaintGLSurfaceEventArgs e)
+{
+    // call the base method
+    base.OnPaintSurface (e);
+
+    var surface = e.Surface;
+    var surfaceWidth = e.BackendRenderTarget.Width;
+    var surfaceHeight = e.BackendRenderTarget.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+}
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="E:SkiaSharp.Views.Tizen.SKGLSurfaceView.PaintSurface">
+            <summary>Occurs when the surface needs to be redrawn.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Tizen.SKGLSurfaceView.OnDrawFrame(SkiaSharp.Views.Tizen.SKPaintGLSurfaceEventArgs)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Tizen.SKGLSurfaceView.PaintSurface>
+event.
+
+## Examples
+
+```csharp
+myView.PaintSurface += (sender, e) => {
+    var surface = e.Surface;
+    var surfaceWidth = e.BackendRenderTarget.Width;
+    var surfaceHeight = e.BackendRenderTarget.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+
+    canvas.Flush ();
+};
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.SKGLSurfaceView.UpdateSurfaceSize(ElmSharp.Rect)">
+            <param name="geometry">The current geometry of the control.</param>
+            <summary>Implemented by derived <see cref="T:SkiaSharp.Views.Tizen.CustomRenderingView" /> types to update the drawing surface dimensions.</summary>
+            <returns>Returns <see langword="true" /> if the size has changed, otherwise <see langword="false" />.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Tizen.SKPaintGLSurfaceEventArgs">
+            <summary>Provides data for the <see cref="E:SkiaSharp.Views.Tizen.SKGLSurfaceView.PaintSurface" /> event.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Tizen.SKPaintGLSurfaceEventArgs(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTarget)">
+            <param name="surface">The surface that is being drawn on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.Tizen.SKPaintGLSurfaceEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Tizen.SKPaintGLSurfaceEventArgs(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)">
+            <param name="surface">The surface that is being drawn on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.Tizen.SKPaintGLSurfaceEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Tizen.SKPaintGLSurfaceEventArgs(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTarget,SkiaSharp.GRSurfaceOrigin,SkiaSharp.SKColorType)">
+            <param name="surface">The surface that is being drawn on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <param name="origin">The surface origin of the render target.</param>
+            <param name="colorType">The color type of the render target.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.Tizen.SKPaintGLSurfaceEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Tizen.SKPaintGLSurfaceEventArgs.BackendRenderTarget">
+            <summary>Gets the render target that is currently being drawn.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Tizen.SKPaintGLSurfaceEventArgs.ColorType">
+            <summary>Gets the color type of the render target.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Tizen.SKPaintGLSurfaceEventArgs.Origin">
+            <summary>Gets the surface origin of the render target.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Tizen.SKPaintGLSurfaceEventArgs.RenderTarget">
+            <summary>Gets the render target that is currently being drawn.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Tizen.SKPaintGLSurfaceEventArgs.Surface">
+            <summary>Gets the surface that is currently being drawn on.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Tizen.SKPaintSurfaceEventArgs">
+            <summary>Provides data for the <see cref="E:SkiaSharp.Views.Tizen.SKCanvasView.PaintSurface" /> event.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Tizen.SKPaintSurfaceEventArgs(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)">
+            <param name="surface">The surface that is being drawn on.</param>
+            <param name="info">The information about the surface.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.Tizen.SKPaintSurfaceEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Tizen.SKPaintSurfaceEventArgs.Info">
+            <summary>Gets the information about the surface that is currently being drawn.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Tizen.SKPaintSurfaceEventArgs.Surface">
+            <summary>Gets the surface that is currently being drawn on.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Tizen.TizenExtensions">
+            <summary>Various extension methods to convert between SkiaSharp types and Tizen types.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.TizenExtensions.ToColor(SkiaSharp.SKColor)">
+            <param name="color">The SkiaSharp color.</param>
+            <summary>Converts a SkiaSharp color into a Tizen color.</summary>
+            <returns>Returns a Tizen color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.TizenExtensions.ToPoint(SkiaSharp.SKPoint)">
+            <param name="point">The SkiaSharp point.</param>
+            <summary>Converts a SkiaSharp point into a Tizen point.</summary>
+            <returns>Returns a Tizen point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.TizenExtensions.ToPoint(SkiaSharp.SKPointI)">
+            <param name="point">The SkiaSharp point.</param>
+            <summary>Converts a SkiaSharp point into a Tizen point.</summary>
+            <returns>Returns a Tizen point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.TizenExtensions.ToRect(SkiaSharp.SKRect)">
+            <param name="rect">The SkiaSharp rectangle.</param>
+            <summary>Converts a SkiaSharp rectangle into a Tizen rectangle.</summary>
+            <returns>Returns a Tizen rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.TizenExtensions.ToRect(SkiaSharp.SKRectI)">
+            <param name="rect">The SkiaSharp rectangle.</param>
+            <summary>Converts a SkiaSharp rectangle into a Tizen rectangle.</summary>
+            <returns>Returns a Tizen rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.TizenExtensions.ToSize(SkiaSharp.SKSize)">
+            <param name="size">The SkiaSharp size.</param>
+            <summary>Converts a SkiaSharp size into a Tizen size.</summary>
+            <returns>Returns a Tizen size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.TizenExtensions.ToSize(SkiaSharp.SKSizeI)">
+            <param name="size">The SkiaSharp size.</param>
+            <summary>Converts a SkiaSharp size into a Tizen size.</summary>
+            <returns>Returns a Tizen size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.TizenExtensions.ToSKColor(ElmSharp.Color)">
+            <param name="color">The Tizen color.</param>
+            <summary>Converts a Tizen color into a SkiaSharp color.</summary>
+            <returns>Returns a SkiaSharp color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.TizenExtensions.ToSKPoint(ElmSharp.Point)">
+            <param name="point">The Tizen point.</param>
+            <summary>Converts a Tizen point into a SkiaSharp point.</summary>
+            <returns>Returns a SkiaSharp point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.TizenExtensions.ToSKPointI(ElmSharp.Point)">
+            <param name="point">The Tizen point.</param>
+            <summary>Converts a Tizen point into a SkiaSharp point.</summary>
+            <returns>Returns a SkiaSharp point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.TizenExtensions.ToSKRect(ElmSharp.Rect)">
+            <param name="rect">The Tizen rectangle.</param>
+            <summary>Converts a Tizen rectangle into a SkiaSharp rectangle.</summary>
+            <returns>Returns a SkiaSharp rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.TizenExtensions.ToSKRectI(ElmSharp.Rect)">
+            <param name="rect">The Tizen rectangle.</param>
+            <summary>Converts a Tizen rectangle into a SkiaSharp rectangle.</summary>
+            <returns>Returns a SkiaSharp rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.TizenExtensions.ToSKSize(ElmSharp.Size)">
+            <param name="size">The Tizen size.</param>
+            <summary>Converts a Tizen size into a SkiaSharp size.</summary>
+            <returns>Returns a SkiaSharp size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Tizen.TizenExtensions.ToSKSizeI(ElmSharp.Size)">
+            <param name="size">The Tizen size.</param>
+            <summary>Converts a Tizen size into a SkiaSharp size.</summary>
+            <returns>Returns a SkiaSharp size.</returns>
+            <remarks />
+        </member>
+    </members>
+</doc>

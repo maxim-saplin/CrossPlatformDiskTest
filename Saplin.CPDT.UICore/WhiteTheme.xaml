@@ -69,11 +69,11 @@
     </Style>
     <Style x:Key="SuperSmallSpan" TargetType="Span">
         <Setter Property="TextColor" Value="#FF666666" />
-        <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
+        <Setter Property="Font" Value="{StaticResource FontItalicSuperSmall}" />
     </Style>
     <Style x:Key="AccentedSuperSmallSpan" TargetType="Span">
         <Setter Property="TextColor" Value="#FF202020" />
-        <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
+        <Setter Property="Font" Value="{StaticResource FontItalicSuperSmall}" />
     </Style>
     <Style x:Key="AccentedSmallSpan" TargetType="Span">
         <Setter Property="TextColor" Value="#FF202020" />
@@ -142,4 +142,8 @@
         </Setter>
     </Style>
     <!--END OF STYLES-->
+    
+    <Color x:Key="DefaultColor">
+        #FF202020
+    </Color>
 </ResourceDictionary>
