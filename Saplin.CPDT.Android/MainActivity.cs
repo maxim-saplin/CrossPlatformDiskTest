@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Text;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -15,19 +16,24 @@ namespace Saplin.CPDT.Droid
 
         protected override void OnCreate(Bundle bundle)
         {
-            TabLayoutResource = Resource.Layout.Tabbar;
-            ToolbarResource = Resource.Layout.Toolbar;
-
             var sw = new Stopwatch();
+            var sb = new StringBuilder();
+
             sw.Start();
 
             base.OnCreate(bundle);
+            sb.AppendLine("OnCreate " + sw.ElapsedMilliseconds);
 
             Instance = this;
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            sb.AppendLine("Forms.Init " + sw.ElapsedMilliseconds);
+
             var app = new Saplin.CPDT.UICore.App();
+            sb.AppendLine("new UICore.App " + sw.ElapsedMilliseconds);
+
             LoadApplication(app);
+            sb.AppendLine("LoadApplication " + sw.ElapsedMilliseconds);
 
             if (app.WhiteTheme)
             {
@@ -41,8 +47,9 @@ namespace Saplin.CPDT.Droid
                 Window.DecorView.SystemUiVisibility = (Android.Views.StatusBarVisibility)ui;
             }
 
-            System.Diagnostics.Debug.WriteLine("Done " + sw.ElapsedMilliseconds);
             sw.Stop();
+            sb.AppendLine("Done " + sw.ElapsedMilliseconds);
+            System.Diagnostics.Debug.WriteLine(sb);
         }
 
         protected override void AttachBaseContext(Context @base)

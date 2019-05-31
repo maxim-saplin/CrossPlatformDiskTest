@@ -11,7 +11,7 @@ namespace Saplin.CPDT.UICore
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+			
 		}
 
         public bool WhiteTheme
@@ -24,8 +24,8 @@ namespace Saplin.CPDT.UICore
 
 		protected override void OnStart ()
 		{
-			// Handle when your app starts
-		}
+            MainPage = new MainPage();
+        }
 
 		protected override void OnSleep ()
 		{
