@@ -13,9 +13,6 @@
     BackgroundColor="Black" 
     Padding="0"
 >
-    <ContentPage.Resources>
-        <!-- All global resources (styles, converters etc.) are in App.xaml -->
-    </ContentPage.Resources>
     <ContentPage.Content>
         <AbsoluteLayout x:Name="absoluteLayout" Style="{StaticResource mainLayout}">
             <ScrollView x:Name="scrollView" VerticalScrollBarVisibility="Default" HorizontalScrollBarVisibility="Default" AbsoluteLayout.LayoutBounds="1.0 ,1.0, 1.0, 1.0" AbsoluteLayout.LayoutFlags="All">
@@ -85,10 +82,10 @@
                                         </StackLayout>
                                     </DataTemplate>
                                 </ctrl:StackRepeater.ItemTemplate>
+                                
                             </ctrl:StackRepeater>
                             <local:AndroidSpacer FontSize="8"/>
                         </StackLayout>
-                        <!--<Label Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=PickDrive}" Style="{StaticResource Key=GrayedLabel}" LineBreakMode="TailTruncation"/>-->
                         <local:MainPageButtons x:Name="buttons"/>
                         <local:AndroidSpacer FontSize="12"/>
                     </StackLayout>
@@ -101,14 +98,14 @@
                         </StackLayout>
                         <Label Text="{Binding FileName}" LineBreakMode="MiddleTruncation" Style="{x:StaticResource Key=SmallLabel}" />
                         <Label Text="{Binding Options}" Style="{x:StaticResource Key=SmallLabel}" />
-                        <!--<ctrl:LabelList x:Name="completedResults" ControlName="completedResults" Orientation="Vertical" ItemsSource="{Binding StringTestResults}"/>-->
                         <StackLayout x:Name="testResultsPlaceholder">
-                            <local:TestResults ItemsSource="{Binding TestResults}" ShowFooterIfEmptyItems="True" IsFooterVisible="{Binding ShowTestProgress}" />
+                            <!-- <local:TestResults ItemsSource="{Binding TestResults}" ShowFooterIfEmptyItems="True" IsFooterVisible="{Binding ShowTestProgress}" /> -->
+                            <!-- In code behind -->
                         </StackLayout>
                     </StackLayout>
-                    <!--<anim:VisibilityFadeAnimation2 x:Name="testSessionsAnimation" Target="{x:Reference testSessionsPlaceholder}" Trigger="{Binding TestStarted, Converter={StaticResource BoolNot}}" />-->
                     <StackLayout x:Name="testSessionsPlaceholder" IsVisible="True" Margin="-10, 0, -10, 0" Padding="10, 0, 10, 0">
-                        <local:TestSessions x:Name="testSessions"/>
+                        <!-- <local:TestSessions x:Name="testSessions"/> -->
+                        <!-- In code behind -->
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" IsVisible="{Binding TestStarted, Converter={StaticResource BoolNot}}">

@@ -26,6 +26,8 @@ namespace Saplin.CPDT.UICore
 
             SizeChanged += (s, e) =>
             {
+                AdaptLayoytToScreenWidth();
+
                 if (!alreadyShown)
                 {
                     alreadyShown = true;
@@ -39,8 +41,6 @@ namespace Saplin.CPDT.UICore
                         absoluteLayout.Children.Add(c);
                     }
                 }
-
-                AdaptLayoytToScreenWidth();
             };
         }
 
@@ -65,7 +65,7 @@ namespace Saplin.CPDT.UICore
 
             if (Width < narrowWidth)
             {
-                if (!testResultsNarrow)
+                if (!testResultsNarrow || !alreadyShown)
                 {
                     testResultsNarrow = true;
 
@@ -81,7 +81,7 @@ namespace Saplin.CPDT.UICore
                     testResultsPlaceholder.Children.Clear();
                     testResultsPlaceholder.Children.Add(tr);
                 }
-                if (!testSessionsNarrow)
+                if (!testSessionsNarrow || !alreadyShown)
                 {
                     testSessionsNarrow = true;
 
@@ -93,7 +93,7 @@ namespace Saplin.CPDT.UICore
             }
             else if (Width >= narrowWidth)
             {
-                if (testResultsNarrow)
+                if (testResultsNarrow || !alreadyShown)
                 {
                     testResultsNarrow = false;
 
@@ -109,7 +109,7 @@ namespace Saplin.CPDT.UICore
                     testResultsPlaceholder.Children.Clear();
                     testResultsPlaceholder.Children.Add(tr);
                 }
-                if (testSessionsNarrow)
+                if (testSessionsNarrow || !alreadyShown)
                 {
                     testSessionsNarrow = false;
 
