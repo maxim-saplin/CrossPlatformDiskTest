@@ -1,9 +1,10 @@
-﻿using System.Diagnostics;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Content.Res;
 using Android.OS;
+using Android.Runtime;
+using Android.Util;
 using Android.Views;
 
 namespace Saplin.CPDT.Droid
@@ -17,9 +18,6 @@ namespace Saplin.CPDT.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
-            var sw = new Stopwatch();
-            sw.Start();
 
             base.OnCreate(bundle);
 
@@ -40,9 +38,6 @@ namespace Saplin.CPDT.Droid
                 ui |= (int)Android.Views.SystemUiFlags.LightNavigationBar;
                 Window.DecorView.SystemUiVisibility = (Android.Views.StatusBarVisibility)ui;
             }
-
-            System.Diagnostics.Debug.WriteLine("Done " + sw.ElapsedMilliseconds);
-            sw.Stop();
         }
 
         protected override void AttachBaseContext(Context @base)
