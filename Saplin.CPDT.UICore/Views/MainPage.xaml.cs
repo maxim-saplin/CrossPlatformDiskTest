@@ -21,8 +21,6 @@ namespace Saplin.CPDT.UICore
 
             InitializeComponent();
 
-            ViewModelContainer.ResultsDbViewModel.BindWebView(webView);
-
             bitSystem.Text += Environment.Is64BitProcess ? " 64bit" : " 32bit";
 
             SizeChanged += (s, e) =>
@@ -30,6 +28,7 @@ namespace Saplin.CPDT.UICore
                 if (!alreadyShown)
                 {
                     alreadyShown = true;
+                    ViewModelContainer.ResultsDbViewModel.BindWebView(webView);
                     absoluteLayout.Children.Add(new Popups());
                 }
 
