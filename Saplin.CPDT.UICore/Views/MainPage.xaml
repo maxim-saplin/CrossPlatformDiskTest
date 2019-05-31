@@ -1,6 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Saplin.CPDT.UICore" xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" xmlns:anim="clr-namespace:Saplin.CPDT.UICore.Animations" xmlns:csr="clr-namespace:System.Collections.Generic;assembly=System.Runtime" x:Class="Saplin.CPDT.UICore.MainPage" NavigationPage.HasNavigationBar="False" NavigationPage.HasBackButton="False"
-    BackgroundColor="Black" Padding="0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Saplin.CPDT.UICore" 
+    xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" 
+    xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" 
+    xmlns:anim="clr-namespace:Saplin.CPDT.UICore.Animations" 
+    xmlns:csr="clr-namespace:System.Collections.Generic;assembly=System.Runtime" 
+    x:Class="Saplin.CPDT.UICore.MainPage" 
+    NavigationPage.HasNavigationBar="False" 
+    NavigationPage.HasBackButton="False"
+    BackgroundColor="Black" 
+    Padding="0"
+>
     <ContentPage.Resources>
         <!-- All global resources (styles, converters etc.) are in App.xaml -->
     </ContentPage.Resources>
@@ -112,24 +124,7 @@
                 </StackLayout>
             </ScrollView>
             <!-- Pop-ups-->
-            <StackLayout AbsoluteLayout.LayoutBounds="1.0, 1.0, 1.0, 1.0" AbsoluteLayout.LayoutFlags="All" BindingContext="{x:Static vm:ViewModelContainer.OptionsViewModel}" IsVisible="{Binding IsVisible}" ctrl:KeyPress.ModalParentExclusiveHook="True" Style="{x:StaticResource Key=popUpContainer}">
-                <StackLayout.Effects>
-                    <ctrl:BlurPlatformEffect />
-                </StackLayout.Effects>
-                <local:Options HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-            </StackLayout>
-            <StackLayout AbsoluteLayout.LayoutBounds="1.0, 1.0, 1.0, 1.0" AbsoluteLayout.LayoutFlags="All" BindingContext="{x:Static vm:ViewModelContainer.AboutViewModel}" IsVisible="{Binding IsVisible}" ctrl:KeyPress.ModalParentExclusiveHook="True" Style="{x:StaticResource Key=popUpContainer}">
-                <StackLayout.Effects>
-                    <ctrl:BlurPlatformEffect />
-                </StackLayout.Effects>
-                <local:About HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-            </StackLayout>
-            <StackLayout AbsoluteLayout.LayoutBounds="1.0, 1.0, 1.0, 1.0" AbsoluteLayout.LayoutFlags="All" BindingContext="{x:Static vm:ViewModelContainer.ErrorViewModel}" IsVisible="{Binding IsVisible}" ctrl:KeyPress.ModalParentExclusiveHook="True" Style="{x:StaticResource Key=popUpContainer}">
-                <StackLayout.Effects>
-                    <ctrl:BlurPlatformEffect />
-                </StackLayout.Effects>
-                <local:Error HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-            </StackLayout>
+            <local:Popups/>
 
             <BoxView AbsoluteLayout.LayoutBounds="1.0, 1.0, 1.0, 1.0" 
                      AbsoluteLayout.LayoutFlags="All" 

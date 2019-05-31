@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Grid 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -6,7 +6,9 @@
     xmlns:local="clr-namespace:Saplin.CPDT.UICore"
     xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels"
     x:Class="Saplin.CPDT.UICore.Error"
-    Style="{x:StaticResource Key=popUpError}">
+    Style="{x:StaticResource Key=popUpError}"
+    BindingContext="{Static vm:ViewModelContainer.ErrorViewModel}}"
+>
     <Grid.ColumnDefinitions>
         <ColumnDefinition>
             <ColumnDefinition.Width>

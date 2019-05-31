@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Grid xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls"
@@ -54,7 +54,7 @@
     </Grid.RowDefinitions>
     
     <ctrl:ExtendedLabel x:Name="closeLabel" ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Close}" Grid.Row="0" Grid.Column="1" 
-                        ChangeCursorOnMouseHover="True" Command="{Binding Source={x:Static vm:ViewModelContainer.OptionsViewModel}, Close}" 
+                        ChangeCursorOnMouseHover="True" Command="{Binding Source={Static vm:ViewModelContainer.OptionsViewModel}, Close}" 
                         VerticalOptions="Start" HorizontalOptions="Start" LineBreakMode="NoWrap" WidthRequest="130" />
     <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="[?]" ChangeCursorOnMouseHover="True" 
                         Command="{Binding ShowAbout, Source={Static vm:ViewModelContainer.NavigationViewModel}}" Grid.Row="0" Grid.Column="0"

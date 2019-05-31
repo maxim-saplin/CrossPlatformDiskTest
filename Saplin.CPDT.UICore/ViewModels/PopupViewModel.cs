@@ -22,27 +22,8 @@ namespace Saplin.CPDT.UICore.ViewModels
                     RaisePropertyChanged();
                     OnVisibilityChanged(value);
                 }
-                //Count++;
             }
         }
-
-        //public int count = 0;
-
-        //public int Count
-        //{
-        //    get
-        //    {
-        //        return count;
-        //    }
-        //    set
-        //    {
-        //        if (value != count)
-        //        {
-        //            count = value;
-        //            RaisePropertyChanged();
-        //        }
-        //    }
-        //}
 
         private ICommand show;
 

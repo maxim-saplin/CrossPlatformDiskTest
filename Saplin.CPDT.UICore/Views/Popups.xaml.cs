@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
-namespace Saplin.CPDT.UICore.Views
+namespace Saplin.CPDT.UICore
 {
-    public partial class Popups : ContentView
+    public partial class Popups : StackLayout
     {
         public Popups()
         {

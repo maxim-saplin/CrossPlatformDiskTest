@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ScrollView  
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls"
     xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels"
     xmlns:local="clr-namespace:Saplin.CPDT.UICore"
-    x:Class="Saplin.CPDT.UICore.About" VerticalScrollBarVisibility="Never">
+    x:Class="Saplin.CPDT.UICore.About" 
+    VerticalScrollBarVisibility="Never"
+    BindingContext="{Static vm:ViewModelContainer.AboutViewModel}"
+>
     
     <Grid Style="{x:StaticResource Key=popUp}" RowSpacing="10">
         <Grid.Padding>
