@@ -10,6 +10,11 @@ namespace Saplin.CPDT.UICore
 {
     public partial class MainPage : ContentPage
     {
+        private bool testResultsNarrow = false;
+        private bool testSessionsNarrow =false;
+        private int narrowWidth = 640;
+        private bool alreadyShown = false;
+
         public MainPage()
         {
             ApplyTheme();
@@ -18,14 +23,23 @@ namespace Saplin.CPDT.UICore
 
             ViewModelContainer.ResultsDbViewModel.BindWebView(webView);
 
-            AdaptLayoytToScreenWidth();
-
             bitSystem.Text += Environment.Is64BitProcess ? " 64bit" : " 32bit";
+
+            SizeChanged += (s, e) =>
+            {
+                if (!alreadyShown)
+                {
+                    alreadyShown = true;
+                    absoluteLayout.Children.Add(new Popups());
+                }
+
+                AdaptLayoytToScreenWidth();
+            };
         }
 
         private void ApplyTheme()
         {
-            if ((App.Current as App).WhiteTheme)
+            if ((Application.Current as App).WhiteTheme)
             {
                 var whiteTheme = new WhiteTheme();
 
@@ -40,72 +54,64 @@ namespace Saplin.CPDT.UICore
 
         private void AdaptLayoytToScreenWidth()
         {
-            var testResultsNarrow = false;
-            var testSessionsNarrow = false;
-            var narrowWidth = 640;
+            buttons.AdaptLayoytToScreenWidth(Width < narrowWidth);
 
-            SizeChanged += (s, e) =>
+            if (Width < narrowWidth)
             {
-                buttons.AdaptLayoytToScreenWidth(Width < narrowWidth);
-
-                if (Width < narrowWidth)
+                if (!testResultsNarrow)
                 {
-                    if (!testResultsNarrow)
+                    testResultsNarrow = true;
+
+                    var tr = new TestResultsNarrow()
                     {
-                        testResultsNarrow = true;
+                        BindingContext = ViewModelContainer.DriveTestViewModel,
+                        IsFooterVisible = true,
+                        ShowFooterIfEmptyItems = true
+                    };
 
-                        var tr = new TestResultsNarrow()
-                        {
-                            BindingContext = ViewModelContainer.DriveTestViewModel,
-                            IsFooterVisible = true,
-                            ShowFooterIfEmptyItems = true
-                        };
+                    tr.SetBinding(GridRepeater.ItemsSourceProperty, nameof(ViewModelContainer.DriveTestViewModel.TestResults));
 
-                        tr.SetBinding(GridRepeater.ItemsSourceProperty, nameof(ViewModelContainer.DriveTestViewModel.TestResults));
-
-                        testResultsPlaceholder.Children.Clear();
-                        testResultsPlaceholder.Children.Add(tr);
-                    }
-                    if (!testSessionsNarrow)
-                    {
-                        testSessionsNarrow = true;
-
-                        var ts = new TestSessionsNarrow();
-
-                        testSessionsPlaceholder.Children.Clear();
-                        testSessionsPlaceholder.Children.Add(ts);
-                    }
+                    testResultsPlaceholder.Children.Clear();
+                    testResultsPlaceholder.Children.Add(tr);
                 }
-                else if (Width >= narrowWidth)
+                if (!testSessionsNarrow)
                 {
-                    if (testResultsNarrow)
-                    {
-                        testResultsNarrow = false;
+                    testSessionsNarrow = true;
 
-                        var tr = new TestResults()
-                        {
-                            BindingContext = ViewModelContainer.DriveTestViewModel,
-                            IsFooterVisible = true,
-                            ShowFooterIfEmptyItems = true
-                        };
+                    var ts = new TestSessionsNarrow();
 
-                        tr.SetBinding(GridRepeater.ItemsSourceProperty, nameof(ViewModelContainer.DriveTestViewModel.TestResults));
-
-                        testResultsPlaceholder.Children.Clear();
-                        testResultsPlaceholder.Children.Add(tr);
-                    }
-                    if (testSessionsNarrow)
-                    {
-                        testSessionsNarrow = false;
-
-                        var ts = new TestSessions();
-
-                        testSessionsPlaceholder.Children.Clear();
-                        testSessionsPlaceholder.Children.Add(ts);
-                    }
+                    testSessionsPlaceholder.Children.Clear();
+                    testSessionsPlaceholder.Children.Add(ts);
                 }
-            };
+            }
+            else if (Width >= narrowWidth)
+            {
+                if (testResultsNarrow)
+                {
+                    testResultsNarrow = false;
 
+                    var tr = new TestResults()
+                    {
+                        BindingContext = ViewModelContainer.DriveTestViewModel,
+                        IsFooterVisible = true,
+                        ShowFooterIfEmptyItems = true
+                    };
+
+                    tr.SetBinding(GridRepeater.ItemsSourceProperty, nameof(ViewModelContainer.DriveTestViewModel.TestResults));
+
+                    testResultsPlaceholder.Children.Clear();
+                    testResultsPlaceholder.Children.Add(tr);
+                }
+                if (testSessionsNarrow)
+                {
+                    testSessionsNarrow = false;
+
+                    var ts = new TestSessions();
+
+                    testSessionsPlaceholder.Children.Clear();
+                    testSessionsPlaceholder.Children.Add(ts);
+                }
+            }
         }
 
         public void OnQuit(Object sender, EventArgs e)
