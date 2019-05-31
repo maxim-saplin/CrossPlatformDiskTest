@@ -2,6 +2,7 @@
 using Saplin.CPDT.UICore.Controls;
 using Saplin.CPDT.UICore.ViewModels;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -28,8 +29,15 @@ namespace Saplin.CPDT.UICore
                 if (!alreadyShown)
                 {
                     alreadyShown = true;
-                    ViewModelContainer.ResultsDbViewModel.BindWebView(webView);
+                    
                     absoluteLayout.Children.Add(new Popups());
+
+                    var onlineDb = new OnlineDb();
+
+                    foreach(var c in onlineDb.Children.ToArray())
+                    {
+                        absoluteLayout.Children.Add(c);
+                    }
                 }
 
                 AdaptLayoytToScreenWidth();

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Saplin.CPDT.UICore.OnlineDb" 
+    xmlns:local="clr-namespace:Saplin.CPDT.UICore" 
+    xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" 
+    xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels"
+>
+    <BoxView AbsoluteLayout.LayoutBounds="1.0, 1.0, 1.0, 1.0" AbsoluteLayout.LayoutFlags="All" Style="{StaticResource ShadeBox}" IsVisible="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=IsVisible}">
+    </BoxView>
+    <WebView x:Name="webView" AbsoluteLayout.LayoutBounds="1.0, 1.0, 1.0, 1.0" AbsoluteLayout.LayoutFlags="All" BackgroundColor="Black" IsVisible="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=IsVisible}">
+        <WebView.Margin>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="Android, macOS" Value="0, 0, 0, 0" />
+                <On Platform="WPF" Value="0, 33, 0, 0" />
+            </OnPlatform>
+        </WebView.Margin>
+    </WebView>
+    <ctrl:ExtendedLabel Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=CClose}" AbsoluteLayout.LayoutBounds="1.0, 4, 90, 30" AbsoluteLayout.LayoutFlags="XProportional" BindingContext="{x:Static vm:ViewModelContainer.ResultsDbViewModel}" ChangeCursorOnMouseHover="True" Command="{Binding Close}" Style="{StaticResource CloseWebViewLabel}" HorizontalTextAlignment="End" IsVisible="{Binding IsVisible}">
+        <ctrl:ExtendedLabel.Margin>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="Android, macOS" Value="0, 0, 10, 0" />
+                <On Platform="WPF" Value="0, 5, 10, 0" />
+            </OnPlatform>
+        </ctrl:ExtendedLabel.Margin>
+    </ctrl:ExtendedLabel>
+</StackLayout>
