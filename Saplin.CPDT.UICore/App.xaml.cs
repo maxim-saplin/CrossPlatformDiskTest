@@ -11,25 +11,29 @@ namespace Saplin.CPDT.UICore
 	public partial class App : Application
 	{
         Page page = null;
-        private Stopwatch sw;
-        private StringBuilder sb;
+#if DEBUG
+        private Stopwatch sw= new Stopwatch();
+        private StringBuilder sb = new StringBuilder();
+#endif
         private Task task;
 
         public App ()
 		{
-            sw = new Stopwatch();
-            sb = new StringBuilder();
-
+#if DEBUG
             sw.Start();
+#endif
 
             task = Task.Run(() =>
             {
                 InitializeComponent();
+#if DEBUG
                 sb.AppendLine("InitializeComponent " + sw.ElapsedMilliseconds);
+#endif
                 page = new MainPage(); sb.AppendLine("new MainPage() " + sw.ElapsedMilliseconds);
             });
-
+#if DEBUG
             sb.AppendLine("Task.Run " + sw.ElapsedMilliseconds);
+#endif
         }
 
         public bool WhiteTheme
@@ -43,11 +47,15 @@ namespace Saplin.CPDT.UICore
 		protected override void OnStart ()
 		{
             task.Wait();
+#if DEBUG
             sb.AppendLine("Task.Wait " + sw.ElapsedMilliseconds);
+#endif
 
             MainPage = page;
+#if DEBUG
             sb.AppendLine("MainPage = page " + sw.ElapsedMilliseconds);
             System.Diagnostics.Debug.WriteLine(sb);
+#endif
         }
 
 		protected override void OnSleep ()
