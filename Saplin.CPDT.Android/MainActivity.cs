@@ -16,6 +16,9 @@ namespace Saplin.CPDT.Droid
 
         protected override void OnCreate(Bundle bundle)
         {
+            TabLayoutResource = Resource.Layout.Tabbar;
+            ToolbarResource = Resource.Layout.Toolbar;
+
             var sw = new Stopwatch();
             var sb = new StringBuilder();
 

@@ -31,15 +31,21 @@ namespace Saplin.CPDT.UICore
                 if (!alreadyShown)
                 {
                     alreadyShown = true;
-                    
-                    absoluteLayout.Children.Add(new Popups());
 
-                    var onlineDb = new OnlineDb();
-
-                    foreach(var c in onlineDb.Children.ToArray())
+                    Device.StartTimer(TimeSpan.FromMilliseconds(10),() =>
                     {
-                        absoluteLayout.Children.Add(c);
-                    }
+
+                        absoluteLayout.Children.Add(new Popups());
+
+                        var onlineDb = new OnlineDb();
+
+                        foreach (var c in onlineDb.Children.ToArray())
+                        {
+                            absoluteLayout.Children.Add(c);
+                        }
+
+                        return false;
+                    });
                 }
             };
         }
