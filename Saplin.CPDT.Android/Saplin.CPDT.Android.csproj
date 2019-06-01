@@ -42,7 +42,6 @@
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
-    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <MandroidI18n />
     <AndroidLinkTool>r8</AndroidLinkTool>
     <AndroidDexTool>d8</AndroidDexTool>
@@ -50,7 +49,6 @@
     <IntermediateOutputPath>Tmp</IntermediateOutputPath>
     <AotAssemblies>true</AotAssemblies>
     <AndroidAotAdditionalArguments>no-write-symbols,nodebug</AndroidAotAdditionalArguments>
-    <EnableLLVM>true</EnableLLVM>
     <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
   </PropertyGroup>
   <ItemGroup>

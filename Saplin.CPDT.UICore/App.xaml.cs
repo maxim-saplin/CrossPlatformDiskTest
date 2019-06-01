@@ -29,7 +29,10 @@ namespace Saplin.CPDT.UICore
 #if DEBUG
                 sb.AppendLine("InitializeComponent " + sw.ElapsedMilliseconds);
 #endif
-                page = new MainPage(); sb.AppendLine("new MainPage() " + sw.ElapsedMilliseconds);
+                page = new MainPage();
+#if DEBUG
+                sb.AppendLine("new MainPage() " + sw.ElapsedMilliseconds);
+#endif
             });
 #if DEBUG
             sb.AppendLine("Task.Run " + sw.ElapsedMilliseconds);

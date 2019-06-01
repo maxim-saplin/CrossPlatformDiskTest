@@ -10,7 +10,7 @@
     <AssemblyName>CPDT</AssemblyName>
     <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
-    <ReleaseVersion>2.1.5</ReleaseVersion>
+    <ReleaseVersion>2.1.6</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
     <TargetFrameworkIdentifier>Xamarin.Mac</TargetFrameworkIdentifier>
   </PropertyGroup>
