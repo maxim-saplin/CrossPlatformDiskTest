@@ -33,6 +33,20 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
+        public string ShortOptions
+        {
+            get
+            {
+                var l11n = ViewModelContainer.L11n;
+
+                return string.Format(l11n.TestSummaryShortFormatString,
+                                 FileSizeBytes / 1024 / 1024 / 1024,
+                                 (double)FreeSpaceBytes / 1024 / 1024 / 1024,
+                                 WriteBuffering ? l11n.On : l11n.Off,
+                                 MemCache ? l11n.On : l11n.Off);
+            }
+        }
+
         public double SeqRead
         {
 			get; private set;
@@ -77,6 +91,11 @@ namespace Saplin.CPDT.UICore.ViewModels
                     }
                 }
             }
+        }
+
+        public bool HideShare
+        {
+            get { return false; }
         }
 
         public string SelectedNodeText

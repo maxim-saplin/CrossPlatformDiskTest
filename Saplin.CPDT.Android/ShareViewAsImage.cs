@@ -14,7 +14,6 @@ namespace Saplin.CPDT.Droid
     {
         const string fileName = "share.png";
         const int padding = 15;
-        const string title = "CPDT Benchmark";
 
         public ShareViewAsImage()
         {
@@ -22,14 +21,14 @@ namespace Saplin.CPDT.Droid
             StrictMode.SetVmPolicy(builder.Build());
         }
 
-        public void Share(View view, bool blackBackground)
+        public void Share(View view, bool blackBackground, string title)
         {
-            //try
-            //{
+            try
+            {
                 var uri = SaveToFile(view, blackBackground);
-                Share(uri);
-            //}
-            //catch { };
+                Share(uri, title);
+            }
+            catch { };
         }
 
         private Android.Net.Uri SaveToFile(View view, bool blackBackground)
@@ -44,7 +43,6 @@ namespace Saplin.CPDT.Droid
             var paint = new Paint() { Color = blackBackground ? Android.Graphics.Color.Black : Android.Graphics.Color.White };
             paint.SetStyle(Paint.Style.Fill);
             c.DrawPaint(paint);
-            //c.DrawRect(new Rect(0, 0, image.Width, image.Height), paint);
             c.Translate(padding, 0);
             androidView.Draw(c);
 
@@ -61,7 +59,7 @@ namespace Saplin.CPDT.Droid
             return imageUri;
         }
 
-        private void Share(Android.Net.Uri uri)
+        private void Share(Android.Net.Uri uri, string title)
         {
             var sharingIntent = new Intent();
             sharingIntent.SetAction(Intent.ActionSend);

@@ -619,6 +619,22 @@ namespace Saplin.CPDT.UICore.Localization
             }
         }
 
+        public string Share
+        {
+            get
+            {
+                return ResourceManager.GetString("Share", resourceCulture);
+            }
+        }
+
+        public string ShareTitle
+        {
+            get
+            {
+                return ResourceManager.GetString("ShareTitle", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Rand.
         ///write.
@@ -839,6 +855,14 @@ namespace Saplin.CPDT.UICore.Localization
             get
             {
                 return ResourceManager.GetString("TestSummaryFormatString", resourceCulture);
+            }
+        }
+
+        public string TestSummaryShortFormatString
+        {
+            get
+            {
+                return ResourceManager.GetString("TestSummaryShortFormatString", resourceCulture);
             }
         }
 

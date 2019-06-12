@@ -15,19 +15,7 @@ namespace Saplin.CPDT.UICore
 
         void Share_Clicked(object sender, System.EventArgs e)
         {
-            var share = DependencyService.Get<IShareViewAsImage>();
-
-            if (share != null)
-            {
-                var masterDetail = ((sender as View)?.Parent?.Parent?.Parent?.Parent?.Parent) as Layout;
-
-                if (masterDetail != null && masterDetail.Children.Count > 1)
-                {
-                    var detail = masterDetail.Children[1] as View;
-
-                    if (detail != null) share.Share(detail, !ViewModelContainer.OptionsViewModel.WhiteThemeBool);
-                }
-            }
+            TestSessions.ShareHandler(sender, e);
         }
     }
 }

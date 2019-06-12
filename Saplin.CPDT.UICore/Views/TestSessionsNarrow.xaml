@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ctrl:StackRepeater xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Saplin.CPDT.UICore" xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" xmlns:anim="clr-namespace:Saplin.CPDT.UICore.Animations" x:Class="Saplin.CPDT.UICore.TestSessionsNarrow" 
                     BindingContext="{x:Static vm:ViewModelContainer.TestSessionsViewModel}" 
                     ItemsSource="{Binding TestSessions}" 
@@ -10,7 +10,7 @@
             <ctrl:MasterDetail SelectionGroup="testSessions" IsDetailVisible="{Binding Selected}" Margin="-10, 0, -10, 0" Padding="10, 0, 10, 0" ToggleOnMasterClick="True">
                 <ctrl:MasterDetail.MasterTemplate>
                     <DataTemplate>
-                          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="10, 4, 10, 0">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="10, 4, 10, 0">
                             <ctrl:ExtendedLabel Text="{Binding SelectedNodeText, Mode=OneWay}" MinimumWidthRequest="40" ChangeCursorOnMouseHover="True" VerticalOptions="Center" ctrl:MasterDetail.ToggleDetailOnClicked="True" LineBreakMode="CharacterWrap">
                                 <ctrl:ExtendedLabel.Style>
                                     <OnPlatform x:TypeArguments="Style">
@@ -22,28 +22,32 @@
                             <BoxView Style="{StaticResource VerticalLineGray}" IsVisible="{Binding Selected, Converter={StaticResource BoolNot}" Margin="0, 0, 4, 0" />
                             <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                    <Label Text="{Binding OrderNumber, StringFormat='#{0}'}" />
-                                    <Label Text="{Binding DriveName}" />
-                                    <StackLayout IsVisible="{Binding Selected}" HorizontalOptions="EndAndExpand" Orientation="Vertical">
-                                        <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Compare}" 
+                                    <Label Text="{Binding OrderNumber, StringFormat='#{0}', Mode=OneTime}" LineBreakMode="NoWrap" />
+                                    <Label Text="{Binding DriveName, Mode=OneTime}" LineBreakMode="TailTruncation" IsVisible="{Binding Selected, Converter={StaticResource BoolNot}}" />
+                                    <Label Text="{Binding DriveName, Mode=OneTime}" WidthRequest="80" LineBreakMode="TailTruncation" IsVisible="{Binding Selected}" />
+                                    <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Compare}" 
                                                             Command="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=Compare}" 
                                                             CommandParameter="{Binding .}" 
                                                             IsEnabled="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Mode=OneWay, Path=IsEnabled}" 
                                                             ChangeCursorOnMouseHover="True" 
                                                             VerticalOptions="Start" 
-                                                            HorizontalOptions="End"
-                                                            HorizontalTextAlignment="End"
-                                                            LineBreakMode="WordWrap" />
-                                        <ctrl:ExtendedLabel Text="[S]hare" Clicked="Share_Clicked">
-                                            <ctrl:ExtendedLabel.IsVisible>
-                                                <OnPlatform x:TypeArguments="x:Boolean">
-                                                    <On Platform="Android" Value="True" />
-                                                    <On Platform="macOS, WPF" Value="False" />
+                                                            HorizontalOptions="EndAndExpand"
+                                                            LineBreakMode="MiddleTruncation"
+                                                            IsVisible="{Binding Selected}"/>
+                                    <ctrl:ExtendedLabel 
+                                            Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Share}" 
+                                            Clicked="Share_Clicked"
+                                            LineBreakMode="MiddleTruncation">
+                                    <ctrl:ExtendedLabel.IsVisible>
+                                                <OnPlatform x:TypeArguments="BindingBase">
+                                                    <On Platform="Android" Value="{Binding Selected}"/>
+                                                    <On Platform="macOS, WPF" Value="{Binding Selected}" />
                                                 </OnPlatform>
                                             </ctrl:ExtendedLabel.IsVisible>
-                                        </ctrl:ExtendedLabel>
-                                    </StackLayout>
+                                    </ctrl:ExtendedLabel>
+
                                 </StackLayout>
+                                
                                 <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm:ss} {0:d.MM.yyyy}'}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start" Margin="0, -6, 0, 4" />
                                     
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0, -6, 0, 0">
@@ -101,7 +105,7 @@
                     <DataTemplate>
                         <StackLayout Padding="0, 0, 0, 10">
                             <Label Text="{Binding FileName}" Style="{x:StaticResource Key=SmallLabel}" LineBreakMode="MiddleTruncation" />
-                            <Label Text="{Binding Options}" Style="{x:StaticResource Key=SmallLabel}" />
+                            <Label Text="{Binding ShortOptions}" Style="{x:StaticResource Key=SmallLabel}" LineBreakMode="MiddleTruncation" />
                             <ctrl:ExtendedLabel Text="{Binding CsvFileName}" ChangeCursorOnMouseHover="True" Command="{Binding OpenCsvFolder}" IsVisible="{Binding CsvFileName, Converter={StaticResource StringNotEmpty}}" Style="{x:StaticResource Key=AccentedSmallLabel}" />
                             <local:TestResultsNarrow IsFooterVisible="False" BindingContext="{Binding Results}" />
                         </StackLayout>

@@ -39,6 +39,24 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
+        private bool isNarrowView = false;
+
+        public bool IsNarrowView
+        {
+            get
+            {
+                return isNarrowView;
+            }
+            set
+            {
+                if (value != isNarrowView)
+                {
+                    isNarrowView = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
         private ICommand showOptions = new Command(() => { ViewModelContainer.OptionsViewModel.DoShow(null); });
 
         public ICommand ShowOptions

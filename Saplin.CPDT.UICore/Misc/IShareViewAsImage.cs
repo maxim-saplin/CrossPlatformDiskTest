@@ -4,6 +4,6 @@ namespace Saplin.CPDT.UICore
 {
     public interface IShareViewAsImage
     {
-        void Share(View view, bool blackBackground);
+        void Share(View view, bool blackBackground, string title);
     }
 }

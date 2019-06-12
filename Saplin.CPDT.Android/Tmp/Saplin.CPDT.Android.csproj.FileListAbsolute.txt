@@ -222,3 +222,4 @@
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/android/assets/machine.config
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/stamp/_CompileToDalvik.stamp
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/stamp/_GeneratePackageManagerJava.stamp
+/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/android/assets/Saplin.CPDT.UICore.pdb

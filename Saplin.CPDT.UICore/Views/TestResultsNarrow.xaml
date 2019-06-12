@@ -17,10 +17,38 @@
         </OnPlatform>
     </Grid.RowHeight>
     <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="Auto" />
-        <ColumnDefinition Width="Auto" />
-        <ColumnDefinition Width="Auto" />
-        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition>
+            <ColumnDefinition.Width>
+                <OnPlatform x:TypeArguments="GridLength">
+                    <On Platform="WPF, macOS" Value="Auto"/>  
+                    <On Platform="Android" Value="22"/>
+                </OnPlatform>
+            </ColumnDefinition.Width>
+        </ColumnDefinition>
+        <ColumnDefinition>
+            <ColumnDefinition.Width>
+                <OnPlatform x:TypeArguments="GridLength">
+                    <On Platform="WPF, macOS" Value="Auto"/>  
+                    <On Platform="Android" Value="104"/>
+                </OnPlatform>
+            </ColumnDefinition.Width>
+        </ColumnDefinition>
+        <ColumnDefinition>
+            <ColumnDefinition.Width>
+                <OnPlatform x:TypeArguments="GridLength">
+                    <On Platform="WPF, macOS" Value="Auto"/>  
+                    <On Platform="Android" Value="62"/>
+                </OnPlatform>
+            </ColumnDefinition.Width>
+        </ColumnDefinition>
+        <ColumnDefinition>
+            <ColumnDefinition.Width>
+                <OnPlatform x:TypeArguments="GridLength">
+                    <On Platform="WPF, macOS" Value="Auto"/>  
+                    <On Platform="Android" Value="24"/>
+                </OnPlatform>
+            </ColumnDefinition.Width>
+        </ColumnDefinition>
         <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
     <ctrl:GridRepeater.ItemTemplate>
@@ -28,13 +56,6 @@
             <ctrl:GridItem>
                 <!-- col 0-->
                 <Label Text="{Binding BulletPoint, StringFormat='{0}.'}" LineBreakMode="NoWrap" WidthRequest="20" VerticalOptions="CenterAndExpand">
-<!--                   <Label.HeightRequest>
-                        <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="WPF" Value="36"/>  
-                            <On Platform="macOS" Value="-1"/> 
-                            <On Platform="Android" Value="38"/>
-                        </OnPlatform>
-                    </Label.HeightRequest>-->
                 </Label>
                 <!-- col 1-->
                 <Label Style="{StaticResource SmallLabel}" VerticalOptions="CenterAndExpand">
@@ -58,12 +79,6 @@
                             <Span Text="{Binding Result.AvgThroughput, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#10;{0}'}" Style="{StaticResource GrayedSpan}"  />
                         </FormattedString>
                     </Label.FormattedText>
-<!--                    <Label.HeightRequest>
-                        <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="macOS, WPF" Value="-1"/> 
-                            <On Platform="Android" Value="-1"/>
-                        </OnPlatform>
-                    </Label.HeightRequest>-->
                     <Label.WidthRequest>
                         <OnPlatform x:TypeArguments="x:Double">
                             <On Platform="macOS, WPF" Value="60"/> 
@@ -170,12 +185,6 @@
                             <Span Text="{Binding RecentResultMbps, Mode=OneWay, Converter={StaticResource MbPerSecondToAutoUnit} , StringFormat='&#10;{0}'}}" Style="{StaticResource GrayedSpan}" /> 
                         </FormattedString>
                     </Label.FormattedText>
-<!--                    <Label.HeightRequest>
-                        <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="macOS, WPF" Value="-1"/> 
-                            <On Platform="Android" Value="-1"/>
-                        </OnPlatform>
-                    </Label.HeightRequest>-->
                     <Label.WidthRequest>
                         <OnPlatform x:TypeArguments="x:Double">
                             <On Platform="macOS, WPF" Value="60"/> 

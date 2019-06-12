@@ -157,7 +157,7 @@
     <value>B/s</value>
   </data>
   <data name="BreakTest" xml:space="preserve">
-    <value>[Esc, B]reak test</value>
+    <value>[Esc, B]reak</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>[Esc, C]lose</value>
@@ -219,6 +219,12 @@ copy</value>
   </data>
   <data name="Compare" xml:space="preserve">
     <value>[C]ompare</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>[S]hare</value>
+  </data>
+  <data name="ShareTitle" xml:space="preserve">
+    <value>CPDT Benchmark - Test Results</value>
   </data>
   <data name="Min" xml:space="preserve">
     <value>Min</value>
@@ -319,6 +325,9 @@ write</value>
   </data>
   <data name="TestSummaryFormatString" xml:space="preserve">
     <value>File size: {0} GB. Free space: {1:0.0} GB. Write Buffering: {2}. In-memory file cache: {3}</value>
+  </data>
+  <data name="TestSummaryShortFormatString" xml:space="preserve">
+    <value>File:{0}GB. Free:{1:0.0}GB. W.Buffering:{2}. Cache:{3}</value>
   </data>
   <data name="TestWarmigUp" xml:space="preserve">
     <value>Warming up...</value>

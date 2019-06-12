@@ -384,12 +384,13 @@ namespace Saplin.CPDT.UICore.ViewModels
                                 freeMem: freeMemService == null ? null : (Func<long>)(freeMemService.GetBytesFree),
                                 flusher: flushService == null ? null : 
                                     new WriteBufferFlusher(flushService.OpenFile, flushService.Flush, flushService.Close),
-                                mockFileStream: true
+                                mockFileStream: false
                             );
 
                              FileNameAndTime = testSuite.FilePath+", "+string.Format("{0:HH:mm:ss} {0:d.MM.yyyy}", TestStartedTime);
                              FileName = testSuite.FilePath;
-                             Options = string.Format(l11n.TestSummaryFormatString,
+                             Options = string.Format(
+                                 ViewModelContainer.NavigationViewModel.IsNarrowView ? l11n.TestSummaryShortFormatString : l11n.TestSummaryFormatString,
                                  optionsVm.FileSizeGb,
                                  (double)freeSpace/1024/1024/1024,
                                  optionsVm.WriteBufferingBool ? l11n.On : l11n.Off,

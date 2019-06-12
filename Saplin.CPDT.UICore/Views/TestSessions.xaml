@@ -23,19 +23,29 @@
                             <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                                 <StackLayout Orientation="Horizontal" >
                                     <Label Text="{Binding OrderNumber, StringFormat='#{0}:'}" />
-                                    <Label Text="{Binding DriveName}" />
+                                    <Label Text="{Binding DriveName}" LineBreakMode="TailTruncation" />
                                     <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm:ss} {0:d.MM.yyyy}'}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start" />
-                                    <StackLayout IsVisible="{Binding Selected}" HorizontalOptions="EndAndExpand">
-                                        <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Compare}" 
+                                    <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Compare}" 
                                                             Command="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=Compare}" 
                                                             CommandParameter="{Binding .}" 
-                                                            IsEnabled="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=IsEnabled, Mode=OneWay}" 
+                                                            IsEnabled="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Mode=OneWay, Path=IsEnabled}" 
                                                             ChangeCursorOnMouseHover="True" 
                                                             VerticalOptions="Start" 
-                                                            HorizontalOptions="End"
+                                                            HorizontalOptions="EndAndExpand"
                                                             HorizontalTextAlignment="End"
-                                                            LineBreakMode="WordWrap" />
-                                    </StackLayout>
+                                                            LineBreakMode="NoWrap"
+                                                            IsVisible="{Binding Selected}"/>
+                                    <ctrl:ExtendedLabel 
+                                            Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Share}" 
+                                            Clicked="Share_Clicked"
+                                            LineBreakMode="NoWrap">
+                                    <ctrl:ExtendedLabel.IsVisible>
+                                                <OnPlatform x:TypeArguments="BindingBase">
+                                                    <On Platform="Android" Value="{Binding Selected}"/>
+                                                    <On Platform="macOS, WPF" Value="{Binding HideShare}" />
+                                                </OnPlatform>
+                                            </ctrl:ExtendedLabel.IsVisible>
+                                    </ctrl:ExtendedLabel>
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0, -6, 0, 0">
                                     <Label LineBreakMode="WordWrap" Margin="0, 0, 6, 0">

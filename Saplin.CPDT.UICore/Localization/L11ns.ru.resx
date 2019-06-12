@@ -157,7 +157,7 @@
     <value>Б/с</value>
   </data>
   <data name="BreakTest" xml:space="preserve">
-    <value>[Esc, B] Прервать тест</value>
+    <value>[Esc, B] Прервать</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>[Esc] Закрыть</value>
@@ -314,6 +314,9 @@
   <data name="TestSummaryFormatString" xml:space="preserve">
     <value>Размер файла: {0} Гб. Доступно: {1:0.0} Гб. Буферизация записи: {2}. Файловый кэш в памяти: {3}</value>
   </data>
+  <data name="TestSummaryShortFormatString" xml:space="preserve">
+    <value>Файл:{0}Гб. Доступно:{1:0.0}Гб. Буф. записи:{2}. Кэш:{3}</value>
+  </data>
   <data name="TestWarmigUp" xml:space="preserve">
     <value>Разминка...</value>
   </data>
@@ -334,6 +337,12 @@
   </data>
   <data name="Compare" xml:space="preserve">
     <value>[C] Сравнить</value>
+  </data>
+      <data name="Share" xml:space="preserve">
+    <value>[S] Отправить</value>
+  </data>
+  <data name="ShareTitle" xml:space="preserve">
+    <value>CPDT Benchmark - Результаты теста</value>
   </data>
   <data name="About9" xml:space="preserve">
     <value>Приложения для других платформ (Windows, macOS, Android/APK) может быть найдено по ссылке:</value>

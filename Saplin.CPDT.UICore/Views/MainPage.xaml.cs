@@ -71,6 +71,8 @@ namespace Saplin.CPDT.UICore
 
             if (Width < narrowWidth)
             {
+                ViewModelContainer.NavigationViewModel.IsNarrowView = true;
+
                 if (!testResultsNarrow || !alreadyShown)
                 {
                     testResultsNarrow = true;
@@ -99,6 +101,8 @@ namespace Saplin.CPDT.UICore
             }
             else if (Width >= narrowWidth)
             {
+                ViewModelContainer.NavigationViewModel.IsNarrowView = false;
+
                 if (testResultsNarrow || !alreadyShown)
                 {
                     testResultsNarrow = false;
