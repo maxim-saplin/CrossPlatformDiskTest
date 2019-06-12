@@ -1,21 +1,3 @@
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/Saplin.CPDT.Android.dll
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/Saplin.CPDT.Android.pdb
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/com.Saplin.CPDT.apk
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/com.Saplin.CPDT-Signed.apk
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/FormsViewGroup.pdb
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/Mono.Android.pdb
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/Saplin.CPDT.UICore.pdb
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/Xamarin.Forms.Core.pdb
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/Xamarin.Forms.Platform.Android.pdb
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/Xamarin.Forms.Xaml.pdb
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/Saplin.StorageSpeedMeter.pdb
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/CPDT.Extra.pdb
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/Saplin.CPDT.UICore.dll
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/Saplin.StorageSpeedMeter.dll
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/CPDT.Extra.dll
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/Mono.Posix.NETStandard.dll
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/fr/Saplin.CPDT.UICore.resources.dll
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Debug/ru/Saplin.CPDT.UICore.resources.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Release/Saplin.CPDT.Android.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Release/Saplin.CPDT.Android.pdb
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/bin/Release/com.Saplin.CPDT.apk
@@ -72,7 +54,6 @@
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/SkiaSharp.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/SkiaSharp.Views.Android.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/SkiaSharp.Views.Forms.dll
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/System.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Xamarin.Android.Arch.Core.Common.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Xamarin.Android.Arch.Core.Runtime.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Xamarin.Android.Arch.Lifecycle.Common.dll
@@ -106,8 +87,6 @@
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Xamarin.Android.Support.v4.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Xamarin.Android.Support.v7.AppCompat.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Xamarin.Android.Support.v7.CardView.dll
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Xamarin.Android.Support.v7.MediaRouter.dll
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Xamarin.Android.Support.v7.Palette.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Xamarin.Android.Support.v7.RecyclerView.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Xamarin.Android.Support.Vector.Drawable.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Xamarin.Android.Support.VersionedParcelable.dll
@@ -117,8 +96,10 @@
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Xamarin.Forms.Platform.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Xamarin.Forms.Xaml.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/System.Core.dll
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/System.Net.Http.dll
+/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/System.dll
+/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Mono.Security.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/System.Xml.dll
+/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/System.Net.Http.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/System.Runtime.Serialization.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/System.ServiceModel.Internals.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/netstandard.dll
@@ -133,7 +114,6 @@
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Saplin.StorageSpeedMeter.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Mono.Posix.NETStandard.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/CPDT.Extra.dll
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Mono.Security.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/fr/Saplin.CPDT.UICore.resources.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/ru/Saplin.CPDT.UICore.resources.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/linksrc/Saplin.CPDT.Android.pdb
@@ -201,8 +181,6 @@
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/android/assets/Xamarin.Android.Support.Transition.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/android/assets/Xamarin.Android.Support.v7.AppCompat.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/android/assets/Xamarin.Android.Support.v7.CardView.dll
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/android/assets/Xamarin.Android.Support.v7.MediaRouter.dll
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/android/assets/Xamarin.Android.Support.v7.Palette.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/android/assets/Xamarin.Android.Support.v7.RecyclerView.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/android/assets/Xamarin.Android.Support.Vector.Drawable.dll
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/android/assets/Xamarin.Android.Support.VersionedParcelable.dll
@@ -222,4 +200,3 @@
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/android/assets/machine.config
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/stamp/_CompileToDalvik.stamp
 /Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/stamp/_GeneratePackageManagerJava.stamp
-/Users/smax/Dropbox/DiskTest/_Src/CrossPlatformDiskTest.git/Saplin.CPDT.Android/Tmp/android/assets/Saplin.CPDT.UICore.pdb

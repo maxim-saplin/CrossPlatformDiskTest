@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="android.support.v7.mediarouter" >
+    package="android.support.v7.recyclerview" >
 
     <uses-sdk android:minSdkVersion="14" />
 

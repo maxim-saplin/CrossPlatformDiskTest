@@ -16,7 +16,6 @@ public class ButtonRenderer
 		__md_methods = 
 			"n_onTouchEvent:(Landroid/view/MotionEvent;)Z:GetOnTouchEvent_Landroid_view_MotionEvent_Handler\n" +
 			"n_onLayout:(ZIIII)V:GetOnLayout_ZIIIIHandler\n" +
-			"n_onMeasure:(II)V:GetOnMeasure_IIHandler\n" +
 			"n_onViewAttachedToWindow:(Landroid/view/View;)V:GetOnViewAttachedToWindow_Landroid_view_View_Handler:Android.Views.View/IOnAttachStateChangeListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"n_onViewDetachedFromWindow:(Landroid/view/View;)V:GetOnViewDetachedFromWindow_Landroid_view_View_Handler:Android.Views.View/IOnAttachStateChangeListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"n_onFocusChange:(Landroid/view/View;Z)V:GetOnFocusChange_Landroid_view_View_ZHandler:Android.Views.View/IOnFocusChangeListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
@@ -65,14 +64,6 @@ public class ButtonRenderer
 	}
 
 	private native void n_onLayout (boolean p0, int p1, int p2, int p3, int p4);
-
-
-	public void onMeasure (int p0, int p1)
-	{
-		n_onMeasure (p0, p1);
-	}
-
-	private native void n_onMeasure (int p0, int p1);
 
 
 	public void onViewAttachedToWindow (android.view.View p0)

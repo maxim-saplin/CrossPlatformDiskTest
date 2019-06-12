@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using System.Text;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Content.Res;

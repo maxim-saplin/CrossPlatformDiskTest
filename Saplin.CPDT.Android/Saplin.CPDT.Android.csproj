@@ -17,7 +17,7 @@
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <ReleaseVersion>2.1.6</ReleaseVersion>
+    <ReleaseVersion>2.2.0</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -41,27 +41,28 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
-    <MandroidI18n />
+    <MandroidI18n>None</MandroidI18n>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <IntermediateOutputPath>Tmp</IntermediateOutputPath>
     <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <EnableProguard>true</EnableProguard>
+    <AndroidUseAapt2>True</AndroidUseAapt2>
+    <AndroidLinkSkip>Saplin.CPDT.UICore;Saplin.CPDT.UICore.resources;Xamarin.Forms.Core;Xamarin.Forms.XAML;Saplin.StorageSpeedMeter</AndroidLinkSkip>
+    <AndroidLinkMode>Full</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
-    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.0.0.425677</Version>
+      <Version>4.1.0.483098-pre1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FreeMemory.cs" />
     <Compile Include="KeepScreenOn.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AndroidDrives.cs" />
     <Compile Include="GetSystemLocale.cs" />

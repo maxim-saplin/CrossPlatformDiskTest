@@ -37,7 +37,7 @@
             <ColumnDefinition.Width>
                 <OnPlatform x:TypeArguments="GridLength">
                     <On Platform="WPF, macOS" Value="Auto"/>  
-                    <On Platform="Android" Value="62"/>
+                    <On Platform="Android" Value="68"/>
                 </OnPlatform>
             </ColumnDefinition.Width>
         </ColumnDefinition>
