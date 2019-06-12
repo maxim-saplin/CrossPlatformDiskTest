@@ -1,0 +1,917 @@
+<doc>
+    <assembly>
+        <name>SkiaSharp.Views.Android</name>
+    </assembly>
+    <members>
+        <member name="T:SkiaSharp.Views.Android.AndroidExtensions">
+            <summary>Various extension methods to convert between SkiaSharp types and Xamarin.Android types.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToBitmap(SkiaSharp.SKBitmap)">
+            <param name="skiaBitmap">The SkiaSharp bitmap.</param>
+            <summary>Converts a SkiaSharp bitmap into a Xamarin.Android bitmap.</summary>
+            <returns>Returns a copy of the bitmap data as a Xamarin.Android bitmap.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToBitmap(SkiaSharp.SKImage)">
+            <param name="skiaImage">The SkiaSharp image.</param>
+            <summary>Converts a SkiaSharp image into a Xamarin.Android bitmap.</summary>
+            <returns>Returns a copy of the image data as a Xamarin.Android bitmap.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToBitmap(SkiaSharp.SKPixmap)">
+            <param name="skiaPixmap">The SkiaSharp pixmap.</param>
+            <summary>Converts a SkiaSharp pixmap into a Xamarin.Android bitmap.</summary>
+            <returns>Returns a copy of the pixel data as a Xamarin.Android bitmap.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToBitmap(SkiaSharp.SKPicture,SkiaSharp.SKSizeI)">
+            <param name="skiaPicture">The SkiaSharp picture.</param>
+            <param name="dimensions">The dimensions of the picture.</param>
+            <summary>Converts a SkiaSharp picture into a Xamarin.Android bitmap.</summary>
+            <returns>Returns a copy of the picture as a Xamarin.Android bitmap.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToColor(SkiaSharp.SKColor)">
+            <param name="color">The SkiaSharp color.</param>
+            <summary>Converts a SkiaSharp color into a Xamarin.Android color.</summary>
+            <returns>Returns a Xamarin.Android color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToMatrix(SkiaSharp.SKMatrix)">
+            <param name="matrix">The SkiaSharp matrix.</param>
+            <summary>Converts a SkiaSharp matrix into a Xamarin.Android matrix.</summary>
+            <returns>Returns a Xamarin.Android matrix.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToPoint(SkiaSharp.SKPoint)">
+            <param name="point">The SkiaSharp point.</param>
+            <summary>Converts a SkiaSharp point into a Xamarin.Android point.</summary>
+            <returns>Returns a Xamarin.Android point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToPoint(SkiaSharp.SKPointI)">
+            <param name="point">The SkiaSharp point.</param>
+            <summary>Converts a SkiaSharp point into a Xamarin.Android point.</summary>
+            <returns>Returns a Xamarin.Android point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToRect(SkiaSharp.SKRect)">
+            <param name="rect">The SkiaSharp rectangle.</param>
+            <summary>Converts a SkiaSharp rectangle into a Xamarin.Android rectangle.</summary>
+            <returns>Returns a Xamarin.Android rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToRect(SkiaSharp.SKRectI)">
+            <param name="rect">The SkiaSharp rectangle.</param>
+            <summary>Converts a SkiaSharp rectangle into a Xamarin.Android rectangle.</summary>
+            <returns>Returns a Xamarin.Android rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToSKBitmap(Android.Graphics.Bitmap)">
+            <param name="bitmap">The Xamarin.Android bitmap.</param>
+            <summary>Converts a Xamarin.Android bitmap into a SkiaSharp bitmap.</summary>
+            <returns>Returns a copy of the bitmap data as a SkiaSharp bitmap.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToSKColor(Android.Graphics.Color)">
+            <param name="color">The Xamarin.Android color.</param>
+            <summary>Converts a Xamarin.Android color into a SkiaSharp color.</summary>
+            <returns>Returns a SkiaSharp color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToSKImage(Android.Graphics.Bitmap)">
+            <param name="bitmap">The Xamarin.Android bitmap.</param>
+            <summary>Converts a Xamarin.Android bitmap into a SkiaSharp image.</summary>
+            <returns>Returns a copy of the bitmap data as a SkiaSharp image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToSKMatrix(Android.Graphics.Matrix)">
+            <param name="matrix">The Xamarin.Android matrix.</param>
+            <summary>Converts a Xamarin.Android matrix into a SkiaSharp matrix.</summary>
+            <returns>Returns a SkiaSharp matrix.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToSKPixmap(Android.Graphics.Bitmap,SkiaSharp.SKPixmap)">
+            <param name="bitmap">The Xamarin.Android bitmap.</param>
+            <param name="pixmap">The SkiaSharp pixmap to hold the copy of the bitmap data.</param>
+            <summary>Converts a Xamarin.Android bitmap into a SkiaSharp pixmap.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToSKPoint(Android.Graphics.Point)">
+            <param name="point">The Xamarin.Android point.</param>
+            <summary>Converts a Xamarin.Android point into a SkiaSharp point.</summary>
+            <returns>Returns a SkiaSharp point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToSKPoint(Android.Graphics.PointF)">
+            <param name="point">The Xamarin.Android point.</param>
+            <summary>Converts a Xamarin.Android point into a SkiaSharp point.</summary>
+            <returns>Returns a SkiaSharp point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToSKRect(Android.Graphics.Rect)">
+            <param name="rect">The Xamarin.Android rectangle.</param>
+            <summary>Converts a Xamarin.Android rectangle into a SkiaSharp rectangle.</summary>
+            <returns>Returns a SkiaSharp rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.AndroidExtensions.ToSKRect(Android.Graphics.RectF)">
+            <param name="rect">The Xamarin.Android rectangle.</param>
+            <summary>Converts a Xamarin.Android rectangle into a SkiaSharp rectangle.</summary>
+            <returns>Returns a SkiaSharp rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Android.Extensions">
+            <summary>Various extension methods to convert between SkiaSharp types and System.Drawing types.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.Extensions.ToDrawingColor(SkiaSharp.SKColor)">
+            <param name="color">The SkiaSharp color.</param>
+            <summary>Converts a SkiaSharp color into a System.Drawing color.</summary>
+            <returns>Returns a System.Drawing color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.Extensions.ToDrawingPoint(SkiaSharp.SKPoint)">
+            <param name="point">The SkiaSharp point.</param>
+            <summary>Converts a SkiaSharp point into a System.Drawing point.</summary>
+            <returns>Returns a System.Drawing point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.Extensions.ToDrawingPoint(SkiaSharp.SKPointI)">
+            <param name="point">The SkiaSharp point.</param>
+            <summary>Converts a SkiaSharp point into a System.Drawing point.</summary>
+            <returns>Returns a System.Drawing point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.Extensions.ToDrawingRect(SkiaSharp.SKRect)">
+            <param name="rect">The SkiaSharp rectangle.</param>
+            <summary>Converts a SkiaSharp rectangle into a System.Drawing rectangle.</summary>
+            <returns>Returns a System.Drawing rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.Extensions.ToDrawingRect(SkiaSharp.SKRectI)">
+            <param name="rect">The SkiaSharp rectangle.</param>
+            <summary>Converts a SkiaSharp rectangle into a System.Drawing rectangle.</summary>
+            <returns>Returns a System.Drawing rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.Extensions.ToDrawingSize(SkiaSharp.SKSize)">
+            <param name="size">The SkiaSharp size.</param>
+            <summary>Converts a SkiaSharp size into a System.Drawing size.</summary>
+            <returns>Returns a System.Drawing size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.Extensions.ToDrawingSize(SkiaSharp.SKSizeI)">
+            <param name="size">The SkiaSharp size.</param>
+            <summary>Converts a SkiaSharp size into a System.Drawing size.</summary>
+            <returns>Returns a System.Drawing size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.Extensions.ToSKColor(System.Drawing.Color)">
+            <param name="color">The System.Drawing color.</param>
+            <summary>Converts a System.Drawing color into a SkiaSharp color.</summary>
+            <returns>Returns a SkiaSharp color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.Extensions.ToSKPoint(System.Drawing.Point)">
+            <param name="point">The System.Drawing point.</param>
+            <summary>Converts a System.Drawing point into a SkiaSharp point.</summary>
+            <returns>Returns a SkiaSharp point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.Extensions.ToSKPoint(System.Drawing.PointF)">
+            <param name="point">The System.Drawing point.</param>
+            <summary>Converts a System.Drawing point into a SkiaSharp point.</summary>
+            <returns>Returns a SkiaSharp point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.Extensions.ToSKRect(System.Drawing.Rectangle)">
+            <param name="rect">The System.Drawing rectangle.</param>
+            <summary>Converts a System.Drawing rectangle into a SkiaSharp rectangle.</summary>
+            <returns>Returns a SkiaSharp rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.Extensions.ToSKRect(System.Drawing.RectangleF)">
+            <param name="rect">The System.Drawing rectangle.</param>
+            <summary>Converts a System.Drawing rectangle into a SkiaSharp rectangle.</summary>
+            <returns>Returns a SkiaSharp rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.Extensions.ToSKSize(System.Drawing.Size)">
+            <param name="size">The System.Drawing size.</param>
+            <summary>Converts a System.Drawing size into a SkiaSharp size.</summary>
+            <returns>Returns a SkiaSharp size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.Extensions.ToSKSize(System.Drawing.SizeF)">
+            <param name="size">The System.Drawing size.</param>
+            <summary>Converts a System.Drawing size into a SkiaSharp size.</summary>
+            <returns>Returns a SkiaSharp size.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Android.GLTextureView">
+            <summary>An implementation of <see cref="T:Android.Views.TextureView" /> that uses the dedicated surface for displaying OpenGL rendering.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Android.GLTextureView(Android.Content.Context)">
+            <param name="context">The <see cref="T:Android.Content.Context" /> the view is running in, through which it can access the current theme, resources, etc.</param>
+            <summary>Simple constructor to use when creating a <see cref="T:SkiaSharp.Views.Android.GLTextureView" /> from code.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Android.GLTextureView(Android.Content.Context,Android.Util.IAttributeSet)">
+            <param name="context">The <see cref="T:Android.Content.Context" /> the view is running in, through which it can access the current theme, resources, etc.</param>
+            <param name="attrs">The attributes of the XML tag that is inflating the view.</param>
+            <summary>Constructor that is called when inflating a <see cref="T:SkiaSharp.Views.Android.GLTextureView" /> from XML.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Android.GLTextureView.DebugFlags">
+            <summary>Gets or sets the current debug flags.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.Dispose(System.Boolean)">
+            <param name="disposing">To be added.</param>
+            <summary>To be added.</summary>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.OnAttachedToWindow">
+            <summary>Called when the view is attached to a window.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.OnDetachedFromWindow">
+            <summary>Called when the view is detached from a window.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.OnLayoutChange(Android.Views.View,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <param name="v">The view whose bounds have changed.</param>
+            <param name="left">The new value of the view's left property.</param>
+            <param name="top">The new value of the view's top property.</param>
+            <param name="right">The new value of the view's right property.</param>
+            <param name="bottom">The new value of the view's bottom property.</param>
+            <param name="oldLeft">The previous value of the view's left property.</param>
+            <param name="oldTop">The previous value of the view's top property.</param>
+            <param name="oldRight">The previous value of the view's right property.</param>
+            <param name="oldBottom">The previous value of the view's bottom property.</param>
+            <summary>Called when the layout bounds of a view changes due to layout processing.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.OnPause">
+            <summary>Inform the view that the activity is paused.</summary>
+            <remarks>The owner of this view must call this method when the activity is paused. Calling this method will pause the rendering thread. Must not be called before a renderer has been set.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.OnResume">
+            <summary>Inform the view that the activity is resumed.</summary>
+            <remarks>The owner of this view must call this method when the activity is resumed. Calling this method will recreate the OpenGL display and resume the rendering thread. Must not be called before a renderer has been set.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.OnSurfaceTextureAvailable(Android.Graphics.SurfaceTexture,System.Int32,System.Int32)">
+            <param name="surface">The surface texture.</param>
+            <param name="width">The width of the surface.</param>
+            <param name="height">The height of the surface.</param>
+            <summary>Invoked when a texture is ready for use.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.OnSurfaceTextureDestroyed(Android.Graphics.SurfaceTexture)">
+            <param name="surface">The surface texture.</param>
+            <summary>Invoked when the specified texture is about to be destroyed.</summary>
+            <returns>Returns <see langword="true" /> if no rendering should happen inside the surface texture after this method is invoked, otherwise <see langword="false" /> if the client needs to call Android.Graphics.SurfaceTexture.Release. Most applications should return <see langword="true" />.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.OnSurfaceTextureSizeChanged(Android.Graphics.SurfaceTexture,System.Int32,System.Int32)">
+            <param name="surface">The surface texture.</param>
+            <param name="w">The new width of the surface.</param>
+            <param name="h">The new height of the surface.</param>
+            <summary>Invoked when the texture's buffers size changed.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.OnSurfaceTextureUpdated(Android.Graphics.SurfaceTexture)">
+            <param name="surface">The surface texture.</param>
+            <summary>Invoked when the specified texture is updated through Android.Graphics.SurfaceTexture.UpdateTexImage. </summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Android.GLTextureView.PreserveEGLContextOnPause">
+            <summary>Gets or sets a value indicating whether the EGL context is preserved when the <see cref="T:Android.Views.TextureView" /> is paused and resumed.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.QueueEvent(Java.Lang.IRunnable)">
+            <param name="r">The runnable to be run on the GL rendering thread.</param>
+            <summary>Queue a runnable to be run on the GL rendering thread.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.QueueEvent(System.Action)">
+            <param name="r">The action to be run on the GL rendering thread.</param>
+            <summary>Queue an action to be run on the GL rendering thread.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Android.GLTextureView.RenderMode">
+            <summary>Gets or sets the render mode.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.RequestRender">
+            <summary>Request that the renderer render a frame.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.SetEGLConfigChooser(SkiaSharp.Views.Android.GLTextureView+IEGLConfigChooser)">
+            <param name="configChooser">The custom config chooser.</param>
+            <summary>Install a custom config chooser.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+If no EGL config chooser is set, then by default the view will choose an RGB
+888 surface with a depth buffer depth of at least 16 bits.
+
+If this method is called, it must be called before
+<xref:SkiaSharp.Views.Android.GLTextureView.SetRenderer%2A> is called.
+]]></format>
+            </remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.SetEGLConfigChooser(System.Boolean)">
+            <param name="needDepth">Whether or not to include a depth buffer.</param>
+            <summary>Install a config chooser which will choose a config as close to 16-bit RGB as possible, with or without an optional depth buffer as close to 16-bits as possible.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+If no EGL config chooser is set, then by default the view will choose an RGB
+888 surface with a depth buffer depth of at least 16 bits.
+
+If this method is called, it must be called before
+<xref:SkiaSharp.Views.Android.GLTextureView.SetRenderer%2A> is called.
+]]></format>
+            </remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.SetEGLConfigChooser(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <param name="redSize">The size of the red.</param>
+            <param name="greenSize">The size of the green.</param>
+            <param name="blueSize">The size of the blue.</param>
+            <param name="alphaSize">The size of the alpha.</param>
+            <param name="depthSize">The size of the depth buffer.</param>
+            <param name="stencilSize">The size of the stencil buffer.</param>
+            <summary>Install a config chooser which will choose a config with at least the specified depth size and stencil size, and exactly the specified red size, green size, blue size and alpha size.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+If no EGL config chooser is set, then by default the view will choose an RGB
+888 surface with a depth buffer depth of at least 16 bits.
+
+If this method is called, it must be called before
+<xref:SkiaSharp.Views.Android.GLTextureView.SetRenderer%2A> is called.
+]]></format>
+            </remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.SetEGLContextClientVersion(System.Int32)">
+            <param name="version">The context client version to choose. Use 2 for OpenGL ES 2.0</param>
+            <summary>Inform the default context factory and default config chooser which context client version to pick.</summary>
+            <remarks>If this method is called, it must be called before <see cref="M:SkiaSharp.Views.Android.GLTextureView.SetRenderer(SkiaSharp.Views.Android.GLTextureView.IRenderer)" /> is called.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.SetEGLContextFactory(SkiaSharp.Views.Android.GLTextureView+IEGLContextFactory)">
+            <param name="factory">The custom context factory.</param>
+            <summary>Install a custom context factory.</summary>
+            <remarks>If this method is called, it must be called before <see cref="M:SkiaSharp.Views.Android.GLTextureView.SetRenderer(SkiaSharp.Views.Android.GLTextureView.IRenderer)" /> is called.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.SetEGLWindowSurfaceFactory(SkiaSharp.Views.Android.GLTextureView+IEGLWindowSurfaceFactory)">
+            <param name="factory">The custom window surface factory.</param>
+            <summary>Install a custom window surface factory.</summary>
+            <remarks>If this method is called, it must be called before <see cref="M:SkiaSharp.Views.Android.GLTextureView.SetRenderer(SkiaSharp.Views.Android.GLTextureView.IRenderer)" /> is called.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.SetGLWrapper(SkiaSharp.Views.Android.GLTextureView+IGLWrapper)">
+            <param name="glWrapper">The GL wrapper.</param>
+            <summary>Set the GL wrapper.</summary>
+            <remarks>Wrapping is typically used for debugging purposes.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView.SetRenderer(SkiaSharp.Views.Android.GLTextureView+IRenderer)">
+            <param name="renderer">The renderer to use to perform OpenGL drawing.</param>
+            <summary>Set the renderer associated with this view. Also starts the thread that will call the renderer, which in turn causes the rendering to start.</summary>
+            <remarks>This method should be called once and only once in the life-cycle of a GLSurfaceView.</remarks>
+        </member>
+        <member name="T:SkiaSharp.Views.Android.GLTextureView+IEGLConfigChooser">
+            <summary>An interface for choosing an EGLConfig configuration from a list of potential configurations.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView+IEGLConfigChooser.ChooseConfig(Javax.Microedition.Khronos.Egl.IEGL10,Javax.Microedition.Khronos.Egl.EGLDisplay)">
+            <param name="egl">The EGL interface.</param>
+            <param name="display">The EGL display.</param>
+            <summary>Choose a configuration from the list.</summary>
+            <returns>Returns the selected EGL config.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Android.GLTextureView+IEGLContextFactory">
+            <summary>An interface for customizing the eglCreateContext and eglDestroyContext calls.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView+IEGLContextFactory.CreateContext(Javax.Microedition.Khronos.Egl.IEGL10,Javax.Microedition.Khronos.Egl.EGLDisplay,Javax.Microedition.Khronos.Egl.EGLConfig)">
+            <param name="egl">The EGL interface.</param>
+            <param name="display">The EGL display.</param>
+            <param name="eglConfig">the EGL config.</param>
+            <summary>Called when the context needs to be created.</summary>
+            <returns>Returns the new EGL context.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView+IEGLContextFactory.DestroyContext(Javax.Microedition.Khronos.Egl.IEGL10,Javax.Microedition.Khronos.Egl.EGLDisplay,Javax.Microedition.Khronos.Egl.EGLContext)">
+            <param name="egl">The EGL interface.</param>
+            <param name="display">The EGL display.</param>
+            <param name="context">the EGL context.</param>
+            <summary>Called when the context needs to be destroyed.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Android.GLTextureView+IEGLWindowSurfaceFactory">
+            <summary>An interface for customizing the eglCreateWindowSurface and eglDestroySurface calls.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView+IEGLWindowSurfaceFactory.CreateWindowSurface(Javax.Microedition.Khronos.Egl.IEGL10,Javax.Microedition.Khronos.Egl.EGLDisplay,Javax.Microedition.Khronos.Egl.EGLConfig,Java.Lang.Object)">
+            <param name="egl">The EGL interface.</param>
+            <param name="display">The EGL display.</param>
+            <param name="config">The EGL config.</param>
+            <param name="nativeWindow">The native window.</param>
+            <summary>Called when the surface needs to be created.</summary>
+            <returns>Returns the new EGL surface, or <see langword="null" /> if there was an error.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView+IEGLWindowSurfaceFactory.DestroySurface(Javax.Microedition.Khronos.Egl.IEGL10,Javax.Microedition.Khronos.Egl.EGLDisplay,Javax.Microedition.Khronos.Egl.EGLSurface)">
+            <param name="egl">The EGL interface.</param>
+            <param name="display">The EGL display.</param>
+            <param name="surface">The EGL surface.</param>
+            <summary>Called when the surface needs to be destroyed.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Android.GLTextureView+IGLWrapper">
+            <summary>An interface used to wrap a GL interface.</summary>
+            <remarks>Typically used for implementing debugging and tracing on top of the default GL interface. You would typically use this by creating your own class that implemented all the GL methods by delegating to another GL instance. Then you could add your own behavior before or after calling the delegate. All the wrapper would do was instantiate and return the wrapped GL instance.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView+IGLWrapper.Wrap(Javax.Microedition.Khronos.Opengles.IGL)">
+            <param name="gl">The GL interface that is to be wrapped.</param>
+            <summary>Wraps a GL interface in another GL interface.</summary>
+            <returns>Returns the wrapped GL interface.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Android.GLTextureView+IRenderer">
+            <summary>A generic renderer interface.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+The renderer is responsible for making OpenGL calls to render a frame.
+
+Typically, <xref:SkiaSharp.Views.Android.GLTextureView> clients create their
+own classes that implement this interface, and then call
+<xref:SkiaSharp.Views.Android.GLTextureView.SetRenderer%2A?displayProperty=nameWithType>
+to register the renderer with the <xref:SkiaSharp.Views.Android.GLTextureView>.
+]]></format>
+            </remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView+IRenderer.OnDrawFrame(Javax.Microedition.Khronos.Opengles.IGL10)">
+            <param name="gl">The GL interface.</param>
+            <summary>Called to draw the current frame.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView+IRenderer.OnSurfaceChanged(Javax.Microedition.Khronos.Opengles.IGL10,System.Int32,System.Int32)">
+            <param name="gl">The GL interface.</param>
+            <param name="width">The new width of the surface. </param>
+            <param name="height">The new height of the surface. </param>
+            <summary>Called when the surface changed size.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+Called after the surface is created and whenever the OpenGL surface size
+changes.
+
+Typically you will set your viewport here. If your camera is fixed then you
+could also set your projection matrix here.
+]]></format>
+            </remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView+IRenderer.OnSurfaceCreated(Javax.Microedition.Khronos.Opengles.IGL10,Javax.Microedition.Khronos.Egl.EGLConfig)">
+            <param name="gl">The GL interface.</param>
+            <param name="config">The EGLConfig of the created surface. Can be used to create matching pbuffers.</param>
+            <summary>Called when the surface is created.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.GLTextureView+IRenderer.OnSurfaceDestroyed">
+            <summary>Called when the surface has been lost.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Android.SKCanvasView">
+            <summary>A view that can be drawn on using SkiaSharp drawing commands.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Android.SKCanvasView(Android.Content.Context)">
+            <param name="context">The <see cref="T:Android.Content.Context" /> the view is running in, through which it can access the current theme, resources, etc.</param>
+            <summary>Simple constructor to use when creating a <see cref="T:SkiaSharp.Views.Android.SKCanvasView" /> from code.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Android.SKCanvasView(Android.Content.Context,Android.Util.IAttributeSet)">
+            <param name="context">The <see cref="T:Android.Content.Context" /> the view is running in, through which it can access the current theme, resources, etc.</param>
+            <param name="attrs">The attributes of the XML tag that is inflating the view.</param>
+            <summary>Constructor that is called when inflating a <see cref="T:SkiaSharp.Views.Android.SKCanvasView" /> from XML.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Android.SKCanvasView(System.IntPtr,Android.Runtime.JniHandleOwnership)">
+            <param name="javaReference">A <see cref="T:System.IntPtr" /> a Java Native Interface (JNI) object reference.</param>
+            <param name="transfer">A <see cref="T:Android.Runtime.JniHandleOwnership" /> indicating how to handle Java reference.</param>
+            <summary>A constructor used when creating managed representations of JNI objects; called by the runtime.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Android.SKCanvasView(Android.Content.Context,Android.Util.IAttributeSet,System.Int32)">
+            <param name="context">The <see cref="T:Android.Content.Context" /> the view is running in, through which it can access the current theme, resources, etc.</param>
+            <param name="attrs">The attributes of the XML tag that is inflating the view.</param>
+            <param name="defStyleAttr">An attribute in the current theme that contains a reference to a style resource that supplies default values for the view. Can be 0 to not look for defaults.</param>
+            <summary>Perform inflation from XML and apply a class-specific base style from a theme attribute.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKCanvasView.CanvasSize">
+            <summary>Gets the current canvas size.</summary>
+            <value />
+            <remarks>The canvas size may be different to the view size as a result of the current device's pixel density.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKCanvasView.Dispose(System.Boolean)">
+            <param name="disposing">To be added.</param>
+            <summary>To be added.</summary>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKCanvasView.IgnorePixelScaling">
+            <summary>Gets or sets a value indicating whether the drawing canvas should be resized on high resolution displays.</summary>
+            <value />
+            <remarks>By default, when false, the canvas is resized to 1 canvas pixel per display pixel. When true, the canvas is resized to device independent pixels, and then stretched to fill the view. Although performance is improved and all objects are the same size on different display densities, blurring and pixelation may occur.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKCanvasView.OnDraw(Android.Graphics.Canvas)">
+            <param name="canvas">The canvas on which the background will be drawn.</param>
+            <summary>Implement this to do your drawing.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKCanvasView.OnDraw(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)">
+            <param name="surface">The surface to draw on.</param>
+            <param name="info">The information about the surface.</param>
+            <summary>Implement this to draw on the canvas.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Android.SKCanvasView.OnDraw(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Android.SKCanvasView.PaintSurface>
+event. If the method is overridden, then the base must be called.
+
+## Examples
+
+```csharp
+protected override void OnDraw(SKSurface surface, SKImageInfo info)
+{
+    // call the base method
+    base.OnDraw(surface, info);
+
+    var surfaceWidth = info.Width;
+    var surfaceHeight = info.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+    canvas.Flush();
+}
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKCanvasView.OnSizeChanged(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <param name="w">Current width of this view.</param>
+            <param name="h">Current height of this view.</param>
+            <param name="oldw">Old width of this view.</param>
+            <param name="oldh">Old height of this view.</param>
+            <summary>This is called during layout when the size of this view has changed. If you were just added to the view hierarchy, you're called with the old values of 0.</summary>
+            <remarks />
+        </member>
+        <member name="E:SkiaSharp.Views.Android.SKCanvasView.PaintSurface">
+            <summary>Occurs when the the canvas needs to be redrawn.</summary>
+            <remarks>
+                <format type="text/markdown"><![CDATA[
+## Remarks
+
+There are two ways to draw on this surface: by overriding the
+<xref:SkiaSharp.Views.Android.SKCanvasView.OnDraw(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)>
+method, or by attaching a handler to the
+<xref:SkiaSharp.Views.Android.SKCanvasView.PaintSurface>
+event.
+
+## Examples
+
+```csharp
+SKCanvasView myView = ...;
+
+myView.PaintSurface += (sender, e) => {
+    var surface = e.Surface;
+    var surfaceWidth = e.Info.Width;
+    var surfaceHeight = e.Info.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+    canvas.Flush();
+};
+```
+]]></format>
+            </remarks>
+        </member>
+        <member name="T:SkiaSharp.Views.Android.SKGLSurfaceView">
+            <summary>An implementation of <see cref="T:Android.Opengl.GLSurfaceView" /> that uses the dedicated surface for displaying a hardware-accelerated <see cref="T:SkiaSharp.SKSurface" />.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Android.SKGLSurfaceView(Android.Content.Context)">
+            <param name="context">The <see cref="T:Android.Content.Context" /> the view is running in, through which it can access the current theme, resources, etc.</param>
+            <summary>Simple constructor to use when creating a <see cref="T:SkiaSharp.Views.Android.SKGLSurfaceView" /> from code.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Android.SKGLSurfaceView(Android.Content.Context,Android.Util.IAttributeSet)">
+            <param name="context">The <see cref="T:Android.Content.Context" /> the view is running in, through which it can access the current theme, resources, etc.</param>
+            <param name="attrs">The attributes of the XML tag that is inflating the view.</param>
+            <summary>Constructor that is called when inflating a <see cref="T:SkiaSharp.Views.Android.SKGLSurfaceView" /> from XML.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKGLSurfaceView.CanvasSize">
+            <summary>Gets the current canvas size.</summary>
+            <value />
+            <remarks>The canvas size may be different to the view size as a result of the current device's pixel density.</remarks>
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKGLSurfaceView.GRContext">
+            <summary>Gets the current GPU context.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKGLSurfaceView.SetRenderer(SkiaSharp.Views.Android.SKGLSurfaceView+ISKRenderer)">
+            <param name="renderer">The renderer to use to perform drawing.</param>
+            <summary>Set the renderer associated with this view.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Android.SKGLSurfaceView+ISKRenderer">
+            <summary>A generic SkiaSharp renderer interface.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKGLSurfaceView+ISKRenderer.OnDrawFrame(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)">
+            <param name="surface">The surface to draw on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <summary>Called to draw the current frame.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Android.SKGLSurfaceViewRenderer">
+            <summary>An abstract implementation of <see cref="T:Android.Opengl.GLSurfaceView.IRenderer" /> that provides a <see cref="T:SkiaSharp.SKSurface" /> for drawing.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Android.SKGLSurfaceViewRenderer">
+            <summary>Creates a new instance of <see cref="T:SkiaSharp.Views.Android.SKGLSurfaceViewRenderer" />.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKGLSurfaceViewRenderer.CanvasSize">
+            <summary>Gets the current canvas size.</summary>
+            <value />
+            <remarks>The canvas size may be different to the view size as a result of the current device's pixel density.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKGLSurfaceViewRenderer.Dispose(System.Boolean)">
+            <param name="disposing">To be added.</param>
+            <summary>To be added.</summary>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKGLSurfaceViewRenderer.GRContext">
+            <summary>Gets the current GPU context.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKGLSurfaceViewRenderer.OnDrawFrame(Javax.Microedition.Khronos.Opengles.IGL10)">
+            <param name="gl">The GL interface.</param>
+            <summary>Called to draw the current frame.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKGLSurfaceViewRenderer.OnDrawFrame(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)">
+            <param name="surface">The surface to draw on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <summary>Called to draw the current frame.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKGLSurfaceViewRenderer.OnSurfaceChanged(Javax.Microedition.Khronos.Opengles.IGL10,System.Int32,System.Int32)">
+            <param name="gl">The GL interface.</param>
+            <param name="width">The new surface width.</param>
+            <param name="height">The new surface height.</param>
+            <summary>Called when the surface changed size.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKGLSurfaceViewRenderer.OnSurfaceCreated(Javax.Microedition.Khronos.Opengles.IGL10,Javax.Microedition.Khronos.Egl.EGLConfig)">
+            <param name="gl">The GL interface.</param>
+            <param name="config">The EGLConfig of the created surface.</param>
+            <summary>Called when the surface is created or recreated.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Android.SKGLTextureView">
+            <summary>An implementation of <see cref="T:SkiaSharp.Views.Android.GLTextureView" /> that uses the dedicated surface for displaying a hardware-accelerated <see cref="T:SkiaSharp.SKSurface" />.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Android.SKGLTextureView(Android.Content.Context)">
+            <param name="context">The <see cref="T:Android.Content.Context" /> the view is running in, through which it can access the current theme, resources, etc.</param>
+            <summary>Simple constructor to use when creating a <see cref="T:SkiaSharp.Views.Android.SKGLTextureView" /> from code.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Android.SKGLTextureView(Android.Content.Context,Android.Util.IAttributeSet)">
+            <param name="context">The <see cref="T:Android.Content.Context" /> the view is running in, through which it can access the current theme, resources, etc.</param>
+            <param name="attrs">The attributes of the XML tag that is inflating the view.</param>
+            <summary>Constructor that is called when inflating a <see cref="T:SkiaSharp.Views.Android.SKGLTextureView" /> from XML.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKGLTextureView.CanvasSize">
+            <summary>Gets the current canvas size.</summary>
+            <value />
+            <remarks>The canvas size may be different to the view size as a result of the current device's pixel density.</remarks>
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKGLTextureView.GRContext">
+            <summary>Gets the current GPU context.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKGLTextureView.SetRenderer(SkiaSharp.Views.Android.SKGLTextureView+ISKRenderer)">
+            <param name="renderer">The renderer to use to perform drawing.</param>
+            <summary>Set the renderer associated with this view.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Android.SKGLTextureView+ISKRenderer">
+            <summary>A generic SkiaSharp renderer interface.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKGLTextureView+ISKRenderer.OnDrawFrame(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)">
+            <param name="surface">The surface to draw on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <summary>Called to draw the current frame.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Android.SKGLTextureViewRenderer">
+            <summary>An abstract implementation of <see cref="T:SkiaSharp.Views.Android.GLTextureView.IRenderer" /> that provides a <see cref="T:SkiaSharp.SKSurface" /> for drawing.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Android.SKGLTextureViewRenderer">
+            <summary>Creates a new instance of <see cref="T:SkiaSharp.Views.Android.SKGLTextureViewRenderer" />.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKGLTextureViewRenderer.CanvasSize">
+            <summary>Gets the current canvas size.</summary>
+            <value />
+            <remarks>The canvas size may be different to the view size as a result of the current device's pixel density.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKGLTextureViewRenderer.Dispose(System.Boolean)">
+            <param name="disposing">To be added.</param>
+            <summary>To be added.</summary>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKGLTextureViewRenderer.GRContext">
+            <summary>Gets the current GPU context.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKGLTextureViewRenderer.OnDrawFrame(Javax.Microedition.Khronos.Opengles.IGL10)">
+            <param name="gl">The GL interface.</param>
+            <summary>Called to draw the current frame.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKGLTextureViewRenderer.OnDrawFrame(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)">
+            <param name="surface">The surface to draw on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <summary>Called to draw the current frame.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKGLTextureViewRenderer.OnSurfaceChanged(Javax.Microedition.Khronos.Opengles.IGL10,System.Int32,System.Int32)">
+            <param name="gl">The GL interface.</param>
+            <param name="width">The new surface width.</param>
+            <param name="height">The new surface height.</param>
+            <summary>Called when the surface changed size.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKGLTextureViewRenderer.OnSurfaceCreated(Javax.Microedition.Khronos.Opengles.IGL10,Javax.Microedition.Khronos.Egl.EGLConfig)">
+            <param name="gl">The GL interface.</param>
+            <param name="config">The EGLConfig of the created surface.</param>
+            <summary>Called when the surface is created.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKGLTextureViewRenderer.OnSurfaceDestroyed">
+            <summary>Called when the surface has been lost.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Android.SKLockedSurface">
+            <summary>A container for a locked canvas for a <see cref="T:SkiaSharp.Views.Android.SKSurfaceView" />.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKLockedSurface.Canvas">
+            <summary>Gets the canvas from the locked surface.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKLockedSurface.ImageInfo">
+            <summary>Gets information about the locked surface.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKLockedSurface.Surface">
+            <summary>Gets the locked surface.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Android.SKPaintGLSurfaceEventArgs">
+            <summary>Provides data for the SkiaSharp.Views.Android.SKGLView.PaintSurface event.</summary>
+            <remarks>The event does not yet exist nor is this type currently in use, but exists for cross-platform compatibility.</remarks>
+        </member>
+        <member name="C:SkiaSharp.Views.Android.SKPaintGLSurfaceEventArgs(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)">
+            <param name="surface">The surface that is being drawn on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.Android.SKPaintGLSurfaceEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKPaintGLSurfaceEventArgs.RenderTarget">
+            <summary>Gets the render target that is currently being drawn.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKPaintGLSurfaceEventArgs.Surface">
+            <summary>Gets the surface that is currently being drawn on.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Android.SKPaintSurfaceEventArgs">
+            <summary>Provides data for the <see cref="E:SkiaSharp.Views.Android.SKCanvasView.PaintSurface" /> event.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Android.SKPaintSurfaceEventArgs(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)">
+            <param name="surface">The surface that is being drawn on.</param>
+            <param name="info">The information about the surface.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.Android.SKPaintSurfaceEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKPaintSurfaceEventArgs.Info">
+            <summary>Gets the information about the surface that is currently being drawn.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKPaintSurfaceEventArgs.Surface">
+            <summary>Gets the surface that is currently being drawn on.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Android.SKSurfaceView">
+            <summary>An implementation of <see cref="T:Android.Views.SurfaceView" /> that uses the dedicated surface for displaying a hardware-accelerated <see cref="T:SkiaSharp.SKSurface" />.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Android.SKSurfaceView(Android.Content.Context)">
+            <param name="context">The <see cref="T:Android.Content.Context" /> the view is running in, through which it can access the current theme, resources, etc.</param>
+            <summary>Simple constructor to use when creating a <see cref="T:SkiaSharp.Views.Android.SKSurfaceView" /> from code.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Android.SKSurfaceView(Android.Content.Context,Android.Util.IAttributeSet)">
+            <param name="context">The <see cref="T:Android.Content.Context" /> the view is running in, through which it can access the current theme, resources, etc.</param>
+            <param name="attrs">The attributes of the XML tag that is inflating the view.</param>
+            <summary>Constructor that is called when inflating a <see cref="T:SkiaSharp.Views.Android.SKSurfaceView" /> from XML.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Android.SKSurfaceView(Android.Content.Context,Android.Util.IAttributeSet,System.Int32)">
+            <param name="context">The <see cref="T:Android.Content.Context" /> the view is running in, through which it can access the current theme, resources, etc.</param>
+            <param name="attrs">The attributes of the XML tag that is inflating the view.</param>
+            <param name="defStyle">An attribute in the current theme that contains a reference to a style resource that supplies default values for the view. Can be 0 to not look for defaults.</param>
+            <summary>Perform inflation from XML and apply a class-specific base style from a theme attribute.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Android.SKSurfaceView.CanvasSize">
+            <summary>Gets the current canvas size.</summary>
+            <value />
+            <remarks>The canvas size may be different to the view size as a result of the current device's pixel density.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKSurfaceView.Dispose(System.Boolean)">
+            <param name="disposing">To be added.</param>
+            <summary>To be added.</summary>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKSurfaceView.LockSurface">
+            <summary>Start editing the pixels in the surface. The returned <see cref="T:SkiaSharp.Views.Android.SKLockedSurface" /> can be used to get the surface for drawing into the surface's bitmap.</summary>
+            <returns>The <see cref="T:SkiaSharp.Views.Android.SKLockedSurface" /> with the locked surface.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKSurfaceView.SurfaceChanged(Android.Views.ISurfaceHolder,Android.Graphics.Format,System.Int32,System.Int32)">
+            <param name="holder">The <see cref="T:Android.Views.ISurfaceHolder" /> whose surface has changed.</param>
+            <param name="format">The new <see cref="T:Android.Graphics.Format" /> of the surface.</param>
+            <param name="width">The new width of the surface.</param>
+            <param name="height">The new height of the surface.</param>
+            <summary>This is called immediately after any structural changes (format or size) have been made to the surface.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKSurfaceView.SurfaceCreated(Android.Views.ISurfaceHolder)">
+            <param name="holder">The <see cref="T:Android.Views.ISurfaceHolder" /> whose surface is being created.</param>
+            <summary>This is called immediately after the surface is first created</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKSurfaceView.SurfaceDestroyed(Android.Views.ISurfaceHolder)">
+            <param name="holder">The <see cref="T:Android.Views.ISurfaceHolder" /> whose surface is being destroyed.</param>
+            <summary>This is called immediately before a surface is being destroyed</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Android.SKSurfaceView.UnlockSurfaceAndPost(SkiaSharp.Views.Android.SKLockedSurface)">
+            <param name="surface">The <see cref="T:SkiaSharp.Views.Android.SKLockedSurface" /> with the locked surface.</param>
+            <summary>Finish editing pixels in the surface. After this call, the surface's current pixels will be shown on the screen, but its content is lost.</summary>
+            <remarks />
+        </member>
+    </members>
+</doc>

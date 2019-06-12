@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="1685185767093348095" name="mr_button_content_description">"Pulsante Trasmetti"</string>
+    <string msgid="1350095112462806159" name="mr_cast_button_connected">"Pulsante Trasmetti. Connesso"</string>
+    <string msgid="8959304318293841992" name="mr_cast_button_connecting">"Pulsante Trasmetti. Connessione in corso"</string>
+    <string msgid="5501231066847739632" name="mr_cast_button_disconnected">"Pulsante Trasmetti. Disconnesso"</string>
+    <string msgid="5504553798429329689" name="mr_chooser_searching">"Ricerca di dispositivi"</string>
+    <string msgid="7548226170787476564" name="mr_chooser_title">"Trasmetti a"</string>
+    <string msgid="5813284753012893250" name="mr_controller_album_art">"Copertina dell\'album"</string>
+    <string msgid="5286734709674025661" name="mr_controller_casting_screen">"Trasmissione dello schermo attiva"</string>
+    <string msgid="5468775621814500662" name="mr_controller_close_description">"Chiudi"</string>
+    <string msgid="5518911192681928413" name="mr_controller_collapse_group">"Comprimi"</string>
+    <string msgid="1370654436555555647" name="mr_controller_disconnect">"Disconnetti"</string>
+    <string msgid="2422682304043876468" name="mr_controller_expand_group">"Espandi"</string>
+    <string msgid="7299368841849988218" name="mr_controller_no_info_available">"Nessuna informazione disponibile"</string>
+    <string msgid="4342878516155861006" name="mr_controller_no_media_selected">"Nessun contenuto multimediale selezionato"</string>
+    <string msgid="4701315813294065305" name="mr_controller_pause">"Metti in pausa"</string>
+    <string msgid="4443315438268112801" name="mr_controller_play">"Riproduci"</string>
+    <string msgid="5106056093749454009" name="mr_controller_stop">"Interrompi"</string>
+    <string msgid="7617024847862349259" name="mr_controller_stop_casting">"Interrompi trasmissione"</string>
+    <string msgid="691656961160498512" name="mr_controller_volume_slider">"Dispositivo di scorrimento del volume"</string>
+    <string msgid="3117964881088969586" name="mr_system_route_name">"Sistema"</string>
+    <string msgid="8236416097133080726" name="mr_user_route_category_name">"Dispositivi"</string>
+</resources>

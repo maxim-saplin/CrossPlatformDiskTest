@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ctrl:StackRepeater xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Saplin.CPDT.UICore" xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" xmlns:anim="clr-namespace:Saplin.CPDT.UICore.Animations" x:Class="Saplin.CPDT.UICore.TestSessionsNarrow" 
                     BindingContext="{x:Static vm:ViewModelContainer.TestSessionsViewModel}" 
                     ItemsSource="{Binding TestSessions}" 
@@ -24,7 +24,7 @@
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                     <Label Text="{Binding OrderNumber, StringFormat='#{0}'}" />
                                     <Label Text="{Binding DriveName}" />
-                                    <StackLayout IsVisible="{Binding Selected}" HorizontalOptions="EndAndExpand">
+                                    <StackLayout IsVisible="{Binding Selected}" HorizontalOptions="EndAndExpand" Orientation="Vertical">
                                         <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Compare}" 
                                                             Command="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=Compare}" 
                                                             CommandParameter="{Binding .}" 
@@ -34,6 +34,14 @@
                                                             HorizontalOptions="End"
                                                             HorizontalTextAlignment="End"
                                                             LineBreakMode="WordWrap" />
+                                        <ctrl:ExtendedLabel Text="[S]hare" Clicked="Share_Clicked">
+                                            <ctrl:ExtendedLabel.IsVisible>
+                                                <OnPlatform x:TypeArguments="x:Boolean">
+                                                    <On Platform="Android" Value="True" />
+                                                    <On Platform="macOS, WPF" Value="False" />
+                                                </OnPlatform>
+                                            </ctrl:ExtendedLabel.IsVisible>
+                                        </ctrl:ExtendedLabel>
                                     </StackLayout>
                                 </StackLayout>
                                 <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm:ss} {0:d.MM.yyyy}'}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start" Margin="0, -6, 0, 4" />

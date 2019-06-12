@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="1685185767093348095" name="mr_button_content_description">"Nút truyền"</string>
+    <string msgid="1350095112462806159" name="mr_cast_button_connected">"Nút truyền. Đã kết nối"</string>
+    <string msgid="8959304318293841992" name="mr_cast_button_connecting">"Nút truyền. Đang kết nối"</string>
+    <string msgid="5501231066847739632" name="mr_cast_button_disconnected">"Nút truyền. Đã ngắt kết nối"</string>
+    <string msgid="5504553798429329689" name="mr_chooser_searching">"Đang tìm thiết bị"</string>
+    <string msgid="7548226170787476564" name="mr_chooser_title">"Truyền tới"</string>
+    <string msgid="5813284753012893250" name="mr_controller_album_art">"Ảnh bìa album"</string>
+    <string msgid="5286734709674025661" name="mr_controller_casting_screen">"Đang truyền màn hình"</string>
+    <string msgid="5468775621814500662" name="mr_controller_close_description">"Đóng"</string>
+    <string msgid="5518911192681928413" name="mr_controller_collapse_group">"Thu gọn"</string>
+    <string msgid="1370654436555555647" name="mr_controller_disconnect">"Ngắt kết nối"</string>
+    <string msgid="2422682304043876468" name="mr_controller_expand_group">"Mở rộng"</string>
+    <string msgid="7299368841849988218" name="mr_controller_no_info_available">"Không có thông tin nào"</string>
+    <string msgid="4342878516155861006" name="mr_controller_no_media_selected">"Chưa chọn phương tiện nào"</string>
+    <string msgid="4701315813294065305" name="mr_controller_pause">"Tạm dừng"</string>
+    <string msgid="4443315438268112801" name="mr_controller_play">"Phát"</string>
+    <string msgid="5106056093749454009" name="mr_controller_stop">"Dừng"</string>
+    <string msgid="7617024847862349259" name="mr_controller_stop_casting">"Dừng truyền"</string>
+    <string msgid="691656961160498512" name="mr_controller_volume_slider">"Thanh trượt âm lượng"</string>
+    <string msgid="3117964881088969586" name="mr_system_route_name">"Hệ thống"</string>
+    <string msgid="8236416097133080726" name="mr_user_route_category_name">"Thiết bị"</string>
+</resources>

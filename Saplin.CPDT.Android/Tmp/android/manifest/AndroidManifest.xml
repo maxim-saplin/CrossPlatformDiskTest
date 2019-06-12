@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="16" android:versionName="2.1.6" package="com.Saplin.CPDT" android:installLocation="auto">
+  <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="28" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <application android:label="Cross Platform Disk Test" android:icon="@mipmap/ic_launcher" android:largeHeap="true" android:name="android.app.Application" android:allowBackup="true">
+    <activity android:configChanges="fontScale|orientation|screenSize" android:icon="@mipmap/ic_launcher" android:label="Cross Platfrom Disk Test" android:theme="@style/BlackTheme" android:name="md5d78798237f224d39879855b46bf5ff82.MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <receiver android:enabled="true" android:exported="false" android:name="md51558244f76c53b6aeda52c8a337f2c37.PowerSaveModeBroadcastReceiver" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="1999999999" android:authorities="com.Saplin.CPDT.mono.MonoRuntimeProvider.__mono_init__" />
+  </application>
+</manifest>

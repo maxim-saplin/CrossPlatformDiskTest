@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="1685185767093348095" name="mr_button_content_description">"ಬಿತ್ತರಿಸು ಬಟನ್‌"</string>
+    <string msgid="1350095112462806159" name="mr_cast_button_connected">"ಬಿತ್ತರಿಸು ಬಟನ್‌. ಸಂಪರ್ಕಿತಗೊಂಡಿದೆ"</string>
+    <string msgid="8959304318293841992" name="mr_cast_button_connecting">"ಬಿತ್ತರಿಸು ಬಟನ್‌. ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ"</string>
+    <string msgid="5501231066847739632" name="mr_cast_button_disconnected">"ಬಿತ್ತರಿಸು ಬಟನ್‌. ಸಂಪರ್ಕ ಕಡಿತಗೊಳಿಸಲಾಗಿದೆ"</string>
+    <string msgid="5504553798429329689" name="mr_chooser_searching">"ಸಾಧನಗಳನ್ನು ಹುಡುಕಲಾಗುತ್ತಿದೆ"</string>
+    <string msgid="7548226170787476564" name="mr_chooser_title">"ಇದಕ್ಕೆ ಬಿತ್ತರಿಸಿ"</string>
+    <string msgid="5813284753012893250" name="mr_controller_album_art">"ಆಲ್ಬಮ್ ಕಲೆ"</string>
+    <string msgid="5286734709674025661" name="mr_controller_casting_screen">"ಪರದೆಯನ್ನು ಬಿತ್ತರಿಸಲಾಗುತ್ತಿದೆ"</string>
+    <string msgid="5468775621814500662" name="mr_controller_close_description">"ಮುಚ್ಚಿ"</string>
+    <string msgid="5518911192681928413" name="mr_controller_collapse_group">"ಕುಗ್ಗಿಸಿ"</string>
+    <string msgid="1370654436555555647" name="mr_controller_disconnect">"ಸಂಪರ್ಕ ಕಡಿತಗೊಳಿಸಿ"</string>
+    <string msgid="2422682304043876468" name="mr_controller_expand_group">"ಹಿಗ್ಗಿಸಿ"</string>
+    <string msgid="7299368841849988218" name="mr_controller_no_info_available">"ಯಾವುದೇ ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ"</string>
+    <string msgid="4342878516155861006" name="mr_controller_no_media_selected">"ಯಾವುದೇ ಮಾಧ್ಯಮವನ್ನು ಆಯ್ಕೆ ಮಾಡಿಲ್ಲ"</string>
+    <string msgid="4701315813294065305" name="mr_controller_pause">"ವಿರಾಮ"</string>
+    <string msgid="4443315438268112801" name="mr_controller_play">"ಪ್ಲೇ"</string>
+    <string msgid="5106056093749454009" name="mr_controller_stop">"ನಿಲ್ಲಿಸಿ"</string>
+    <string msgid="7617024847862349259" name="mr_controller_stop_casting">"ಬಿತ್ತರಿಸುವುದನ್ನು ನಿಲ್ಲಿಸಿ"</string>
+    <string msgid="691656961160498512" name="mr_controller_volume_slider">"ವಾಲ್ಯೂಮ್ ಸ್ಲೈಡರ್"</string>
+    <string msgid="3117964881088969586" name="mr_system_route_name">"ಸಿಸ್ಟಂ"</string>
+    <string msgid="8236416097133080726" name="mr_user_route_category_name">"ಸಾಧನಗಳು"</string>
+</resources>

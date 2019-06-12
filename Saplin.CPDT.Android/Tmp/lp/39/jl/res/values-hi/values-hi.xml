@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="1685185767093348095" name="mr_button_content_description">"कास्ट बटन"</string>
+    <string msgid="1350095112462806159" name="mr_cast_button_connected">"कास्ट बटन. कनेक्ट हो गया"</string>
+    <string msgid="8959304318293841992" name="mr_cast_button_connecting">"कास्ट बटन. कनेक्ट हो रहा है"</string>
+    <string msgid="5501231066847739632" name="mr_cast_button_disconnected">"कास्ट बटन. डिसकनेक्ट हो गया"</string>
+    <string msgid="5504553798429329689" name="mr_chooser_searching">"डिवाइस ढूंढे जा रहे हैं"</string>
+    <string msgid="7548226170787476564" name="mr_chooser_title">"इस पर कास्‍ट करें"</string>
+    <string msgid="5813284753012893250" name="mr_controller_album_art">"एल्बम आर्ट"</string>
+    <string msgid="5286734709674025661" name="mr_controller_casting_screen">"स्क्रीन कास्ट की जा रही है"</string>
+    <string msgid="5468775621814500662" name="mr_controller_close_description">"बंद करें"</string>
+    <string msgid="5518911192681928413" name="mr_controller_collapse_group">"छोटा करें"</string>
+    <string msgid="1370654436555555647" name="mr_controller_disconnect">"डिसकनेक्ट करें"</string>
+    <string msgid="2422682304043876468" name="mr_controller_expand_group">"बड़ा करके देखें"</string>
+    <string msgid="7299368841849988218" name="mr_controller_no_info_available">"कोई जानकारी मौजूद नहीं है"</string>
+    <string msgid="4342878516155861006" name="mr_controller_no_media_selected">"कोई मीडिया नहीं चुना गया"</string>
+    <string msgid="4701315813294065305" name="mr_controller_pause">"रोकें"</string>
+    <string msgid="4443315438268112801" name="mr_controller_play">"चलाएं"</string>
+    <string msgid="5106056093749454009" name="mr_controller_stop">"बंद करें"</string>
+    <string msgid="7617024847862349259" name="mr_controller_stop_casting">"कास्ट करना रोकें"</string>
+    <string msgid="691656961160498512" name="mr_controller_volume_slider">"आवाज़ बढ़ाने या घटाने वाला स्लाइडर"</string>
+    <string msgid="3117964881088969586" name="mr_system_route_name">"सिस्टम"</string>
+    <string msgid="8236416097133080726" name="mr_user_route_category_name">"डिवाइस"</string>
+</resources>

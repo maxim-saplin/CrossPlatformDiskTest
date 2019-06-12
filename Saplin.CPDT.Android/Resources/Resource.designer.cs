@@ -6620,8 +6620,8 @@ namespace Saplin.CPDT.Droid
 			// aapt resource value: 0x7f0900f5
 			public const int main_toolbar = 2131296501;
 			
-			// aapt resource value: 0x7f0900fe
-			public const int masked = 2131296510;
+			// aapt resource value: 0x7f0900fc
+			public const int masked = 2131296508;
 			
 			// aapt resource value: 0x7f0900e7
 			public const int media_actions = 2131296487;
@@ -6920,9 +6920,6 @@ namespace Saplin.CPDT.Droid
 			// aapt resource value: 0x7f09002c
 			public const int showTitle = 2131296300;
 			
-			// aapt resource value: 0x7f0900fb
-			public const int sliding_tabs = 2131296507;
-			
 			// aapt resource value: 0x7f0900a4
 			public const int smallLabel = 2131296420;
 			
@@ -7019,9 +7016,6 @@ namespace Saplin.CPDT.Droid
 			// aapt resource value: 0x7f09007e
 			public const int title_template = 2131296382;
 			
-			// aapt resource value: 0x7f0900fc
-			public const int toolbar = 2131296508;
-			
 			// aapt resource value: 0x7f090045
 			public const int top = 2131296325;
 			
@@ -7061,8 +7055,8 @@ namespace Saplin.CPDT.Droid
 			// aapt resource value: 0x7f09001b
 			public const int view_offset_helper = 2131296283;
 			
-			// aapt resource value: 0x7f0900fd
-			public const int visible = 2131296509;
+			// aapt resource value: 0x7f0900fb
+			public const int visible = 2131296507;
 			
 			// aapt resource value: 0x7f0900d4
 			public const int volume_item_container = 2131296468;
@@ -7435,12 +7429,6 @@ namespace Saplin.CPDT.Droid
 			
 			// aapt resource value: 0x7f040052
 			public const int support_simple_spinner_dropdown_item = 2130968658;
-			
-			// aapt resource value: 0x7f040053
-			public const int Tabbar = 2130968659;
-			
-			// aapt resource value: 0x7f040054
-			public const int Toolbar = 2130968660;
 			
 			static Layout()
 			{

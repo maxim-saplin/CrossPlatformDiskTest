@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="1685185767093348095" name="mr_button_content_description">"\"Igorri\" botoia"</string>
+    <string msgid="1350095112462806159" name="mr_cast_button_connected">"\"Igorri\" botoia. Konektatuta."</string>
+    <string msgid="8959304318293841992" name="mr_cast_button_connecting">"\"Igorri\" botoia. Konektatzen."</string>
+    <string msgid="5501231066847739632" name="mr_cast_button_disconnected">"\"Igorri\" botoia. Deskonektatuta."</string>
+    <string msgid="5504553798429329689" name="mr_chooser_searching">"Gailuak bilatzen"</string>
+    <string msgid="7548226170787476564" name="mr_chooser_title">"Igorri hona"</string>
+    <string msgid="5813284753012893250" name="mr_controller_album_art">"Albumaren azala"</string>
+    <string msgid="5286734709674025661" name="mr_controller_casting_screen">"Pantaila igortzen"</string>
+    <string msgid="5468775621814500662" name="mr_controller_close_description">"Itxi"</string>
+    <string msgid="5518911192681928413" name="mr_controller_collapse_group">"Tolestu"</string>
+    <string msgid="1370654436555555647" name="mr_controller_disconnect">"Deskonektatu"</string>
+    <string msgid="2422682304043876468" name="mr_controller_expand_group">"Zabaldu"</string>
+    <string msgid="7299368841849988218" name="mr_controller_no_info_available">"Ez dago informaziorik"</string>
+    <string msgid="4342878516155861006" name="mr_controller_no_media_selected">"Ez da hautatu multimedia-edukirik"</string>
+    <string msgid="4701315813294065305" name="mr_controller_pause">"Pausatu"</string>
+    <string msgid="4443315438268112801" name="mr_controller_play">"Erreproduzitu"</string>
+    <string msgid="5106056093749454009" name="mr_controller_stop">"Gelditu"</string>
+    <string msgid="7617024847862349259" name="mr_controller_stop_casting">"Utzi igortzeari"</string>
+    <string msgid="691656961160498512" name="mr_controller_volume_slider">"Bolumenaren graduatzailea"</string>
+    <string msgid="3117964881088969586" name="mr_system_route_name">"Sistema"</string>
+    <string msgid="8236416097133080726" name="mr_user_route_category_name">"Gailuak"</string>
+</resources>

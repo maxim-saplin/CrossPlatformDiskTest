@@ -1,0 +1,645 @@
+<doc>
+    <assembly>
+        <name>SkiaSharp.Views.Forms</name>
+    </assembly>
+    <members>
+        <member name="T:SkiaSharp.Views.Forms.Extensions">
+            <summary>Various extension methods to convert between SkiaSharp types and Xamarin.Forms types.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.Extensions.ToFormsColor(SkiaSharp.SKColor)">
+            <param name="color">The SkiaSharp color.</param>
+            <summary>Converts a SkiaSharp color into a Xamarin.Forms color.</summary>
+            <returns>Returns a Xamarin.Forms color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.Extensions.ToFormsPoint(SkiaSharp.SKPoint)">
+            <param name="point">The SkiaSharp point.</param>
+            <summary>Converts a SkiaSharp point into a Xamarin.Forms point.</summary>
+            <returns>Returns a Xamarin.Forms point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.Extensions.ToFormsPoint(SkiaSharp.SKPointI)">
+            <param name="point">The SkiaSharp point.</param>
+            <summary>Converts a SkiaSharp point into a Xamarin.Forms point.</summary>
+            <returns>Returns a Xamarin.Forms point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.Extensions.ToFormsRect(SkiaSharp.SKRect)">
+            <param name="rect">The SkiaSharp rectangle.</param>
+            <summary>Converts a SkiaSharp rectangle into a Xamarin.Forms rectangle.</summary>
+            <returns>Returns Xamarin.Forms rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.Extensions.ToFormsRect(SkiaSharp.SKRectI)">
+            <param name="rect">The SkiaSharp rectangle.</param>
+            <summary>Converts a SkiaSharp rectangle into a Xamarin.Forms rectangle.</summary>
+            <returns>Returns Xamarin.Forms rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.Extensions.ToFormsSize(SkiaSharp.SKSize)">
+            <param name="size">The SkiaSharp size.</param>
+            <summary>Converts a SkiaSharp size into a Xamarin.Forms size.</summary>
+            <returns>Returns a Xamarin.Forms size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.Extensions.ToFormsSize(SkiaSharp.SKSizeI)">
+            <param name="size">The SkiaSharp size.</param>
+            <summary>Converts a SkiaSharp size into a Xamarin.Forms size.</summary>
+            <returns>Returns a Xamarin.Forms size.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.Extensions.ToSKColor(Xamarin.Forms.Color)">
+            <param name="color">The Xamarin.Forms color.</param>
+            <summary>Converts a Xamarin.Forms color into a SkiaSharp color.</summary>
+            <returns>Returns a SkiaSharp color.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.Extensions.ToSKPoint(Xamarin.Forms.Point)">
+            <param name="point">The Xamarin.Forms point.</param>
+            <summary>Converts a Xamarin.Forms point into a SkiaSharp point.</summary>
+            <returns>Returns a SkiaSharp point.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.Extensions.ToSKRect(Xamarin.Forms.Rectangle)">
+            <param name="rect">The Xamarin.Forms rectangle.</param>
+            <summary>Converts a Xamarin.Forms rectangle into a SkiaSharp rectangle.</summary>
+            <returns>Returns a SkiaSharp rectangle.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.Extensions.ToSKSize(Xamarin.Forms.Size)">
+            <param name="size">The Xamarin.Forms size.</param>
+            <summary>Converts a Xamarin.Forms size into a SkiaSharp size.</summary>
+            <returns>Returns a SkiaSharp size.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Forms.GetPropertyValueEventArgs`1">
+            <typeparam name="T">The type of the value requested from the native view.</typeparam>
+            <summary>Represents the event arguments used when a Xamarin.Forms view communicates with a native view.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Forms.GetPropertyValueEventArgs`1">
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.Forms.GetPropertyValueEventArgs`1" />event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.GetPropertyValueEventArgs`1.Value">
+            <summary>Gets or sets the value from the the native view.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Forms.ISKCanvasViewController">
+            <summary>The interface that the Xamarin.Forms view uses to communicate with the native renderer.</summary>
+            <remarks />
+        </member>
+        <member name="E:SkiaSharp.Views.Forms.ISKCanvasViewController.GetCanvasSize">
+            <summary>The event that is raised when the Xamarin.Forms view requests the size of the current SkiaSharp surface.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.ISKCanvasViewController.OnPaintSurface(SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs)">
+            <param name="e">The event arguments that contain the drawing surface and information.</param>
+            <summary>The method that is invoked when the native SkiaSharp surface is being repainted.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.ISKCanvasViewController.OnTouch(SkiaSharp.Views.Forms.SKTouchEventArgs)">
+            <param name="e">The event arguments that contain the touch information.</param>
+            <summary>The method that is invoked when there is a touch event on the native view.</summary>
+            <remarks />
+        </member>
+        <member name="E:SkiaSharp.Views.Forms.ISKCanvasViewController.SurfaceInvalidated">
+            <summary>The event that is raised when the Xamarin.Forms view requests the native view be repainted.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Forms.SKBitmapImageSource">
+            <summary>Represents a <see cref="T:SkiaSharp.SKBitmap" /> image source.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Forms.SKBitmapImageSource">
+            <summary>Creates a new instance of <see cref="T:SkiaSharp.Views.Forms.SKBitmapImageSource" />.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKBitmapImageSource.Bitmap">
+            <summary>Gets or sets the underlying <see cref="T:SkiaSharp.SKBitmap" /> of the image source.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKBitmapImageSource.BitmapProperty">
+            <summary>Identifies the <see cref="P:SkiaSharp.Views.Forms.SKBitmapImageSource.Bitmap" /> dependency property.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKBitmapImageSource.Cancel">
+            <summary>Request a cancel of the ImageSource loading.</summary>
+            <returns>An awaitable Task with a result indicating if the Task was successfully cancelled.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKBitmapImageSource.OnPropertyChanged(System.String)">
+            <param name="propertyName">The name of the bound property that changed.</param>
+            <summary>Method that is called when the property that is specified by propertyName is changed.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKBitmapImageSource.op_Implicit(SkiaSharp.SKBitmap)~SkiaSharp.Views.Forms.SKBitmapImageSource">
+            <param name="bitmap">The bitmap to use when creating the ImageSource.</param>
+            <summary>Allows implicit casting from a <see cref="T:SkiaSharp.SKBitmap" />.</summary>
+            <returns>Returns a new instance of <see cref="T:SkiaSharp.Views.Forms.SKBitmapImageSource" /> with the <see cref="P:SkiaSharp.Views.Forms.SKBitmapImageSource.Bitmap" /> property set to the bitmap.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKBitmapImageSource.op_Implicit(SkiaSharp.Views.Forms.SKBitmapImageSource)~SkiaSharp.SKBitmap">
+            <param name="source">The ImageSource to retrieve the bitmap from.</param>
+            <summary>Allows implicit casting to a <see cref="T:SkiaSharp.SKBitmap" />.</summary>
+            <returns>Returns the underlying <see cref="T:SkiaSharp.SKBitmap" /> of the ImageSource.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Forms.SKCanvasView">
+            <summary>A view that can be drawn on using SkiaSharp drawing commands.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Forms.SKCanvasView">
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.Forms.SKCanvasView" /> view.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKCanvasView.CanvasSize">
+            <summary>Gets the current canvas size.</summary>
+            <value />
+            <remarks>The canvas size may be different to the view size as a result of the current device's pixel density.</remarks>
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKCanvasView.EnableTouchEvents">
+            <summary>Gets or sets a value indicating whether or not to enable touch events for this view.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKCanvasView.EnableTouchEventsProperty">
+            <summary>Implements the <see cref="P:SkiaSharp.Views.Forms.SKCanvasView.EnableTouchEvents" /> property, and allows the <see cref="T:SkiaSharp.Views.Forms.SKCanvasView" /> class to bind it to properties on other objects at run time.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKCanvasView.IgnorePixelScaling">
+            <summary>Gets or sets a value indicating whether the drawing canvas should be resized on high resolution displays.</summary>
+            <value />
+            <remarks>By default, when false, the canvas is resized to 1 canvas pixel per display pixel. When true, the canvas is resized to device independent pixels, and then stretched to fill the view. Although performance is improved and all objects are the same size on different display densities, blurring and pixelation may occur.</remarks>
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKCanvasView.IgnorePixelScalingProperty">
+            <summary>Implements the <see cref="P:SkiaSharp.Views.Forms.SKCanvasView.IgnorePixelScaling" /> property, and allows the <see cref="T:SkiaSharp.Views.Forms.SKCanvasView" /> class to bind it to properties on other objects at run time.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKCanvasView.InvalidateSurface">
+            <summary>Informs the canvas that it needs to redraw itself.</summary>
+            <remarks>This needs to be called from the main thread.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKCanvasView.OnMeasure(System.Double,System.Double)">
+            <param name="widthConstraint">The width constraint.</param>
+            <param name="heightConstraint">The height constraint.</param>
+            <summary>Method that is called when a layout measurement happens.</summary>
+            <returns>Returns the requested size for the layout.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKCanvasView.OnPaintSurface(SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs)">
+            <param name="e">The event arguments that contain the drawing surface and information.</param>
+            <summary>Implement this to draw on the canvas.</summary>
+            <remarks>
+                <para>There are two ways to draw on this surface: by overriding the <see cref="M:SkiaSharp.Views.Forms.SKCanvasView.OnPaintSurface(SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs)" /> method, or by attaching a handler to the  <see cref="E:SkiaSharp.Views.Forms.SKCanvasView.PaintSurface" /> event. If the method is overridden, then the base must be called.</para>
+                <para />
+                <example>
+                    <code lang="C#"><![CDATA[protected override void OnPaintSurface (SKPaintSurfaceEventArgs e)
+{
+    // call the base method
+    base.OnPaintSurface (e);
+
+    var surface = e.Surface;
+    var surfaceWidth = e.Info.Width;
+    var surfaceHeight = e.Info.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+    canvas.Flush ();
+}]]></code>
+                </example>
+                <para />
+            </remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKCanvasView.OnTouch(SkiaSharp.Views.Forms.SKTouchEventArgs)">
+            <param name="e">The event arguments that contain the touch information.</param>
+            <summary>Implement this to handle touch events on the canvas.</summary>
+            <remarks />
+        </member>
+        <member name="E:SkiaSharp.Views.Forms.SKCanvasView.PaintSurface">
+            <summary>Occurs when the the canvas needs to be redrawn.</summary>
+            <remarks>
+                <para>There are two ways to draw on this surface: by overriding the <see cref="M:SkiaSharp.Views.Forms.SKCanvasView.OnPaintSurface(SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs)" /> method, or by attaching a handler to the  <see cref="E:SkiaSharp.Views.Forms.SKCanvasView.PaintSurface" /> event.
+              </para>
+                <para />
+                <example>
+                    <code lang="C#"><![CDATA[SKCanvasView myView = ...;
+
+myView.PaintSurface += (sender, e) => {
+    var surface = e.Surface;
+    var surfaceWidth = e.Info.Width;
+    var surfaceHeight = e.Info.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+    canvas.Flush ();
+};]]></code>
+                </example>
+                <para />
+            </remarks>
+        </member>
+        <member name="E:SkiaSharp.Views.Forms.SKCanvasView.SkiaSharp#Views#Forms#ISKCanvasViewController#GetCanvasSize">
+            <summary>The event that is raised when the Xamarin.Forms view requests the size of the current SkiaSharp surface.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKCanvasView.SkiaSharp#Views#Forms#ISKCanvasViewController#OnPaintSurface(SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs)">
+            <param name="e">The event arguments that contain the drawing surface and information.</param>
+            <summary>The method that is invoked when the native SkiaSharp surface is being repainted.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKCanvasView.SkiaSharp#Views#Forms#ISKCanvasViewController#OnTouch(SkiaSharp.Views.Forms.SKTouchEventArgs)">
+            <param name="e">The event arguments that contain the touch information.</param>
+            <summary>The method that is invoked when there is a touch event on the native view.</summary>
+            <remarks />
+        </member>
+        <member name="E:SkiaSharp.Views.Forms.SKCanvasView.SkiaSharp#Views#Forms#ISKCanvasViewController#SurfaceInvalidated">
+            <summary>The event that is raised when the Xamarin.Forms view requests the native view be repainted.</summary>
+            <remarks />
+        </member>
+        <member name="E:SkiaSharp.Views.Forms.SKCanvasView.Touch">
+            <summary>Occurs when the the canvas received a touch event.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Forms.SKGLView">
+            <summary>A hardware-accelerated view that can be drawn on using SkiaSharp drawing commands.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Forms.SKGLView">
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.Forms.SKGLView" /> view.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKGLView.CanvasSize">
+            <summary>Gets the current canvas size.</summary>
+            <value />
+            <remarks>The canvas size may be different to the view size as a result of the current device's pixel density.</remarks>
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKGLView.EnableTouchEvents">
+            <summary>Gets or sets a value indicating whether or not to enable touch events for this view.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKGLView.EnableTouchEventsProperty">
+            <summary>Implements the <see cref="P:SkiaSharp.Views.Forms.SKGLView.EnableTouchEvents" /> property, and allows the <see cref="T:SkiaSharp.Views.Forms.SKGLView" /> class to bind it to properties on other objects at run time.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKGLView.GRContext">
+            <summary>Gets the current GPU context.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKGLView.HasRenderLoop">
+            <summary>Gets or sets a value indicating whether the surface is drawn using a render loop.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKGLView.HasRenderLoopProperty">
+            <summary>Identifies the <see cref="P:SkiaSharp.Views.Forms.SKGLView.HasRenderLoop" /> bindable property.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKGLView.InvalidateSurface">
+            <summary>Informs the surface that it needs to redraw itself.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKGLView.OnMeasure(System.Double,System.Double)">
+            <param name="widthConstraint">The width constraint.</param>
+            <param name="heightConstraint">The height constraint.</param>
+            <summary>Method that is called when a layout measurement happens.</summary>
+            <returns>Returns the requested size for the layout.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKGLView.OnPaintSurface(SkiaSharp.Views.Forms.SKPaintGLSurfaceEventArgs)">
+            <param name="e">The event arguments that contain the drawing surface and information.</param>
+            <summary>Implement this to draw on the surface.</summary>
+            <remarks>
+                <para>There are two ways to draw on this surface: by overriding the <see cref="M:SkiaSharp.Views.Forms.SKGLView.OnPaintSurface(SkiaSharp.Views.Forms.SKPaintGLSurfaceEventArgs)" /> method, or by attaching a handler to the <see cref="E:SkiaSharp.Views.Forms.SKGLView.PaintSurface" /> event. If the method is overridden, then the base must be called.</para>
+                <para />
+                <example>
+                    <code lang="C#"><![CDATA[protected override void OnPaintSurface (SKPaintGLSurfaceEventArgs e)
+{
+    // call the base method
+    base.OnPaintSurface (e);
+
+    var surface = e.Surface;
+    var surfaceWidth = e.RenderTarget.Width;
+    var surfaceHeight = e.RenderTarget.Height;
+
+    var canvas = surface.Canvas;
+
+    // draw on the canvas
+    canvas.Flush ();
+}]]></code>
+                </example>
+                <para />
+            </remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKGLView.OnTouch(SkiaSharp.Views.Forms.SKTouchEventArgs)">
+            <param name="e">The event arguments that contain the touch information.</param>
+            <summary>Implement this to handle touch events on the surface.</summary>
+            <remarks />
+        </member>
+        <member name="E:SkiaSharp.Views.Forms.SKGLView.PaintSurface">
+            <summary>Occurs when the surface needs to be redrawn.</summary>
+            <remarks>
+                <para>There are two ways to draw on this surface: by overriding the <see cref="M:SkiaSharp.Views.Forms.SKGLView.OnPaintSurface(SkiaSharp.Views.Forms.SKPaintGLSurfaceEventArgs)" /> method, or by attaching a handler to the <see cref="E:SkiaSharp.Views.Forms.SKGLView.PaintSurface" /> event.</para>
+                <para />
+                <example>
+                    <code lang="C#"><![CDATA[SKGLView myView = ...;
+
+myView.PaintSurface += (sender, e) => {
+    var surface = e.Surface;
+    var surfaceWidth = e.RenderTarget.Width;
+    var surfaceHeight = e.RenderTarget.Height;
+
+    var canvas = surface.Canvas;
+    
+    // draw on the canvas
+    canvas.Flush ();
+};]]></code>
+                </example>
+                <para />
+            </remarks>
+        </member>
+        <member name="E:SkiaSharp.Views.Forms.SKGLView.Touch">
+            <summary>Occurs when the the surface received a touch event.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Forms.SKImageImageSource">
+            <summary>Represents a <see cref="T:SkiaSharp.SKImage" /> image source.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Forms.SKImageImageSource">
+            <summary>Creates a new instance of <see cref="T:SkiaSharp.Views.Forms.SKImageImageSource" />.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKImageImageSource.Cancel">
+            <summary>Request a cancel of the ImageSource loading.</summary>
+            <returns>An awaitable Task with a result indicating if the Task was successfully cancelled.</returns>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKImageImageSource.Image">
+            <summary>Gets or sets the underlying <see cref="T:SkiaSharp.SKImage" /> of the image source.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKImageImageSource.ImageProperty">
+            <summary>Identifies the <see cref="P:SkiaSharp.Views.Forms.SKImageImageSource.Image" /> dependency property.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKImageImageSource.OnPropertyChanged(System.String)">
+            <param name="propertyName">The name of the bound property that changed.</param>
+            <summary>Method that is called when the property that is specified by propertyName is changed.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKImageImageSource.op_Implicit(SkiaSharp.SKImage)~SkiaSharp.Views.Forms.SKImageImageSource">
+            <param name="image">The image to use when creating the ImageSource.</param>
+            <summary>Allows implicit casting from a <see cref="T:SkiaSharp.SKImage" />.</summary>
+            <returns>Returns a new instance of <see cref="T:SkiaSharp.Views.Forms.SKImageImageSource" /> with the <see cref="P:SkiaSharp.Views.Forms.SKImageImageSource.Image" /> property set to the image.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKImageImageSource.op_Implicit(SkiaSharp.Views.Forms.SKImageImageSource)~SkiaSharp.SKImage">
+            <param name="source">The ImageSource to retrieve the image from.</param>
+            <summary>Allows implicit casting to a <see cref="T:SkiaSharp.SKImage" />.</summary>
+            <returns>Returns the underlying <see cref="T:SkiaSharp.SKImage" /> of the ImageSource.</returns>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Forms.SKMouseButton">
+            <summary>Specifies constants that define which mouse button was pressed.</summary>
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKMouseButton.Left">
+            <summary>The left mouse button was pressed, or, a finger/pen was touched on the screen.</summary>
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKMouseButton.Middle">
+            <summary>The middle mouse button was pressed.</summary>
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKMouseButton.Right">
+            <summary>The right mouse button was pressed.</summary>
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKMouseButton.Unknown">
+            <summary>An unknown mouse button was pressed.</summary>
+        </member>
+        <member name="T:SkiaSharp.Views.Forms.SKPaintGLSurfaceEventArgs">
+            <summary>Provides data for the <see cref="E:SkiaSharp.Views.Forms.SKGLView.PaintSurface" /> event.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Forms.SKPaintGLSurfaceEventArgs(SkiaSharp.SKSurface,SkiaSharp.GRBackendRenderTargetDesc)">
+            <param name="surface">The surface that is being drawn on.</param>
+            <param name="renderTarget">The render target that is currently being drawn.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.Forms.SKPaintGLSurfaceEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKPaintGLSurfaceEventArgs.RenderTarget">
+            <summary>Gets the render target that is currently being drawn.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKPaintGLSurfaceEventArgs.Surface">
+            <summary>Gets the surface that is currently being drawn on.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs">
+            <summary>Provides data for the <see cref="E:SkiaSharp.Views.Forms.SKCanvasView.PaintSurface" /> event.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs(SkiaSharp.SKSurface,SkiaSharp.SKImageInfo)">
+            <param name="surface">The surface that is being drawn on.</param>
+            <param name="info">The information about the surface.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs.Info">
+            <summary>Gets the information about the surface that is currently being drawn.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs.Surface">
+            <summary>Gets the surface that is currently being drawn on.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Forms.SKPictureImageSource">
+            <summary>Represents a <see cref="T:SkiaSharp.SKPicture" /> image source.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Forms.SKPictureImageSource">
+            <summary>Creates a new instance of <see cref="T:SkiaSharp.Views.Forms.SKPictureImageSource" />.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKPictureImageSource.Cancel">
+            <summary>Request a cancel of the ImageSource loading.</summary>
+            <returns>An awaitable Task with a result indicating if the Task was successfully cancelled.</returns>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKPictureImageSource.Dimensions">
+            <summary>Gets or sets the dimensions of the underlying picture.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKPictureImageSource.DimensionsProperty">
+            <summary>Identifies the <see cref="P:SkiaSharp.Views.Forms.SKPictureImageSource.Dimensions" /> dependency property.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKPictureImageSource.OnPropertyChanged(System.String)">
+            <param name="propertyName">The name of the bound property that changed.</param>
+            <summary>Method that is called when the property that is specified by propertyName is changed.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKPictureImageSource.op_Explicit(SkiaSharp.Views.Forms.SKPictureImageSource)~SkiaSharp.SKPicture">
+            <param name="source">The ImageSource to retrieve the picture from.</param>
+            <summary>Allows explicit casting to a <see cref="T:SkiaSharp.SKPicture" />.</summary>
+            <returns>Returns the underlying <see cref="T:SkiaSharp.SKPicture" /> of the ImageSource.</returns>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKPictureImageSource.Picture">
+            <summary>Gets or sets the underlying <see cref="T:SkiaSharp.SKImage" /> of the image source.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKPictureImageSource.PictureProperty">
+            <summary>Identifies the <see cref="P:SkiaSharp.Views.Forms.SKPictureImageSource.Picture" /> dependency property.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Forms.SKPixmapImageSource">
+            <summary>Represents a <see cref="T:SkiaSharp.SKPixmap" /> image source.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Forms.SKPixmapImageSource">
+            <summary>Creates a new instance of <see cref="T:SkiaSharp.Views.Forms.SKPixmapImageSource" />.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKPixmapImageSource.Cancel">
+            <summary>Request a cancel of the ImageSource loading.</summary>
+            <returns>An awaitable Task with a result indicating if the Task was successfully cancelled.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKPixmapImageSource.OnPropertyChanged(System.String)">
+            <param name="propertyName">The name of the bound property that changed.</param>
+            <summary>Method that is called when the property that is specified by propertyName is changed.</summary>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKPixmapImageSource.op_Implicit(SkiaSharp.SKPixmap)~SkiaSharp.Views.Forms.SKPixmapImageSource">
+            <param name="pixmap">The pixmap to use when creating the ImageSource.</param>
+            <summary>Allows implicit casting from a <see cref="T:SkiaSharp.SKPixmap" />.</summary>
+            <returns>Returns a new instance of <see cref="T:SkiaSharp.Views.Forms.SKPixmapImageSource" /> with the <see cref="P:SkiaSharp.Views.Forms.SKPixmapImageSource.Pixmap" /> property set to the bitmap.</returns>
+            <remarks />
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKPixmapImageSource.op_Implicit(SkiaSharp.Views.Forms.SKPixmapImageSource)~SkiaSharp.SKPixmap">
+            <param name="source">The ImageSource to retrieve the pixmap from.</param>
+            <summary>Allows implicit casting to a <see cref="T:SkiaSharp.SKPixmap" />.</summary>
+            <returns>Returns the underlying <see cref="T:SkiaSharp.SKPixmap" /> of the ImageSource.</returns>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKPixmapImageSource.Pixmap">
+            <summary>Gets or sets the underlying <see cref="T:SkiaSharp.SKPixmap" /> of the image source.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKPixmapImageSource.PixmapProperty">
+            <summary>Identifies the <see cref="P:SkiaSharp.Views.Forms.SKPixmapImageSource.Pixmap" /> dependency property.</summary>
+            <remarks />
+        </member>
+        <member name="T:SkiaSharp.Views.Forms.SKTouchAction">
+            <summary>Specifies constants that define which touch/mouse action took place.</summary>
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKTouchAction.Cancelled">
+            <summary>The touch/mouse operation was cancelled.</summary>
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKTouchAction.Entered">
+            <summary>The touch/mouse entered the view.</summary>
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKTouchAction.Exited">
+            <summary>The touch/mouse exited the view.</summary>
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKTouchAction.Moved">
+            <summary>The touch (while down) or mouse (pressed or released) moved in the view.</summary>
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKTouchAction.Pressed">
+            <summary>A finger or pen was touched on the screen, or a mouse button was pressed.</summary>
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKTouchAction.Released">
+            <summary>A finger or pen was lifted off the screen, or a mouse button was released.</summary>
+        </member>
+        <member name="T:SkiaSharp.Views.Forms.SKTouchDeviceType">
+            <summary>Specifies constants that define which touch device was used.</summary>
+            <remarks />
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKTouchDeviceType.Mouse">
+            <summary>A mouse was being used when the event was raised.</summary>
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKTouchDeviceType.Pen">
+            <summary>A pen on the screen was being used when the event was raised.</summary>
+        </member>
+        <member name="F:SkiaSharp.Views.Forms.SKTouchDeviceType.Touch">
+            <summary>A finger on the screen was being used when the event was raised.</summary>
+        </member>
+        <member name="T:SkiaSharp.Views.Forms.SKTouchEventArgs">
+            <summary>Provides data for the <see cref="E:SkiaSharp.Views.Forms.SKCanvasView.Touch" /> or <see cref="E:SkiaSharp.Views.Forms.SKGLView.Touch" /> event.</summary>
+            <remarks />
+        </member>
+        <member name="C:SkiaSharp.Views.Forms.SKTouchEventArgs(System.Int64,SkiaSharp.Views.Forms.SKTouchAction,SkiaSharp.SKPoint,System.Boolean)">
+            <param name="id">The ID used to track the touch event.</param>
+            <param name="type">The type of touch action that initiated this event.</param>
+            <param name="location">The location of the touch.</param>
+            <param name="inContact">Whether or not the touch device is in contact with the screen.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.Forms.SKTouchEventArgs" /> event arguments.</summary>
+            <remarks>This constructor sets the <see cref="P:SkiaSharp.Views.Forms.SKTouchEventArgs.DeviceType" /> to <see cref="F:SkiaSharp.Views.Forms.SKTouchDeviceType.Touch" /> and the <see cref="P:SkiaSharp.Views.Forms.SKTouchEventArgs.MouseButton" /> to <see cref="F:SkiaSharp.Views.Forms.SKMouseButton.Left" />.</remarks>
+        </member>
+        <member name="C:SkiaSharp.Views.Forms.SKTouchEventArgs(System.Int64,SkiaSharp.Views.Forms.SKTouchAction,SkiaSharp.Views.Forms.SKMouseButton,SkiaSharp.Views.Forms.SKTouchDeviceType,SkiaSharp.SKPoint,System.Boolean)">
+            <param name="id">The ID used to track the touch event.</param>
+            <param name="type">The type of touch action that initiated this event.</param>
+            <param name="mouseButton">The mouse button used to raise the touch event.</param>
+            <param name="deviceType">The touch device used to raise the touch event.</param>
+            <param name="location">The location of the touch.</param>
+            <param name="inContact">Whether or not the touch device is in contact with the screen, or the mouse button pressed.</param>
+            <summary>Creates a new instance of the <see cref="T:SkiaSharp.Views.Forms.SKTouchEventArgs" /> event arguments.</summary>
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKTouchEventArgs.ActionType">
+            <summary>Gets a value indicating which type of touch action resulted in this event being raised.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKTouchEventArgs.DeviceType">
+            <summary>Gets a value indicating which type of touch device was used to raise this event.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKTouchEventArgs.Handled">
+            <summary>Gets or sets a value indicating whether the event has been handled and should not propagate further.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKTouchEventArgs.Id">
+            <summary>Gets the ID that can be used to track this particular event.</summary>
+            <value />
+            <remarks>This ID represents the finger/pointer ID or mouse button number that initiated the event. This ID will remain the same for the duration of the touch operation.</remarks>
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKTouchEventArgs.InContact">
+            <summary>Gets a value indicating whether the device is touching the screen, or being pressed, at the current time.</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKTouchEventArgs.Location">
+            <summary>Gets the location of the touch on the view (in pixel coordinates).</summary>
+            <value />
+            <remarks />
+        </member>
+        <member name="P:SkiaSharp.Views.Forms.SKTouchEventArgs.MouseButton">
+            <summary>Gets a value indicating which mouse button resulted in this event being raised.</summary>
+            <value />
+            <remarks>If the mouse was used, then this property will indicate which button was pressed. If a finger (touch) or pen was used, then this property will indicate left button.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Forms.SKTouchEventArgs.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+            <remarks />
+        </member>
+    </members>
+</doc>

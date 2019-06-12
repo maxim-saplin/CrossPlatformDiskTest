@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="1685185767093348095" name="mr_button_content_description">"Дамжуулах товчлуур"</string>
+    <string msgid="1350095112462806159" name="mr_cast_button_connected">"Дамжуулах товчлуур. Холбогдсон"</string>
+    <string msgid="8959304318293841992" name="mr_cast_button_connecting">"Дамжуулах товчлуур. Холбогдож байна"</string>
+    <string msgid="5501231066847739632" name="mr_cast_button_disconnected">"Дамжуулах товчлуур. Салсан"</string>
+    <string msgid="5504553798429329689" name="mr_chooser_searching">"Төхөөрөмжүүдийг хайж байна"</string>
+    <string msgid="7548226170787476564" name="mr_chooser_title">"Дараахад дамжуулах"</string>
+    <string msgid="5813284753012893250" name="mr_controller_album_art">"Цомгийн зураг"</string>
+    <string msgid="5286734709674025661" name="mr_controller_casting_screen">"Дэлгэцийг дамжуулж байна"</string>
+    <string msgid="5468775621814500662" name="mr_controller_close_description">"Хаах"</string>
+    <string msgid="5518911192681928413" name="mr_controller_collapse_group">"Буулгах"</string>
+    <string msgid="1370654436555555647" name="mr_controller_disconnect">"Салгах"</string>
+    <string msgid="2422682304043876468" name="mr_controller_expand_group">"Дэлгэх"</string>
+    <string msgid="7299368841849988218" name="mr_controller_no_info_available">"Мэдээлэл алга"</string>
+    <string msgid="4342878516155861006" name="mr_controller_no_media_selected">"Ямар ч медиа сонгоогүй байна"</string>
+    <string msgid="4701315813294065305" name="mr_controller_pause">"Түр зогсоох"</string>
+    <string msgid="4443315438268112801" name="mr_controller_play">"Тоглуулах"</string>
+    <string msgid="5106056093749454009" name="mr_controller_stop">"Зогсоох"</string>
+    <string msgid="7617024847862349259" name="mr_controller_stop_casting">"Дамжуулахыг зогсоох"</string>
+    <string msgid="691656961160498512" name="mr_controller_volume_slider">"Дууны түвшин тохируулагч"</string>
+    <string msgid="3117964881088969586" name="mr_system_route_name">"Систем"</string>
+    <string msgid="8236416097133080726" name="mr_user_route_category_name">"Төхөөрөмжүүд"</string>
+</resources>

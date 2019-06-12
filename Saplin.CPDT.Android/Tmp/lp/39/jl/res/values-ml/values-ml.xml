@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="1685185767093348095" name="mr_button_content_description">"കാസ്റ്റ് ബട്ടൺ"</string>
+    <string msgid="1350095112462806159" name="mr_cast_button_connected">"കാസ്റ്റ് ബട്ടൺ. കണക്‌റ്റ് ചെയ്തു"</string>
+    <string msgid="8959304318293841992" name="mr_cast_button_connecting">"കാസ്‌റ്റ് ബട്ടൺ. കണക്‌റ്റ് ചെയ്യുന്നു"</string>
+    <string msgid="5501231066847739632" name="mr_cast_button_disconnected">"കാസ്റ്റ് ബട്ടൺ. വിച്ഛേദിച്ചു"</string>
+    <string msgid="5504553798429329689" name="mr_chooser_searching">"ഉപകരണങ്ങൾ കണ്ടെത്തുന്നു"</string>
+    <string msgid="7548226170787476564" name="mr_chooser_title">"ഇതിലേക്ക് കാസ്‌റ്റ് ചെയ്യുക"</string>
+    <string msgid="5813284753012893250" name="mr_controller_album_art">"ആൽബം ആർട്ട്"</string>
+    <string msgid="5286734709674025661" name="mr_controller_casting_screen">"സ്‌ക്രീൻ കാസ്‌റ്റ് ചെയ്യുന്നു"</string>
+    <string msgid="5468775621814500662" name="mr_controller_close_description">"അടയ്ക്കുക"</string>
+    <string msgid="5518911192681928413" name="mr_controller_collapse_group">"ചുരുക്കുക"</string>
+    <string msgid="1370654436555555647" name="mr_controller_disconnect">"വിച്ഛേദിക്കുക"</string>
+    <string msgid="2422682304043876468" name="mr_controller_expand_group">"വികസിപ്പിക്കുക"</string>
+    <string msgid="7299368841849988218" name="mr_controller_no_info_available">"വിവരങ്ങളൊന്നും ലഭ്യമല്ല"</string>
+    <string msgid="4342878516155861006" name="mr_controller_no_media_selected">"മീഡിയയൊന്നും തിരഞ്ഞെടുത്തിട്ടില്ല"</string>
+    <string msgid="4701315813294065305" name="mr_controller_pause">"തൽക്കാലം നിർത്തുക"</string>
+    <string msgid="4443315438268112801" name="mr_controller_play">"പ്ലേ ചെയ്യുക"</string>
+    <string msgid="5106056093749454009" name="mr_controller_stop">"നിര്‍ത്തുക"</string>
+    <string msgid="7617024847862349259" name="mr_controller_stop_casting">"കാസ്റ്റ് ചെയ്യുന്നത് നിർത്തുക"</string>
+    <string msgid="691656961160498512" name="mr_controller_volume_slider">"വോളിയം സ്ലൈഡർ"</string>
+    <string msgid="3117964881088969586" name="mr_system_route_name">"സിസ്റ്റം"</string>
+    <string msgid="8236416097133080726" name="mr_user_route_category_name">"ഉപകരണങ്ങൾ"</string>
+</resources>

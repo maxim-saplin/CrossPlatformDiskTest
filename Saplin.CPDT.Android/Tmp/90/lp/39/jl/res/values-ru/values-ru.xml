@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="1685185767093348095" name="mr_button_content_description">"Кнопка трансляции"</string>
+    <string msgid="1350095112462806159" name="mr_cast_button_connected">"Кнопка трансляции. Устройство подключено."</string>
+    <string msgid="8959304318293841992" name="mr_cast_button_connecting">"Кнопка трансляции. Устройство подключается."</string>
+    <string msgid="5501231066847739632" name="mr_cast_button_disconnected">"Кнопка трансляции. Устройство отключено."</string>
+    <string msgid="5504553798429329689" name="mr_chooser_searching">"Поиск устройств…"</string>
+    <string msgid="7548226170787476564" name="mr_chooser_title">"Транслировать на устройство"</string>
+    <string msgid="5813284753012893250" name="mr_controller_album_art">"Обложка"</string>
+    <string msgid="5286734709674025661" name="mr_controller_casting_screen">"Трансляция экрана…"</string>
+    <string msgid="5468775621814500662" name="mr_controller_close_description">"Закрыть"</string>
+    <string msgid="5518911192681928413" name="mr_controller_collapse_group">"Скрыть"</string>
+    <string msgid="1370654436555555647" name="mr_controller_disconnect">"Отключить"</string>
+    <string msgid="2422682304043876468" name="mr_controller_expand_group">"Показать"</string>
+    <string msgid="7299368841849988218" name="mr_controller_no_info_available">"Данных нет"</string>
+    <string msgid="4342878516155861006" name="mr_controller_no_media_selected">"Медиафайл не выбран"</string>
+    <string msgid="4701315813294065305" name="mr_controller_pause">"Приостановить"</string>
+    <string msgid="4443315438268112801" name="mr_controller_play">"Воспроизвести"</string>
+    <string msgid="5106056093749454009" name="mr_controller_stop">"Остановить"</string>
+    <string msgid="7617024847862349259" name="mr_controller_stop_casting">"Остановить трансляцию"</string>
+    <string msgid="691656961160498512" name="mr_controller_volume_slider">"Регулятор громкости"</string>
+    <string msgid="3117964881088969586" name="mr_system_route_name">"Система"</string>
+    <string msgid="8236416097133080726" name="mr_user_route_category_name">"Устройства"</string>
+</resources>
