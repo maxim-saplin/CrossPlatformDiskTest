@@ -25,7 +25,7 @@
                                     <Label Text="{Binding OrderNumber, StringFormat='#{0}:'}" />
                                     <Label Text="{Binding DriveName}" LineBreakMode="TailTruncation" />
                                     <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm:ss} {0:d.MM.yyyy}'}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start" />
-                                    <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Compare}" 
+                                    <ctrl:ExtendedLabel     Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Compare}" 
                                                             Command="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=Compare}" 
                                                             CommandParameter="{Binding .}" 
                                                             IsEnabled="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Mode=OneWay, Path=IsEnabled}" 

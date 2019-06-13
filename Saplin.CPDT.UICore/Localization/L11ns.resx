@@ -218,10 +218,10 @@ copy</value>
     <value>Mem. copy</value>
   </data>
   <data name="Compare" xml:space="preserve">
-    <value>[C]ompare</value>
+    <value>⇆ Compare </value>
   </data>
   <data name="Share" xml:space="preserve">
-    <value>[S]hare</value>
+    <value>⬑Share⬏</value>
   </data>
   <data name="ShareTitle" xml:space="preserve">
     <value>CPDT Benchmark - Test Results</value>

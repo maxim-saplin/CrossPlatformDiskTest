@@ -1,8 +1,0 @@
-Layout/RootLayout.axml;layout/rootlayout.xml
-Layout/ShellContent.axml;layout/shellcontent.xml
-Layout/FlyoutContent.axml;layout/flyoutcontent.xml
-Layout/BottomTabLayout.axml;layout/bottomtablayout.xml
-anim/EnterFromLeft.xml;anim/enterfromleft.xml
-anim/EnterFromRight.xml;anim/enterfromright.xml
-anim/ExitToLeft.xml;anim/exittoleft.xml
-anim/ExitToRight.xml;anim/exittoright.xml

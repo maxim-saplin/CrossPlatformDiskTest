@@ -336,10 +336,10 @@
     <value>База результатов недоступна. Проверьте соединение с интернетом</value>
   </data>
   <data name="Compare" xml:space="preserve">
-    <value>[C] Сравнить</value>
+    <value>⇆ Сравнить </value>
   </data>
       <data name="Share" xml:space="preserve">
-    <value>[S] Отправить</value>
+    <value>⬑Отправить⬏</value>
   </data>
   <data name="ShareTitle" xml:space="preserve">
     <value>CPDT Benchmark - Результаты теста</value>
