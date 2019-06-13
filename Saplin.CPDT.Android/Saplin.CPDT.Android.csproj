@@ -48,8 +48,11 @@
     <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <EnableProguard>true</EnableProguard>
+    <AndroidDexTool>d8</AndroidDexTool>
+    <AndroidLinkTool>r8</AndroidLinkTool>
     <AndroidUseAapt2>True</AndroidUseAapt2>
     <AndroidLinkSkip>Saplin.CPDT.UICore;Saplin.CPDT.UICore.resources;Xamarin.Forms.Core;Xamarin.Forms.XAML;Saplin.StorageSpeedMeter</AndroidLinkSkip>
+    <AndroidStoreUncompressedFileExtensions>.png</AndroidStoreUncompressedFileExtensions>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
