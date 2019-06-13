@@ -7364,9 +7364,6 @@ namespace Saplin.CPDT.Droid
 			// aapt resource value: 0x7f0a0180
 			public const int Base_Widget_MaterialComponents_TextInputLayout = 2131362176;
 			
-			// aapt resource value: 0x7f0a01f4
-			public const int BlackTheme = 2131362292;
-			
 			// aapt resource value: 0x7f0a0000
 			public const int CardView = 2131361792;
 			
@@ -7376,8 +7373,8 @@ namespace Saplin.CPDT.Droid
 			// aapt resource value: 0x7f0a0003
 			public const int CardView_Light = 2131361795;
 			
-			// aapt resource value: 0x7f0a01f5
-			public const int MainTheme_Base = 2131362293;
+			// aapt resource value: 0x7f0a01f4
+			public const int MainTheme = 2131362292;
 			
 			// aapt resource value: 0x7f0a0073
 			public const int Platform_AppCompat = 2131361907;
@@ -7471,9 +7468,6 @@ namespace Saplin.CPDT.Droid
 			
 			// aapt resource value: 0x7f0a0020
 			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131361824;
-			
-			// aapt resource value: 0x7f0a01f6
-			public const int SplashTheme = 2131362294;
 			
 			// aapt resource value: 0x7f0a00c7
 			public const int TextAppearance_AppCompat = 2131361991;

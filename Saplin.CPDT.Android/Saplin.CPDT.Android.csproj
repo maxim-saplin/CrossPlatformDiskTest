@@ -47,18 +47,15 @@
     <IntermediateOutputPath>Tmp</IntermediateOutputPath>
     <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-    <EnableProguard>true</EnableProguard>
     <AndroidDexTool>d8</AndroidDexTool>
-    <AndroidLinkTool>r8</AndroidLinkTool>
+    <AndroidLinkTool>r8</AndroidLinkTool>   
     <AndroidUseAapt2>True</AndroidUseAapt2>
     <AndroidLinkSkip>Saplin.CPDT.UICore;Saplin.CPDT.UICore.resources;Xamarin.Forms.Core;Xamarin.Forms.XAML;Saplin.StorageSpeedMeter</AndroidLinkSkip>
     <AndroidStoreUncompressedFileExtensions>.png</AndroidStoreUncompressedFileExtensions>
+    <AndroidTlsProvider>legacy</AndroidTlsProvider>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
-    <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\..\Library\Frameworks\Xamarin.Mac.framework\Versions\5.8.0.0\lib\mono\Xamarin.Mac\System.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms">
@@ -99,7 +96,6 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\IBMPlexMono-Italic.ttf" />
     <AndroidAsset Include="Assets\IBMPlexMono-Medium.ttf" />
-    <AndroidAsset Include="Assets\IBMPlexMono-MediumItalic.ttf" />
     <AndroidAsset Include="Assets\IBMPlexMono-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>

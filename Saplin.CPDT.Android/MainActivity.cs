@@ -9,12 +9,12 @@ using Android.Views;
 
 namespace Saplin.CPDT.Droid
 {
-    [Activity(Label = "Cross Platfrom Disk Test", Icon = "@mipmap/ic_launcher", Theme = "@style/BlackTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.FontScale)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    [Activity(Label = "Cross Platfrom Disk Test", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.FontScale)]
+    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
         public static MainActivity Instance { get; protected set; }
 
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
 
 #if DEBUG
@@ -23,14 +23,14 @@ namespace Saplin.CPDT.Droid
             sw.Start();
 #endif
 
-            base.OnCreate(bundle);
+            base.OnCreate(savedInstanceState);
 #if DEBUG
             sb.AppendLine("OnCreate " + sw.ElapsedMilliseconds);
 #endif
 
             Instance = this;
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
+            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 #if DEBUG
             sb.AppendLine("Forms.Init " + sw.ElapsedMilliseconds);
 #endif

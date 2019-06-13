@@ -86,9 +86,10 @@
                             </ctrl:StackRepeater>
                             <local:AndroidSpacer FontSize="8"/>
                         </StackLayout>
-                        <local:MainPageButtons x:Name="buttons"/>
-                        <local:AndroidSpacer FontSize="12"/>
+  
                     </StackLayout>
+                    <local:MainPageButtons x:Name="buttons"/>
+                    <local:AndroidSpacer FontSize="12"/>
                     <anim:VisibilityFadeAnimation x:Name="testInProgressAnimation" Target="{x:Reference testInProgressLayout}" Trigger="{Binding TestStarted}" />
                     <StackLayout x:Name="testInProgressLayout" Orientation="Vertical" IsVisible="False" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="6, 0, 6, 0">
                         <StackLayout Orientation="Horizontal" IsVisible="{Binding TestStarted}" Style="{StaticResource testRunningHeader}" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="10, 9, 10, 9">
