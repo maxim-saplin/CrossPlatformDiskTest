@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Saplin.CPDT.UICore.AdvancedUI" 
+             xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" 
+             xmlns:anim="clr-namespace:Saplin.CPDT.UICore.Animations" 
+             xmlns:local="clr-namespace:Saplin.CPDT.UICore" 
+             xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels"
+             IsVisible="{Binding Source={Static vm:ViewModelContainer.NavigationViewModel}, IsAdvancedUIVisible}" 
+             Orientation="Vertical"
+             x:Name="advancedUI">
+<!--    <anim:DriveSelectionAnimation x:Name="drivesAnimation" Target="{x:Reference advancedUI}" Trigger="{Binding TestStarted, Converter={StaticResource BoolNot}}" />-->
+    <anim:HighlightAnimation x:Name="drivesHighlightAnimation" Target="{x:Reference drives}" OnClickOf="{x:DynamicResource refreshButton}" />
+    <local:DriveSelection x:Name="drives" />
+    <local:MainPageButtons x:Name="buttons" />
+    <local:AndroidSpacer FontSize="12" />
+</StackLayout>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Xamarin.Forms.4.0.0.482894\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.4.0.0.482894\build\Xamarin.Forms.props')" />
+  <Import Project="..\packages\Xamarin.Forms.4.1.0.483098-pre1\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.4.1.0.483098-pre1\build\Xamarin.Forms.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -60,16 +60,16 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.Forms.Core">
-      <HintPath>..\packages\Xamarin.Forms.4.0.0.482894\lib\Xamarin.Mac\Xamarin.Forms.Core.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.4.1.0.483098-pre1\lib\Xamarin.Mac\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform">
-      <HintPath>..\packages\Xamarin.Forms.4.0.0.482894\lib\Xamarin.Mac\Xamarin.Forms.Platform.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.4.1.0.483098-pre1\lib\Xamarin.Mac\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform.macOS">
-      <HintPath>..\packages\Xamarin.Forms.4.0.0.482894\lib\Xamarin.Mac\Xamarin.Forms.Platform.macOS.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.4.1.0.483098-pre1\lib\Xamarin.Mac\Xamarin.Forms.Platform.macOS.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
-      <HintPath>..\packages\Xamarin.Forms.4.0.0.482894\lib\Xamarin.Mac\Xamarin.Forms.Xaml.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.4.1.0.483098-pre1\lib\Xamarin.Mac\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
         <Reference Include="netstandard" />
         <Reference Include="SkiaSharp">
@@ -140,5 +140,5 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
-  <Import Project="..\packages\Xamarin.Forms.4.0.0.482894\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.4.0.0.482894\build\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.4.1.0.483098-pre1\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.4.1.0.483098-pre1\build\Xamarin.Forms.targets')" />
 </Project>

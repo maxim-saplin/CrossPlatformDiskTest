@@ -11,10 +11,14 @@ namespace Saplin.CPDT.UICore
 {
     public partial class MainPage : ContentPage
     {
-        private bool testResultsNarrow = false;
-        private bool testSessionsNarrow =false;
         private int narrowWidth = 640;
         private bool alreadyShown = false;
+
+        Title title;
+        SimpleUI simpleUI;
+        AdvancedUI advancedUI;
+        TestInProgress testInProgress;
+        TestSessionsPlaceholder testSessionsPlaceholder;
 
         public MainPage()
         {
@@ -22,30 +26,48 @@ namespace Saplin.CPDT.UICore
 
             InitializeComponent();
 
-            bitSystem.Text += Environment.Is64BitProcess ? " 64bit" : " 32bit";
-
+            // CREATING CONTROLS HERE
             SizeChanged += (s, e) =>
             {
-                AdaptLayoytToScreenWidth();
-
-                if (!alreadyShown)
+                if (alreadyShown)
+                    AdaptLayoytToScreenWidth();
+                else
                 {
                     alreadyShown = true;
 
-                    Device.StartTimer(TimeSpan.FromMilliseconds(10),() =>
-                    {
+                    Device.StartTimer(TimeSpan.FromMilliseconds(10), () =>
+                         {
+                             title = new Title();
+                             title.QuitClicked += OnQuit;
+                             stackLayout.Children.Add(title);
 
-                        absoluteLayout.Children.Add(new Popups());
+                             simpleUI = new SimpleUI();
+                             stackLayout.Children.Add(simpleUI);
 
-                        var onlineDb = new OnlineDb();
+                             advancedUI = new AdvancedUI();
+                             stackLayout.Children.Add(advancedUI);
 
-                        foreach (var c in onlineDb.Children.ToArray())
-                        {
-                            absoluteLayout.Children.Add(c);
-                        }
+                             testInProgress = new TestInProgress();
+                             stackLayout.Children.Add(testInProgress);
 
-                        return false;
-                    });
+                             testSessionsPlaceholder = new TestSessionsPlaceholder();
+                             stackLayout.Children.Add(testSessionsPlaceholder);
+
+                             stackLayout.Children.Add(new Status());
+
+                             absoluteLayout.Children.Add(new Popups());
+
+                             var onlineDb = new OnlineDb();
+
+                             foreach (var c in onlineDb.Children.ToArray())
+                             {
+                                 absoluteLayout.Children.Add(c);
+                             }
+
+                             AdaptLayoytToScreenWidth();
+
+                             return false;
+                         });
                 }
             };
         }
@@ -67,68 +89,13 @@ namespace Saplin.CPDT.UICore
 
         private void AdaptLayoytToScreenWidth()
         {
-            buttons.AdaptLayoytToScreenWidth(Width < narrowWidth);
+            var narrow = Width < narrowWidth;
 
-            if (Width < narrowWidth)
-            {
-                ViewModelContainer.NavigationViewModel.IsNarrowView = true;
+            advancedUI.AdaptLayoytToScreenWidth(narrow);
+            testInProgress.AdaptLayoytToScreenWidth(narrow);
+            testSessionsPlaceholder.AdaptLayoytToScreenWidth(narrow);
 
-                if (!testResultsNarrow || !alreadyShown)
-                {
-                    testResultsNarrow = true;
-
-                    var tr = new TestResultsNarrow()
-                    {
-                        BindingContext = ViewModelContainer.DriveTestViewModel,
-                        IsFooterVisible = true,
-                        ShowFooterIfEmptyItems = true
-                    };
-
-                    tr.SetBinding(GridRepeater.ItemsSourceProperty, nameof(ViewModelContainer.DriveTestViewModel.TestResults));
-
-                    testResultsPlaceholder.Children.Clear();
-                    testResultsPlaceholder.Children.Add(tr);
-                }
-                if (!testSessionsNarrow || !alreadyShown)
-                {
-                    testSessionsNarrow = true;
-
-                    var ts = new TestSessionsNarrow();
-
-                    testSessionsPlaceholder.Children.Clear();
-                    testSessionsPlaceholder.Children.Add(ts);
-                }
-            }
-            else if (Width >= narrowWidth)
-            {
-                ViewModelContainer.NavigationViewModel.IsNarrowView = false;
-
-                if (testResultsNarrow || !alreadyShown)
-                {
-                    testResultsNarrow = false;
-
-                    var tr = new TestResults()
-                    {
-                        BindingContext = ViewModelContainer.DriveTestViewModel,
-                        IsFooterVisible = true,
-                        ShowFooterIfEmptyItems = true
-                    };
-
-                    tr.SetBinding(GridRepeater.ItemsSourceProperty, nameof(ViewModelContainer.DriveTestViewModel.TestResults));
-
-                    testResultsPlaceholder.Children.Clear();
-                    testResultsPlaceholder.Children.Add(tr);
-                }
-                if (testSessionsNarrow || !alreadyShown)
-                {
-                    testSessionsNarrow = false;
-
-                    var ts = new TestSessions();
-
-                    testSessionsPlaceholder.Children.Clear();
-                    testSessionsPlaceholder.Children.Add(ts);
-                }
-            }
+            ViewModelContainer.NavigationViewModel.IsNarrowView = narrow;
         }
 
         public void OnQuit(Object sender, EventArgs e)
@@ -138,8 +105,8 @@ namespace Saplin.CPDT.UICore
 
         public void CloseAplication()
         {
-            quitButton.IsVisible = false;
-            quititingButton.IsVisible = true;
+            title.QuitButton.IsVisible = false;
+            title.QuitingButton.IsVisible = true;
             ViewModelContainer.DriveTestViewModel.BreakTest.Execute(null);
             AnimationBase.DisposeAllAnimations(); // dispose off all animation controls in order to avoid unhandled exception on app close in WPF (if any animation is running on close) 
             if (ViewModelContainer.DriveTestViewModel.TestStarted)

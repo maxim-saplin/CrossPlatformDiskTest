@@ -5,20 +5,11 @@ namespace Saplin.CPDT.UICore.Animations
 {
     public class DriveSelectionAnimation : AnimationBase
     {
-        //private double previousHeight = -1;
-
         #pragma warning disable CS4014
         protected override async Task Animate()
         {
             if (Trigger) // IsVisible
             {
-                //if (previousHeight == -1) return;
-
-                //HeightRequestTo(previousHeight, true, 350);
-                //await FadeTo(1.0, 350);
-
-                //previousHeight = -1;
-
                 target.IsVisible = true;
                 await FadeTo(1.0, 150);
                 await TranslateTo(0, 0, 200);

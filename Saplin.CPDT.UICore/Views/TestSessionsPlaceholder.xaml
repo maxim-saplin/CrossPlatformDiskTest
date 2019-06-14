@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Saplin.CPDT.UICore.TestSessionsPlaceholder" 
+             xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" 
+             xmlns:local="clr-namespace:Saplin.CPDT.UICore" 
+             xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" 
+             IsVisible="True" Margin="-10, 0, -10, 0" Padding="10, 0, 10, 0"
+             x:Name="testSessionsPlaceholder">
+    <local:TestSessionsNarrow/>
+</StackLayout>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Saplin.CPDT.UICore.Title" xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" xmlns:local="clr-namespace:Saplin.CPDT.UICore" xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" Orientation="Horizontal" Padding="0,0,0,0" HorizontalOptions="FillAndExpand"
+             IsVisible="{Binding Source={Static vm:ViewModelContainer.NavigationViewModel}, IsTitleVisible}" >
+    <Label x:Name="cpdt" Text="Cross Platform Disk Test" HorizontalOptions="Start" VerticalOptions="Start" Style="{x:StaticResource Key=AccentedLabel}" LineBreakMode="TailTruncation" />
+    <Label x:Name="bitSystem" HorizontalOptions="Start" VerticalOptions="Start" Style="{x:StaticResource Key=SmallLabel}" LineBreakMode="TailTruncation" />
+    <ctrl:ExtendedLabel x:Name="quitButton" ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=Quit}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" VerticalOptions="Start" Style="{x:StaticResource Key=AccentedLabel}" ChangeCursorOnMouseHover="True" Clicked="OnQuit">
+        <ctrl:ExtendedLabel.IsVisible>
+            <OnPlatform x:TypeArguments="x:Boolean">
+                <On Platform="Android" Value="False" />
+                <On Platform="macOS, WPF" Value="True" />
+            </OnPlatform>
+        </ctrl:ExtendedLabel.IsVisible>
+    </ctrl:ExtendedLabel>
+    <ctrl:ExtendedLabel x:Name="quitingButton" IsVisible="false" Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=Quiting}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" VerticalOptions="Start" />
+</StackLayout>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Saplin.CPDT.UICore.TestInProgress" 
+             xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" 
+             xmlns:local="clr-namespace:Saplin.CPDT.UICore" 
+             xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" 
+             xmlns:anim="clr-namespace:Saplin.CPDT.UICore.Animations" 
+             Orientation="Vertical" 
+             IsVisible="False" 
+             HorizontalOptions="FillAndExpand" 
+             Margin="-10, 0, -10, 0" 
+             Padding="6, 0, 6, 0"
+             x:Name="testInProgress">
+    <anim:VisibilityFadeAnimation x:Name="testInProgressAnimation" Target="{x:Reference testInProgress}" Trigger="{Binding TestStarted}" />
+    <StackLayout Orientation="Horizontal" IsVisible="{Binding TestStarted}" Style="{StaticResource testRunningHeader}" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="10, 9, 10, 9">
+        <Label Text="{Binding SelectedDrive}" HorizontalOptions="Start" VerticalOptions="Center" LineBreakMode="MiddleTruncation" />
+        <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm}'}" Style="{x:StaticResource Key=AccentedSuperSmallLabel}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+        <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=BreakTest}" ChangeCursorOnMouseHover="true" Command="{Binding BreakTest}" HorizontalOptions="End" VerticalOptions="Center" />
+    </StackLayout>
+    <Label Text="{Binding FileName}" LineBreakMode="MiddleTruncation" Style="{x:StaticResource Key=SmallLabel}" />
+    <Label Text="{Binding Options}" Style="{x:StaticResource Key=SmallLabel}" />
+    <StackLayout x:Name="testResultsPlaceholder">
+       <local:TestResultsNarrow ItemsSource="{Binding TestResults}" ShowFooterIfEmptyItems="True" IsFooterVisible="{Binding ShowTestProgress}" />
+    </StackLayout>
+</StackLayout>

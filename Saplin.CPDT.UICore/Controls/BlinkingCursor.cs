@@ -49,7 +49,6 @@ namespace Saplin.CPDT.UICore.Controls
 
         private const string cursor = "_";
         private const string prefix = "\\> ";
-        private const string empty = "";
         private const int refreshPeriodMs = 100;
         private const int blinkPeriod = 3;
         private const int keyPeriod = 9;
@@ -59,8 +58,10 @@ namespace Saplin.CPDT.UICore.Controls
         private static volatile int keyBlinkCounter = -1;
 
         private static bool timerStarted = false;
-        private static string setText = "";
-        private static string setTextWithCursor = cursor;
+        private static string textWithPrefixWithoutCursor = "";
+        private static string textWithPrefixWithCursor = "";
+        private static string textWithoutPrefixWithoutCursor = "";
+        private static string textWithoutPrefixWithCursor = "";
 
         private static List<BlinkingCursor> controls = new List<BlinkingCursor>();
 
@@ -77,16 +78,19 @@ namespace Saplin.CPDT.UICore.Controls
         public BlinkingCursor()
         {
             Text = "           "; // workaround for not growing label
+            ShowPrefix = true;
         }
 
         private static void SetText(string text)
         {
-            setText = prefix + text;
-            setTextWithCursor = prefix + text + cursor;
+            textWithPrefixWithoutCursor = prefix + text;
+            textWithPrefixWithCursor = prefix + text + cursor;
+            textWithoutPrefixWithoutCursor = text;
+            textWithoutPrefixWithCursor = text + cursor;
 
-            foreach(var c in controls)
+            foreach (var c in controls)
             {
-                c.Text = setText;
+                c.Text = c.ShowPrefix ? textWithPrefixWithoutCursor : textWithoutPrefixWithoutCursor;
             }
         }
 
@@ -94,7 +98,7 @@ namespace Saplin.CPDT.UICore.Controls
         {
             foreach (var c in controls)
             {
-                c.Text = setTextWithCursor;
+                c.Text = c.ShowPrefix ? textWithPrefixWithCursor : textWithoutPrefixWithCursor;
             }
         }
 
@@ -102,7 +106,7 @@ namespace Saplin.CPDT.UICore.Controls
         {
             foreach (var c in controls)
             {
-                c.Text = setText;
+                c.Text = c.ShowPrefix ? textWithPrefixWithoutCursor : textWithoutPrefixWithoutCursor;
             }
         }
 
@@ -132,7 +136,7 @@ namespace Saplin.CPDT.UICore.Controls
                                 {
                                     if (blinkCounter % blinkPeriod == 0)
                                     {
-                                        if (control.Text == setTextWithCursor) ShowTextWithoutCursor(); else ShowTextWithCursor();
+                                        if (control.Text == textWithPrefixWithCursor || control.Text == textWithoutPrefixWithCursor) ShowTextWithoutCursor(); else ShowTextWithCursor();
 //#if DEBUG
 //                                        System.Diagnostics.Debug.WriteLine("BLINK control.Text: " + control.Text);
 //#endif
@@ -163,7 +167,7 @@ namespace Saplin.CPDT.UICore.Controls
 
                                     if (blinkCounter % 3 == 0)
                                     {
-                                        if (control.Text == setTextWithCursor) ShowTextWithoutCursor(); else ShowTextWithCursor();
+                                        if (control.Text == textWithPrefixWithCursor || control.Text == textWithoutPrefixWithCursor) ShowTextWithoutCursor(); else ShowTextWithCursor();
 //#if DEBUG
 //                                        System.Diagnostics.Debug.WriteLine("SETKEY BLINK control.Text: " + control.Text);
 //#endif
@@ -197,5 +201,7 @@ namespace Saplin.CPDT.UICore.Controls
                 blinkCursor = value;
             }
         }
+
+        public bool ShowPrefix { get; set; }
     }
 }

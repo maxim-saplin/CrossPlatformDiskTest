@@ -37,6 +37,8 @@
             }
         }
 
+        //public int Count { get {return testSessions == null ? 0 : testSessions.Count; } }
+
         public bool HasItems
         {
             get; private set;

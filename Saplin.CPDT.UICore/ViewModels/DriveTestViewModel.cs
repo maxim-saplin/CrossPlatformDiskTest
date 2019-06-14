@@ -79,12 +79,14 @@ namespace Saplin.CPDT.UICore.ViewModels
 
             try
             {
+                availbleDrivesCount = 0;
+                var i = 0;
+
                 if (Device.RuntimePlatform == Device.Android)
                 {
 
                     androidDrives = DependencyService.Get<IAndroidDrives>()?.GetDrives();
 
-                    var i = 0;
                     string prevDrive = "";
 
                     const string d1 = "/data/user";
@@ -93,6 +95,9 @@ namespace Saplin.CPDT.UICore.ViewModels
                     foreach (var ad in androidDrives)
                     {
                         setAvailableAndIndex(ad, i);
+
+                        if (ad.AvailableForTest) availbleDrivesCount++;
+
                         i++;
 
                         if ( (prevDrive.Contains(d1) && ad.Name.Contains(d2)) || (prevDrive.Contains(d2) && ad.Name.Contains(d1))) ad.ShowDiveIsSameMessage = true;
@@ -103,8 +108,6 @@ namespace Saplin.CPDT.UICore.ViewModels
                 else
                 {
                     var drives = new List<DriveDetailed>();
-
-                    var i = 0;
 
                     foreach (var d in RamDiskUtil.GetEligibleDrives())
                     {
@@ -127,11 +130,14 @@ namespace Saplin.CPDT.UICore.ViewModels
                         dd.TotalBytes = size;
 
                         setAvailableAndIndex(dd, i);
+
+                        if (dd.AvailableForTest) availbleDrivesCount++;
+
                         i++;
 
                         drives.Add(dd);
 
-                        this.drives = drives;
+                        this.posixDrives = drives;
                     }
                 }
             }
@@ -148,7 +154,8 @@ namespace Saplin.CPDT.UICore.ViewModels
         }
 
         private IEnumerable<AndroidDrive> androidDrives = null;
-        private IEnumerable<DriveDetailed> drives = null;
+        private IEnumerable<DriveDetailed> posixDrives = null;
+        private int availbleDrivesCount = 0;
 
         public IEnumerable<DriveDetailed> Drives
         {
@@ -162,12 +169,14 @@ namespace Saplin.CPDT.UICore.ViewModels
                 }
                 else
                 {
-                    if (drives == null) InitDrives();
+                    if (posixDrives == null) InitDrives();
 
-                    return drives;
+                    return posixDrives;
                 }
             }
         }
+
+        public int AvailableDrivesCount { get { return availbleDrivesCount; } }
 
         private string statusMessage;
 
@@ -366,7 +375,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                  androidCachePurgeFile = Path.Combine(androidDrives.First<AndroidDrive>().AppFolderPath, "CPDT_CachePurging.dat");
                              }
                              else {
-                                 var dd = drives.Where(d => d.Name == driveNameToUse).First();
+                                 var dd = posixDrives.Where(d => d.Name == driveNameToUse).First();
                                  freeSpace = dd.BytesFree;
                                  totalSpace = dd.TotalBytes;
                              }

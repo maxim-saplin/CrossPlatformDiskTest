@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ctrl:StackRepeater xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Saplin.CPDT.UICore" xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" xmlns:anim="clr-namespace:Saplin.CPDT.UICore.Animations" x:Class="Saplin.CPDT.UICore.TestSessionsNarrow" 
                     BindingContext="{x:Static vm:ViewModelContainer.TestSessionsViewModel}" 
                     ItemsSource="{Binding TestSessions}" 
@@ -41,7 +41,7 @@
                                     <ctrl:ExtendedLabel.IsVisible>
                                                 <OnPlatform x:TypeArguments="BindingBase">
                                                     <On Platform="Android" Value="{Binding Selected}"/>
-                                                    <On Platform="macOS, WPF" Value="{Binding Selected}" />
+                                                    <On Platform="macOS, WPF" Value="{Binding HideShare}" />
                                                 </OnPlatform>
                                             </ctrl:ExtendedLabel.IsVisible>
                                     </ctrl:ExtendedLabel>

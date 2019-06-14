@@ -19,6 +19,22 @@ namespace Saplin.CPDT.UICore.ViewModels
             ViewModelContainer.OptionsViewModel.PropertyChanged += isVisisbleChanged;
             ViewModelContainer.AboutViewModel.PropertyChanged += isVisisbleChanged;
             ViewModelContainer.ErrorViewModel.PropertyChanged += isVisisbleChanged;
+
+            ViewModelContainer.DriveTestViewModel.PropertyChanged += (s, e) =>
+            {
+                if (e.PropertyName == nameof(DriveTestViewModel.TestStarted))
+                {
+                    RaisePropertyChanged(nameof(IsAdvancedUIVisible));
+                }
+            };
+
+            ViewModelContainer.TestSessionsViewModel.PropertyChanged += (s, e) =>
+            {
+                if (e.PropertyName == nameof(TestSessionsViewModel.HasItems))
+                {
+                    RaisePropertyChanged(nameof(IsStatusVisible));
+                }
+            };
         }
 
         private bool isAnyPopupVisible = false;
@@ -39,6 +55,9 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
+        private const string True = "true";
+        private const string False = "false";
+
         private bool isNarrowView = false;
 
         public bool IsNarrowView
@@ -54,6 +73,50 @@ namespace Saplin.CPDT.UICore.ViewModels
                     isNarrowView = value;
                     RaisePropertyChanged();
                 }
+            }
+        }
+
+        public bool IsSimpleUI
+        {
+            get
+            {
+                return false;
+
+                if (ViewModelContainer.DriveTestViewModel.AvailableDrivesCount < 1) return false;
+
+                if (!Application.Current.Properties.ContainsKey(nameof(IsSimpleUI))) Application.Current.Properties[nameof(IsSimpleUI)] = True;
+
+                return Application.Current.Properties[nameof(IsSimpleUI)] as string == True;
+            }
+        }
+
+        public bool IsAdvancedUIVisible
+        {
+            get
+            {
+                if (!IsSimpleUI && !ViewModelContainer.DriveTestViewModel.TestStarted) return true;
+
+                return false;
+            }
+        }
+
+        public bool IsTitleVisible
+        {
+            get
+            {
+                if (Device.RuntimePlatform == Device.Android && IsSimpleUI) return false;
+
+                return true;
+            }
+        }
+
+        public bool IsStatusVisible
+        {
+            get
+            {
+                if (IsSimpleUI && !ViewModelContainer.TestSessionsViewModel.HasItems) return false;
+
+                return true;
             }
         }
 

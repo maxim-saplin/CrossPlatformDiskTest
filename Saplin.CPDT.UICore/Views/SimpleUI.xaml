@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Saplin.CPDT.UICore.SimpleUI" xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" xmlns:local="clr-namespace:Saplin.CPDT.UICore" xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" 
+             IsVisible="{Binding Source={Static vm:ViewModelContainer.NavigationViewModel}, IsSimpleUI}"
+             Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+    <Label Text="Start a" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Button Text="[T]est" Style="{x:StaticResource Key=ButtonStyle}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="90" HeightRequest="30" />
+    <Label Text="or see" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Button Text="[M]ore" Style="{x:StaticResource Key=ButtonStyle}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="90" HeightRequest="30" />
+    <ctrl:BlinkingCursor BlinkCursor="True" ShowPrefix="False" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="30" />
+</StackLayout>
