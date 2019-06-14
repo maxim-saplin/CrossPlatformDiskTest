@@ -19,6 +19,11 @@ namespace Saplin.CPDT.UICore
         AdvancedUI advancedUI;
         TestInProgress testInProgress;
         TestSessionsPlaceholder testSessionsPlaceholder;
+        Status status;
+        Popups popups;
+        OnlineDb onlineDb;
+
+        private Task task;
 
         public MainPage()
         {
@@ -39,25 +44,21 @@ namespace Saplin.CPDT.UICore
                          {
                              title = new Title();
                              title.QuitClicked += OnQuit;
-                             stackLayout.Children.Add(title);
-
                              simpleUI = new SimpleUI();
-                             stackLayout.Children.Add(simpleUI);
-
                              advancedUI = new AdvancedUI();
-                             stackLayout.Children.Add(advancedUI);
-
                              testInProgress = new TestInProgress();
-                             stackLayout.Children.Add(testInProgress);
-
                              testSessionsPlaceholder = new TestSessionsPlaceholder();
+                             status = new Status();
+                             popups = new Popups();
+                             onlineDb = new OnlineDb();
+
+                             stackLayout.Children.Add(title);
+                             stackLayout.Children.Add(simpleUI);
+                             stackLayout.Children.Add(advancedUI);
+                             stackLayout.Children.Add(testInProgress);
                              stackLayout.Children.Add(testSessionsPlaceholder);
-
-                             stackLayout.Children.Add(new Status());
-
-                             absoluteLayout.Children.Add(new Popups());
-
-                             var onlineDb = new OnlineDb();
+                             stackLayout.Children.Add(status);
+                             absoluteLayout.Children.Add(popups);
 
                              foreach (var c in onlineDb.Children.ToArray())
                              {
