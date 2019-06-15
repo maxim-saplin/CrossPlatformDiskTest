@@ -20,10 +20,6 @@
     <DebugType></DebugType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.1.0.483098-pre1" />
-    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.3" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Remove="TestResult.xaml" />
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +78,7 @@
       <HintPath Condition="'$(Configuration)'=='Release'">..\References\Saplin.StorageSpeedMeter.dll</HintPath>
     </Reference>
   </ItemGroup>
+
   <ItemGroup>
     <Compile Update="Views\Error.xaml.cs">
       <DependentUpon>Error.xaml</DependentUpon>
@@ -138,5 +135,9 @@
     <None Update="WhiteTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.483098-pre1" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.3" />
   </ItemGroup>
 </Project>

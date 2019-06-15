@@ -5,6 +5,7 @@
     <Label Text="Start a" VerticalOptions="Center" HorizontalOptions="Center" />
     <Button Text="[T]est" Style="{x:StaticResource Key=ButtonStyle}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="90" HeightRequest="30" />
     <Label Text="or see" VerticalOptions="Center" HorizontalOptions="Center" />
-    <Button Text="[M]ore" Style="{x:StaticResource Key=ButtonStyle}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="90" HeightRequest="30" />
+    <Button Text="[M]ore" Style="{x:StaticResource Key=ButtonStyle}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="90" HeightRequest="30"
+            Command="{Binding Source={Static vm:ViewModelContainer.NavigationViewModel}, SwitchToAdvancedUI, Mode=OneTime}" CommandParameter="True"/>
     <ctrl:BlinkingCursor BlinkCursor="True" ShowPrefix="False" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="30" />
 </StackLayout>

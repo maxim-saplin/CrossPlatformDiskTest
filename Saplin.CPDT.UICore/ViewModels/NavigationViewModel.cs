@@ -25,6 +25,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                 if (e.PropertyName == nameof(DriveTestViewModel.TestStarted))
                 {
                     RaisePropertyChanged(nameof(IsAdvancedUIVisible));
+                    RaisePropertyChanged(nameof(IsStatusVisible));
                 }
             };
 
@@ -80,13 +81,21 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             get
             {
-                return false;
-
                 if (ViewModelContainer.DriveTestViewModel.AvailableDrivesCount < 1) return false;
 
                 if (!Application.Current.Properties.ContainsKey(nameof(IsSimpleUI))) Application.Current.Properties[nameof(IsSimpleUI)] = True;
 
                 return Application.Current.Properties[nameof(IsSimpleUI)] as string == True;
+            }
+            set
+            {
+                if (value) Application.Current.Properties[nameof(IsSimpleUI)] = True;
+                else Application.Current.Properties[nameof(IsSimpleUI)] = False;
+
+                RaisePropertyChanged(nameof(IsSimpleUI));
+                RaisePropertyChanged(nameof(IsAdvancedUIVisible));
+                RaisePropertyChanged(nameof(IsTitleVisible));
+                RaisePropertyChanged(nameof(IsStatusVisible));
             }
         }
 
@@ -114,6 +123,7 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             get
             {
+                if (ViewModelContainer.DriveTestViewModel.TestStarted) return false;
                 if (IsSimpleUI && !ViewModelContainer.TestSessionsViewModel.HasItems) return false;
 
                 return true;
@@ -157,6 +167,29 @@ namespace Saplin.CPDT.UICore.ViewModels
             get
             {
                 return refresh;
+            }
+        }
+
+        ICommand switchToAdvancedUI;
+
+        public ICommand SwitchToAdvancedUI
+        {
+            get
+            {
+                if (switchToAdvancedUI == null)
+                {
+                    switchToAdvancedUI = new Command((param) =>
+                    {
+                        bool aUI = false;
+
+                        if (param is string && bool.TryParse(param as string, out aUI))
+                        {
+                            if (aUI && IsSimpleUI) IsSimpleUI = false;
+                            else if (!aUI && !IsSimpleUI) IsSimpleUI = true;
+                        }
+                    });
+                }
+                return switchToAdvancedUI;
             }
         }
     }

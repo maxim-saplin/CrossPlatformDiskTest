@@ -5,6 +5,8 @@
     <AotAssemblies>true</AotAssemblies>
     <AndroidAotAdditionalArguments>no-write-symbols,nodebug</AndroidAotAdditionalArguments>
 
+ NOTE: Enabling LLVM optimization broke app in x86 on Emulator and x86 Nokia N1
+
 To use partial AOT (compromise between startup time and bloatyed APK) Xamarin.Android.Common.targets MSBuild script must be edited 
 in order to remove SDK assembnlies from AOT and do AOT only on Xamarin and user assemblies
 
@@ -21,3 +23,8 @@ in order to remove SDK assembnlies from AOT and do AOT only on Xamarin and user 
     ResolvedAssemblies="@(_ResolvedUserAssemblies)"
 
  macOS location: /Library/Frameworks/Xamarin.Android.framework/Versions/9.3.0-22/lib/xamarin.android/xbuild/Xamarin/Android/Xamarin.Android.Common.targets
+
+ 2.2.0:
+ Before partial AoT: 16.6MB, 4.2s
+ After partial AoT: 18.6MB, 3.2
+ Full AOT: 22.8MB

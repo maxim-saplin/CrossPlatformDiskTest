@@ -44,7 +44,6 @@ namespace Saplin.CPDT.UICore
                     status = new Status();
                 }
 
-
                 ApplyTheme();
             });
 
@@ -86,6 +85,8 @@ namespace Saplin.CPDT.UICore
                                     popups = new Popups();
                                     onlineDb = new OnlineDb();
 
+                                    AdaptLayoytToScreenWidth();
+
                                     Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
                                     {
                                         stackLayout.Children.Add(advancedUI);
@@ -108,6 +109,8 @@ namespace Saplin.CPDT.UICore
                                     testSessionsPlaceholder = new TestSessionsPlaceholder();
                                     popups = new Popups();
                                     onlineDb = new OnlineDb();
+
+                                    AdaptLayoytToScreenWidth();
 
                                     Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
                                     {

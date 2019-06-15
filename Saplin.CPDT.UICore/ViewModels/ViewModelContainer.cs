@@ -59,5 +59,17 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             get { return ViewModelContainer.GetSingletonInstance<L11n>(); }
         }
+
+        public static void Init()
+        {
+            object tmp = L11n;
+            tmp = ResultsDbViewModel;
+            tmp = ErrorViewModel;
+            tmp = AboutViewModel;
+            tmp = NavigationViewModel;
+            tmp = OptionsViewModel;
+            tmp = TestSessionsViewModel;
+            tmp = DriveTestViewModel;
+        }
     }
 }

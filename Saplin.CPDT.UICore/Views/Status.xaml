@@ -1,12 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Saplin.CPDT.UICore.Status" xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" xmlns:local="clr-namespace:Saplin.CPDT.UICore" xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" Orientation="Vertical" IsVisible="{Binding Source={Static vm:ViewModelContainer.NavigationViewModel}, IsStatusVisible}">
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Saplin.CPDT.UICore.Status" 
+             xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" 
+             xmlns:local="clr-namespace:Saplin.CPDT.UICore" 
+             xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" 
+             Orientation="Vertical" 
+             IsVisible="{Binding Source={Static vm:ViewModelContainer.NavigationViewModel}, IsStatusVisible}">
     <StackLayout Orientation="Horizontal" IsVisible="{Binding TestStarted, Converter={StaticResource BoolNot}}">
         <Label Text="\&gt; " IsVisible="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, NotAvailable}" VerticalTextAlignment="Start" VerticalOptions="Start" LineBreakMode="NoWrap" />
         <Label Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=DbNotAvailable}" IsVisible="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, NotAvailable}" />
     </StackLayout>
-    <StackLayout Orientation="Horizontal" IsVisible="{Binding StatusMessageVisible}">
-        <Label Text="\&gt; " IsVisible="{Binding StatusMessage, Converter={StaticResource StringNotEmpty}}" VerticalTextAlignment="Start" VerticalOptions="Start" LineBreakMode="NoWrap" />
-        <Label Text="{Binding StatusMessage}" LineBreakMode="WordWrap" />
+    <StackLayout Orientation="Horizontal" IsVisible="{Binding Source={Static vm:ViewModelContainer.DriveTestViewModel}, StatusMessageVisible}">
+        <Label Text="\&gt; " IsVisible="{Binding Source={Static vm:ViewModelContainer.DriveTestViewModel}, StatusMessage, Converter={StaticResource StringNotEmpty}}" VerticalTextAlignment="Start" VerticalOptions="Start" LineBreakMode="NoWrap" />
+        <Label Text="{Binding Source={Static vm:ViewModelContainer.DriveTestViewModel}, StatusMessage}" LineBreakMode="WordWrap" />
     </StackLayout>
-    <ctrl:BlinkingCursor BlinkCursor="{Binding TestStarted, Converter={StaticResource BoolNot}}" />
+    <ctrl:BlinkingCursor BlinkCursor="{Binding Source={Static vm:ViewModelContainer.DriveTestViewModel}, TestStarted, Converter={StaticResource BoolNot}}" />
 </StackLayout>
