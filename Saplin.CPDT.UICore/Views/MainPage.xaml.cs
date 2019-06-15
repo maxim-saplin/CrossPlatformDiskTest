@@ -27,11 +27,30 @@ namespace Saplin.CPDT.UICore
 
         public MainPage()
         {
-            ApplyTheme();
+            //ASYNC AND DEFFERED creation of controls for better start-up time
+
+            task = Task.Run(() =>
+            {
+                title = new Title();
+                title.QuitClicked += OnQuit;
+
+                if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
+                {
+                    simpleUI = new SimpleUI();
+                }
+                else
+                {
+                    advancedUI = new AdvancedUI();
+                    status = new Status();
+                }
+
+
+                ApplyTheme();
+            });
 
             InitializeComponent();
 
-            // CREATING CONTROLS HERE
+            // DISPLAYING CONTROLS HERE
             SizeChanged += (s, e) =>
             {
                 if (alreadyShown)
@@ -40,35 +59,77 @@ namespace Saplin.CPDT.UICore
                 {
                     alreadyShown = true;
 
-                    Device.StartTimer(TimeSpan.FromMilliseconds(10), () =>
-                         {
-                             title = new Title();
-                             title.QuitClicked += OnQuit;
-                             simpleUI = new SimpleUI();
-                             advancedUI = new AdvancedUI();
-                             testInProgress = new TestInProgress();
-                             testSessionsPlaceholder = new TestSessionsPlaceholder();
-                             status = new Status();
-                             popups = new Popups();
-                             onlineDb = new OnlineDb();
+                    task.Wait();
 
-                             stackLayout.Children.Add(title);
-                             stackLayout.Children.Add(simpleUI);
-                             stackLayout.Children.Add(advancedUI);
-                             stackLayout.Children.Add(testInProgress);
-                             stackLayout.Children.Add(testSessionsPlaceholder);
-                             stackLayout.Children.Add(status);
-                             absoluteLayout.Children.Add(popups);
+                    AdaptLayoytToScreenWidth();
 
-                             foreach (var c in onlineDb.Children.ToArray())
-                             {
-                                 absoluteLayout.Children.Add(c);
-                             }
+                    stackLayout.Children.Add(title);
 
-                             AdaptLayoytToScreenWidth();
+                    if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
+                    {
+                        stackLayout.Children.Add(simpleUI);
+                    }
+                    else
+                    {
+                        stackLayout.Children.Add(advancedUI);
+                        stackLayout.Children.Add(status);
+                    }
 
-                             return false;
-                         });
+                    Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
+                            {
+                                if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
+                                {
+                                    advancedUI = new AdvancedUI();
+                                    testInProgress = new TestInProgress();
+                                    testSessionsPlaceholder = new TestSessionsPlaceholder();
+                                    status = new Status();
+                                    popups = new Popups();
+                                    onlineDb = new OnlineDb();
+
+                                    Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
+                                    {
+                                        stackLayout.Children.Add(advancedUI);
+                                        stackLayout.Children.Add(testInProgress);
+                                        stackLayout.Children.Add(testSessionsPlaceholder);
+                                        stackLayout.Children.Add(status);
+                                        absoluteLayout.Children.Add(popups);
+
+                                        foreach (var c in onlineDb.Children.ToArray())
+                                        {
+                                            absoluteLayout.Children.Add(c);
+                                        }
+                                        return false;
+
+                                    });
+                                }
+                                else
+                                {
+                                    testInProgress = new TestInProgress();
+                                    testSessionsPlaceholder = new TestSessionsPlaceholder();
+                                    popups = new Popups();
+                                    onlineDb = new OnlineDb();
+
+                                    Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
+                                    {
+
+                                        stackLayout.Children.Remove(status);
+                                        stackLayout.Children.Add(testInProgress);
+                                        stackLayout.Children.Add(testSessionsPlaceholder);
+                                        stackLayout.Children.Add(status);
+                                        absoluteLayout.Children.Add(popups);
+
+                                        foreach (var c in onlineDb.Children.ToArray())
+                                        {
+                                            absoluteLayout.Children.Add(c);
+                                        }
+                                        return false;
+
+                                    });
+                                }
+                                return false;
+                            }
+                        );
+
                 }
             };
         }
@@ -92,9 +153,9 @@ namespace Saplin.CPDT.UICore
         {
             var narrow = Width < narrowWidth;
 
-            advancedUI.AdaptLayoytToScreenWidth(narrow);
-            testInProgress.AdaptLayoytToScreenWidth(narrow);
-            testSessionsPlaceholder.AdaptLayoytToScreenWidth(narrow);
+            advancedUI?.AdaptLayoytToScreenWidth(narrow);
+            testInProgress?.AdaptLayoytToScreenWidth(narrow);
+            testSessionsPlaceholder?.AdaptLayoytToScreenWidth(narrow);
 
             ViewModelContainer.NavigationViewModel.IsNarrowView = narrow;
         }

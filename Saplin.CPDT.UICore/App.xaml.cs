@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Saplin.CPDT.UICore.ViewModels;
 using Xamarin.Forms;
@@ -10,7 +11,7 @@ namespace Saplin.CPDT.UICore
 	{
         Page page = null;
 
-        private Task task;
+        private Task task, task2;
 
         public App ()
 		{
@@ -20,6 +21,29 @@ namespace Saplin.CPDT.UICore
                 InitializeComponent();
                 page = new MainPage();
             });
+
+            //task2 = Task.Run(() =>
+            //{
+            //page = new MainPage();
+            //});
+
+            //task.Wait();
+            //task2.Wait();
+            //MainPage = page;
+
+            //var sw = new Stopwatch();
+            //sw.Start();
+            //task = Task.Run(() =>
+            //{
+            //InitializeComponent();
+            //System.Diagnostics.Trace.WriteLine("TRC:Init" + sw.ElapsedMilliseconds);
+            //});
+
+            //page = new MainPage();
+            //System.Diagnostics.Trace.WriteLine("TRC:NewPg" + sw.ElapsedMilliseconds);
+            //MainPage = page;
+            //System.Diagnostics.Trace.WriteLine("TRC:SetPg" + sw.ElapsedMilliseconds);
+            //sw.Stop();
         }
 
         public bool WhiteTheme

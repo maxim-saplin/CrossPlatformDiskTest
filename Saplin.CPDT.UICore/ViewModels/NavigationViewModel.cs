@@ -58,7 +58,7 @@ namespace Saplin.CPDT.UICore.ViewModels
         private const string True = "true";
         private const string False = "false";
 
-        private bool isNarrowView = false;
+        private bool isNarrowView = true;
 
         public bool IsNarrowView
         {
