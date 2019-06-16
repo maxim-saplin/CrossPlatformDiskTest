@@ -105,6 +105,9 @@ namespace Saplin.CPDT.UICore.ViewModels
                     RaisePropertyChanged(nameof(IsStatusVisible));
 
                     Application.Current.SavePropertiesAsync();
+
+                    if (!value) ViewModelContainer.ResultsDbViewModel.SendPageHit("switchToAdvancedUI");
+                    else ViewModelContainer.ResultsDbViewModel.SendPageHit("switchToSimpleUI");
                 }
             }
         }
@@ -164,7 +167,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
-        private ICommand showOptions = new Command(() => { ViewModelContainer.OptionsViewModel.DoShow(null); });
+        private ICommand showOptions = new Command(() => { ViewModelContainer.OptionsViewModel.DoShow(null); ViewModelContainer.ResultsDbViewModel.SendPageHit("showOptions"); });
 
         public ICommand ShowOptions
         {
@@ -174,7 +177,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
-        private ICommand showAbout = new Command(() => { ViewModelContainer.AboutViewModel.DoShow(null); });
+        private ICommand showAbout = new Command(() => { ViewModelContainer.AboutViewModel.DoShow(null); ViewModelContainer.ResultsDbViewModel.SendPageHit("showAbout"); });
 
         public ICommand ShowAbout
         {
@@ -184,7 +187,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
-        private ICommand showDb = new Command(() => { ViewModelContainer.ResultsDbViewModel.DoShow(null); }, () =>  ViewModelContainer.ResultsDbViewModel.IsEnabled);
+        private ICommand showDb = new Command(() => { ViewModelContainer.ResultsDbViewModel.DoShow(null); ViewModelContainer.ResultsDbViewModel.SendPageHit("showDb");}, () =>  ViewModelContainer.ResultsDbViewModel.IsEnabled);
 
         public ICommand ShowDb
         {
@@ -218,7 +221,10 @@ namespace Saplin.CPDT.UICore.ViewModels
 
                         if (param is string && bool.TryParse(param as string, out aUI))
                         {
-                            if (aUI && IsSimpleUI) IsSimpleUI = false;
+                            if (aUI && IsSimpleUI)
+                            {
+                                IsSimpleUI = false;                                
+                            }
                             else if (!aUI && !IsSimpleUI) IsSimpleUI = true;
                         }
                     });

@@ -58,6 +58,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                         var session = param as TestSession;
                         PreLoadComparison(session);
                         IsVisible = true;
+                        SendPageHit("compareResults");
                     });
 
                 return compare;
@@ -314,6 +315,13 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
 
             return true;
+        }
+
+        public void SendPageHit(string param)
+        {
+            if (!navigatedNotSuccesfully)
+                webView?.EvaluateJavaScriptAsync(
+                    "gtag('config', 'UA-17809502-2', {page_location:location.toString()+'" + "&"+param+"="+ DateTime.UtcNow.ToString(d_param_format) +"'});");
         }
     }
 }

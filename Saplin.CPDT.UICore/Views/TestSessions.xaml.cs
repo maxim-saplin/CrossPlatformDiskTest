@@ -27,7 +27,11 @@ namespace Saplin.CPDT.UICore
                 {
                     var detail = masterDetail.Children[1] as View;
 
-                    if (detail != null) share.Share(detail, !ViewModelContainer.OptionsViewModel.WhiteThemeBool, ViewModelContainer.L11n.ShareTitle);
+                    if (detail != null)
+                    {
+                        share.Share(detail, !ViewModelContainer.OptionsViewModel.WhiteThemeBool, ViewModelContainer.L11n.ShareTitle);
+                        ViewModelContainer.ResultsDbViewModel.SendPageHit("share");
+                    }
                 }
             }
         };

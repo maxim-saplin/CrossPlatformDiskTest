@@ -343,12 +343,18 @@ namespace Saplin.CPDT.UICore.ViewModels
 
         ICommand quickTestDrive;
 
+        private bool quickTest = false;
+
         public ICommand QuickTestDrive
         {
             get
             {
                 return quickTestDrive != null ? quickTestDrive :
-                    new Command(() => { if (!string.IsNullOrEmpty(firstAvailableDrive)) TestDrive.Execute(firstAvailableDrive); });
+                    new Command(() =>
+                    {
+                        quickTest = true;
+                        if (!string.IsNullOrEmpty(firstAvailableDrive)) TestDrive.Execute(firstAvailableDrive);   
+                    });
             }
         }
 
@@ -365,6 +371,10 @@ namespace Saplin.CPDT.UICore.ViewModels
 
                          {
                              if (testStarted) return;
+
+                             if (!quickTest) ViewModelContainer.ResultsDbViewModel.SendPageHit("test");
+                             else ViewModelContainer.ResultsDbViewModel.SendPageHit("quickTest");
+                             quickTest = false;
 
                              DependencyService.Get<IKeepScreenOn>()?.Enable();
                              TestStarted = true;
@@ -421,7 +431,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                 freeMem: freeMemService == null ? null : (Func<long>)(freeMemService.GetBytesFree),
                                 flusher: flushService == null ? null : 
                                     new WriteBufferFlusher(flushService.OpenFile, flushService.Flush, flushService.Close),
-                                mockFileStream: true
+                                mockFileStream: false
                             );
 
                              FileNameAndTime = testSuite.FilePath+", "+string.Format("{0:HH:mm:ss} {0:d.MM.yyyy}", TestStartedTime);
@@ -591,6 +601,8 @@ namespace Saplin.CPDT.UICore.ViewModels
                                 breakingTest = true;
 
                                 testSuite.Break();
+
+                                ViewModelContainer.ResultsDbViewModel.SendPageHit("breakTest");
                             }
                         });
 
