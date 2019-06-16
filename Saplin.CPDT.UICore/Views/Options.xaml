@@ -57,9 +57,9 @@
     <ctrl:ExtendedLabel x:Name="closeLabel" ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Close}" Grid.Row="0" Grid.Column="1" 
                         ChangeCursorOnMouseHover="True" Command="{Binding Source={Static vm:ViewModelContainer.OptionsViewModel}, Close}" 
                         VerticalOptions="Start" HorizontalOptions="Start" LineBreakMode="NoWrap" WidthRequest="130" />
-    <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="[?]" ChangeCursorOnMouseHover="True" 
+    <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="[?]" ChangeCursorOnMouseHover="True" IsVisible="false" 
                         Command="{Binding ShowAbout, Source={Static vm:ViewModelContainer.NavigationViewModel}}" Grid.Row="0" Grid.Column="0"
-                        VerticalOptions="Start" HorizontalOptions="Start" LineBreakMode="NoWrap"/>
+                        VerticalOptions="Start" HorizontalOptions="Start" LineBreakMode="NoWrap"/><!-- Bug when clicking -->
     
     <ctrl:ExtendedLabel Grid.Row="2" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, FileSizeOption}"
                         ctrl:KeyPress.ClickControl="{x:Reference Name=fileSizeOption}" VerticalOptions="End"/>
