@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -361,5 +361,20 @@ write</value>
   </data>
   <data name="About10" xml:space="preserve">
     <value>Each of the tests is accompanied by a graph. Sequential and memory copy tests show immediate throughputs (measure for a single block) plotted against blocks' positions. I.e. you can see how speed changes with the progression of the reads/writes toward end of test file. E.g. you might notice that sometimes storage shows lags at the begining of the operation (typical for Android). Random tests show histogram, where each individual's block throughput is placed into a specific bin/range, and the graph shows how read/write operations are distributed depedning on their speed. Long tails can be minimized, i.e. those thorghputs on the low and on the high side (ammounting to less than 3% of total measures each) will be combined into single bins on the left and on the right of the graph. If there're vertical lines with arrows on the sides of the histogram, this means that tails have been minimized (in some cases it's not needed) and the bins between those lines with arrows account for 94% of all meaures (min and max values in this case are adjuted to tails and do not show the absolute measured minimum and maximum values). The bin outlined with 2 arrows is the Mode -  the most frequent bin's throughput value (middle point of the bin range).</value>
+  </data>
+  <data name="SimpleUI_StartA" xml:space="preserve">
+    <value> Start a </value>
+  </data>
+  <data name="SimpleUI_Test" xml:space="preserve">
+    <value>[T]est</value>
+  </data>
+  <data name="SimpleUI_OrSee" xml:space="preserve">
+    <value> or see </value>
+  </data>
+  <data name="SimpleUI_More" xml:space="preserve">
+    <value>[M]ore</value>
+  </data>
+  <data name="SimpleUIOption" xml:space="preserve">
+    <value>[S]imple UI</value>
   </data>
 </root>

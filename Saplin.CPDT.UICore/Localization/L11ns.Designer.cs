@@ -526,5 +526,35 @@ namespace Saplin.CPDT.UICore.Localization {
                 return ResourceManager.GetString("About10", resourceCulture);
             }
         }
+        
+        public static string SimpleUI_StartA {
+            get {
+                return ResourceManager.GetString("SimpleUI_StartA", resourceCulture);
+            }
+        }
+        
+        public static string SimpleUI_Test {
+            get {
+                return ResourceManager.GetString("SimpleUI_Test", resourceCulture);
+            }
+        }
+        
+        public static string SimpleUI_OrSee {
+            get {
+                return ResourceManager.GetString("SimpleUI_OrSee", resourceCulture);
+            }
+        }
+        
+        public static string SimpleUI_More {
+            get {
+                return ResourceManager.GetString("SimpleUI_More", resourceCulture);
+            }
+        }
+        
+        public static string SimpleUIOption {
+            get {
+                return ResourceManager.GetString("SimpleUIOption", resourceCulture);
+            }
+        }
     }
 }

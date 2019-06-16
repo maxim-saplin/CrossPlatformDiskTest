@@ -46,10 +46,6 @@
                 <On Platform="Android" Value="IBMPlexMono-Medium.ttf#IBMPlexMono-Medium, 15" />
             </OnPlatform>
             <!-- LAYOUTS-->
-            <Style x:Key="mainLayout" TargetType="AbsoluteLayout" >
-                <Setter Property="BackgroundColor" Value="Black" />
-                <Setter Property="Padding" Value="0, 0, 0, 0" />
-            </Style>
             <Style x:Key="testRunningHeader" TargetType="StackLayout">
                 <Setter Property="BackgroundColor" Value="#111111" />
                 <Setter Property="Padding" Value="0, 8, 0, 8" />

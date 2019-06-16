@@ -50,6 +50,7 @@
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
         <RowDefinition Height="25"/>
     </Grid.RowDefinitions>
     
@@ -93,13 +94,20 @@
                           Items="{Binding Source={x:Static vm:ViewModelContainer.L11n}, OnOff}"
                           SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.OptionsViewModel}, WhiteTheme}"
                           x:Name="whiteThemeOption"/>
+    
+    <ctrl:ExtendedLabel Grid.Row="7" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, SimpleUIOption}"
+                        ctrl:KeyPress.ClickControl="{x:Reference Name=simpleUIOption}"/>
+    <ctrl:RollingSelector Grid.Row="7" Grid.Column="1" ChangeCursorOnMouseHover="True"  
+                          Items="{Binding Source={x:Static vm:ViewModelContainer.L11n}, OnOff}"
+                          SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.NavigationViewModel}, IsSimpleUI}"
+                          x:Name="simpleUIOption"/>
             
-    <ctrl:ExtendedLabel Grid.Row="7" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Language}" 
+    <ctrl:ExtendedLabel Grid.Row="8" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Language}" 
                         Command="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _NextLocale}"/>
-    <StackLayout Orientation="Horizontal" Grid.Row="7" Grid.Column="1" >
+    <StackLayout Orientation="Horizontal" Grid.Row="8" Grid.Column="1" >
         <ctrl:RollingSelector ChangeCursorOnMouseHover="True" SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _Locale}" Items="{x:StaticResource Key=LanguageKeys}" />
         <Image Source="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _LocaleIcon}"  WidthRequest="16" HeightRequest="16" VerticalOptions="End" HorizontalOptions="Start"/>
     </StackLayout>
 
-    <ctrl:BlinkingCursor Grid.Row="8" BlinkCursor="True"/>
+    <ctrl:BlinkingCursor Grid.Row="9" BlinkCursor="True"/>
 </Grid>

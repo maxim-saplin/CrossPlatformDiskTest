@@ -37,9 +37,11 @@ namespace Saplin.CPDT.UICore.Controls
         {
             selectedIndex = 0;
 
-            foreach(var kv in Items)
+            var selectedKey = !string.IsNullOrEmpty(SelectedItemKey) ? SelectedItemKey.ToLower() : string.Empty;
+
+            foreach (var kv in Items)
             {
-                if (kv.Key == SelectedItemKey) break;
+                if (kv.Key.ToLower() == selectedKey) break;
                 selectedIndex++;
             }
         }
@@ -50,13 +52,15 @@ namespace Saplin.CPDT.UICore.Controls
 
             if (newValue == null) control.count = 0; else control.count = (newValue as KeyValue[]).Length;
 
-            if (control.SelectedItemKey != null)
+            var selectedKey = !string.IsNullOrEmpty(control.SelectedItemKey) ? control.SelectedItemKey.ToLower() : string.Empty;
+
+            if (!string.IsNullOrEmpty(selectedKey))
             {
-                if (!((IEnumerable<KeyValue>)control.Items).Any(kv => kv.Key == control.SelectedItemKey as string))
+                if (!((IEnumerable<KeyValue>)control.Items).Any(kv => kv.Key.ToLower() == selectedKey as string))
                     throw new InvalidOperationException("Can't select key which is not presetn as key in Items collection");
 
                 control.Text = ((IEnumerable<KeyValue>)control.Items)
-                    .Where(kv => kv.Key == control.SelectedItemKey as string)
+                    .Where(kv => kv.Key.ToLower() == selectedKey)
                     .Select<KeyValue, string>(kv => kv.Value as string)
                     .Single();
 
@@ -113,17 +117,19 @@ namespace Saplin.CPDT.UICore.Controls
 
             if (control.Items == null) return;
 
+            var value = newValue is string ? (newValue as string).ToLower() : string.Empty;
+
             //TODO check unique keys
-            if (!((IEnumerable<KeyValue>)control.Items).Any(kv => kv.Key == newValue as string))
+            if (!((IEnumerable<KeyValue>)control.Items).Any(kv => kv.Key == value))
                 throw new InvalidOperationException("Can't select key which is not presetn as key in Items collection");
 
-            if (newValue == null)
+            if (string.IsNullOrEmpty(value))
             {
                 control.Text = "";
             }
 
             control.Text = ((IEnumerable<KeyValue>)control.Items)
-                .Where(kv => kv.Key == newValue as string)
+                .Where(kv => kv.Key == value as string)
                 .Select<KeyValue, string>(kv => kv.Value as string)
                 .Single();
 

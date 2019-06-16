@@ -31,20 +31,21 @@ namespace Saplin.CPDT.UICore
 
             task = Task.Run(() =>
             {
+                ApplyTheme();
+
                 title = new Title();
                 title.QuitClicked += OnQuit;
 
                 if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
                 {
                     simpleUI = new SimpleUI();
+                    simpleUI.AdjustToWidth(Width);
                 }
                 else
                 {
                     advancedUI = new AdvancedUI();
                     status = new Status();
                 }
-
-                ApplyTheme();
             });
 
             InitializeComponent();
@@ -66,7 +67,7 @@ namespace Saplin.CPDT.UICore
 
                     if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
                     {
-                        stackLayout.Children.Add(simpleUI);
+                        absoluteLayout.Children.Add(simpleUI);
                     }
                     else
                     {
@@ -99,12 +100,14 @@ namespace Saplin.CPDT.UICore
                                         {
                                             absoluteLayout.Children.Add(c);
                                         }
+
                                         return false;
 
                                     });
                                 }
                                 else
                                 {
+                                    simpleUI = new SimpleUI();
                                     testInProgress = new TestInProgress();
                                     testSessionsPlaceholder = new TestSessionsPlaceholder();
                                     popups = new Popups();
@@ -118,6 +121,7 @@ namespace Saplin.CPDT.UICore
                                         stackLayout.Children.Remove(status);
                                         stackLayout.Children.Add(testInProgress);
                                         stackLayout.Children.Add(testSessionsPlaceholder);
+                                        absoluteLayout.Children.Add(simpleUI);
                                         stackLayout.Children.Add(status);
                                         absoluteLayout.Children.Add(popups);
 
@@ -148,6 +152,8 @@ namespace Saplin.CPDT.UICore
                     if (Application.Current.Resources.ContainsKey(key))
                         Application.Current.Resources[key] = whiteTheme[key];
                 }
+
+                this.BackgroundColor = Color.White;
             }
 
         }
@@ -156,6 +162,7 @@ namespace Saplin.CPDT.UICore
         {
             var narrow = Width < narrowWidth;
 
+            simpleUI?.AdjustToWidth(Width);
             advancedUI?.AdaptLayoytToScreenWidth(narrow);
             testInProgress?.AdaptLayoytToScreenWidth(narrow);
             testSessionsPlaceholder?.AdaptLayoytToScreenWidth(narrow);
@@ -209,7 +216,7 @@ namespace Saplin.CPDT.UICore
         {
             if (!ViewModelContainer.ResultsDbViewModel.IsVisible)
             {
-                if (key == 'q')
+                if (key == 'q' || key == 'в')
                 {
                     CloseAplication();
                 }

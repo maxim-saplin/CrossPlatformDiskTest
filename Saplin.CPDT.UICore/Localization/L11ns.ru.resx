@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -157,16 +157,16 @@
     <value>Б/с</value>
   </data>
   <data name="BreakTest" xml:space="preserve">
-    <value>[Esc, B] Прервать</value>
+    <value>[Esc, П]ервать</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>[Esc] Закрыть</value>
   </data>
   <data name="CsvOption" xml:space="preserve">
-    <value>[E] Экспортировать результаты в CSV</value>
+    <value>[Э]кспортировать результаты в CSV</value>
   </data>
   <data name="FileSizeOption" xml:space="preserve">
-    <value>[F] Размер файла:</value>
+    <value>[Р]азмер файла:</value>
   </data>
   <data name="gb" xml:space="preserve">
     <value>ГБ</value>
@@ -193,7 +193,7 @@
     <value>КБ/с</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>[L] Язык:</value>
+    <value>[Я]зык:</value>
   </data>
   <data name="Max" xml:space="preserve">
     <value>Макс</value>
@@ -205,7 +205,7 @@
     <value>МБ/с</value>
   </data>
   <data name="MemCacheOption" xml:space="preserve">
-    <value>[M] Файловый кэш в памяти:</value>
+    <value>[Ф]айловый кэш в памяти:</value>
   </data>
   <data name="MemCopyTest" xml:space="preserve">
     <value>Копирование памяти</value>
@@ -227,13 +227,13 @@
     <value>(Вкл)</value>
   </data>
   <data name="OptionsButton" xml:space="preserve">
-    <value>[O] Опции</value>
+    <value>[О]пции</value>
   </data>
   <data name="PickDrive" xml:space="preserve">
     <value>- выберите диск и списка выше для запуска теста</value>
   </data>
   <data name="Quit" xml:space="preserve">
-    <value>[Q] Выход</value>
+    <value>[Q, В]ыход</value>
   </data>
   <data name="Quiting" xml:space="preserve">
     <value>Завершение работы</value>
@@ -259,7 +259,7 @@
     <value>Произв. запись</value>
   </data>
   <data name="RefreshButton" xml:space="preserve">
-    <value>[R] Обновить</value>
+    <value>Об[н]овить</value>
   </data>
   <data name="SequentialReadTest" xml:space="preserve">
     <value>Последовательное чтение</value>
@@ -321,16 +321,16 @@
     <value>Разминка...</value>
   </data>
   <data name="WhiteTheme" xml:space="preserve">
-    <value>[W] Белая тема (нужен рестарт)</value>
+    <value>Белая [т]ема (нужен рестарт)</value>
   </data>
   <data name="WriteBufferingOption" xml:space="preserve">
-    <value>[B] Буферизация записи:</value>
+    <value>[Б]уферизация записи:</value>
   </data>
   <data name="CClose" xml:space="preserve">
     <value>Закрыть</value>
   </data>
   <data name="Database" xml:space="preserve">
-    <value>[D] База</value>
+    <value>[Б]аза</value>
   </data>
   <data name="DbNotAvailable" xml:space="preserve">
     <value>База результатов недоступна. Проверьте соединение с интернетом</value>
@@ -355,5 +355,20 @@
   </data>
   <data name="About10" xml:space="preserve">
     <value>Для каждого из тестов приводится график. Последовательные тесты и тест копирования памяти представлены линейным графиком мгновенной скорости - т.е. скорости, измеренные для каждого из блоков, преставлены координатой Х, а позиции данных блоков в файле - координатой Y. Т.о. вы можете увидеть как изменяется скорость устройства при продвижении к концу тестовго файла. К примеру, в некоторых сулчаях можно наблюдать пониженную производительность в начале теста (наиболее характерно для Androi). Произвольные тесты представлены гистограммой, где скорости, измеренные для блоков, распределяются по диапазонам и столбики показывают частоту того или иного диапазона. При наличии вертикальных линий со стрелкам с краев гистрограммы, левый и правый столбик отображают все наименьшие и все наибольшие измерения, частота встречаемости которых меньше 3-х процентов. Другими словами "длинные" хвосты гистограммы объеденяются в отдельные столбики, столбики в центре отображат данные по 94% всех измерений. Минимальное и максимальное значение в таком случае приводяться не для всех измерений, а только для средних значений. Столбик, выделенный двумя стрелками - это мода, среднее значение диапазон с наибольшей частотой.</value>
+  </data>
+  <data name="SimpleUI_StartA" xml:space="preserve">
+    <value>Начать</value>
+  </data>
+  <data name="SimpleUI_Test" xml:space="preserve">
+    <value>[Т]ест</value>
+  </data>
+  <data name="SimpleUI_OrSee" xml:space="preserve">
+    <value>, увидеть</value>
+  </data>
+  <data name="SimpleUI_More" xml:space="preserve">
+    <value>[Б]ольше</value>
+  </data>
+  <data name="SimpleUIOption" xml:space="preserve">
+    <value>[П]ростой вид</value>
   </data>
 </root>

@@ -24,6 +24,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             {
                 if (e.PropertyName == nameof(DriveTestViewModel.TestStarted))
                 {
+                    RaisePropertyChanged(nameof(IsSimpleUIVisible));
                     RaisePropertyChanged(nameof(IsAdvancedUIVisible));
                     RaisePropertyChanged(nameof(IsStatusVisible));
                 }
@@ -81,21 +82,35 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             get
             {
-                if (ViewModelContainer.DriveTestViewModel.AvailableDrivesCount < 1) return false;
-
                 if (!Application.Current.Properties.ContainsKey(nameof(IsSimpleUI))) Application.Current.Properties[nameof(IsSimpleUI)] = True;
 
                 return Application.Current.Properties[nameof(IsSimpleUI)] as string == True;
             }
             set
             {
-                if (value) Application.Current.Properties[nameof(IsSimpleUI)] = True;
-                else Application.Current.Properties[nameof(IsSimpleUI)] = False;
+                if (value != (Application.Current.Properties[nameof(IsSimpleUI)] as string == True))
+                {
+                    Application.Current.Properties[nameof(IsSimpleUI)] = value ? True : False;
 
-                RaisePropertyChanged(nameof(IsSimpleUI));
-                RaisePropertyChanged(nameof(IsAdvancedUIVisible));
-                RaisePropertyChanged(nameof(IsTitleVisible));
-                RaisePropertyChanged(nameof(IsStatusVisible));
+                    RaisePropertyChanged(nameof(IsSimpleUI));
+                    RaisePropertyChanged(nameof(IsSimpleUIVisible));
+                    RaisePropertyChanged(nameof(IsAdvancedUIVisible));
+                    RaisePropertyChanged(nameof(IsTitleVisible));
+                    RaisePropertyChanged(nameof(IsStatusVisible));
+
+                    Application.Current.SavePropertiesAsync();
+                }
+            }
+        }
+
+        public bool IsSimpleUIVisible
+        {
+            get
+            {
+                if (ViewModelContainer.DriveTestViewModel.AvailableDrivesCount < 1) return false;
+                if (ViewModelContainer.DriveTestViewModel.TestStarted) return false;
+
+                return IsSimpleUI;
             }
         }
 
@@ -176,9 +191,9 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             get
             {
-                if (switchToAdvancedUI == null)
-                {
-                    switchToAdvancedUI = new Command((param) =>
+                return switchToAdvancedUI != null ? switchToAdvancedUI :
+
+                    switchToAdvancedUI = switchToAdvancedUI = new Command((param) =>
                     {
                         bool aUI = false;
 
@@ -188,8 +203,6 @@ namespace Saplin.CPDT.UICore.ViewModels
                             else if (!aUI && !IsSimpleUI) IsSimpleUI = true;
                         }
                     });
-                }
-                return switchToAdvancedUI;
             }
         }
     }
