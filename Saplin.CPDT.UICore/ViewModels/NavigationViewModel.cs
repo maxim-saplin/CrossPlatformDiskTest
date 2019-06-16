@@ -16,6 +16,8 @@ namespace Saplin.CPDT.UICore.ViewModels
                 }
 			};
 
+            //if (ViewModelContainer.DriveTestViewModel.AvailableDrivesCount < 1) IsSimpleUI = false;
+
             ViewModelContainer.OptionsViewModel.PropertyChanged += isVisisbleChanged;
             ViewModelContainer.AboutViewModel.PropertyChanged += isVisisbleChanged;
             ViewModelContainer.ErrorViewModel.PropertyChanged += isVisisbleChanged;
@@ -24,7 +26,8 @@ namespace Saplin.CPDT.UICore.ViewModels
             {
                 if (e.PropertyName == nameof(DriveTestViewModel.TestStarted))
                 {
-                    RaisePropertyChanged(nameof(IsSimpleUIVisible));
+                    RaisePropertyChanged(nameof(IsSimpleUIStartPageVisible));
+                    RaisePropertyChanged(nameof(IsSimpleUIHeaderVisible));
                     RaisePropertyChanged(nameof(IsAdvancedUIVisible));
                     RaisePropertyChanged(nameof(IsStatusVisible));
                 }
@@ -82,6 +85,8 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             get
             {
+                if (ViewModelContainer.DriveTestViewModel.AvailableDrivesCount < 1) return false;
+
                 if (!Application.Current.Properties.ContainsKey(nameof(IsSimpleUI))) Application.Current.Properties[nameof(IsSimpleUI)] = True;
 
                 return Application.Current.Properties[nameof(IsSimpleUI)] as string == True;
@@ -93,7 +98,8 @@ namespace Saplin.CPDT.UICore.ViewModels
                     Application.Current.Properties[nameof(IsSimpleUI)] = value ? True : False;
 
                     RaisePropertyChanged(nameof(IsSimpleUI));
-                    RaisePropertyChanged(nameof(IsSimpleUIVisible));
+                    RaisePropertyChanged(nameof(IsSimpleUIStartPageVisible));
+                    RaisePropertyChanged(nameof(IsSimpleUIHeaderVisible));
                     RaisePropertyChanged(nameof(IsAdvancedUIVisible));
                     RaisePropertyChanged(nameof(IsTitleVisible));
                     RaisePropertyChanged(nameof(IsStatusVisible));
@@ -103,11 +109,24 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
-        public bool IsSimpleUIVisible
+        public bool IsSimpleUIStartPageVisible
         {
             get
             {
                 if (ViewModelContainer.DriveTestViewModel.AvailableDrivesCount < 1) return false;
+                if (ViewModelContainer.TestSessionsViewModel.HasItems) return false;
+                if (ViewModelContainer.DriveTestViewModel.TestStarted) return false;
+
+                return IsSimpleUI;
+            }
+        }
+
+        public bool IsSimpleUIHeaderVisible
+        {
+            get
+            {
+                if (ViewModelContainer.DriveTestViewModel.AvailableDrivesCount < 1) return false;
+                if (!ViewModelContainer.TestSessionsViewModel.HasItems) return false;
                 if (ViewModelContainer.DriveTestViewModel.TestStarted) return false;
 
                 return IsSimpleUI;

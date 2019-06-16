@@ -68,6 +68,8 @@ namespace Saplin.CPDT.UICore.ViewModels
 
         }
 
+        private string firstAvailableDrive = null;
+
         private void InitDrives()
         {
             Action<DriveDetailed, int> setAvailableAndIndex = (DriveDetailed d, int i) =>
@@ -81,6 +83,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             {
                 availbleDrivesCount = 0;
                 var i = 0;
+                firstAvailableDrive = null;
 
                 if (Device.RuntimePlatform == Device.Android)
                 {
@@ -96,7 +99,14 @@ namespace Saplin.CPDT.UICore.ViewModels
                     {
                         setAvailableAndIndex(ad, i);
 
-                        if (ad.AvailableForTest) availbleDrivesCount++;
+                        if (ad.AvailableForTest)
+                        {
+                            availbleDrivesCount++;
+                            if (firstAvailableDrive == null)
+                            {
+                                firstAvailableDrive = ad.Name;
+                            }
+                        }
 
                         i++;
 
@@ -131,7 +141,14 @@ namespace Saplin.CPDT.UICore.ViewModels
 
                         setAvailableAndIndex(dd, i);
 
-                        if (dd.AvailableForTest) availbleDrivesCount++;
+                        if (dd.AvailableForTest)
+                        {
+                            availbleDrivesCount++;
+                            if (firstAvailableDrive == null)
+                            {
+                                firstAvailableDrive = dd.Name;
+                            }
+                        }
 
                         i++;
 
@@ -305,35 +322,46 @@ namespace Saplin.CPDT.UICore.ViewModels
             get; private set;
         }
 
-        private string GetValidatedDriveName(string driveName) // drive index can be used
+        private string GetPathToDrive(string driveNameOrIndex) // drive index can be used
         {
             char? fromDriveIndex = null;
 
-            if (driveName.Length == 1 && driveName[0] > '0' && driveName[0] <= '9') // most likely drive index used
+            if (driveNameOrIndex.Length == 1 && driveNameOrIndex[0] > '0' && driveNameOrIndex[0] <= '9') // most likely drive index used
             {
                 foreach (var d in Drives)
-                    if (d.DisplayIndex == driveName[0])
+                    if (d.DisplayIndex == driveNameOrIndex[0])
                     {
                         fromDriveIndex = d.DisplayIndex;
                         return d.Name;
                     }
             }
 
-            return driveName;
+            return driveNameOrIndex;
         }
-
-        private ICommand pickAndTestDrive;
 
         const string testResultsFolder = "CPDT_TestResults";
 
-        public ICommand PickAndTestDrive
+        ICommand quickTestDrive;
+
+        public ICommand QuickTestDrive
         {
             get
             {
-                if (pickAndTestDrive == null)
-                    pickAndTestDrive = new ErrorHandlingCommand(
+                return quickTestDrive != null ? quickTestDrive :
+                    new Command(() => { if (!string.IsNullOrEmpty(firstAvailableDrive)) TestDrive.Execute(firstAvailableDrive); });
+            }
+        }
 
-                        execute: (driveName) =>
+        private ICommand testDrive;
+
+        public ICommand TestDrive
+        {
+            get
+            {
+                if (testDrive == null)
+                    testDrive = new ErrorHandlingCommand(
+
+                        execute: (driveNameOrIndex) =>
 
                          {
                              if (testStarted) return;
@@ -344,7 +372,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                              TestResults.Clear();
                              string driveNameToUse = null;
 
-                             driveNameToUse = GetValidatedDriveName(driveName as string);
+                             driveNameToUse = GetPathToDrive(driveNameOrIndex as string);
                              SelectedDrive = driveNameToUse;
                              var testNumber = 1;
 
@@ -538,7 +566,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                         }
                 );
 
-                return pickAndTestDrive;
+                return testDrive;
             }
         }
 

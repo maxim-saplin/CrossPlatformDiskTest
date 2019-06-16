@@ -15,7 +15,7 @@ namespace Saplin.CPDT.UICore
         private bool alreadyShown = false;
 
         Title title;
-        SimpleUI simpleUI;
+        SimpleUI simpaleUIStartPage, simpleUIHeader;
         AdvancedUI advancedUI;
         TestInProgress testInProgress;
         TestSessionsPlaceholder testSessionsPlaceholder;
@@ -38,8 +38,8 @@ namespace Saplin.CPDT.UICore
 
                 if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
                 {
-                    simpleUI = new SimpleUI();
-                    simpleUI.AdjustToWidth(Width);
+                    simpaleUIStartPage = new SimpleUI();
+                    simpaleUIStartPage.AdjustToWidth(Width);
                 }
                 else
                 {
@@ -67,7 +67,7 @@ namespace Saplin.CPDT.UICore
 
                     if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
                     {
-                        absoluteLayout.Children.Add(simpleUI);
+                        absoluteLayout.Children.Add(simpaleUIStartPage);
                     }
                     else
                     {
@@ -77,14 +77,20 @@ namespace Saplin.CPDT.UICore
 
                     Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
                             {
+                                simpleUIHeader = new SimpleUI();
+
+                                simpleUIHeader.SetBinding(IsVisibleProperty, new Binding("IsSimpleUiHeaderVisible", source: ViewModelContainer.NavigationViewModel));
+                                AbsoluteLayout.SetLayoutFlags(simpleUIHeader, AbsoluteLayoutFlags.None);
+                                                                
+                                testInProgress = new TestInProgress();
+                                testSessionsPlaceholder = new TestSessionsPlaceholder();
+                                popups = new Popups();
+                                onlineDb = new OnlineDb();
+
                                 if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
                                 {
                                     advancedUI = new AdvancedUI();
-                                    testInProgress = new TestInProgress();
-                                    testSessionsPlaceholder = new TestSessionsPlaceholder();
                                     status = new Status();
-                                    popups = new Popups();
-                                    onlineDb = new OnlineDb();
 
                                     AdaptLayoytToScreenWidth();
 
@@ -107,11 +113,7 @@ namespace Saplin.CPDT.UICore
                                 }
                                 else
                                 {
-                                    simpleUI = new SimpleUI();
-                                    testInProgress = new TestInProgress();
-                                    testSessionsPlaceholder = new TestSessionsPlaceholder();
-                                    popups = new Popups();
-                                    onlineDb = new OnlineDb();
+                                    simpaleUIStartPage = new SimpleUI();
 
                                     AdaptLayoytToScreenWidth();
 
@@ -121,7 +123,7 @@ namespace Saplin.CPDT.UICore
                                         stackLayout.Children.Remove(status);
                                         stackLayout.Children.Add(testInProgress);
                                         stackLayout.Children.Add(testSessionsPlaceholder);
-                                        absoluteLayout.Children.Add(simpleUI);
+                                        absoluteLayout.Children.Add(simpaleUIStartPage);
                                         stackLayout.Children.Add(status);
                                         absoluteLayout.Children.Add(popups);
 
@@ -162,7 +164,7 @@ namespace Saplin.CPDT.UICore
         {
             var narrow = Width < narrowWidth;
 
-            simpleUI?.AdjustToWidth(Width);
+            simpaleUIStartPage?.AdjustToWidth(Width);
             advancedUI?.AdaptLayoytToScreenWidth(narrow);
             testInProgress?.AdaptLayoytToScreenWidth(narrow);
             testSessionsPlaceholder?.AdaptLayoytToScreenWidth(narrow);
