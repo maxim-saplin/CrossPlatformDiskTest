@@ -10,13 +10,15 @@
              AbsoluteLayout.LayoutFlags="All"
              HorizontalOptions="Center"
              Orientation="Horizontal"
-             Padding="40, 16, 0, 16">
-    <Label x:Name="label1" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, SimpleUI_StartA}" VerticalOptions="Center" HorizontalOptions="Center" />
+             Padding="30, 16, 0, 16">
+    <Label x:Name="label1" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, SimpleUI_StartA}" 
+           VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="94" HorizontalTextAlignment="Center"/>
     <Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, SimpleUI_Test}"
             Style="{x:StaticResource Key=ButtonStyle}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="84" HeightRequest="30"
             ctrl:KeyPress.CommandOnKeyPress="True" 
             Command="{Binding Source={Static vm:ViewModelContainer.DriveTestViewModel}, QuickTestDrive, Mode=OneTime}" />
-    <Label x:Name="label2" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, SimpleUI_OrSee}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label x:Name="label2" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, SimpleUI_OrSee}" 
+           VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="120" HorizontalTextAlignment="Center" />
     <Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, SimpleUI_More}" 
             Style="{x:StaticResource Key=ButtonStyle}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="84" HeightRequest="30"
             ctrl:KeyPress.CommandOnKeyPress="True"

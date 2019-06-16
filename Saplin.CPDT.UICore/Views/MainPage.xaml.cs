@@ -79,8 +79,11 @@ namespace Saplin.CPDT.UICore
                             {
                                 simpleUIHeader = new SimpleUI();
 
-                                simpleUIHeader.SetBinding(IsVisibleProperty, new Binding("IsSimpleUiHeaderVisible", source: ViewModelContainer.NavigationViewModel));
+                                simpleUIHeader.SetBinding(IsVisibleProperty, new Binding("IsSimpleUIHeaderVisible", source: ViewModelContainer.NavigationViewModel));
                                 AbsoluteLayout.SetLayoutFlags(simpleUIHeader, AbsoluteLayoutFlags.None);
+                                //simpleUIHeader.IsVisible = true;
+                                simpleUIHeader.HorizontalOptions = LayoutOptions.CenterAndExpand;
+                                simpleUIHeader.Padding = new Thickness(20,16,0,16);
                                                                 
                                 testInProgress = new TestInProgress();
                                 testSessionsPlaceholder = new TestSessionsPlaceholder();
@@ -96,6 +99,7 @@ namespace Saplin.CPDT.UICore
 
                                     Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
                                     {
+                                        stackLayout.Children.Add(simpleUIHeader);
                                         stackLayout.Children.Add(advancedUI);
                                         stackLayout.Children.Add(testInProgress);
                                         stackLayout.Children.Add(testSessionsPlaceholder);
@@ -121,6 +125,7 @@ namespace Saplin.CPDT.UICore
                                     {
 
                                         stackLayout.Children.Remove(status);
+                                        stackLayout.Children.Add(simpleUIHeader);
                                         stackLayout.Children.Add(testInProgress);
                                         stackLayout.Children.Add(testSessionsPlaceholder);
                                         absoluteLayout.Children.Add(simpaleUIStartPage);
@@ -165,6 +170,7 @@ namespace Saplin.CPDT.UICore
             var narrow = Width < narrowWidth;
 
             simpaleUIStartPage?.AdjustToWidth(Width);
+            simpleUIHeader?.AdjustToWidth(Width);
             advancedUI?.AdaptLayoytToScreenWidth(narrow);
             testInProgress?.AdaptLayoytToScreenWidth(narrow);
             testSessionsPlaceholder?.AdaptLayoytToScreenWidth(narrow);
