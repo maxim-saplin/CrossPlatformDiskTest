@@ -431,7 +431,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                 freeMem: freeMemService == null ? null : (Func<long>)(freeMemService.GetBytesFree),
                                 flusher: flushService == null ? null : 
                                     new WriteBufferFlusher(flushService.OpenFile, flushService.Flush, flushService.Close),
-                                mockFileStream: false
+                                mockFileStream: true
                             );
 
                              FileNameAndTime = testSuite.FilePath+", "+string.Format("{0:HH:mm:ss} {0:d.MM.yyyy}", TestStartedTime);

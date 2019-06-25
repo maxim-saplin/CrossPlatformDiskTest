@@ -25,6 +25,6 @@ in order to remove SDK assembnlies from AOT and do AOT only on Xamarin and user 
  macOS location: /Library/Frameworks/Xamarin.Android.framework/Versions/9.3.0-22/lib/xamarin.android/xbuild/Xamarin/Android/Xamarin.Android.Common.targets
 
  2.2.0:
- Before partial AoT: 16.6MB, 4.2s
- After partial AoT: 18.6MB, 3.2
- Full AOT: 22.8MB
+ Before partial AoT: 16.6MB, 4.2s launch time
+ After partial AoT: 18.6MB, 3.2s launch time
+ Full AOT: 22.8MB ~2s launch time

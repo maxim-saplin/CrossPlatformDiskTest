@@ -50,15 +50,20 @@
     <AndroidDexTool>d8</AndroidDexTool>
     <AndroidLinkTool>r8</AndroidLinkTool>   
     <AndroidUseAapt2>True</AndroidUseAapt2>
-    <AndroidLinkSkip>Saplin.CPDT.UICore;Saplin.CPDT.UICore.resources;Xamarin.Forms.Core;Xamarin.Forms.XAML;Saplin.StorageSpeedMeter</AndroidLinkSkip>
+    <AndroidLinkSkip>Saplin.CPDT.UICore;Saplin.CPDT.UICore.resources;Xamarin.Forms.Core;Xamarin.Forms.XAML;Saplin.StorageSpeedMeter;CPDT.Extra.Android</AndroidLinkSkip>
     <AndroidStoreUncompressedFileExtensions>.png</AndroidStoreUncompressedFileExtensions>
     <AndroidTlsProvider>legacy</AndroidTlsProvider>
     <AotAssemblies>true</AotAssemblies>
     <AndroidAotAdditionalArguments>no-write-symbols,nodebug</AndroidAotAdditionalArguments>
 
+    <AndroidHttpClientHandlerType>System.Net.Http.HttpClientHandler</AndroidHttpClientHandlerType>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
+    <Reference Include="CPDT.Extra.Android">
+      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra.git\CPDT.Extra.Android\bin\Debug\CPDT.Extra.Android.dll</HintPath>
+      <HintPath Condition="'$(Configuration)'=='Release'">..\References\CPDT.Extra.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms">
@@ -75,7 +80,7 @@
     <Compile Include="ExtnededLabelRenderer.cs" />
     <Compile Include="AndroidDeviceInfo.cs" />
     <Compile Include="FileSync.cs" />
-    <Compile Include="ShareViewAsImage.cs" />
+    <Compile Include="ShareViewProxy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

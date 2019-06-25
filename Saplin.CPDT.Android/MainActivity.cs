@@ -55,7 +55,7 @@ namespace Saplin.CPDT.Droid
             }
             else configuration.FontScale = 0.8f;
 
-            var config =  Application.Context.CreateConfigurationContext(configuration);
+            var config = Android.App.Application.Context.CreateConfigurationContext(configuration);
 
             base.AttachBaseContext(config);
         }
