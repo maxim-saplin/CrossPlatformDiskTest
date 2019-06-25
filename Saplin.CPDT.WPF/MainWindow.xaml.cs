@@ -18,9 +18,9 @@ namespace Saplin.CPDT.WPF
             Forms.Init();
 
             // TODO - check for fix in Xamarin WPF and remove the workaround
-            SawapDeserializer();
+            //SawapDeserializer();
 
-            LoadApplication(new Saplin.CPDT.UICore.App());
+            LoadApplication(new Saplin.CPDT.UICore.App(false));
 
             MouseMove += OnMouseMove;
         }
@@ -68,12 +68,12 @@ namespace Saplin.CPDT.WPF
 
         private void RemoveTopBars()
         {
-            System.Windows.Controls.Grid commandBar = this.Template.FindName("PART_CommandsBar", this) as System.Windows.Controls.Grid;
+            System.Windows.Controls.Grid commandBar = this.Template?.FindName("PART_CommandsBar", this) as System.Windows.Controls.Grid;
 
             if (commandBar != null)
                 (commandBar.Parent as System.Windows.Controls.Grid)?.Children.Remove(commandBar);
 
-            var topAppBar = this.Template.FindName("PART_TopAppBar", this) as WpfLightToolkit.Controls.LightAppBar;
+            var topAppBar = this.Template?.FindName("PART_TopAppBar", this) as WpfLightToolkit.Controls.LightAppBar;
 
             if (topAppBar != null)
                 (topAppBar.Parent as System.Windows.Controls.Grid)?.Children.Remove(topAppBar);

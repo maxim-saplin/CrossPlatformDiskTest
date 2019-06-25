@@ -57,6 +57,8 @@ namespace Saplin.CPDT.UICore
                     AdaptLayoytToScreenWidth();
                 else
                 {
+                    this.BackgroundColor = backgroundColor;
+
                     alreadyShown = true;
 
                     task.Wait();
@@ -148,6 +150,8 @@ namespace Saplin.CPDT.UICore
             };
         }
 
+        private Color backgroundColor = Color.Black;
+
         private void ApplyTheme()
         {
             if ((Application.Current as App).WhiteTheme)
@@ -160,7 +164,7 @@ namespace Saplin.CPDT.UICore
                         Application.Current.Resources[key] = whiteTheme[key];
                 }
 
-                this.BackgroundColor = Color.White;
+                backgroundColor = Color.White;
             }
 
         }

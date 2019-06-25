@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Saplin.CPDT.UICore.ViewModels;
 using Xamarin.Forms;
@@ -10,17 +11,24 @@ namespace Saplin.CPDT.UICore
 	{
         Page page = null;
 
-        private Task task;
+        private Task task = null;
 
-        public App ()
+        public App (bool sync = false)
 		{
 
-            task = Task.Run(() =>
+            Action init = () =>
             {
                 InitializeComponent();
                 ViewModelContainer.Init();
                 page = new MainPage();
-            });
+            };
+
+            if (!sync) task = Task.Run(init);
+            else
+            {
+                init();
+                MainPage = page;
+            }
         }
 
         public bool WhiteTheme
@@ -33,9 +41,11 @@ namespace Saplin.CPDT.UICore
 
 		protected override void OnStart ()
 		{
-            task.Wait();
-
-            MainPage = page;
+            if (task != null)
+            {
+                task.Wait();
+                MainPage = page;
+            }
         }
 
 		protected override void OnSleep ()

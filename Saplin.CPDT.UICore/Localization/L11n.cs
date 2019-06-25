@@ -11,7 +11,7 @@ namespace Saplin.CPDT.UICore.ViewModels
     public class L11n : L11nBase 
     {
         public string locale = Locales.en;
-        public bool init = true;
+        public bool needInit = true;
 
         public L11n()
         {
@@ -29,7 +29,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                 else App.Current.Properties[nameof(_Locale)] = Locales.en;
             }
 
-            locale = App.Current.Properties[nameof(_Locale)].ToString();
+            _Locale = App.Current.Properties[nameof(_Locale)].ToString();
         }
 
         public string _Locale
@@ -40,9 +40,9 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
             set
             {
-                if ((value != locale || init) && Locales.IsValid(value))
+                if ((value != locale || needInit) && Locales.IsValid(value))
                 {
-                    init = false;
+                    needInit = false;
                     locale = value;
                     App.Current.Properties[nameof(_Locale)] = value;
                     App.Current.SavePropertiesAsync();

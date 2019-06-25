@@ -15,7 +15,6 @@ namespace Saplin.CPDT.WPF
         {
             base.OnStartup(e);
 
-
         }
     }
 }
