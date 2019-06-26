@@ -166,7 +166,6 @@ namespace Saplin.CPDT.UICore
 
                 backgroundColor = Color.White;
             }
-
         }
 
         private void AdaptLayoytToScreenWidth()
