@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>Saplin.CPDT.WPF</RootNamespace>
+    <AssemblyName>CPDT</AssemblyName>
+    <DefineConstants>NETCORE</DefineConstants>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\IBMPlexMono-Bold.ttf" />
+    <None Remove="Fonts\IBMPlexMono-BoldItalic.ttf" />
+    <None Remove="Fonts\IBMPlexMono-ExtraLight.ttf" />
+    <None Remove="Fonts\IBMPlexMono-ExtraLightItalic.ttf" />
+    <None Remove="Fonts\IBMPlexMono-Italic.ttf" />
+    <None Remove="Fonts\IBMPlexMono-Light.ttf" />
+    <None Remove="Fonts\IBMPlexMono-LightItalic.ttf" />
+    <None Remove="Fonts\IBMPlexMono-Medium.ttf" />
+    <None Remove="Fonts\IBMPlexMono-MediumItalic.ttf" />
+    <None Remove="Fonts\IBMPlexMono-Regular.ttf" />
+    <None Remove="Fonts\IBMPlexMono-SemiBold.ttf" />
+    <None Remove="Fonts\IBMPlexMono-SemiBoldItalic.ttf" />
+    <None Remove="Fonts\IBMPlexMono-Thin.ttf" />
+    <None Remove="Fonts\IBMPlexMono-ThinItalic.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\IBMPlexMono-Bold.ttf" />
+    <Resource Include="Fonts\IBMPlexMono-BoldItalic.ttf" />
+    <Resource Include="Fonts\IBMPlexMono-ExtraLight.ttf" />
+    <Resource Include="Fonts\IBMPlexMono-ExtraLightItalic.ttf" />
+    <Resource Include="Fonts\IBMPlexMono-Italic.ttf" />
+    <Resource Include="Fonts\IBMPlexMono-Light.ttf" />
+    <Resource Include="Fonts\IBMPlexMono-LightItalic.ttf" />
+    <Resource Include="Fonts\IBMPlexMono-Medium.ttf" />
+    <Resource Include="Fonts\IBMPlexMono-MediumItalic.ttf" />
+    <Resource Include="Fonts\IBMPlexMono-Regular.ttf" />
+    <Resource Include="Fonts\IBMPlexMono-SemiBold.ttf" />
+    <Resource Include="Fonts\IBMPlexMono-SemiBoldItalic.ttf" />
+    <Resource Include="Fonts\IBMPlexMono-Thin.ttf" />
+    <Resource Include="Fonts\IBMPlexMono-ThinItalic.ttf" />
+    <Resource Include="Icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="3.0.0-preview6.19303.8" />
+    <PackageReference Include="SkiaSharp.Views" Version="1.60.3" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.3" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Saplin.CPDT.UICore\Saplin.CPDT.UICore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="WpfLightToolkit">
+      <HintPath>..\packages\WpfLightToolkit.1.0.3\lib\net45\WpfLightToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.4.1.0.496342-pre2\lib\netstandard2.0\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.4.1.0.496342-pre2\lib\netstandard2.0\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.WPF">
+      <HintPath>..\packages\Xamarin.Forms.Platform.WPF.4.1.0.496342-pre2\lib\net45\Xamarin.Forms.Platform.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.4.1.0.496342-pre2\lib\netstandard2.0\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

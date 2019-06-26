@@ -350,7 +350,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             get
             {
                 return quickTestDrive != null ? quickTestDrive :
-                    new Command(() =>
+                    quickTestDrive = new Command(() =>
                     {
                         quickTest = true;
                         if (!string.IsNullOrEmpty(firstAvailableDrive)) TestDrive.Execute(firstAvailableDrive);   

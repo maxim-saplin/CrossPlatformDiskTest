@@ -1,0 +1,427 @@
+<doc>
+    <assembly>
+        <name>Xamarin.Forms.Xaml</name>
+    </assembly>
+    <members>
+        <member name="T:Xamarin.Forms.Xaml.ArrayExtension">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.ArrayExtension">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.ArrayExtension.Items">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.ArrayExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">XAML 인프라에서 내부용으로 사용합니다.</param>
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.ArrayExtension.Type">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.ArrayExtension.Xamarin#Forms#Xaml#IMarkupExtension#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">XAML 인프라에서 내부용으로 사용합니다.</param>
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.BindingExtension">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.BindingExtension">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.Converter">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.ConverterParameter">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.FallbackValue">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.Mode">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.Path">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.Source">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.StringFormat">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.TargetNullValue">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.TypedBinding">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.UpdateSourceEventName">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.BindingExtension.Xamarin#Forms#Xaml#IMarkupExtension#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">XAML 인프라에서 내부용으로 사용합니다.</param>
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.BindingExtension.Xamarin#Forms#Xaml#IMarkupExtension{Xamarin#Forms#BindingBase}#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">XAML 인프라에서 내부용으로 사용합니다.</param>
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.DataTemplateExtension" />
+        <member name="C:Xamarin.Forms.Xaml.DataTemplateExtension" />
+        <member name="M:Xamarin.Forms.Xaml.DataTemplateExtension.ProvideValue(System.IServiceProvider)" />
+        <member name="P:Xamarin.Forms.Xaml.DataTemplateExtension.TypeName" />
+        <member name="M:Xamarin.Forms.Xaml.DataTemplateExtension.Xamarin#Forms#Xaml#IMarkupExtension#ProvideValue(System.IServiceProvider)" />
+        <member name="T:Xamarin.Forms.Xaml.DynamicResourceExtension">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.DynamicResourceExtension">
+            <summary>내부에서 사용됩니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.DynamicResourceExtension.Key">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.DynamicResourceExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">XAML 인프라에서 내부용으로 사용합니다.</param>
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.DynamicResourceExtension.Xamarin#Forms#Xaml#IMarkupExtension{Xamarin#Forms#Internals#DynamicResource}#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">XAML 인프라에서 내부용으로 사용합니다.</param>
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.Extensions">
+            <summary>
+                <see cref="M:Xamarin.Forms.Xaml.Extensions.LoadFromXaml``1(``0,System.String)" /> 메서드를 정의하는 <see cref="T:Xamarin.Forms.View" />에 대한 확장 클래스입니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.Extensions.LoadFromXaml``1(``0,System.String)">
+            <typeparam name="TXaml">XAML에서 상태를 사용 하 여 초기화 하는 보기의 형식입니다.</typeparam>
+            <param name="view">이 메서드가 작동하는 보기입니다.</param>
+            <param name="xaml">보기 상태를 인코딩하는 XAML입니다.</param>
+            <summary>지정된 <paramref name="xaml" />을 로드하여 초기화된 보기를 반환합니다.</summary>
+            <returns>초기화된 보기입니다.</returns>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.Extensions.LoadFromXaml``1(``0,System.Type)">
+            <typeparam name="TXaml">XAML에서 상태를 사용 하 여 초기화 하는 보기의 형식입니다.</typeparam>
+            <param name="view">이 메서드가 작동하는 보기입니다.</param>
+            <param name="callingType">호출자의 유형입니다.</param>
+            <summary>
+                <paramref name="callingType" />에 대한 응용 프로그램 매니페스트에 정의된 속성이 있는 <paramref name="TXaml" />을 반환합니다.</summary>
+            <returns>
+                <paramref name="callingType" />에 대한 응용 프로그램 매니페스트에 정의된 속성이 있는 <paramref name="TXaml" />입니다.</returns>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.NullExtension">
+            <summary>null 값과 빈 문자열을 구분하는 확장 클래스입니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.NullExtension">
+            <summary>기본값을 사용하여 새 <see cref="T:Xamarin.Forms.Xaml.NullExtension" /> 개체를 만듭니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.NullExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">XAML 인프라에서 내부용으로 사용합니다.</param>
+            <summary>null 개체를 반환합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.OnIdiomExtension">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.OnIdiomExtension">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Converter">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.ConverterParameter">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Default">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Desktop">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Phone">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.OnIdiomExtension.ProvideValue(System.IServiceProvider)">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Tablet">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.TV">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Watch">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.OnPlatformExtension">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.OnPlatformExtension">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.Android">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.Converter">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.ConverterParameter">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.Default">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.GTK">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.iOS">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.macOS">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.OnPlatformExtension.ProvideValue(System.IServiceProvider)">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.Tizen">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.UWP">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.WPF">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.ReferenceExtension">
+            <summary>다른 XAML 정의 형식을 참조하기 위한 태그 확장입니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.ReferenceExtension">
+            <summary>기본값을 사용하여 새 <see cref="T:Xamarin.Forms.Xaml.ReferenceExtension" />을 만듭니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.ReferenceExtension.Name">
+            <summary>참조할 엔터티의 이름을 가져오거나 설정합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.ReferenceExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">XAML 인프라에서 내부용으로 사용합니다.</param>
+            <summary>참조된 형식을 나타내는 개체를 반환합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.StaticExtension">
+            <summary>정적 구성원 값을 가져오는 태그 확장입니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.StaticExtension">
+            <summary>기본값을 사용하여 새 <see cref="T:Xamarin.Forms.Xaml.StaticExtension" /> 개체를 만듭니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.StaticExtension.Member">
+            <summary>구성원 이름을 가져오거나 설정합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.StaticExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">XAML 인프라에서 내부용으로 사용합니다.</param>
+            <summary>구성원의 값을 반환합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.StaticResourceExtension">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.StaticResourceExtension">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.StaticResourceExtension.Key">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.StaticResourceExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">XAML 인프라에서 내부용으로 사용합니다.</param>
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.StyleSheetExtension">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.StyleSheetExtension">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.StyleSheetExtension.Source">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+            <value>XAML 인프라에 의해 내부에 사용 합니다.</value>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.StyleSheetExtension.Style">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+            <value>XAML 인프라에 의해 내부에 사용 합니다.</value>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.StyleSheetExtension.Xamarin#Forms#Xaml#IValueProvider#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">XAML 인프라에서 내부용으로 사용합니다.</param>
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+            <returns>XAML 인프라에서 내부용으로 사용합니다.</returns>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.TemplateBindingExtension">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.TemplateBindingExtension">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.TemplateBindingExtension.Converter">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.TemplateBindingExtension.ConverterParameter">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.TemplateBindingExtension.Mode">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.TemplateBindingExtension.Path">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.TemplateBindingExtension.StringFormat">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.TemplateBindingExtension.Xamarin#Forms#Xaml#IMarkupExtension#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">XAML 인프라에서 내부용으로 사용합니다.</param>
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.TemplateBindingExtension.Xamarin#Forms#Xaml#IMarkupExtension{Xamarin#Forms#BindingBase}#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">XAML 인프라에서 내부용으로 사용합니다.</param>
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.TypeExtension">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.TypeExtension">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.TypeExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">XAML 인프라에서 내부용으로 사용합니다.</param>
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.TypeExtension.TypeName">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.TypeExtension.Xamarin#Forms#Xaml#IMarkupExtension#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">XAML 인프라에서 내부용으로 사용합니다.</param>
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.XamlCompilationAttribute">
+            <summary>빌드 시간 또는 실행 시간에 XAML을 컴파일할지 여부를 제어하는 특성입니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.XamlCompilationAttribute(Xamarin.Forms.Xaml.XamlCompilationOptions)">
+            <param name="xamlCompilationOptions">실행 시간 또는 컴파일 시간에 XAML을 컴파일할지 여부를 알려주는 값입니다.</param>
+            <summary>지정된 값으로 새 <see cref="T:Xamarin.Forms.Xaml.XamlCompilationAttribute" />를 만듭니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.XamlCompilationAttribute.XamlCompilationOptions">
+            <summary>실행 시간 또는 컴파일 시간에 XAML을 컴파일할지 여부를 알려주는 값을 가져오거나 설정합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.XamlCompilationOptions">
+            <summary>XAML을 IL로 컴파일하는 경우를 제어하는 값을 열거합니다.</summary>
+        </member>
+        <member name="F:Xamarin.Forms.Xaml.XamlCompilationOptions.Compile">
+            <summary>응용 프로그램이 빌드될 때 클래스 또는 프로젝트에 대한 XAML을 컴파일합니다.</summary>
+        </member>
+        <member name="F:Xamarin.Forms.Xaml.XamlCompilationOptions.Skip">
+            <summary>응용 프로그램이 디바이스에서 실행될 때 클래스 또는 프로젝트에 대한 XAML을 컴파일합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.XamlFilePathAttribute">
+            <summary>Xaml 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.XamlFilePathAttribute(System.String)">
+            <param name="filePath">XAML 인프라에서 내부용으로 사용합니다.</param>
+            <summary>Xaml 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.Internals.NameScopeProvider">
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.Internals.NameScopeProvider">
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.Internals.NameScopeProvider.NameScope">
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.Internals.SimpleValueTargetProvider">
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.Internals.SimpleValueTargetProvider(System.Object[])">
+            <param name="objectAndParents">Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</param>
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.Internals.SimpleValueTargetProvider(System.Object[],System.Object)">
+            <param name="objectAndParents">Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</param>
+            <param name="targetProperty">Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</param>
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.Internals.SimpleValueTargetProvider(System.Object[],System.Object,Xamarin.Forms.Internals.INameScope)" />
+        <member name="M:Xamarin.Forms.Xaml.Internals.SimpleValueTargetProvider.FindByName(System.String)">
+            <summary>XAML 인프라에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.Internals.SimpleValueTargetProvider.Xamarin#Forms#Xaml#IProvideValueTarget#TargetObject">
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.Internals.SimpleValueTargetProvider.Xamarin#Forms#Xaml#IProvideValueTarget#TargetProperty">
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.Internals.XamlLoader">
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.Internals.XamlLoader.XamlFileProvider">
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.Internals.XamlServiceProvider">
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.Internals.XamlServiceProvider">
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.Internals.XamlServiceProvider.Add(System.Type,System.Object)">
+            <param name="type">Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</param>
+            <param name="service">Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</param>
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.Internals.XamlServiceProvider.GetService(System.Type)">
+            <param name="serviceType">Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</param>
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.Internals.XamlTypeResolver">
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.Internals.XamlTypeResolver(System.Xml.IXmlNamespaceResolver,System.Reflection.Assembly)">
+            <param name="namespaceResolver">Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</param>
+            <param name="currentAssembly">Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</param>
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.Internals.XamlTypeResolver.Xamarin#Forms#Xaml#IXamlTypeResolver#Resolve(System.String,System.IServiceProvider)">
+            <param name="qualifiedTypeName">Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</param>
+            <param name="serviceProvider">Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</param>
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.Internals.XamlTypeResolver.Xamarin#Forms#Xaml#IXamlTypeResolver#TryResolve(System.String,System.Type)">
+            <param name="qualifiedTypeName">Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</param>
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.Internals.XmlLineInfoProvider">
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.Internals.XmlLineInfoProvider(System.Xml.IXmlLineInfo)">
+            <param name="xmlLineInfo">Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</param>
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.Internals.XmlLineInfoProvider.XmlLineInfo">
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.Internals.XmlNamespaceResolver">
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.Internals.XmlNamespaceResolver">
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.Internals.XmlNamespaceResolver.Add(System.String,System.String)">
+            <param name="prefix">Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</param>
+            <param name="ns">Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</param>
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.Internals.XmlNamespaceResolver.GetNamespacesInScope(System.Xml.XmlNamespaceScope)">
+            <param name="scope">Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</param>
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.Internals.XmlNamespaceResolver.LookupNamespace(System.String)">
+            <param name="prefix">Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</param>
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.Internals.XmlNamespaceResolver.LookupPrefix(System.String)">
+            <param name="namespaceName">Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</param>
+            <summary>Xamarin.Forms 플랫폼에서 내부용으로 사용합니다.</summary>
+        </member>
+    </members>
+</doc>
