@@ -962,5 +962,13 @@ namespace Saplin.CPDT.UICore.Localization
                 return ResourceManager.GetString("SimpleUIOption", resourceCulture);
             }
         }
+
+        public string CantTestNotEnough
+        {
+            get
+            {
+                return ResourceManager.GetString("CantTestNotEnough", resourceCulture);
+            }
+        }
     }
 }

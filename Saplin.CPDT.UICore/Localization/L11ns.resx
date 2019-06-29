@@ -377,4 +377,7 @@ write</value>
   <data name="SimpleUIOption" xml:space="preserve">
     <value>[S]imple UI</value>
   </data>
+  <data name="CantTestNotEnough" xml:space="preserve">
+    <value>Cant test. 1.6GB free space required</value>
+  </data>
 </root>

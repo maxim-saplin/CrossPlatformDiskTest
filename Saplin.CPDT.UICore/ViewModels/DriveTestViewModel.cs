@@ -56,11 +56,19 @@ namespace Saplin.CPDT.UICore.ViewModels
                 {
                     if (!TestStarted)
                     {
-                        if (Device.RuntimePlatform == Device.Android)
+
+                        if (ViewModelContainer.DriveTestViewModel.AvailableDrivesCount < 1)
                         {
-                            StatusMessage = nameof(ViewModelContainer.L11n.HintAndroid);
+                            StatusMessage = nameof(ViewModelContainer.L11n.CantTestNotEnough);
                         }
-                        else StatusMessage = nameof(ViewModelContainer.L11n.HintMisc);
+                        else
+                        {
+                            if (Device.RuntimePlatform == Device.Android)
+                            {
+                                StatusMessage = nameof(ViewModelContainer.L11n.HintAndroid);
+                            }
+                            else StatusMessage = nameof(ViewModelContainer.L11n.HintMisc);
+                        }
                     }
                     return false;
                 }

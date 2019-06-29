@@ -93,7 +93,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
             set
             {
-                if (value != (Application.Current.Properties[nameof(IsSimpleUI)] as string == True))
+                if (!Application.Current.Properties.ContainsKey(nameof(IsSimpleUI)) || value != (Application.Current.Properties[nameof(IsSimpleUI)] as string == True))
                 {
                     Application.Current.Properties[nameof(IsSimpleUI)] = value ? True : False;
 

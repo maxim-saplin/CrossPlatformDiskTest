@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About1" xml:space="preserve">
-    <value>Данное приложение использует  стандартный API операционной системы (WinAPI для Windows, POSIX на Mac и NDK на Android) для измерения скорости передачи данных (мегабайты/гигабайты в секунду) между устройством хранения (HDD, SSD, флешка) и системной памятью (ОЗУ). Вызовы к API операционных системы реализованы через .NET Framework/Mono.</value>
+    <value>Данное приложение использует стандартный API операционной системы (WinAPI для Windows, POSIX на Mac и NDK на Android) для измерения скорости передачи данных (мегабайты/гигабайты в секунду) между устройством хранения (HDD, SSD, флешка) и системной памятью (ОЗУ). Вызовы к API операционных системы реализованы через .NET Framework/Mono.</value>
   </data>
   <data name="About2" xml:space="preserve">
     <value>Тесты последовательной записи и чтения измеряют скорость операций, при которых большие блоки (мегабайты) данных передаются последовательно. Данные тесты соответствуют таким операциям, как копирование больших файлов, кодирование/декодирование видео и т.д.</value>
@@ -345,7 +345,7 @@
     <value>CPDT Benchmark - Результаты теста</value>
   </data>
   <data name="About9" xml:space="preserve">
-    <value>Приложения для других платформ (Windows, macOS, Android/APK) может быть найдено по ссылке:</value>
+    <value>Приложения для других платформ (Windows, macOS, Android/APK) могут быть найдены по ссылке:</value>
   </data>
   <data name="DownloadLink" xml:space="preserve">
     <value>https://maxim-saplin.github.io/cpdt_results/?download=&amp;lang=ru&amp;app=</value>
@@ -370,5 +370,8 @@
   </data>
   <data name="SimpleUIOption" xml:space="preserve">
     <value>[П]ростой вид</value>
+  </data>
+  <data name="CantTestNotEnough" xml:space="preserve">
+    <value>Тест невозможен. Необходимо 1.6Гб места</value>
   </data>
 </root>
