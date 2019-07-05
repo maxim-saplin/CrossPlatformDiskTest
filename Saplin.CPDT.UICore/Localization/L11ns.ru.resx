@@ -181,7 +181,7 @@
     <value>[?] Помощь</value>
   </data>
   <data name="HintAndroid" xml:space="preserve">
-    <value>Нажмите на диске выше для старта</value>
+    <value>Нажмите на диск выше для старта</value>
   </data>
   <data name="HintMisc" xml:space="preserve">
     <value>Для начала теста кликните по диску выше или нажмите клавишу с его номером</value>
@@ -373,5 +373,11 @@
   </data>
   <data name="CantTestNotEnough" xml:space="preserve">
     <value>Тест невозможен. Необходимо 1.6Гб места</value>
+  </data>
+  <data name="TestOf" xml:space="preserve">
+    <value>Тест {0}&#x332; из {1}</value>
+  </data>
+   <data name="TestTotal" xml:space="preserve">
+    <value>Готово {0:0}%</value>
   </data>
 </root>

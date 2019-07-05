@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Saplin.CPDT.UICore.TestCompletion" 
+             xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" 
+             xmlns:local="clr-namespace:Saplin.CPDT.UICore" 
+             xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" 
+             IsVisible="{Binding Source={Static vm:ViewModelContainer.DriveTestViewModel}, TestStarted}"
+             AbsoluteLayout.LayoutBounds="0.5, 0.75" 
+             AbsoluteLayout.LayoutFlags="PositionProportional"
+             HorizontalOptions="Center"
+             Orientation="Horizontal"
+             Padding="8, 4, 8, 4"
+             BackgroundColor="#33999999">
+    <Label x:Name="testNumberLabel" Text="      "
+           VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+    <Label x:Name="animationLabel" Text="/"
+           VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+    <Label x:Name="totalPercentLabel" Text="    "
+           VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+
+</StackLayout>

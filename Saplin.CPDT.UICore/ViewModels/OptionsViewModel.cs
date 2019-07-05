@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Xamarin.Forms;
 
 namespace Saplin.CPDT.UICore.ViewModels
@@ -100,6 +101,8 @@ namespace Saplin.CPDT.UICore.ViewModels
             get { return WhiteTheme == True; }
         }
 
+        private readonly NumberFormatInfo nfi = new NumberFormatInfo() { NumberDecimalSeparator = "."};
+
         public string FileSizeGb
         {
             get
@@ -109,11 +112,12 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
             set
             {
-                if (string.IsNullOrEmpty(value)) value = False;
+                if (string.IsNullOrEmpty(value)) value = "1";
 
-                int i;
-                if (!int.TryParse(value, out i)) throw new InvalidOperationException("Cant set FileSizeGb to: " + value);
-                App.Current.Properties[nameof(FileSizeGb)] = i;
+                //float i;
+                //if (!float.TryParse(FileSizeGb, NumberStyles.Any, nfi, out i)) throw new InvalidOperationException("Cant set FileSizeGb to: " + value);
+                App.Current.Properties[nameof(FileSizeGb)] = value;//i.ToString(nfi);
+
                 App.Current.SavePropertiesAsync();
                 RaisePropertyChanged();
             }
@@ -132,10 +136,10 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             get
             {
-                long i;
-                long.TryParse(FileSizeGb, out i);
+                float i;
+                float.TryParse(FileSizeGb, NumberStyles.Any, nfi, out i);
 
-                return i * 1024 * 1024 * 1024;
+                return (long)(i * 1024 * 1024 * 1024);
             }
         }
     }

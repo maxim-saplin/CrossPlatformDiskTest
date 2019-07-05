@@ -18,6 +18,7 @@ namespace Saplin.CPDT.UICore
         SimpleUI simpaleUIStartPage, simpleUIHeader;
         AdvancedUI advancedUI;
         TestInProgress testInProgress;
+        TestCompletion testCompletion;
         TestSessionsPlaceholder testSessionsPlaceholder;
         Status status;
         Popups popups;
@@ -83,11 +84,11 @@ namespace Saplin.CPDT.UICore
 
                                 simpleUIHeader.SetBinding(IsVisibleProperty, new Binding("IsSimpleUIHeaderVisible", source: ViewModelContainer.NavigationViewModel));
                                 AbsoluteLayout.SetLayoutFlags(simpleUIHeader, AbsoluteLayoutFlags.None);
-                                //simpleUIHeader.IsVisible = true;
                                 simpleUIHeader.HorizontalOptions = LayoutOptions.CenterAndExpand;
                                 simpleUIHeader.Padding = new Thickness(20,16,0,16);
                                                                 
                                 testInProgress = new TestInProgress();
+                                testCompletion = new TestCompletion();
                                 testSessionsPlaceholder = new TestSessionsPlaceholder();
                                 popups = new Popups();
                                 onlineDb = new OnlineDb();
@@ -107,6 +108,7 @@ namespace Saplin.CPDT.UICore
                                         stackLayout.Children.Add(testSessionsPlaceholder);
                                         stackLayout.Children.Add(status);
                                         absoluteLayout.Children.Add(popups);
+                                        absoluteLayout.Children.Add(testCompletion);
 
                                         foreach (var c in onlineDb.Children.ToArray())
                                         {
@@ -133,6 +135,7 @@ namespace Saplin.CPDT.UICore
                                         absoluteLayout.Children.Add(simpaleUIStartPage);
                                         stackLayout.Children.Add(status);
                                         absoluteLayout.Children.Add(popups);
+                                        absoluteLayout.Children.Add(testCompletion);
 
                                         foreach (var c in onlineDb.Children.ToArray())
                                         {

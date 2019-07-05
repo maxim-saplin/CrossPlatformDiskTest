@@ -7,10 +7,10 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
     <DebugType>pdbonly</DebugType>
-    <ReleaseVersion>2.2.1</ReleaseVersion>
-    <Version>2.2.1</Version>
-    <AssemblyVersion>2.2.1.0</AssemblyVersion>
-    <FileVersion>2.2.1.0</FileVersion>
+    <ReleaseVersion>2.2.3</ReleaseVersion>
+    <Version>2.2.3</Version>
+    <AssemblyVersion>2.2.3.0</AssemblyVersion>
+    <FileVersion>2.2.3.0</FileVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

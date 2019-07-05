@@ -562,5 +562,17 @@ namespace Saplin.CPDT.UICore.Localization {
                 return ResourceManager.GetString("CantTestNotEnough", resourceCulture);
             }
         }
+        
+        public static string TestOf {
+            get {
+                return ResourceManager.GetString("TestOf", resourceCulture);
+            }
+        }
+        
+        public static string TestTotal {
+            get {
+                return ResourceManager.GetString("TestTotal", resourceCulture);
+            }
+        }
     }
 }

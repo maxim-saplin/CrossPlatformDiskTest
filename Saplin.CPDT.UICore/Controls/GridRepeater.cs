@@ -336,6 +336,20 @@ namespace Saplin.CPDT.UICore.Controls
             set { SetValue(IsFooterVisibleProperty, value); }
         }
 
+        private static void IsFooterVisiblePropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var control = bindable as GridRepeater;
+
+            if (!(bool)newValue)
+            {
+                control.RemoveFooter();
+            }
+            else
+            {
+                control.AddFooter();
+            }
+        }
+
         private void RemoveFooter()
         {
             if (FooterRow > -1 && Rows[FooterRow] != null)
@@ -359,20 +373,6 @@ namespace Saplin.CPDT.UICore.Controls
                 var row = Rows.Count;
                 AddHeaderFooter(this, FooterTemplate, row);
                 FooterRow = row;
-            }
-        }
-
-        private static void IsFooterVisiblePropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            var control = bindable as GridRepeater;
-
-            if (!(bool)newValue)
-            {
-                control.RemoveFooter();
-            }
-            else
-            {
-                control.AddFooter();
             }
         }
 

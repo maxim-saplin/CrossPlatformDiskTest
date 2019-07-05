@@ -428,6 +428,7 @@ namespace Saplin.CPDT.UICore.ViewModels
 
                              var freeMemService = DependencyService.Get<IFreeMemory>();
                              var flushService = DependencyService.Get<IFileSync>();
+                             var diService = DependencyService.Get<IDeviceInfo>();
 
                              testSuite = new BigTest(
                                 driveNameToUse,
@@ -437,10 +438,13 @@ namespace Saplin.CPDT.UICore.ViewModels
                                 memCache, 
                                 purgingFilePath: androidCachePurgeFile,
                                 freeMem: freeMemService == null ? null : (Func<long>)(freeMemService.GetBytesFree),
+                                totalMem: diService == null ? -1 : (long)(diService.GetRamSizeGb()*1024*1024*1024),
                                 flusher: flushService == null ? null : 
                                     new WriteBufferFlusher(flushService.OpenFile, flushService.Flush, flushService.Close),
                                 mockFileStream: false
                             );
+
+                             TotalTests = testSuite.TotalTests;
 
                              FileNameAndTime = testSuite.FilePath+", "+string.Format("{0:HH:mm:ss} {0:d.MM.yyyy}", TestStartedTime);
                              FileName = testSuite.FilePath;
@@ -508,7 +512,6 @@ namespace Saplin.CPDT.UICore.ViewModels
                                              break;
                                          case TestStatus.Completed:
                                              if (CurrentTestNumber == testSuite.TotalTests || testSuite.TotalTests == 0 /**already disposed*/) ShowTestProgress = false; // last test
-
                                              RecentResults = null;
                                              ProgressPercent = 0;
 
@@ -520,7 +523,10 @@ namespace Saplin.CPDT.UICore.ViewModels
                                                  if (!(e.Results.BlockSizeBytes != TestSession.randBlockToShowInSum && sender is RandomTest))
                                                      bullet = (testNumber++).ToString();
 
-                                                 TestResults.Add(new TestResultsDetailed(e.Results) { BulletPoint = bullet });
+                                                 Device.BeginInvokeOnMainThread(() => // Make the update latter, so the footer is hidden first
+                                                 {
+                                                     TestResults.Add(new TestResultsDetailed(e.Results) { BulletPoint = bullet });
+                                                 });
                                              }
 
                                              break;
@@ -608,7 +614,11 @@ namespace Saplin.CPDT.UICore.ViewModels
 
                                 breakingTest = true;
 
-                                testSuite.Break();
+                                try // There're seldom exceptions registered in Android Vitals with no apparent reason. JIC making them silent
+                                {
+                                    testSuite.Break();
+                                }
+                                catch { }
 
                                 ViewModelContainer.ResultsDbViewModel.SendPageHit("breakTest");
                             }
@@ -802,8 +812,13 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             get
             {
-                return TestResults.Count + 1;
+                return Math.Min(TestResults.Count + 1,TotalTests);
             }
+        }
+
+        public int TotalTests
+        {
+            get; private set;
         }
     }
 }

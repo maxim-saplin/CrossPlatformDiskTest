@@ -26,7 +26,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                 var l11n = ViewModelContainer.L11n;
 
                 return string.Format(l11n.TestSummaryFormatString,
-                                 FileSizeBytes/1024/1024/1024,
+                                 (((float)FileSizeBytes)/1024/1024/1024).ToString("0.0"),
                                  (double)FreeSpaceBytes/1024/1024/1024,
                                  WriteBuffering ? l11n.On : l11n.Off,
                                  MemCache ? l11n.On : l11n.Off);
@@ -40,7 +40,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                 var l11n = ViewModelContainer.L11n;
 
                 return string.Format(l11n.TestSummaryShortFormatString,
-                                 FileSizeBytes / 1024 / 1024 / 1024,
+                                 (((float)FileSizeBytes) / 1024 / 1024 / 1024).ToString("0.0"),
                                  (double)FreeSpaceBytes / 1024 / 1024 / 1024,
                                  WriteBuffering ? l11n.On : l11n.Off,
                                  MemCache ? l11n.On : l11n.Off);

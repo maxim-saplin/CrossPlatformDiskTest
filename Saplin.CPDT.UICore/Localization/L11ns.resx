@@ -380,4 +380,10 @@ write</value>
   <data name="CantTestNotEnough" xml:space="preserve">
     <value>Cant test. 1.6GB free space required</value>
   </data>
+  <data name="TestOf" xml:space="preserve">
+    <value>Test {0}&#x332; of {1}</value>
+  </data>
+   <data name="TestTotal" xml:space="preserve">
+    <value>Done {0:0}%</value>
+  </data>
 </root>
