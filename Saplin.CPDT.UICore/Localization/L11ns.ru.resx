@@ -157,7 +157,7 @@
     <value>Б/с</value>
   </data>
   <data name="BreakTest" xml:space="preserve">
-    <value>[Esc, П]ервать</value>
+    <value>[Esc, П]рервать</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>[Esc] Закрыть</value>

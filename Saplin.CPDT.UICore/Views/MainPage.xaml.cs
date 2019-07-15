@@ -168,6 +168,7 @@ namespace Saplin.CPDT.UICore
                 }
 
                 backgroundColor = Color.White;
+                //backgroundColor = Color.LightPink;
             }
         }
 
