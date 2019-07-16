@@ -50,7 +50,7 @@
     <AndroidDexTool>d8</AndroidDexTool>
     <AndroidLinkTool>r8</AndroidLinkTool>   
     <AndroidUseAapt2>true</AndroidUseAapt2>
-    <AndroidAapt2LinkExtraArgs>--enable-sparse-encoding -c en-rUS</AndroidAapt2LinkExtraArgs>
+    <AndroidAapt2LinkExtraArgs>--no-xml-namespaces -c en-rUS</AndroidAapt2LinkExtraArgs>
     <AndroidLinkSkip>Saplin.CPDT.UICore;Saplin.CPDT.UICore.resources;Saplin.StorageSpeedMeter;CPDT.Extra.Android</AndroidLinkSkip>
     <AndroidStoreUncompressedFileExtensions>.png</AndroidStoreUncompressedFileExtensions>
     <AndroidTlsProvider>legacy</AndroidTlsProvider>
