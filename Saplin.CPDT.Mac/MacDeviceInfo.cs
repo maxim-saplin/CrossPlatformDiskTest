@@ -16,6 +16,8 @@ namespace Saplin.CPDT.Mac
         private string model = null;
         private float? ram = null;
 
+        public bool IsChromeOs => false;
+
         public string GetCPU()
         {
             if (cpu == null)

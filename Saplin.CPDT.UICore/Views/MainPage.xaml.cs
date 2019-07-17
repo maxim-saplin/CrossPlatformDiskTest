@@ -172,9 +172,19 @@ namespace Saplin.CPDT.UICore
             }
         }
 
+        private bool? alreadyNarrow;
+
         private void AdaptLayoytToScreenWidth()
         {
             var narrow = Width < narrowWidth;
+
+            if (alreadyNarrow.HasValue)
+            {
+                if (alreadyNarrow.Value && narrow) return;
+                if (!alreadyNarrow.Value && !narrow) return;
+            }
+
+            alreadyNarrow = narrow;
 
             simpaleUIStartPage?.AdjustToWidth(Width);
             simpleUIHeader?.AdjustToWidth(Width);
@@ -183,6 +193,21 @@ namespace Saplin.CPDT.UICore
             testSessionsPlaceholder?.AdaptLayoytToScreenWidth(narrow);
 
             ViewModelContainer.NavigationViewModel.IsNarrowView = narrow;
+
+            AdjustPopupsToWidth(narrow);
+        }
+
+        private static void AdjustPopupsToWidth(bool narrow)
+        {
+            //<Style x:Key="popUpContainer" TargetType="StackLayout">
+            // ..
+            //< OnPlatform x: TypeArguments = "Thickness" >  
+            //< On Platform = "Android" Value = "10, 10, 10, 10" />     
+            //< On Platform = "macOS, WPF" Value = "60, 60, 60, 60" />
+            //</ OnPlatform >
+            Application.Current.Resources["popUpContainer"] = narrow ?
+                Application.Current.Resources["popUpContainerNarrow"]
+                : Application.Current.Resources["popUpContainerWide"];
         }
 
         public void OnQuit(Object sender, EventArgs e)

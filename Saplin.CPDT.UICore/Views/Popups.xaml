@@ -9,7 +9,7 @@
     AbsoluteLayout.LayoutBounds="1.0, 1.0, 1.0, 1.0" 
     AbsoluteLayout.LayoutFlags="All" 
     ctrl:KeyPress.ModalParentExclusiveHook="True" 
-    Style="{StaticResource Key=popUpContainer}"
+    Style="{DynamicResource Key=popUpContainer}"
     IsVisible="{Binding Source={Static vm:ViewModelContainer.NavigationViewModel}, IsAnyPopupVisible}" 
 >
     <StackLayout.Effects>
