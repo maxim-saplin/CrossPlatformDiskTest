@@ -15,25 +15,32 @@ namespace Saplin.CPDT.Droid
 
             var drive = new AndroidDrive();
 
-            drive.AppFolderPath = MainActivity.Instance.FilesDir.AbsolutePath;
+            try
+            {
+                drive.AppFolderPath = MainActivity.Instance.FilesDir.AbsolutePath;
+                InitDrive(drive, 3);
+            }
+            catch { drive.Accessible = false; }
 
-            InitDrive(drive, 3);
-
-            drives.Add(drive);
+            if (!string.IsNullOrEmpty(drive.Name)) drives.Add(drive);
 
             var ext = MainActivity.Instance.GetExternalFilesDirs(null);
 
             foreach (var e in ext)
             {
-                if (e == null) continue;
+                 if (e == null) continue;
 
                 drive = new AndroidDrive();
 
-                drive.AppFolderPath = e.AbsolutePath;
+                try
+                {
 
-                InitDrive(drive, 4);
+                    drive.AppFolderPath = e.AbsolutePath;
+                    InitDrive(drive, 4);
+                }
+                catch { drive.Accessible = false; }
 
-                drives.Add(drive);
+                if (!string.IsNullOrEmpty(drive.Name)) drives.Add(drive);
             }
 
             return drives;

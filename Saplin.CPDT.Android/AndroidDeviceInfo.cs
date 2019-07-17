@@ -15,6 +15,18 @@ namespace Saplin.CPDT.Droid
         private string cpu = null;
         private string model = null;
         private float? ram = null;
+        private bool? isChromeOs = null;
+
+        public bool IsChromeOs
+        {
+            get
+            {
+                if (isChromeOs == null)
+                    try { isChromeOs = Android.App.Application.Context.PackageManager.HasSystemFeature("org.chromium.arc.device_management"); } catch { isChromeOs = false; }
+
+                return isChromeOs.Value;
+            }
+        }
 
         public string GetCPU()
         {

@@ -57,7 +57,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                     if (!TestStarted)
                     {
 
-                        if (ViewModelContainer.DriveTestViewModel.AvailableDrivesCount < 1)
+                        if (AtLeastOneDriveWithNotEnoughSpace)
                         {
                             StatusMessage = nameof(ViewModelContainer.L11n.CantTestNotEnough);
                         }
@@ -80,16 +80,19 @@ namespace Saplin.CPDT.UICore.ViewModels
 
         private void InitDrives()
         {
-            Action<DriveDetailed, int> setAvailableAndIndex = (DriveDetailed d, int i) =>
+            Action<DriveDetailed, int> setEnoughSpaceAndIndex = (DriveDetailed d, int i) =>
             {
                 const int extraSpace = 512 * 1024 * 1024;
-                d.AvailableForTest = d.BytesFree > FileSize + extraSpace;
+                d.EnoughSpace = d.BytesFree > FileSize + extraSpace;
                 d.DisplayIndex = d.BytesFree > FileSize + extraSpace ? (i < 9 ? (i+1).ToString()[0] : '.') : ' ';
+
+                if (!d.EnoughSpace) AtLeastOneDriveWithNotEnoughSpace = true;
             };
 
             try
             {
                 availbleDrivesCount = 0;
+                AtLeastOneDriveWithNotEnoughSpace = false;
                 var i = 0;
                 firstAvailableDrive = null;
 
@@ -105,7 +108,7 @@ namespace Saplin.CPDT.UICore.ViewModels
 
                     foreach (var ad in androidDrives)
                     {
-                        setAvailableAndIndex(ad, i);
+                        setEnoughSpaceAndIndex(ad, i);
 
                         if (ad.AvailableForTest)
                         {
@@ -141,13 +144,13 @@ namespace Saplin.CPDT.UICore.ViewModels
                             free = d.TotalFreeSpace; // requesting disk size might throw access exceptions
                             size = d.TotalSize;
                         }
-                        catch { }
+                        catch { dd.Accessible = false; }
 
                         
                         dd.BytesFree = free;
                         dd.TotalBytes = size;
 
-                        setAvailableAndIndex(dd, i);
+                        setEnoughSpaceAndIndex(dd, i);
 
                         if (dd.AvailableForTest)
                         {
@@ -168,7 +171,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
             catch (Exception ex)
             {
-                ViewModelContainer.ErrorViewModel.DoShow(ex);
+                ViewModelContainer.ErrorViewModel.DoShow(ViewModelContainer.L11n.InitDrivesError, ex);
             }
         }
 
@@ -202,6 +205,7 @@ namespace Saplin.CPDT.UICore.ViewModels
         }
 
         public int AvailableDrivesCount { get { return availbleDrivesCount; } }
+        public bool AtLeastOneDriveWithNotEnoughSpace { get; protected set; }
 
         private string statusMessage;
 

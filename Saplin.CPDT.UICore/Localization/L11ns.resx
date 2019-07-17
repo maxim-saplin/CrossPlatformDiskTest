@@ -383,7 +383,16 @@ write</value>
   <data name="TestOf" xml:space="preserve">
     <value>Test {0}&#x332; of {1}</value>
   </data>
-   <data name="TestTotal" xml:space="preserve">
+  <data name="TestTotal" xml:space="preserve">
     <value>Done {0:0}%</value>
+  </data>
+  <data name="InitDrivesError" xml:space="preserve">
+    <value>An error occured while fetching a list of drives/partitions avaialable. Tests cant be executed.</value>
+  </data>
+  <data name="NotEnoughSpaceHint" xml:space="preserve">
+    <value>not enough</value>
+  </data>
+  <data name="NotAccessibleDriveHint" xml:space="preserve">
+    <value>not avaialble</value>
   </data>
 </root>

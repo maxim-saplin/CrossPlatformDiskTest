@@ -986,5 +986,29 @@ namespace Saplin.CPDT.UICore.Localization
                 return ResourceManager.GetString("TestTotal", resourceCulture);
             }
         }
+
+        public string InitDrivesError
+        {
+            get
+            {
+                return ResourceManager.GetString("InitDrivesError", resourceCulture);
+            }
+        }
+
+        public string NotEnoughSpaceHint
+        {
+            get
+            {
+                return ResourceManager.GetString("NotEnoughSpaceHint", resourceCulture);
+            }
+        }
+
+        public string NotAccessibleDriveHint
+        {
+            get
+            {
+                return ResourceManager.GetString("NotAccessibleDriveHint", resourceCulture);
+            }
+        }
     }
 }

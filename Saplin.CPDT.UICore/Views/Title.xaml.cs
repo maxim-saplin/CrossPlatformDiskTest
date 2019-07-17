@@ -1,5 +1,6 @@
 ﻿using System;
 using Saplin.CPDT.UICore.Controls;
+using Saplin.CPDT.UICore.Misc;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,6 +14,10 @@ namespace Saplin.CPDT.UICore
             InitializeComponent();
 
             bitSystem.Text += Environment.Is64BitProcess ? " 64bit" : " 32bit";
+
+            var di = DependencyService.Get<IDeviceInfo>();
+
+            if (di != null) bitSystem.Text += di.IsChromeOs ? " ChromeOS" : "";
         }
 
         public ExtendedLabel QuitButton { get { return quitButton; } }

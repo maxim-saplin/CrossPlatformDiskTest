@@ -5,5 +5,6 @@
         string GetModelName();
         string GetCPU();
         float GetRamSizeGb();
+        bool IsChromeOs { get; }
     }
 }

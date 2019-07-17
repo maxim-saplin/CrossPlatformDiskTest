@@ -380,4 +380,13 @@
    <data name="TestTotal" xml:space="preserve">
     <value>Готово {0:0}%</value>
   </data>
+  <data name="InitDrivesError" xml:space="preserve">
+    <value>Произошла ошибка при получении списка доступных дисков/разделов. Запустить тест не удасться.</value>
+  </data>
+  <data name="NotEnoughSpaceHint" xml:space="preserve">
+    <value>недостаточно</value>
+  </data>
+  <data name="NotAccessibleDriveHint" xml:space="preserve">
+    <value>недоступен</value>
+  </data>    
 </root>

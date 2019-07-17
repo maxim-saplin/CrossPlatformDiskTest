@@ -116,10 +116,14 @@ namespace Saplin.CPDT.UICore.ViewModels
 
                 //float i;
                 //if (!float.TryParse(FileSizeGb, NumberStyles.Any, nfi, out i)) throw new InvalidOperationException("Cant set FileSizeGb to: " + value);
-                App.Current.Properties[nameof(FileSizeGb)] = value;//i.ToString(nfi);
 
-                App.Current.SavePropertiesAsync();
-                RaisePropertyChanged();
+                if (App.Current.Properties[nameof(FileSizeGb)] != value)
+                {
+                    App.Current.Properties[nameof(FileSizeGb)] = value;//i.ToString(nfi);
+
+                    App.Current.SavePropertiesAsync();
+                    RaisePropertyChanged();
+                }
             }
         }
 

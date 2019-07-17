@@ -33,15 +33,10 @@
                                 </OnPlatform>
                             </Label.HeightRequest>
                         </ctrl:ExtendedLabel>
-                        <ctrl:ExtendedLabel LineBreakMode="TailTruncation" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="{Binding GbFree,  Mode=OneWay, StringFormat='{0:0.00}'}" />
-                                    <Span Text="{Binding GbFree, Source={Static vm:ViewModelContainer.L11n}, Mode=OneWay}" />
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </ctrl:ExtendedLabel>
-                        <!--<local:AndroidSpacer/>-->
+
+                        <Label Text="{Binding HintText}" LineBreakMode="TailTruncation" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start">
+                        </Label>
+          
                     </StackLayout>
                 </StackLayout>
             </DataTemplate>

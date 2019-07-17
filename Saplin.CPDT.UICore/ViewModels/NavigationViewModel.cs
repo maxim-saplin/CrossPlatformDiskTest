@@ -12,7 +12,9 @@ namespace Saplin.CPDT.UICore.ViewModels
 			{
                 if (e.PropertyName == nameof(PopupViewModel.IsVisible))
                 {
-                    IsAnyPopupVisible = (s as PopupViewModel).IsVisible;
+                    IsAnyPopupVisible = ViewModelContainer.OptionsViewModel.IsVisible
+                                     || ViewModelContainer.AboutViewModel.IsVisible
+                                     || ViewModelContainer.ErrorViewModel.IsVisible;
                 }
 			};
 
