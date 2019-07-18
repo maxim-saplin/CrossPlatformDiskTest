@@ -2,6 +2,7 @@
 <Grid xmlns="http://xamarin.com/schemas/2014/forms" WidthRequest="500"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls"
+             xmlns:ctrl2="clr-namespace:Saplin.CPDT.UICore.Controls;assembly=CPDT.Extra"
              xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels"
              xmlns:l11n="clr-namespace:Saplin.CPDT.UICore.Localization"
              xmlns:local="clr-namespace:Saplin.CPDT.UICore"
@@ -55,52 +56,52 @@
         <RowDefinition Height="25"/>
     </Grid.RowDefinitions>
     
-    <ctrl:ExtendedLabel x:Name="closeLabel" ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Close}" Grid.Row="0" Grid.Column="0" 
+    <ctrl2:ExtendedLabel x:Name="closeLabel" ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Close}" Grid.Row="0" Grid.Column="0" 
                         ChangeCursorOnMouseHover="True" Command="{Binding Source={Static vm:ViewModelContainer.OptionsViewModel}, Close}" 
                         VerticalOptions="Start" HorizontalOptions="EndAndExpand" LineBreakMode="NoWrap" Grid.ColumnSpan="2"/>
     
-    <ctrl:ExtendedLabel Grid.Row="2" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, FileSizeOption}"
+    <ctrl2:ExtendedLabel Grid.Row="2" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, FileSizeOption}"
                         ctrl:KeyPress.ClickControl="{x:Reference Name=fileSizeOption}" VerticalOptions="End"/>
     <ctrl:RollingSelector Grid.Row="2" Grid.Column="1" ChangeCursorOnMouseHover="True" Items="{x:StaticResource Key=FileSizeKeys}"
                           SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.OptionsViewModel}, FileSizeGb}"
                           x:Name="fileSizeOption" VerticalOptions="End"/>
     
-    <ctrl:ExtendedLabel Grid.Row="3" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, WriteBufferingOption}"
+    <ctrl2:ExtendedLabel Grid.Row="3" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, WriteBufferingOption}"
                         ctrl:KeyPress.ClickControl="{x:Reference Name=writeBufferOption}"/>
     <ctrl:RollingSelector Grid.Row="3" Grid.Column="1" ChangeCursorOnMouseHover="True" 
                           Items="{Binding Source={x:Static vm:ViewModelContainer.L11n}, OnOff}"
                           SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.OptionsViewModel}, WriteBuffering}"
                           x:Name="writeBufferOption"/>
     
-    <ctrl:ExtendedLabel Grid.Row="4" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, MemCacheOption}"
+    <ctrl2:ExtendedLabel Grid.Row="4" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, MemCacheOption}"
                         ctrl:KeyPress.ClickControl="{x:Reference Name=memCacheOption}"/>
     <ctrl:RollingSelector Grid.Row="4" Grid.Column="1" ChangeCursorOnMouseHover="True"  
                           Items="{Binding Source={x:Static vm:ViewModelContainer.L11n}, OnOff}"
                           SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.OptionsViewModel}, MemCache}"
                           x:Name="memCacheOption"/>
     
-    <ctrl:ExtendedLabel Grid.Row="5" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, CsvOption}"
+    <ctrl2:ExtendedLabel Grid.Row="5" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, CsvOption}"
                         ctrl:KeyPress.ClickControl="{x:Reference Name=csvOption}"/>
     <ctrl:RollingSelector Grid.Row="5" Grid.Column="1" ChangeCursorOnMouseHover="True"  
                           Items="{Binding Source={x:Static vm:ViewModelContainer.L11n}, OnOff}"
                           SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.OptionsViewModel}, Csv}"
                           x:Name="csvOption"/>
 
-    <ctrl:ExtendedLabel Grid.Row="6" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, WhiteTheme}"
+    <ctrl2:ExtendedLabel Grid.Row="6" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, WhiteTheme}"
                         ctrl:KeyPress.ClickControl="{x:Reference Name=whiteThemeOption}"/>
     <ctrl:RollingSelector Grid.Row="6" Grid.Column="1" ChangeCursorOnMouseHover="True"  
                           Items="{Binding Source={x:Static vm:ViewModelContainer.L11n}, OnOff}"
                           SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.OptionsViewModel}, WhiteTheme}"
                           x:Name="whiteThemeOption"/>
     
-    <ctrl:ExtendedLabel Grid.Row="7" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, SimpleUIOption}"
+    <ctrl2:ExtendedLabel Grid.Row="7" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, SimpleUIOption}"
                         ctrl:KeyPress.ClickControl="{x:Reference Name=simpleUIOption}"/>
     <ctrl:RollingSelector Grid.Row="7" Grid.Column="1" ChangeCursorOnMouseHover="True"  
                           Items="{Binding Source={x:Static vm:ViewModelContainer.L11n}, OnOff}"
                           SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.NavigationViewModel}, IsSimpleUI}"
                           x:Name="simpleUIOption"/>
             
-    <ctrl:ExtendedLabel Grid.Row="8" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Language}" 
+    <ctrl2:ExtendedLabel Grid.Row="8" ctrl:KeyPress.CommandText="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Language}" 
                         Command="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _NextLocale}"/>
     <StackLayout Orientation="Horizontal" Grid.Row="8" Grid.Column="1" >
         <ctrl:RollingSelector ChangeCursorOnMouseHover="True" SelectedItemKey="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _Locale}" Items="{x:StaticResource Key=LanguageKeys}" />

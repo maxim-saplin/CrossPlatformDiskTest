@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<StackLayout 
+<ctrl:BluredStackLayout 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="Saplin.CPDT.UICore.Popups"
     xmlns:local="clr-namespace:Saplin.CPDT.UICore" 
-    xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" 
+    xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls"
+    xmlns:ctrl2="clr-namespace:Saplin.CPDT.UICore.Controls;assembly=CPDT.Extra"
     xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" 
     AbsoluteLayout.LayoutBounds="1.0, 1.0, 1.0, 1.0" 
     AbsoluteLayout.LayoutFlags="All" 
@@ -13,9 +14,9 @@
     IsVisible="{Binding Source={Static vm:ViewModelContainer.NavigationViewModel}, IsAnyPopupVisible}" 
 >
     <StackLayout.Effects>
-        <ctrl:BlurPlatformEffect />
+        <ctrl:BlurPlatformEffect /> <!-- Platform effect on mac and Winows, renderer on Android -->
     </StackLayout.Effects>
         <local:Options IsVisible="{Binding Source={Static vm:ViewModelContainer.OptionsViewModel}, IsVisible}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
         <local:About IsVisible="{Binding Source={Static vm:ViewModelContainer.AboutViewModel}, IsVisible}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
         <local:Error IsVisible="{Binding Source={Static vm:ViewModelContainer.ErrorViewModel}, IsVisible}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-</StackLayout>
+</ctrl:BluredStackLayout>

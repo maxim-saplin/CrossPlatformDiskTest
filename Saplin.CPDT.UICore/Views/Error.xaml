@@ -3,6 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls"
+    xmlns:ctrl2="clr-namespace:Saplin.CPDT.UICore.Controls;assembly=CPDT.Extra"
     xmlns:local="clr-namespace:Saplin.CPDT.UICore"
     xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels"
     x:Class="Saplin.CPDT.UICore.Error"
@@ -33,7 +34,7 @@
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="5"/>
     </Grid.RowDefinitions>
-    <ctrl:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Close}" Grid.Row="0" Grid.Column="1" 
+    <ctrl2:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Close}" Grid.Row="0" Grid.Column="1" 
                         ChangeCursorOnMouseHover="True" Command="{Binding Close}" 
                         VerticalOptions="Start" HorizontalOptions="End" WidthRequest="130" HorizontalTextAlignment="End"/>
     <Label Text="{Binding ExceptionName}" Style="{x:StaticResource AccentedLabel}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start" HorizontalOptions="StartAndExpand" />

@@ -14,13 +14,14 @@ namespace Saplin.CPDT.Droid
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-
             base.OnCreate(savedInstanceState);
 
             Instance = this;
 
-            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            var t = typeof(BluredStackLayoutRenderer);//load CPDT.Extra.Android to have renderers in place
 
+            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            
             var app = new Saplin.CPDT.UICore.App();
 
             LoadApplication(app);

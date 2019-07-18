@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" x:Class="Saplin.CPDT.UICore.WhiteTheme">
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:ctrl2="clr-namespace:Saplin.CPDT.UICore.Controls;assembly=CPDT.Extra" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" x:Class="Saplin.CPDT.UICore.WhiteTheme">
     <!--STYLES-->
     <!-- LAYOUTS-->
     <Style x:Key="testRunningHeader" TargetType="StackLayout">
@@ -12,9 +12,9 @@
         <Setter Property="Font" Value="{StaticResource FontNormal}" />
     </Style>
     <Style TargetType="Label" BasedOn="{StaticResource LabelStyle}" />
-    <Style TargetType="ctrl:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
+    <Style TargetType="ctrl2:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
         <Style.Triggers>
-            <Trigger TargetType="ctrl:ExtendedLabel" Property="IsEnabled" Value="False">
+            <Trigger TargetType="ctrl2:ExtendedLabel" Property="IsEnabled" Value="False">
                 <Setter Property="TextColor" Value="Gray" />
             </Trigger>
         </Style.Triggers>
@@ -37,11 +37,11 @@
         <Setter Property="TextColor" Value="#FF202020" />
         <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
     </Style>
-    <Style x:Key="AccentedLabel" TargetType="ctrl:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
+    <Style x:Key="AccentedLabel" TargetType="ctrl2:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
         <Setter Property="TextColor" Value="Black" />
         <Setter Property="Font" Value="{StaticResource FontBold}" />
     </Style>
-    <Style x:Key="CloseWebViewLabel" TargetType="ctrl:ExtendedLabel">
+    <Style x:Key="CloseWebViewLabel" TargetType="ctrl2:ExtendedLabel">
         <Setter Property="TextColor" Value="Black" />
         <Setter Property="Font" Value="{StaticResource FontBold}" />
         <Setter Property="BackgroundColor">

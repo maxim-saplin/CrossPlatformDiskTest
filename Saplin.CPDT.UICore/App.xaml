@@ -2,7 +2,8 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:Saplin.CPDT.UICore" 
-             xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" 
+             xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls"
+             xmlns:ctrl2="clr-namespace:Saplin.CPDT.UICore.Controls;assembly=CPDT.Extra"
              xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" 
              xmlns:csr="clr-namespace:System.Collections.Generic;assembly=System.Runtime" 
              x:Class="Saplin.CPDT.UICore.App">
@@ -56,9 +57,9 @@
                 <Setter Property="Font" Value="{StaticResource FontNormal}" />
             </Style>
             <Style TargetType="Label" BasedOn="{StaticResource LabelStyle}" />
-            <Style TargetType="ctrl:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
+            <Style TargetType="ctrl2:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
                 <Style.Triggers>
-                    <Trigger TargetType="ctrl:ExtendedLabel" Property="IsEnabled" Value="False">
+                    <Trigger TargetType="ctrl2:ExtendedLabel" Property="IsEnabled" Value="False">
                         <Setter Property="TextColor" Value="Gray" />
                     </Trigger>
                 </Style.Triggers>
@@ -81,15 +82,15 @@
                 <Setter Property="TextColor" Value="#FFCFCFCF" />
                 <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
             </Style>
-            <Style x:Key="GrayedLabel" TargetType="ctrl:ExtendedLabel">
+            <Style x:Key="GrayedLabel" TargetType="ctrl2:ExtendedLabel">
                 <Setter Property="TextColor" Value="#FF808080" />
                 <Setter Property="Font" Value="{StaticResource FontItalic}" />
             </Style>
-            <Style x:Key="AccentedLabel" TargetType="ctrl:ExtendedLabel">
+            <Style x:Key="AccentedLabel" TargetType="ctrl2:ExtendedLabel">
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="Font" Value="{StaticResource FontBold}" />
             </Style>
-            <Style x:Key="CloseWebViewLabel" TargetType="ctrl:ExtendedLabel">
+            <Style x:Key="CloseWebViewLabel" TargetType="ctrl2:ExtendedLabel">
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="Font" Value="{StaticResource FontBold}" />
                 <Setter Property="BackgroundColor">
@@ -219,7 +220,7 @@
                 <Setter Property="BackgroundColor">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="Color">
-                            <On Platform="Android" Value="#88000000" />
+                            <On Platform="Android" Value="#44000000" />
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>                
@@ -237,7 +238,7 @@
                 <Setter Property="BackgroundColor">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="Color">
-                            <On Platform="Android" Value="#88000000" />
+                            <On Platform="Android" Value="#44000000" />
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>                
@@ -255,7 +256,7 @@
                 <Setter Property="BackgroundColor">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="Color">
-                            <On Platform="Android" Value="#88000000" />
+                            <On Platform="Android" Value="#44000000" />
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>                
