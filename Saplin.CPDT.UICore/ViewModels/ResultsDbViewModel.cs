@@ -320,8 +320,12 @@ namespace Saplin.CPDT.UICore.ViewModels
         public void SendPageHit(string param)
         {
             if (!navigatedNotSuccesfully)
-                webView?.EvaluateJavaScriptAsync(
-                    "gtag('config', 'UA-17809502-2', {page_location:location.toString()+'" + "&"+param+"="+ DateTime.UtcNow.ToString(d_param_format) +"'});");
+                try // WPF might fail with unhandled exception if there's no document loaded
+                {
+                    webView?.EvaluateJavaScriptAsync(
+                        "gtag('config', 'UA-17809502-2', {page_location:location.toString()+'" + "&" + param + "=" + DateTime.UtcNow.ToString(d_param_format) + "'});");
+                }
+                catch { }; 
         }
     }
 }
