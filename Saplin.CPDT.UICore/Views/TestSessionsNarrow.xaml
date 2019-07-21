@@ -58,7 +58,7 @@
                                 <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm:ss} {0:d.MM.yyyy}'}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start" Margin="0, -6, 0, 4" />
                                     
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0, -6, 0, 0">
-                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="50" MinimumWidthRequest="50">
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="53" MinimumWidthRequest="53">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=SequentialWriteTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>
@@ -67,7 +67,7 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="50" MinimumWidthRequest="50">
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="53" MinimumWidthRequest="53">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=SequentialReadTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>
@@ -76,7 +76,7 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="50" MinimumWidthRequest="50">
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="53" MinimumWidthRequest="53">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RandomWriteTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>
@@ -85,7 +85,7 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="50" MinimumWidthRequest="50">
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="53" MinimumWidthRequest="53">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RandomReadTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>
@@ -94,7 +94,7 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="50" MinimumWidthRequest="50">
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="53" MinimumWidthRequest="53">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=MemCopyTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>

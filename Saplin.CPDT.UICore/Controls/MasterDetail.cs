@@ -88,9 +88,11 @@ namespace Saplin.CPDT.UICore.Controls
 
         private void ToggleClicked(object sender, EventArgs e)
         {
+#if DEBUG
             var sw = new Stopwatch();
             sw.Start();
             Trace.Write("MasterDetail Toggling...");
+#endif
 
             if (MasterDetail.GetToggleDetailOnClicked(sender as View) || ToggleOnMasterClick)
             {
@@ -110,8 +112,10 @@ namespace Saplin.CPDT.UICore.Controls
                 IsDetailVisible = !IsDetailVisible;
             }
 
+#if DEBUG
             sw.Stop();
             Trace.WriteLine("MasterDetail Toggled: "+sw.ElapsedMilliseconds);
+#endif
         }
 
         /// <summary>
@@ -234,7 +238,7 @@ namespace Saplin.CPDT.UICore.Controls
 
             if ((bool)newValue)
             {
-                if (control.detailView == null)
+                if (control.detailView == null || !control.detailAdded)
                 {
                     CreateDetailControls(control);
                     control.Children.Add(control.detailView);
@@ -261,6 +265,16 @@ namespace Saplin.CPDT.UICore.Controls
                 {
                     control.detailView.IsVisible = false;
                 }
+            }
+        }
+
+        private static void AddDetailControls(MasterDetail control, bool isVisible = false)
+        {
+            if (!control.detailAdded)
+            {
+                control.detailView.IsVisible = isVisible;
+                control.Children.Add(control.detailView);
+                control.detailAdded = true;
             }
         }
 
@@ -351,6 +365,8 @@ namespace Saplin.CPDT.UICore.Controls
             {
                 Children.Clear();
                 BindingContext = null;
+                if (!string.IsNullOrEmpty(SelectionGroup) && selectionGroups.ContainsKey(SelectionGroup))
+                    selectionGroups[SelectionGroup].Remove(this);
             }
         }
 
@@ -441,6 +457,14 @@ namespace Saplin.CPDT.UICore.Controls
                         {
                             CreateDetailControls(i);
                         }
+
+                        //Device.BeginInvokeOnMainThread(() =>
+                        //{
+                        //    foreach (var i in list)
+                        //    {
+                        //        AddDetailControls(i, false);
+                        //    }
+                        //});
                     });
 
                 }
