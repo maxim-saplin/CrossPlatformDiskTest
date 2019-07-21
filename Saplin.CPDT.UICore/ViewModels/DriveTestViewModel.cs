@@ -437,7 +437,6 @@ namespace Saplin.CPDT.UICore.ViewModels
                              testSuite = new BigTest(
                                 driveNameToUse,
                                 optionsVm.FileSizeBytes,
-                                //optionsVm.FileSizeBytes/64, 
                                 optionsVm.WriteBufferingBool, 
                                 memCache, 
                                 purgingFilePath: androidCachePurgeFile,

@@ -192,7 +192,9 @@ namespace Saplin.CPDT.UICore
             simpleUIHeader?.AdjustToWidth(Width);
             advancedUI?.AdaptLayoytToScreenWidth(narrow);
             testInProgress?.AdaptLayoytToScreenWidth(narrow);
+
             testSessionsPlaceholder?.AdaptLayoytToScreenWidth(narrow);
+            MasterDetail.AsyncPreloadDetailsForSelectionGroup("testSessions");
 
             ViewModelContainer.NavigationViewModel.IsNarrowView = narrow;
 

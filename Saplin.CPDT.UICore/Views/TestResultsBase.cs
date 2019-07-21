@@ -50,11 +50,6 @@ namespace Saplin.CPDT.UICore
                         var c2 = r.Find(el => el is StackLayout && el.IsVisible);
                         if (c2 != null && !animatedLabels.Contains(c2 as StackLayout)) animatedLabels.Add(c2 as StackLayout);
 
-                        //var c2 = r.FindAll(el => el is Label && !(el as Label).IsEnabled);
-                        //if (c2 != null)
-                        //    foreach (var el in c2)
-                        //        if (!animatedLabels.Contains(el as Label)) animatedLabels.Add(el as Label);
-
                         Device.StartTimer(
                             TimeSpan.FromMilliseconds(5500),
                                 () =>

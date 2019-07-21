@@ -1,4 +1,6 @@
-﻿namespace Saplin.CPDT.UICore.ViewModels
+﻿using Saplin.CPDT.UICore.Controls;
+
+namespace Saplin.CPDT.UICore.ViewModels
 {
     public class TestSessionsViewModel : BaseViewModel
     {

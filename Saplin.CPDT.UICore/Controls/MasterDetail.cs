@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Saplin.CPDT.UICore.Controls
@@ -86,6 +88,10 @@ namespace Saplin.CPDT.UICore.Controls
 
         private void ToggleClicked(object sender, EventArgs e)
         {
+            var sw = new Stopwatch();
+            sw.Start();
+            Trace.Write("MasterDetail Toggling...");
+
             if (MasterDetail.GetToggleDetailOnClicked(sender as View) || ToggleOnMasterClick)
             {
                 if (!string.IsNullOrEmpty(SelectionGroup) && !IsDetailVisible)
@@ -103,6 +109,9 @@ namespace Saplin.CPDT.UICore.Controls
 
                 IsDetailVisible = !IsDetailVisible;
             }
+
+            sw.Stop();
+            Trace.WriteLine("MasterDetail Toggled: "+sw.ElapsedMilliseconds);
         }
 
         /// <summary>
@@ -192,6 +201,7 @@ namespace Saplin.CPDT.UICore.Controls
                 {
                     if (MasterDetail.GetToggleDetailOnClicked(c))
                     {
+                        
                         if (c is Button) (c as Button).Clicked += control.ToggleClicked;
                         else if (c is ExtendedLabel) (c as ExtendedLabel).Clicked += control.ToggleClicked;
 
@@ -226,23 +236,8 @@ namespace Saplin.CPDT.UICore.Controls
             {
                 if (control.detailView == null)
                 {
-                    Layout cached = null;
-                    control.detailViewCached?.TryGetTarget(out cached);
-
-                    if (cached != null)
-                    {
-                        control.detailView = cached;
-                    }
-                    else
-                    {
-                        control.detailView = control.ViewFromTemplate(control.DetailTemplate, control.DetailBindingContext ?? control.BindingContext);
-                        if (control.detailViewCached == null) control.detailViewCached = new WeakReference<Layout>(control.detailView);
-                        else control.detailViewCached.SetTarget(control.detailView);
-                    }
-
-                    //control.detailView.IsVisible = false;
+                    CreateDetailControls(control);
                     control.Children.Add(control.detailView);
-                    //control.detailView.IsVisible = true;
                     control.detailAdded = true;
                 }
                 else if (!control.detailAdded)
@@ -265,6 +260,26 @@ namespace Saplin.CPDT.UICore.Controls
                 else if (control.detailView != null)
                 {
                     control.detailView.IsVisible = false;
+                }
+            }
+        }
+
+        private static void CreateDetailControls(MasterDetail control)
+        {
+            if (control.detailView == null)
+            {
+                Layout cached = null;
+                control.detailViewCached?.TryGetTarget(out cached);
+
+                if (cached != null)
+                {
+                    control.detailView = cached;
+                }
+                else
+                {
+                    control.detailView = control.ViewFromTemplate(control.DetailTemplate, control.DetailBindingContext ?? control.BindingContext);
+                    if (control.detailViewCached == null) control.detailViewCached = new WeakReference<Layout>(control.detailView);
+                    else control.detailViewCached.SetTarget(control.detailView);
                 }
             }
         }
@@ -408,6 +423,26 @@ namespace Saplin.CPDT.UICore.Controls
                     var list = selectionGroups[selectionGroupOld];
 
                     list.Remove(control);
+                }
+            }
+        }
+
+        public static void AsyncPreloadDetailsForSelectionGroup(string selectionGroup)
+        {
+            if (!string.IsNullOrEmpty(selectionGroup))
+            {
+                if (selectionGroups.ContainsKey(selectionGroup))
+                {
+                    var list = selectionGroups[selectionGroup];
+
+                    Task.Run(() =>
+                    {
+                        foreach (var i in list)
+                        {
+                            CreateDetailControls(i);
+                        }
+                    });
+
                 }
             }
         }

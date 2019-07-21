@@ -13,7 +13,7 @@ namespace Saplin.CPDT.UICore
             var s = "{0:0.00}";
 
             if (v < 1) s = string.Format(s, v*1024);
-            else if (v < 1024) s = string.Format(s, v);
+            else if (v < 1000) s = string.Format(s, v); // 999 is 3 cahrs, 1000 is 4, 0.99 is 3 chars
             else s = string.Format(s, v / 1024);
 
             return s;

@@ -18,7 +18,6 @@ namespace Saplin.CPDT.UICore.Controls
     /// <summary>
     /// Creates row for each ItemSource entry. Control's order in the entry defines it's column
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public class GridRepeater : Grid
     {
         public GridRepeater()
@@ -130,13 +129,13 @@ namespace Saplin.CPDT.UICore.Controls
             get; private set;
         }
 
-        private IList addToTheEnd;
+        private IList addToTheEndItems;
 
         private void ItemsChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.Action == NotifyCollectionChangedAction.Add)
             {
-                addToTheEnd = e.NewItems;
+                addToTheEndItems = e.NewItems;
             }
 
             ItemsChanged(this, null, sender);
@@ -150,7 +149,7 @@ namespace Saplin.CPDT.UICore.Controls
 
             var row = 0;
 
-            if (control.addToTheEnd == null)
+            if (control.addToTheEndItems == null)
             {
                 control.Children.Clear();
                 control.Rows.Clear();
@@ -168,16 +167,16 @@ namespace Saplin.CPDT.UICore.Controls
 
             var itemsNotEmpty = items != null && items.Cast<object>().Any();
 
-            if (control.HeaderTemplate != null && control.addToTheEnd == null && (control.ShowFooterIfEmptyItems || itemsNotEmpty))
+            if (control.HeaderTemplate != null && control.addToTheEndItems == null && (control.ShowFooterIfEmptyItems || itemsNotEmpty))
             {
                 AddHeaderOrFooter(control, control.HeaderTemplate, row);
                 control.HeaderRow = row;
                 row++;
             }
 
-            if (itemsNotEmpty || control.addToTheEnd != null)
+            if (itemsNotEmpty || control.addToTheEndItems != null)
             {
-                items = control.addToTheEnd == null ? items : control.addToTheEnd;
+                items = control.addToTheEndItems == null ? items : control.addToTheEndItems;
 
                 foreach (var item in items)
                 {
@@ -211,7 +210,7 @@ namespace Saplin.CPDT.UICore.Controls
 
             if (oldValue != null && oldValue is INotifyCollectionChanged && oldValue != newValue) (oldValue as INotifyCollectionChanged).CollectionChanged -= control.ItemsChanged;
 
-            control.addToTheEnd = null;
+            control.addToTheEndItems = null;
         }
 
         private static void AddHeaderOrFooter(GridRepeater control, DataTemplate template, int row)
