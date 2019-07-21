@@ -77,7 +77,7 @@ namespace Saplin.CPDT.UICore.Controls
 
         public BlinkingCursor()
         {
-            Text = "           "; // workaround for not growing label
+            Text = "     "; // workaround for not growing label
             ShowPrefix = true;
         }
 

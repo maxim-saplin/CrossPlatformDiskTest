@@ -8,9 +8,9 @@
              IsVisible="{Binding Source={Static vm:ViewModelContainer.NavigationViewModel}, IsSimpleUIStartPageVisible}"
              AbsoluteLayout.LayoutBounds="0.5, 0.5, 1.0, 0.5" 
              AbsoluteLayout.LayoutFlags="All"
-             HorizontalOptions="Center"
              Orientation="Horizontal"
-             Padding="30, 16, 0, 16">
+             HorizontalOptions="CenterAndExpand"
+             Margin="25, 16, -10, 16">
     <Label x:Name="label1" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, SimpleUI_StartA}" 
            VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="94" HorizontalTextAlignment="Center"/>
     <Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, SimpleUI_Test}"
@@ -23,5 +23,5 @@
             Style="{x:StaticResource Key=ButtonStyle}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="84" HeightRequest="30"
             ctrl:KeyPress.CommandOnKeyPress="True"
             Command="{Binding Source={Static vm:ViewModelContainer.NavigationViewModel}, SwitchToAdvancedUI, Mode=OneTime}" CommandParameter="True"/>
-    <ctrl:BlinkingCursor BlinkCursor="True" ShowPrefix="False" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" />
+    <ctrl:BlinkingCursor BlinkCursor="True" ShowPrefix="False" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" MinimumWidthRequest="40"/>
 </StackLayout>

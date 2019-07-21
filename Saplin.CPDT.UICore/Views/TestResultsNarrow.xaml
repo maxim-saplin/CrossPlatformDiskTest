@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<local:TestResultsBase 
+<local:TestResultsBase CompressedLayout.IsHeadless="true" MaxRows="5"
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="Saplin.CPDT.UICore.TestResultsNarrow" 
@@ -8,7 +8,7 @@
     xmlns:anim="clr-namespace:Saplin.CPDT.UICore.Animations"
     xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels"
     xmlns:local="clr-namespace:Saplin.CPDT.UICore"
-    RowSpacing="0" HorizontalOptions="Fill" IsFooterVisible="{Binding ShowTestProgress}">
+    RowSpacing="0" HorizontalOptions="Fill">
     <Grid.RowHeight>
         <OnPlatform x:TypeArguments="GridLength">
             <On Platform="WPF" Value="36"/>  
@@ -52,7 +52,7 @@
         <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
     <ctrl:GridRepeater.ItemTemplate>
-        <DataTemplate>
+        <DataTemplate x:DataType="vm:TestResultsDetailed">
             <ctrl:GridItem>
                 <!-- col 0-->
                 <Label Text="{Binding BulletPoint, StringFormat='{0}.'}" LineBreakMode="NoWrap" WidthRequest="20" VerticalOptions="CenterAndExpand">
@@ -155,6 +155,12 @@
                             <On Platform="Android" Value="20"/>
                         </OnPlatform>
                     </Label.WidthRequest>
+                    <Label.MinimumWidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="macOS, WPF" Value="32"/> 
+                            <On Platform="Android" Value="20"/>
+                        </OnPlatform>
+                    </Label.MinimumWidthRequest>
                 </Label>
                 <!-- col 1-->
                 <Label Style="{StaticResource SmallLabel}" VerticalOptions="CenterAndExpand"> 

@@ -327,7 +327,7 @@ write</value>
     <value>File size: {0} GB. Free space: {1:0.0} GB. Write Buffering: {2}. In-memory file cache: {3}</value>
   </data>
   <data name="TestSummaryShortFormatString" xml:space="preserve">
-    <value>File:{0}GB. Free:{1:0.0}GB. W.Buffering:{2}. Cache:{3}</value>
+    <value>File:{0}GB Free:{1:0.0}GB W.Buffering:{2} Cache:{3}</value>
   </data>
   <data name="TestWarmigUp" xml:space="preserve">
     <value>Warming up...</value>

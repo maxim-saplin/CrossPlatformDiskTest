@@ -1,12 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ctrl:StackRepeater xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ctrl2="clr-namespace:Saplin.CPDT.UICore.Controls;assembly=CPDT.Extra" xmlns:local="clr-namespace:Saplin.CPDT.UICore" xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" xmlns:anim="clr-namespace:Saplin.CPDT.UICore.Animations" x:Class="Saplin.CPDT.UICore.TestSessionsNarrow" 
-                    BindingContext="{x:Static vm:ViewModelContainer.TestSessionsViewModel}" 
+<ctrl:StackRepeater xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:ctrl2="clr-namespace:Saplin.CPDT.UICore.Controls;assembly=CPDT.Extra"
+                    xmlns:local="clr-namespace:Saplin.CPDT.UICore"
+                    xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls"
+                    xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels"
+                    x:Class="Saplin.CPDT.UICore.TestSessionsNarrow" 
+                    BindingContext="{x:Static vm:ViewModelContainer.TestSessionsViewModel}"
+                    x:DataType="vm:TestSessionsViewModel"
                     ItemsSource="{Binding TestSessions}" 
                     IsVisible="{Binding Source={Static vm:ViewModelContainer.DriveTestViewModel}, TestStarted, Converter={StaticResource BoolNot}}"
                     Refresh="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _Locale}"
                     Margin="-10, 0, -10, 0" Padding="10, 0, 10, 0">
     <ctrl:StackRepeater.ItemTemplate>
-        <DataTemplate>
+        <DataTemplate x:DataType="vm:TestSession">
             <ctrl:MasterDetail SelectionGroup="testSessions" IsDetailVisible="{Binding Selected}" Margin="-10, 0, -10, 0" Padding="10, 0, 10, 0" ToggleOnMasterClick="True">
                 <ctrl:MasterDetail.MasterTemplate>
                     <DataTemplate>
@@ -51,7 +58,7 @@
                                 <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm:ss} {0:d.MM.yyyy}'}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start" Margin="0, -6, 0, 4" />
                                     
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0, -6, 0, 0">
-                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" VerticalOptions="Start" VerticalTextAlignment="Start">
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="42" MinimumWidthRequest="42">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=SequentialWriteTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>
@@ -60,7 +67,7 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" VerticalOptions="Start" VerticalTextAlignment="Start">
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="42" MinimumWidthRequest="42">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=SequentialReadTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>
@@ -69,7 +76,7 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" VerticalOptions="Start" VerticalTextAlignment="Start">
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="42" MinimumWidthRequest="42">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RandomWriteTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>
@@ -78,7 +85,7 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" VerticalOptions="Start" VerticalTextAlignment="Start">
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="42" MinimumWidthRequest="42">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RandomReadTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>
@@ -87,7 +94,7 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" VerticalOptions="Start" VerticalTextAlignment="Start">
+                                    <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="42" MinimumWidthRequest="42">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=MemCopyTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>

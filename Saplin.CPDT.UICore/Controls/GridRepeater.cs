@@ -12,7 +12,7 @@ namespace Saplin.CPDT.UICore.Controls
     /// <summary>
     /// Dummy class for better naming in XAML when using Grid repaeter
     /// </summary>
-    public class GridItem : StackLayout
+    public class GridItem : SimpleLayout
     { }
 
     /// <summary>
@@ -97,7 +97,7 @@ namespace Saplin.CPDT.UICore.Controls
             set { SetValue(ItemsSourceProperty, value); }
         }
 
-        private StackLayout ViewFromTemplate(DataTemplate template, object bindingContext = null)
+        private GridItem ViewFromTemplate(DataTemplate template, object bindingContext = null)
         {
             View view = null;
             if (template != null)
@@ -106,13 +106,13 @@ namespace Saplin.CPDT.UICore.Controls
 
                 if (!(view is Layout)) throw new InvalidOperationException("GreadRepater.(Item,Header,Footer)Template.DataTemplate must be a container element dervied from Xamarin.Forms.StackLayout");
 
-                var layout = view as StackLayout;
+                var layout = view as GridItem;
 
                 foreach (var c in layout.Children)
                     c.BindingContext = bindingContext;
             }
 
-            return view as StackLayout;
+            return view as GridItem;
         }
 
         public List<List<View>> Rows
@@ -170,7 +170,7 @@ namespace Saplin.CPDT.UICore.Controls
 
             if (control.HeaderTemplate != null && control.addToTheEnd == null && (control.ShowFooterIfEmptyItems || itemsNotEmpty))
             {
-                AddHeaderFooter(control, control.HeaderTemplate, row);
+                AddHeaderOrFooter(control, control.HeaderTemplate, row);
                 control.HeaderRow = row;
                 row++;
             }
@@ -181,6 +181,8 @@ namespace Saplin.CPDT.UICore.Controls
 
                 foreach (var item in items)
                 {
+                    if (control.MaxRows > 0 && row >= control.MaxRows) break;
+
                     var layout = control.ViewFromTemplate(control.ItemTemplate, item);
                     var children = layout.Children.ToArray();
 
@@ -199,7 +201,7 @@ namespace Saplin.CPDT.UICore.Controls
                 }
             }
 
-            control.AddFooter();
+            if (control.MaxRows > 0 && row < control.MaxRows) control.AddFooter();
 
             if (items is INotifyCollectionChanged && items != control.subscribedToItems)
             {
@@ -212,9 +214,9 @@ namespace Saplin.CPDT.UICore.Controls
             control.addToTheEnd = null;
         }
 
-        private static void AddHeaderFooter(GridRepeater control, DataTemplate template, int row)
+        private static void AddHeaderOrFooter(GridRepeater control, DataTemplate template, int row)
         {
-            var layout = control.ViewFromTemplate(template, control.BindingContext) as StackLayout;
+            var layout = control.ViewFromTemplate(template, control.BindingContext) as GridItem;
             var children = layout.Children.ToArray();
 
             var col = 0;
@@ -229,7 +231,7 @@ namespace Saplin.CPDT.UICore.Controls
             }
         }
 
-        private static void AddChildToRow(GridRepeater control, StackLayout layout, int row, int col, View child)
+        private static void AddChildToRow(GridRepeater control, GridItem layout, int row, int col, View child)
         {
             layout.Children.Remove(child);
             var colAttached = Grid.GetColumn(child);
@@ -371,11 +373,13 @@ namespace Saplin.CPDT.UICore.Controls
             if (FooterTemplate != null && (ShowFooterIfEmptyItems || itemsNotEmpty) && IsFooterVisible)
             {
                 var row = Rows.Count;
-                AddHeaderFooter(this, FooterTemplate, row);
+                AddHeaderOrFooter(this, FooterTemplate, row);
                 FooterRow = row;
             }
         }
 
         public GridLength RowHeight { get; set; }
+
+        public int MaxRows { get; set; } = -1; // hack to deal with hiding 6th line in 5 tests' result view
     }
 }

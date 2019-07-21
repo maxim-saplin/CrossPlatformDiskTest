@@ -1,9 +1,9 @@
-﻿using Saplin.CPDT.UICore.ViewModels;
-using Xamarin.Forms;
+﻿using Saplin.CPDT.UICore.Controls;
+using Saplin.CPDT.UICore.ViewModels;
 
 namespace Saplin.CPDT.UICore
 {
-    public partial class OnlineDb : StackLayout
+    public partial class OnlineDb : SimpleLayout
     {
         public OnlineDb()
         {

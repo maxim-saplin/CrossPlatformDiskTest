@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" xmlns:ctrl2="clr-namespace:Saplin.CPDT.UICore.Controls;assembly=CPDT.Extra" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Saplin.CPDT.UICore.DriveSelection" xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" xmlns:local="clr-namespace:Saplin.CPDT.UICore" xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" Orientation="Vertical">
+<StackLayout
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:ctrl2="clr-namespace:Saplin.CPDT.UICore.Controls;assembly=CPDT.Extra"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Saplin.CPDT.UICore.DriveSelection"
+    xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls"
+    xmlns:local="clr-namespace:Saplin.CPDT.UICore"
+    xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels"
+    Orientation="Vertical"
+    BindingContext="{x:Static vm:ViewModelContainer.DriveTestViewModel}"
+    x:DataType="vm:DriveTestViewModel">
     <local:AndroidSpacer FontSize="6" />
     <StackLayout Orientation="Horizontal">
         <Label Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=AvailableDrives}" />
@@ -7,7 +17,7 @@
     </StackLayout>
     <ctrl:StackRepeater ItemsSource="{Binding Drives}" IsEnabled="{Binding TestStarted, Converter={StaticResource BoolNot}}">
         <ctrl:StackRepeater.ItemTemplate>
-            <DataTemplate>
+            <DataTemplate x:DataType="vm:DriveDetailed">
                 <StackLayout Orientation="Vertical">
                     <Label IsVisible="{Binding ShowDiveIsSameMessage}">
                         <Label.FormattedText>

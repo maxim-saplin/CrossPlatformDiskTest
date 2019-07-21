@@ -20,6 +20,7 @@ namespace Saplin.CPDT.Droid
 
             var t = typeof(BluredStackLayoutRenderer);//load CPDT.Extra.Android to have renderers in place
 
+            global::Xamarin.Forms.Forms.SetFlags("FastRenderers_Experimental");
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             
             var app = new Saplin.CPDT.UICore.App();

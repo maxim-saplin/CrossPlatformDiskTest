@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using Xamarin.Forms;
@@ -41,11 +42,10 @@ namespace Saplin.CPDT.UICore.Controls
         private View ViewFromTemplate(object item)
         {
             View view = null;
+
             if (ItemTemplate != null)
             {
-                var content = ItemTemplate.CreateContent();
-                view = (content is View) ? content as View : ((ViewCell)content).View;
-
+                view = ItemTemplate.CreateContent() as View;
                 view.BindingContext = item;
             }
 
@@ -74,20 +74,23 @@ namespace Saplin.CPDT.UICore.Controls
 
             if (control.ItemTemplate == null || newValue == null) return;
 
-            //TODO - do not clear items in case item is added
+            //TODO - DO NOT clear items in case item is added
+
             control.Children.Clear();
 
             IEnumerable items = (IEnumerable)newValue;
+
             if (items.Cast<object>().Any())
             {
                 foreach (var item in items)
                 {
                     if (item != null)
                     {
-                        control.Children.Add(control.ViewFromTemplate(item));
+                        var view = control.ViewFromTemplate(item);
+                        control.Children.Add(view);
                     }
                 }
-            }
+             }
 
             if (items is INotifyPropertyChanged && items != control.subscribedToItems)
             {
@@ -97,6 +100,20 @@ namespace Saplin.CPDT.UICore.Controls
 
             if (oldValue != null && oldValue is INotifyPropertyChanged && oldValue != newValue) (oldValue as INotifyPropertyChanged).PropertyChanged -= control.ItemsChanged;
         }
+
+        //protected override bool ShouldInvalidateOnChildAdded(View child)
+        //{
+        //    return false;
+        //}
+
+        //protected override bool ShouldInvalidateOnChildRemoved(View child)
+        //{
+        //    return false;
+        //}
+
+        //protected override void OnChildMeasureInvalidated()
+        //{
+        //}
 
         protected override void OnParentSet()
         {

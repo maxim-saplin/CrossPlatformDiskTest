@@ -130,6 +130,7 @@ namespace Saplin.CPDT.UICore.Controls
                     }
 
                     if (control.detailAdded) control.Children.Clear();
+                    SetOnMasterClick(control);
                     control.Children.Add(control.masterView);
 
                     if (control.detailAdded) // JIC, order of calls to master and detail visible change can be any
@@ -148,6 +149,7 @@ namespace Saplin.CPDT.UICore.Controls
                 }
                 else if (!control.masterAdded)
                 {
+                    SetOnMasterClick(control);
                     if (!control.detailAdded)
                     {
                         control.Children.Add(control.masterView);
@@ -164,36 +166,6 @@ namespace Saplin.CPDT.UICore.Controls
                 {
                     control.masterView.IsVisible = true;
                 }
-
-                if (!control.toggleClickAssigned && !control.ToggleOnMasterClick)
-                {
-                    control.toggleClickAssigned = true;
-
-                    //allow 2 level indentation
-                    Func<Element, bool> assignClick = (Element c) =>
-                    {
-                        if (MasterDetail.GetToggleDetailOnClicked(c))
-                        {
-                            if (c is Button) (c as Button).Clicked += control.ToggleClicked;
-                            else if (c is ExtendedLabel) (c as ExtendedLabel).Clicked += control.ToggleClicked;
-
-                            return true;
-                        }
-                        return false;
-                    };
-
-                    foreach (var c in control.masterView.Children)
-                    {
-                        if (c is Layout<View>)
-                        {
-                            foreach (var c2 in (c as Layout<View>).Children)
-                            {
-                                if (assignClick(c2)) break;
-                            }
-                        }
-                        else if (assignClick(c)) break;
-                    }
-                }
             }
             else // hide Master
             {
@@ -205,6 +177,39 @@ namespace Saplin.CPDT.UICore.Controls
                 else if (control.masterView != null)
                 {
                     control.masterView.IsVisible = false;
+                }
+            }
+        }
+
+        private static void SetOnMasterClick(MasterDetail control)
+        {
+            if (!control.toggleClickAssigned && !control.ToggleOnMasterClick)
+            {
+                control.toggleClickAssigned = true;
+
+                //allow 2 level indentation
+                Func<Element, bool> assignClick = (Element c) =>
+                {
+                    if (MasterDetail.GetToggleDetailOnClicked(c))
+                    {
+                        if (c is Button) (c as Button).Clicked += control.ToggleClicked;
+                        else if (c is ExtendedLabel) (c as ExtendedLabel).Clicked += control.ToggleClicked;
+
+                        return true;
+                    }
+                    return false;
+                };
+
+                foreach (var c in control.masterView.Children)
+                {
+                    if (c is Layout<View>)
+                    {
+                        foreach (var c2 in (c as Layout<View>).Children)
+                        {
+                            if (assignClick(c2)) break;
+                        }
+                    }
+                    else if (assignClick(c)) break;
                 }
             }
         }
@@ -235,9 +240,9 @@ namespace Saplin.CPDT.UICore.Controls
                         else control.detailViewCached.SetTarget(control.detailView);
                     }
 
-                    control.detailView.IsVisible = false;
+                    //control.detailView.IsVisible = false;
                     control.Children.Add(control.detailView);
-                    control.detailView.IsVisible = true;
+                    //control.detailView.IsVisible = true;
                     control.detailAdded = true;
                 }
                 else if (!control.detailAdded)
@@ -285,7 +290,7 @@ namespace Saplin.CPDT.UICore.Controls
                 propertyName: nameof(MasterDestroyInvisible),
                 returnType: typeof(bool),
                 declaringType: typeof(MasterDetail),
-                defaultValue: true,
+                defaultValue: false,
                 defaultBindingMode: BindingMode.OneWay
             );
 
