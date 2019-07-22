@@ -120,6 +120,43 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+                <Style x:Key="popUpContainerNarrow" TargetType="StackLayout">
+                <Setter Property="BackgroundColor">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="Android" Value="#99FFFFFF" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>                
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="Android" Value="10, 10, 10, 10" />
+                            <On Platform="macOS, WPF" Value="20, 20, 20, 20" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="popUpContainerWide" TargetType="StackLayout">
+                <Setter Property="BackgroundColor">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="Android" Value="#99FFFFFF" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>                
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="Android" Value="50, 20, 50, 20" />
+                            <On Platform="macOS, WPF" Value="60, 60, 60, 60" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
     <Style x:Key="fullScreenPopUpContainer" TargetType="StackLayout">
         <Setter Property="BackgroundColor">
             <Setter.Value>
