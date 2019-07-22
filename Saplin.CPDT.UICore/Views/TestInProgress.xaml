@@ -12,6 +12,7 @@
              HorizontalOptions="FillAndExpand" 
              Margin="-10, 0, -10, 0" 
              Padding="6, 0, 6, 0"
+             BindingContext="{x:Static vm:ViewModelContainer.DriveTestViewModel}"
              x:Name="testInProgress">
     <anim:VisibilityFadeAnimation x:Name="testInProgressAnimation" Target="{x:Reference testInProgress}" Trigger="{Binding TestStarted}" />
     <StackLayout Orientation="Horizontal" IsVisible="{Binding TestStarted}" Style="{StaticResource testRunningHeader}" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="10, 9, 10, 9">

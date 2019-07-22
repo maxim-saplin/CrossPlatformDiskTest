@@ -13,7 +13,7 @@
     <ContentPage.Content>
         <AbsoluteLayout x:Name="absoluteLayout">
             <ScrollView x:Name="scrollView" VerticalScrollBarVisibility="Default" HorizontalScrollBarVisibility="Default" AbsoluteLayout.LayoutBounds="1.0 ,1.0, 1.0, 1.0" AbsoluteLayout.LayoutFlags="All">
-                <StackLayout x:Name="stackLayout" Orientation="Vertical" BindingContext="{x:Static vm:ViewModelContainer.DriveTestViewModel}" Padding="10, 10, 10, 10">
+                <StackLayout x:Name="stackLayout" Orientation="Vertical" Padding="10, 10, 10, 10">
                     <!-- In code behind -->
                     <!-- <local:Title x:Name="title" QuitClicked="OnQuit"/>-->
                     <!--<local:SimpleUI/>-->

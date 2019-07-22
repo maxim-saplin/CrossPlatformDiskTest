@@ -12,6 +12,14 @@ namespace Saplin.CPDT.UICore.Controls
 
         private static string[] keys = new string[queueMaxSize];
 
+        public BlinkingCursor()
+        {
+            WidthRequest = 40;
+            MinimumWidthRequest = 40;
+            Text = "     "; // workaround for not growing label
+            ShowPrefix = true;
+        }
+
         private static string GetKey()
         {
             if (queueSize == 0) return null;
@@ -75,12 +83,6 @@ namespace Saplin.CPDT.UICore.Controls
                 propertyChanged: BlinkCursorChanged
              );
 
-        public BlinkingCursor()
-        {
-            Text = "           "; // workaround for not growing label
-            ShowPrefix = true;
-        }
-
         private static void SetText(string text)
         {
             textWithPrefixWithoutCursor = prefix + text;
@@ -108,6 +110,11 @@ namespace Saplin.CPDT.UICore.Controls
             {
                 c.Text = c.ShowPrefix ? textWithPrefixWithoutCursor : textWithoutPrefixWithoutCursor;
             }
+        }
+
+        protected override void InvalidateMeasure()
+        {
+            if (!timerStarted) base.InvalidateMeasure();
         }
 
         private static void BlinkCursorChanged(BindableObject bindable, object oldValue, object newValue)

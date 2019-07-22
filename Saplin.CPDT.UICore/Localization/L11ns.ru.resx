@@ -315,7 +315,7 @@
     <value>Размер файла: {0} Гб. Доступно: {1:0.0} Гб. Буферизация записи: {2}. Файловый кэш в памяти: {3}</value>
   </data>
   <data name="TestSummaryShortFormatString" xml:space="preserve">
-    <value>Файл:{0}Гб. Доступно:{1:0.0}Гб. Буф. записи:{2}. Кэш:{3}</value>
+    <value>Файл:{0}Гб Доступно:{1:0.0}Гб Буф.записи:{2} Кэш:{3}</value>
   </data>
   <data name="TestWarmigUp" xml:space="preserve">
     <value>Разминка...</value>

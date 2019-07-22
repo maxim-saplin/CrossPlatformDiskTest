@@ -11,7 +11,7 @@
              x:Name="advancedUI">
 <!--    <anim:DriveSelectionAnimation x:Name="drivesAnimation" Target="{x:Reference advancedUI}" Trigger="{Binding TestStarted, Converter={StaticResource BoolNot}}" />-->
     <anim:HighlightAnimation x:Name="drivesHighlightAnimation" Target="{x:Reference drives}" OnClickOf="{x:DynamicResource refreshButton}" />
-    <local:DriveSelection x:Name="drives" />
+    <local:DriveSelection x:Name="drives"  />
     <local:MainPageButtons x:Name="buttons" />
     <local:AndroidSpacer FontSize="12" />
 </StackLayout>

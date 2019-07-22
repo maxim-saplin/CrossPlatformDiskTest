@@ -15,7 +15,7 @@ namespace Saplin.CPDT.UICore
         private bool alreadyShown = false;
 
         Title title;
-        SimpleUI simpaleUIStartPage, simpleUIHeader;
+        SimpleUI simpleUI, simpleUIHeader;
         AdvancedUI advancedUI;
         TestInProgress testInProgress;
         TestCompletion testCompletion;
@@ -39,8 +39,8 @@ namespace Saplin.CPDT.UICore
 
                 if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
                 {
-                    simpaleUIStartPage = new SimpleUI();
-                    simpaleUIStartPage.AdjustToWidth(Width);
+                    simpleUI = new SimpleUI();
+                    simpleUI.AdjustToWidth(Width);
                 }
                 else
                 {
@@ -64,13 +64,13 @@ namespace Saplin.CPDT.UICore
 
                     task.Wait();
 
-                    AdaptLayoytToScreenWidth();
+                    //AdaptLayoytToScreenWidth();
 
                     stackLayout.Children.Add(title);
 
                     if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
                     {
-                        absoluteLayout.Children.Add(simpaleUIStartPage);
+                        absoluteLayout.Children.Add(simpleUI);
                     }
                     else
                     {
@@ -85,7 +85,7 @@ namespace Saplin.CPDT.UICore
                                 simpleUIHeader.SetBinding(IsVisibleProperty, new Binding("IsSimpleUIHeaderVisible", source: ViewModelContainer.NavigationViewModel));
                                 AbsoluteLayout.SetLayoutFlags(simpleUIHeader, AbsoluteLayoutFlags.None);
                                 simpleUIHeader.HorizontalOptions = LayoutOptions.CenterAndExpand;
-                                simpleUIHeader.Padding = new Thickness(20,16,0,16);
+                                //simpleUIHeader.Padding = new Thickness(20,16,0,16);
                                                                 
                                 testInProgress = new TestInProgress();
                                 testCompletion = new TestCompletion();
@@ -115,13 +115,14 @@ namespace Saplin.CPDT.UICore
                                             absoluteLayout.Children.Add(c);
                                         }
 
+                                        AdaptLayoytToScreenWidth();
                                         return false;
 
                                     });
                                 }
                                 else
                                 {
-                                    simpaleUIStartPage = new SimpleUI();
+                                    simpleUI = new SimpleUI();
 
                                     AdaptLayoytToScreenWidth();
 
@@ -132,7 +133,7 @@ namespace Saplin.CPDT.UICore
                                         stackLayout.Children.Add(simpleUIHeader);
                                         stackLayout.Children.Add(testInProgress);
                                         stackLayout.Children.Add(testSessionsPlaceholder);
-                                        absoluteLayout.Children.Add(simpaleUIStartPage);
+                                        absoluteLayout.Children.Add(simpleUI);
                                         stackLayout.Children.Add(status);
                                         absoluteLayout.Children.Add(popups);
                                         absoluteLayout.Children.Add(testCompletion);
@@ -141,6 +142,8 @@ namespace Saplin.CPDT.UICore
                                         {
                                             absoluteLayout.Children.Add(c);
                                         }
+
+                                        AdaptLayoytToScreenWidth();
                                         return false;
 
                                     });
@@ -148,7 +151,6 @@ namespace Saplin.CPDT.UICore
                                 return false;
                             }
                         );
-
                 }
             };
         }
@@ -186,11 +188,13 @@ namespace Saplin.CPDT.UICore
 
             alreadyNarrow = narrow;
 
-            simpaleUIStartPage?.AdjustToWidth(Width);
+            simpleUI?.AdjustToWidth(Width);
             simpleUIHeader?.AdjustToWidth(Width);
             advancedUI?.AdaptLayoytToScreenWidth(narrow);
             testInProgress?.AdaptLayoytToScreenWidth(narrow);
+
             testSessionsPlaceholder?.AdaptLayoytToScreenWidth(narrow);
+            MasterDetail.AsyncPreloadDetailsForSelectionGroup("testSessions");
 
             ViewModelContainer.NavigationViewModel.IsNarrowView = narrow;
 

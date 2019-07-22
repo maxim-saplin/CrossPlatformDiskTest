@@ -3,12 +3,13 @@ using Android.Content;
 using Android.Content.PM;
 using Android.Content.Res;
 using Android.OS;
+using Android.Support.V7.App;
 using Android.Views;
 
 namespace Saplin.CPDT.Droid
 {
     [Activity(Label = "Cross Platfrom Disk Test", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.FontScale)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
+    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         public static MainActivity Instance { get; protected set; }
 
@@ -21,7 +22,6 @@ namespace Saplin.CPDT.Droid
             var t = typeof(BluredStackLayoutRenderer);//load CPDT.Extra.Android to have renderers in place
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            
             var app = new Saplin.CPDT.UICore.App();
 
             LoadApplication(app);
@@ -30,8 +30,11 @@ namespace Saplin.CPDT.Droid
             {
                 Window.ClearFlags(WindowManagerFlags.TranslucentStatus);
                 Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
-                Window.SetStatusBarColor(Android.Graphics.Color.White);
-                Window.SetNavigationBarColor(Android.Graphics.Color.White);
+                if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Lollipop)
+                {
+                    Window.SetStatusBarColor(Android.Graphics.Color.White);
+                    Window.SetNavigationBarColor(Android.Graphics.Color.White);
+                }
                 var ui = (int)Window.DecorView.SystemUiVisibility;
                 ui |= (int)Android.Views.SystemUiFlags.LightStatusBar;
                 ui |= (int)Android.Views.SystemUiFlags.LightNavigationBar;

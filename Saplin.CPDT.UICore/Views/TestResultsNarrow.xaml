@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<local:TestResultsBase 
+<local:TestResultsBase CompressedLayout.IsHeadless="true" MaxRows="5"
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="Saplin.CPDT.UICore.TestResultsNarrow" 
@@ -8,7 +8,7 @@
     xmlns:anim="clr-namespace:Saplin.CPDT.UICore.Animations"
     xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels"
     xmlns:local="clr-namespace:Saplin.CPDT.UICore"
-    RowSpacing="0" HorizontalOptions="Fill" IsFooterVisible="{Binding ShowTestProgress}">
+    RowSpacing="0" HorizontalOptions="Fill">
     <Grid.RowHeight>
         <OnPlatform x:TypeArguments="GridLength">
             <On Platform="WPF" Value="36"/>  
@@ -29,7 +29,7 @@
             <ColumnDefinition.Width>
                 <OnPlatform x:TypeArguments="GridLength">
                     <On Platform="WPF, macOS" Value="Auto"/>  
-                    <On Platform="Android" Value="104"/>
+                    <On Platform="Android" Value="102"/>
                 </OnPlatform>
             </ColumnDefinition.Width>
         </ColumnDefinition>
@@ -52,7 +52,7 @@
         <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
     <ctrl:GridRepeater.ItemTemplate>
-        <DataTemplate>
+        <DataTemplate x:DataType="vm:TestResultsDetailed">
             <ctrl:GridItem>
                 <!-- col 0-->
                 <Label Text="{Binding BulletPoint, StringFormat='{0}.'}" LineBreakMode="NoWrap" WidthRequest="20" VerticalOptions="CenterAndExpand">
@@ -87,7 +87,7 @@
                     </Label.WidthRequest>
                 </Label>
                 <!-- col 3-4-->
-                <ctrl2:TimeSeriesGraph VerticalOptions="CenterAndExpand" Results="{Binding Result}" Trigger="{Binding Result}" IsVisible="{Binding ShowTimeSeries}" Smoothing="{Binding SmoothTimeSeries}"
+                <ctrl2:TimeSeriesGraph VerticalOptions="CenterAndExpand" Results="{Binding Result, Mode=OneTime}" Trigger="{Binding Result}" IsVisible="{Binding ShowTimeSeries}" Smoothing="{Binding SmoothTimeSeries}"
                          Clip="True" Color="{StaticResource DefaultColor}" Grid.Column="3" Grid.ColumnSpan="2" HeightRequest="38">
                     <ctrl2:TimeSeriesGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
@@ -97,7 +97,7 @@
                     </ctrl2:TimeSeriesGraph.Margin>
                 </ctrl2:TimeSeriesGraph>
 
-                <ctrl2:HistogramGraph VerticalOptions="CenterAndExpand" Results="{Binding Result}" Trigger="{Binding Result}" BinsNumber="12" IsVisible="{Binding ShowHistogram}" 
+                <ctrl2:HistogramGraph VerticalOptions="CenterAndExpand" Results="{Binding Result, Mode=OneTime}" Trigger="{Binding Result}" BinsNumber="12" IsVisible="{Binding ShowHistogram}" 
                                      MinH="{Binding MinAdjusted}" MaxH="{Binding MaxAdjusted}" ModeH="{Binding ModeH}" ModeHPercent="{Binding ModeHPercent}"
                                      Color="{StaticResource DefaultColor}" Grid.Column="3" Grid.ColumnSpan="2" HeightRequest="38">
                     <ctrl2:HistogramGraph.Margin>
@@ -109,7 +109,7 @@
                 </ctrl2:HistogramGraph>
                 <!-- col 3-->
                 <StackLayout Grid.Column="3" Grid.ColumnSpan="2" Opacity="0" IsEnabled="false" IsVisible="{Binding ShowMin}" Margin="6, 0, 0, 0"
-                             Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand"> <!-- TODO, check on Android, macOS-->
+                             Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
                     <Label Style="{StaticResource SmallLabel}" HorizontalOptions="Start" >
                         <Label.FormattedText>
                             <FormattedString>
@@ -123,7 +123,7 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="{Binding ModeH, Converter={StaticResource MbPerSecondToAuto}}" />
-                                <Span Text="{Binding ModeHPercent, StringFormat='÷{0}%'}" />
+                                <Span Text="{Binding ModeHPercent,StringFormat='÷{0}%'}" />
                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, ModeH, StringFormat='&#10;{0}, '}" Style="{StaticResource SuperSmallSpan}"/>
                                 <Span Text="{Binding ModeH, Converter={StaticResource MbPerSecondToAutoUnit}}" Style="{StaticResource SuperSmallSpan}"/>
                             </FormattedString>
@@ -155,6 +155,12 @@
                             <On Platform="Android" Value="20"/>
                         </OnPlatform>
                     </Label.WidthRequest>
+                    <Label.MinimumWidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="macOS, WPF" Value="32"/> 
+                            <On Platform="Android" Value="20"/>
+                        </OnPlatform>
+                    </Label.MinimumWidthRequest>
                 </Label>
                 <!-- col 1-->
                 <Label Style="{StaticResource SmallLabel}" VerticalOptions="CenterAndExpand"> 
@@ -181,8 +187,8 @@
                 <Label IsVisible="{Binding ShowCurrentSpeed}" Style="{StaticResource AccentedLabel}" VerticalOptions="CenterAndExpand" Grid.Column="2">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="{Binding RecentResultMbps, Mode=OneWay, Converter={StaticResource MbPerSecondToAuto}" />
-                            <Span Text="{Binding RecentResultMbps, Mode=OneWay, Converter={StaticResource MbPerSecondToAutoUnit} , StringFormat='&#10;{0}'}}" Style="{StaticResource GrayedSpan}" /> 
+                            <Span Text="{Binding RecentResultMbps, Converter={StaticResource MbPerSecondToAuto}" />
+                            <Span Text="{Binding RecentResultMbps, Mode=OneTime, Converter={StaticResource MbPerSecondToAutoUnit} , StringFormat='&#10;{0}'}}" Style="{StaticResource GrayedSpan}" /> 
                         </FormattedString>
                     </Label.FormattedText>
                     <Label.WidthRequest>

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Saplin.CPDT.UICore.Controls
@@ -86,6 +88,12 @@ namespace Saplin.CPDT.UICore.Controls
 
         private void ToggleClicked(object sender, EventArgs e)
         {
+#if DEBUG
+            var sw = new Stopwatch();
+            sw.Start();
+            Trace.Write("MasterDetail Toggling...");
+#endif
+
             if (MasterDetail.GetToggleDetailOnClicked(sender as View) || ToggleOnMasterClick)
             {
                 if (!string.IsNullOrEmpty(SelectionGroup) && !IsDetailVisible)
@@ -103,6 +111,11 @@ namespace Saplin.CPDT.UICore.Controls
 
                 IsDetailVisible = !IsDetailVisible;
             }
+
+#if DEBUG
+            sw.Stop();
+            Trace.WriteLine("MasterDetail Toggled: "+sw.ElapsedMilliseconds);
+#endif
         }
 
         /// <summary>
@@ -130,6 +143,7 @@ namespace Saplin.CPDT.UICore.Controls
                     }
 
                     if (control.detailAdded) control.Children.Clear();
+                    SetOnMasterClick(control);
                     control.Children.Add(control.masterView);
 
                     if (control.detailAdded) // JIC, order of calls to master and detail visible change can be any
@@ -148,6 +162,7 @@ namespace Saplin.CPDT.UICore.Controls
                 }
                 else if (!control.masterAdded)
                 {
+                    SetOnMasterClick(control);
                     if (!control.detailAdded)
                     {
                         control.Children.Add(control.masterView);
@@ -164,36 +179,6 @@ namespace Saplin.CPDT.UICore.Controls
                 {
                     control.masterView.IsVisible = true;
                 }
-
-                if (!control.toggleClickAssigned && !control.ToggleOnMasterClick)
-                {
-                    control.toggleClickAssigned = true;
-
-                    //allow 2 level indentation
-                    Func<Element, bool> assignClick = (Element c) =>
-                    {
-                        if (MasterDetail.GetToggleDetailOnClicked(c))
-                        {
-                            if (c is Button) (c as Button).Clicked += control.ToggleClicked;
-                            else if (c is ExtendedLabel) (c as ExtendedLabel).Clicked += control.ToggleClicked;
-
-                            return true;
-                        }
-                        return false;
-                    };
-
-                    foreach (var c in control.masterView.Children)
-                    {
-                        if (c is Layout<View>)
-                        {
-                            foreach (var c2 in (c as Layout<View>).Children)
-                            {
-                                if (assignClick(c2)) break;
-                            }
-                        }
-                        else if (assignClick(c)) break;
-                    }
-                }
             }
             else // hide Master
             {
@@ -209,6 +194,40 @@ namespace Saplin.CPDT.UICore.Controls
             }
         }
 
+        private static void SetOnMasterClick(MasterDetail control)
+        {
+            if (!control.toggleClickAssigned && !control.ToggleOnMasterClick)
+            {
+                control.toggleClickAssigned = true;
+
+                //allow 2 level indentation
+                Func<Element, bool> assignClick = (Element c) =>
+                {
+                    if (MasterDetail.GetToggleDetailOnClicked(c))
+                    {
+                        
+                        if (c is Button) (c as Button).Clicked += control.ToggleClicked;
+                        else if (c is ExtendedLabel) (c as ExtendedLabel).Clicked += control.ToggleClicked;
+
+                        return true;
+                    }
+                    return false;
+                };
+
+                foreach (var c in control.masterView.Children)
+                {
+                    if (c is Layout<View>)
+                    {
+                        foreach (var c2 in (c as Layout<View>).Children)
+                        {
+                            if (assignClick(c2)) break;
+                        }
+                    }
+                    else if (assignClick(c)) break;
+                }
+            }
+        }
+
         protected WeakReference<Layout> detailViewCached = null;
 
         private static void DetailIsVisibleChanged(BindableObject bindable, object oldValue, object newValue)
@@ -219,25 +238,10 @@ namespace Saplin.CPDT.UICore.Controls
 
             if ((bool)newValue)
             {
-                if (control.detailView == null)
+                if (control.detailView == null || !control.detailAdded)
                 {
-                    Layout cached = null;
-                    control.detailViewCached?.TryGetTarget(out cached);
-
-                    if (cached != null)
-                    {
-                        control.detailView = cached;
-                    }
-                    else
-                    {
-                        control.detailView = control.ViewFromTemplate(control.DetailTemplate, control.DetailBindingContext ?? control.BindingContext);
-                        if (control.detailViewCached == null) control.detailViewCached = new WeakReference<Layout>(control.detailView);
-                        else control.detailViewCached.SetTarget(control.detailView);
-                    }
-
-                    control.detailView.IsVisible = false;
+                    CreateDetailControls(control);
                     control.Children.Add(control.detailView);
-                    control.detailView.IsVisible = true;
                     control.detailAdded = true;
                 }
                 else if (!control.detailAdded)
@@ -264,6 +268,36 @@ namespace Saplin.CPDT.UICore.Controls
             }
         }
 
+        private static void AddDetailControls(MasterDetail control, bool isVisible = false)
+        {
+            if (!control.detailAdded)
+            {
+                control.detailView.IsVisible = isVisible;
+                control.Children.Add(control.detailView);
+                control.detailAdded = true;
+            }
+        }
+
+        private static void CreateDetailControls(MasterDetail control)
+        {
+            if (control.detailView == null)
+            {
+                Layout cached = null;
+                control.detailViewCached?.TryGetTarget(out cached);
+
+                if (cached != null)
+                {
+                    control.detailView = cached;
+                }
+                else
+                {
+                    control.detailView = control.ViewFromTemplate(control.DetailTemplate, control.DetailBindingContext ?? control.BindingContext);
+                    if (control.detailViewCached == null) control.detailViewCached = new WeakReference<Layout>(control.detailView);
+                    else control.detailViewCached.SetTarget(control.detailView);
+                }
+            }
+        }
+
         private Layout ViewFromTemplate(DataTemplate template, object bindingContext = null)
         {
             View view = null;
@@ -285,7 +319,7 @@ namespace Saplin.CPDT.UICore.Controls
                 propertyName: nameof(MasterDestroyInvisible),
                 returnType: typeof(bool),
                 declaringType: typeof(MasterDetail),
-                defaultValue: true,
+                defaultValue: false,
                 defaultBindingMode: BindingMode.OneWay
             );
 
@@ -331,6 +365,8 @@ namespace Saplin.CPDT.UICore.Controls
             {
                 Children.Clear();
                 BindingContext = null;
+                if (!string.IsNullOrEmpty(SelectionGroup) && selectionGroups.ContainsKey(SelectionGroup))
+                    selectionGroups[SelectionGroup].Remove(this);
             }
         }
 
@@ -403,6 +439,34 @@ namespace Saplin.CPDT.UICore.Controls
                     var list = selectionGroups[selectionGroupOld];
 
                     list.Remove(control);
+                }
+            }
+        }
+
+        public static void AsyncPreloadDetailsForSelectionGroup(string selectionGroup)
+        {
+            if (!string.IsNullOrEmpty(selectionGroup))
+            {
+                if (selectionGroups.ContainsKey(selectionGroup))
+                {
+                    var list = selectionGroups[selectionGroup];
+
+                    Task.Run(() =>
+                    {
+                        foreach (var i in list)
+                        {
+                            CreateDetailControls(i);
+                        }
+
+                        //Device.BeginInvokeOnMainThread(() =>
+                        //{
+                        //    foreach (var i in list)
+                        //    {
+                        //        AddDetailControls(i, false);
+                        //    }
+                        //});
+                    });
+
                 }
             }
         }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<StackLayout 
+<ctrl:SimpleLayout 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="Saplin.CPDT.UICore.OnlineDb" 
@@ -26,4 +26,4 @@
             </OnPlatform>
         </ctrl2:ExtendedLabel.Margin>
     </ctrl2:ExtendedLabel>
-</StackLayout>
+</ctrl:SimpleLayout>

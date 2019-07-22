@@ -150,7 +150,7 @@
                 <Setter Property="BackgroundColor" Value="Blue" />
                 <Setter Property="BorderColor" Value="Blue" />
                 <Setter Property="BorderWidth" Value="0" />
-                <Setter Property="Padding" Value="0, 0, 0, 0" />
+
                 <Setter Property="WidthRequest">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Double">
@@ -220,7 +220,7 @@
                 <Setter Property="BackgroundColor">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="Color">
-                            <On Platform="Android" Value="#44000000" />
+                            <On Platform="Android" Value="#99000000" />
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>                
@@ -238,7 +238,7 @@
                 <Setter Property="BackgroundColor">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="Color">
-                            <On Platform="Android" Value="#44000000" />
+                            <On Platform="Android" Value="#99000000" />
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>                

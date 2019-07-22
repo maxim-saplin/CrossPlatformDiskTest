@@ -437,7 +437,6 @@ namespace Saplin.CPDT.UICore.ViewModels
                              testSuite = new BigTest(
                                 driveNameToUse,
                                 optionsVm.FileSizeBytes,
-                                //optionsVm.FileSizeBytes/64, 
                                 optionsVm.WriteBufferingBool, 
                                 memCache, 
                                 purgingFilePath: androidCachePurgeFile,
@@ -482,7 +481,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                      switch (e.Status)
                                      {
                                          case TestStatus.Started:
-                                             ShowTestStatusMessage = ShowTestProgress = true;
+                                             ShowTestStatusMessage = true;
                                              ShowCurrentSpeed = false;
 
                                              ShowTimeSeries = sender is SequentialTest || sender is MemCopyTest;
@@ -515,7 +514,6 @@ namespace Saplin.CPDT.UICore.ViewModels
                                              if (e.Results != RecentResults) RecentResults = e.Results;
                                              break;
                                          case TestStatus.Completed:
-                                             if (CurrentTestNumber == testSuite.TotalTests || testSuite.TotalTests == 0 /**already disposed*/) ShowTestProgress = false; // last test
                                              RecentResults = null;
                                              ProgressPercent = 0;
 
@@ -527,10 +525,8 @@ namespace Saplin.CPDT.UICore.ViewModels
                                                  if (!(e.Results.BlockSizeBytes != TestSession.randBlockToShowInSum && sender is RandomTest))
                                                      bullet = (testNumber++).ToString();
 
-                                                 Device.BeginInvokeOnMainThread(() => // Make the update latter, so the footer is hidden first
-                                                 {
-                                                     TestResults.Add(new TestResultsDetailed(e.Results) { BulletPoint = bullet });
-                                                 });
+                                                 TestResults.Add(new TestResultsDetailed(e.Results) { BulletPoint = bullet });
+
                                              }
 
                                              break;
@@ -557,6 +553,8 @@ namespace Saplin.CPDT.UICore.ViewModels
 
                                      Device.BeginInvokeOnMainThread(() =>
                                         {
+                                            TestStarted = false;
+
                                             if (!breakingTest)
                                             {
                                                 Options = "";
@@ -576,7 +574,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                                 StatusMessage = nameof(l11n.StatusTestInterrupted);
                                                 breakingTest = false;
                                             }
-                                            TestStarted = false;
+                                            
                                             DependencyService.Get<IKeepScreenOn>()?.Disable();
                                         }
                                     );
@@ -672,21 +670,6 @@ namespace Saplin.CPDT.UICore.ViewModels
                 if (value != showTestStatusMessage)
                 {
                     showTestStatusMessage = value;
-                    RaisePropertyChanged();
-                }
-            }
-        }
-
-        private bool showTestProgress = true;
-
-        public bool ShowTestProgress
-        {
-            get => showTestProgress;
-            set
-            {
-                if (value != showTestProgress)
-                {
-                    showTestProgress = value;
                     RaisePropertyChanged();
                 }
             }
