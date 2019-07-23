@@ -11,13 +11,16 @@ namespace Saplin.CPDT.UICore.Animations
             {
                 target.Opacity = 0;
                 target.IsVisible = true;
-                await FadeTo(0.0, 500, Easing.CubicIn);
-                await FadeTo(1.0, 500, Easing.CubicIn);
+                var t = FadeTo(0.0, 500, Easing.CubicIn);
+                if (t != null) await t;
+
+                t = FadeTo(1.0, 500, Easing.CubicIn);
+                if (t != null) await t;
             }
             else 
             {
                 var t = FadeTo(0.0, 300);
-                await t.ContinueWith((e) => { Device.BeginInvokeOnMainThread(() => target.IsVisible = false); });
+                if (t != null) await t.ContinueWith((e) => { Device.BeginInvokeOnMainThread(() => target.IsVisible = false); });
             }
         }
     }

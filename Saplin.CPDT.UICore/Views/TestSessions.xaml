@@ -29,8 +29,8 @@
                             <BoxView Style="{StaticResource VerticalLine}" IsVisible="{Binding Selected}" Margin="0, 0, 4, 0" />
                             <BoxView Style="{StaticResource VerticalLineGray}" IsVisible="{Binding Selected, Converter={StaticResource BoolNot}" Margin="0, 0, 4, 0" />
                             <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
-                                <StackLayout Orientation="Horizontal" >
-                                    <Label Text="{Binding OrderNumber, StringFormat='#{0}:'}" />
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding OrderNumber, StringFormat='#{0}:', Mode=OneTime}" LineBreakMode="NoWrap"/>
                                     <Label Text="{Binding DriveName}" LineBreakMode="TailTruncation" />
                                     <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm:ss} {0:d.MM.yyyy}'}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start" />
                                     <ctrl2:ExtendedLabel     Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Compare}" 
@@ -40,13 +40,12 @@
                                                             ChangeCursorOnMouseHover="True" 
                                                             VerticalOptions="Start" 
                                                             HorizontalOptions="EndAndExpand"
-                                                            HorizontalTextAlignment="End"
-                                                            LineBreakMode="NoWrap"
+                                                            LineBreakMode="MiddleTruncation"
                                                             IsVisible="{Binding Selected}"/>
                                     <ctrl2:ExtendedLabel 
                                             Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Share}" 
                                             Clicked="Share_Clicked"
-                                            LineBreakMode="NoWrap">
+                                            LineBreakMode="MiddleTruncation">
                                     <ctrl2:ExtendedLabel.IsVisible>
                                                 <OnPlatform x:TypeArguments="BindingBase">
                                                     <On Platform="Android" Value="{Binding Selected}"/>

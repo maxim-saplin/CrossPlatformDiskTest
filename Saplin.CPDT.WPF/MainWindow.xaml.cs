@@ -25,34 +25,34 @@ namespace Saplin.CPDT.WPF
             MouseMove += OnMouseMove;
         }
 
-        private static void SawapDeserializer()
-        {
-            //var des = Xamarin.Forms.DependencyService.Get<IDeserializer>();
+        //private static void SawapDeserializer()
+        //{
+        //    //var des = Xamarin.Forms.DependencyService.Get<IDeserializer>();
 
-            var type = typeof(Xamarin.Forms.DependencyService);
-            var field = type.GetField("DependencyTypes", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
-            var list = field.GetValue(null) as List<Type>;
+        //    var type = typeof(Xamarin.Forms.DependencyService);
+        //    var field = type.GetField("DependencyTypes", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
+        //    var list = field.GetValue(null) as List<Type>;
 
-            Type td = null;
+        //    Type td = null;
 
-            foreach (var t in list)
-                if (t.FullName == "Xamarin.Forms.Platform.WPF.Deserializer")
-                {
-                    td = t;
-                    break;
-                }
+        //    foreach (var t in list)
+        //        if (t.FullName == "Xamarin.Forms.Platform.WPF.Deserializer")
+        //        {
+        //            td = t;
+        //            break;
+        //        }
 
-            list.Remove(td);
+        //    list.Remove(td);
 
-            field = type.GetField("DependencyImplementations", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
+        //    field = type.GetField("DependencyImplementations", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
 
-            var obj = field.GetValue(null);
-            type = obj.GetType();
-            var method = type.GetMethod("Clear");
-            method.Invoke(obj, null);
+        //    var obj = field.GetValue(null);
+        //    type = obj.GetType();
+        //    var method = type.GetMethod("Clear");
+        //    method.Invoke(obj, null);
 
-            //des = Xamarin.Forms.DependencyService.Get<IDeserializer>();
-        }
+        //    //des = Xamarin.Forms.DependencyService.Get<IDeserializer>();
+        //}
 
         static MainWindow instance;
 

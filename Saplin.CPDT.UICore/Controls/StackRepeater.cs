@@ -78,7 +78,6 @@ namespace Saplin.CPDT.UICore.Controls
         }
 
         private object subscribedToItems = null;
-        private static bool addToBeginning = false;
 
         private static void ItemsChanged(BindableObject bindable, object oldValue, object newValue)
         {
@@ -120,7 +119,6 @@ namespace Saplin.CPDT.UICore.Controls
                 var itemsType = items.GetType();
                 if (itemsType.IsGenericType && itemsType.GetGenericTypeDefinition().IsAssignableFrom(typeof(ObservableCollection2<>)))
                 {
-                    addToBeginning = true;
                     (items as INotifyCollectionChanged).CollectionChanged += control.ItemsObservableChanged;
                 }
                 else

@@ -132,61 +132,53 @@ namespace Saplin.CPDT.UICore.Controls
                     SetText("");
 
                     timerStarted = true;
-                    Device.StartTimer(
-                        new TimeSpan(0, 0, 0, 0, refreshPeriodMs),
-                        () =>
+                    Func<bool> callback = () =>
+                    {
+
+                        if (controls.Count > 0)
                         {
-
-                            if (controls.Count > 0)
+                            if (queueSize == 0 && keyBlinkCounter == -1)
                             {
-                                if (queueSize == 0 && keyBlinkCounter == -1)
+                                if (blinkCounter % blinkPeriod == 0)
                                 {
-                                    if (blinkCounter % blinkPeriod == 0)
-                                    {
-                                        if (control.Text == textWithPrefixWithCursor || control.Text == textWithoutPrefixWithCursor) ShowTextWithoutCursor(); else ShowTextWithCursor();
-//#if DEBUG
-//                                        System.Diagnostics.Debug.WriteLine("BLINK control.Text: " + control.Text);
-//#endif
-                                    }
+                                    if (control.Text == textWithPrefixWithCursor || control.Text == textWithoutPrefixWithCursor) ShowTextWithoutCursor(); else ShowTextWithCursor();
                                 }
-                                else
+                            }
+                            else
+                            {
+                                if (queueSize > 0) period = keyShortPeriod; else period = keyPeriod;
+
+                                if (queueSize == 0 && keyBlinkCounter != -1 && (blinkCounter - keyBlinkCounter) % keyPeriod == 0)
                                 {
-                                    if (queueSize > 0) period = keyShortPeriod; else period = keyPeriod;
-
-                                    if (queueSize == 0 && keyBlinkCounter != -1 && (blinkCounter - keyBlinkCounter) % keyPeriod == 0)
-                                    {
-                                        keyBlinkCounter = -1;
-                                        SetText("");
-                                    }
-
-                                    if (keyBlinkCounter == -1 && queueSize > 0)
-                                    {
-                                        keyBlinkCounter = blinkCounter;
-                                    }
-
-                                    if (queueSize != 0 && (blinkCounter - keyBlinkCounter) % period == 0)
-                                    {
-                                        SetText(GetKey());
-//#if DEBUG                             
-//                                        System.Diagnostics.Debug.WriteLine("SETKEY control.Text: " + control.Text);
-//#endif
-                                    }
-
-                                    if (blinkCounter % 3 == 0)
-                                    {
-                                        if (control.Text == textWithPrefixWithCursor || control.Text == textWithoutPrefixWithCursor) ShowTextWithoutCursor(); else ShowTextWithCursor();
-//#if DEBUG
-//                                        System.Diagnostics.Debug.WriteLine("SETKEY BLINK control.Text: " + control.Text);
-//#endif
-                                    }
+                                    keyBlinkCounter = -1;
+                                    SetText("");
                                 }
 
-                                blinkCounter++;
+                                if (keyBlinkCounter == -1 && queueSize > 0)
+                                {
+                                    keyBlinkCounter = blinkCounter;
+                                }
+
+                                if (queueSize != 0 && (blinkCounter - keyBlinkCounter) % period == 0)
+                                {
+                                    SetText(GetKey());
+                                }
+
+                                if (blinkCounter % 3 == 0)
+                                {
+                                    if (control.Text == textWithPrefixWithCursor || control.Text == textWithoutPrefixWithCursor) ShowTextWithoutCursor(); else ShowTextWithCursor();
+                                }
                             }
 
-                            return true;
+                            blinkCounter++;
                         }
-                    );
+
+                        return true;
+                    };
+
+                    if (Device.RuntimePlatform == Device.WPF) // WPF requires invoking timers on main thread
+                        Device.BeginInvokeOnMainThread( () => Device.StartTimer(new TimeSpan(0, 0, 0, 0, refreshPeriodMs), callback));
+                    else Device.StartTimer(new TimeSpan(0, 0, 0, 0, refreshPeriodMs), callback);
                 }
             }
             else

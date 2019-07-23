@@ -11,8 +11,11 @@ namespace Saplin.CPDT.UICore.Animations
             if (Trigger) // IsVisible
             {
                 target.IsVisible = true;
-                await FadeTo(1.0, 150);
-                await TranslateTo(0, 0, 200);
+                var t = FadeTo(1.0, 150);
+                if (t != null) await t;
+
+                t = TranslateTo(0, 0, 200);
+                if (t != null) await t;
             }
             else 
             {
@@ -23,7 +26,7 @@ namespace Saplin.CPDT.UICore.Animations
                 var height = Device.RuntimePlatform == Device.macOS ? target.Height : -target.Height;
                 TranslateTo(0, height, 300);
                 var t = FadeTo(0.0, 350);
-                await t.ContinueWith((e) => { Device.BeginInvokeOnMainThread(() => target.IsVisible = false); });
+                if (t != null) await t.ContinueWith((e) => { Device.BeginInvokeOnMainThread(() => target.IsVisible = false); });
             }
         }
     }

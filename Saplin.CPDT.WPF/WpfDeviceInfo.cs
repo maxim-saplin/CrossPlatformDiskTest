@@ -2,6 +2,9 @@
 using System.Management;
 using System.Linq;
 using Xamarin.Forms;
+using System.Windows.Threading;
+using System;
+using Xamarin.Forms.Platform.WPF;
 
 [assembly: Dependency(typeof(Saplin.CPDT.WPF.WpfDeviceInfo))]
 namespace Saplin.CPDT.WPF
@@ -23,7 +26,7 @@ namespace Saplin.CPDT.WPF
                 {
                     var mc = new ManagementClass("Win32_Processor").GetInstances();
 
-                    foreach(var c in mc)
+                    foreach (var c in mc)
                     {
                         var val = c.Properties["Name"];
                         if (val != null && val.Value != null)

@@ -33,6 +33,7 @@
     <IntermediateOutputPath>Tmp</IntermediateOutputPath>
     <AndroidLinkSkip>Saplin.CPDT.UICore;Saplin.CPDT.UICore.resources;Saplin.StorageSpeedMeter;Xamarin.Forms.Xaml</AndroidLinkSkip>
     <AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType></DebugType>
