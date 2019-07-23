@@ -95,6 +95,8 @@ namespace Saplin.CPDT.UICore.Controls
 					var view = control.ViewFromTemplate(item);
                     control.Children.Insert(0, view);
 				}
+
+                control.addToBeginningItems = null;
 			}
 			else if (newValue != null)
 			{
