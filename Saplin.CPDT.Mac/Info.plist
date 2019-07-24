@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleName</key>
-	<string>CPDiskTest</string>
+	<string>CPDT</string>
 	<key>CFBundleIdentifier</key>
 	<string>MaximSaplin.CPDiskTest</string>
 	<key>CFBundleShortVersionString</key>

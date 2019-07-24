@@ -8,7 +8,7 @@ namespace Saplin.CPDT.UICore
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TestInProgress : StackLayout
     {
-        private bool testResultsNarrow = true;
+        private bool? testResultsNarrow = null;
 
         public TestInProgress()
         {
@@ -17,7 +17,7 @@ namespace Saplin.CPDT.UICore
 
         public void AdaptLayoytToScreenWidth(bool narrow)
         {
-            if (narrow && !testResultsNarrow)
+            if (narrow && (!testResultsNarrow.HasValue || !testResultsNarrow.Value))
             {
                 testResultsNarrow = true;
 
@@ -34,7 +34,7 @@ namespace Saplin.CPDT.UICore
                 testResultsPlaceholder.Children.Add(tr);
 
             }
-            else if (!narrow && testResultsNarrow)
+            else if (!narrow && (!testResultsNarrow.HasValue || testResultsNarrow.Value))
             {
                 testResultsNarrow = false;
 
