@@ -19,5 +19,7 @@
 /Saplin.CPDT.Android/obj
 /Saplin.CPDT.Android/bin/Release
 /Saplin.CPDT.Android/Tmp
+*/Saplin.CPDT.iOS/bin
+*/Saplin.CPDT.iOS/obj
 .DS_Store
 /_private

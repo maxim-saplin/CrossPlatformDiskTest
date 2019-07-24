@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace Saplin.CPDT.UICore
 {
@@ -50,6 +51,7 @@ namespace Saplin.CPDT.UICore
             });
 
             InitializeComponent();
+            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
 
             // DISPLAYING CONTROLS HERE
             SizeChanged += (s, e) =>
@@ -159,14 +161,14 @@ namespace Saplin.CPDT.UICore
 
         private void ApplyTheme()
         {
-            if ((Application.Current as App).WhiteTheme)
+            if ((Xamarin.Forms.Application.Current as App).WhiteTheme)
             {
                 var whiteTheme = new WhiteTheme();
 
                 foreach (var key in whiteTheme.Keys)
                 {
-                    if (Application.Current.Resources.ContainsKey(key))
-                        Application.Current.Resources[key] = whiteTheme[key];
+                    if (Xamarin.Forms.Application.Current.Resources.ContainsKey(key))
+                        Xamarin.Forms.Application.Current.Resources[key] = whiteTheme[key];
                 }
 
                 backgroundColor = Color.White;
@@ -209,9 +211,9 @@ namespace Saplin.CPDT.UICore
             //< On Platform = "Android" Value = "10, 10, 10, 10" />     
             //< On Platform = "macOS, WPF" Value = "60, 60, 60, 60" />
             //</ OnPlatform >
-            Application.Current.Resources["popUpContainer"] = narrow ?
-                Application.Current.Resources["popUpContainerNarrow"]
-                : Application.Current.Resources["popUpContainerWide"];
+            Xamarin.Forms.Application.Current.Resources["popUpContainer"] = narrow ?
+                Xamarin.Forms.Application.Current.Resources["popUpContainerNarrow"]
+                : Xamarin.Forms.Application.Current.Resources["popUpContainerWide"];
         }
 
         public void OnQuit(Object sender, EventArgs e)
@@ -237,13 +239,13 @@ namespace Saplin.CPDT.UICore
                 ).ContinueWith((t) =>
                     {
                         Thread.Sleep(1500);  // if there's any animation in-progress, give it time to complete
-                        Device.BeginInvokeOnMainThread(() => { Application.Current.Quit(); }); ;
+                        Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.Quit(); }); ;
                     }
                 );
             }
             else
             {
-                Application.Current.Quit();
+                Xamarin.Forms.Application.Current.Quit();
             }
         }
 
