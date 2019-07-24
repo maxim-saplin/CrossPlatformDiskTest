@@ -122,13 +122,21 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Saplin.CPDT.UICore\Saplin.CPDT.UICore.csproj">
       <Project>{3116756D-0111-400C-BC53-1DBBC195FBB7}</Project>
       <Name>Saplin.CPDT.UICore</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fonts\IBMPlexMono-Italic.ttf" />
+    <BundleResource Include="Resources\Fonts\IBMPlexMono-Medium.ttf" />
+    <BundleResource Include="Resources\Fonts\IBMPlexMono-Regular.ttf" />
+    <BundleResource Include="Resources\splas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Fonts\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

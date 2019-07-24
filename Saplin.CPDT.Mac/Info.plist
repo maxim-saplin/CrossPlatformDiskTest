@@ -5,7 +5,7 @@
 	<key>CFBundleName</key>
 	<string>CPDT</string>
 	<key>CFBundleIdentifier</key>
-	<string>MaximSaplin.CPDiskTest</string>
+	<string>MaximSaplin.CPDT</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
