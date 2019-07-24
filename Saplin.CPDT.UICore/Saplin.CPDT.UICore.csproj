@@ -16,7 +16,13 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DebugRAMDisk|AnyCPU' ">
+    <DebugType>full</DebugType>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+  </PropertyGroup>
+      <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ReleaseRAMDisk|AnyCPU' ">
     <DebugType></DebugType>
   </PropertyGroup>
   <ItemGroup>
@@ -68,14 +74,18 @@
   <ItemGroup>
     <Reference Include="CPDT.Extra">
       <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra.git\CPDT.Extra\bin\Debug\netstandard2.0\CPDT.Extra.dll</HintPath>
+      <HintPath Condition="'$(Configuration)'=='DebugRAMDisk'">..\..\CPDT.Extra.git\CPDT.Extra\bin\Debug\netstandard2.0\CPDT.Extra.dll</HintPath>
       <HintPath Condition="'$(Configuration)'=='Release'">..\References\CPDT.Extra.dll</HintPath>
+      <HintPath Condition="'$(Configuration)'=='ReleaseRAMDisk'">..\References\CPDT.Extra.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Posix.NETStandard">
       <HintPath>..\References\Mono.Posix.NETStandard.dll</HintPath>
     </Reference>
     <Reference Include="Saplin.StorageSpeedMeter">
       <HintPath Condition="'$(Configuration)'=='Debug'">..\..\NetCoreStorageSpeedTest.git\Saplin.StorageSpeedMeter\bin\Debug\netstandard2.0\Saplin.StorageSpeedMeter.dll</HintPath>
+      <HintPath Condition="'$(Configuration)'=='DebugRAMDisk'">..\..\NetCoreStorageSpeedTest.git\Saplin.StorageSpeedMeter\bin\Debug\netstandard2.0\Saplin.StorageSpeedMeter.dll</HintPath>
       <HintPath Condition="'$(Configuration)'=='Release'">..\References\Saplin.StorageSpeedMeter.dll</HintPath>
+      <HintPath Condition="'$(Configuration)'=='ReleaseRAMDisk'">..\References\Saplin.StorageSpeedMeter.dll</HintPath>
     </Reference>
   </ItemGroup>
 
