@@ -1,0 +1,5 @@
+Create HFS+ 2GB RAM disk:
+diskutil erasevolume HFS+ RAMDisk `hdiutil attach -nomount ram://4194304`
+
+Create APFS 2GB RAM disk:
+diskutil partitionDisk $(hdiutil attach -nomount ram://4194304) 1 GPTFormat APFS 'ramdisk' '100%'
