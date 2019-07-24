@@ -4,7 +4,7 @@ VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Saplin.CPDT.UICore", "Saplin.CPDT.UICore\Saplin.CPDT.UICore.csproj", "{3116756D-0111-400C-BC53-1DBBC195FBB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saplin.CPDT.iOS", "Saplin.CPDT\Saplin.CPDT.iOS\Saplin.CPDT.iOS.csproj", "{AADDB830-469D-451D-B441-74A2D71038D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saplin.CPDT.iOS", "Saplin.CPDT.iOS\Saplin.CPDT.iOS.csproj", "{AADDB830-469D-451D-B441-74A2D71038D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saplin.CPDT.Mac", "Saplin.CPDT.Mac\Saplin.CPDT.Mac.csproj", "{E73EDEA1-DF38-40F4-A3D9-82C3EC186008}"
 EndProject
