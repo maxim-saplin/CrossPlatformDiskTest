@@ -8,13 +8,14 @@
              xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" 
              xmlns:anim="clr-namespace:Saplin.CPDT.UICore.Animations" 
              Orientation="Vertical" 
-             IsVisible="False" 
              HorizontalOptions="FillAndExpand" 
              Margin="-10, 0, -10, 0" 
              Padding="6, 0, 6, 0"
              BindingContext="{x:Static vm:ViewModelContainer.DriveTestViewModel}"
-             x:Name="testInProgress">
-    <anim:VisibilityFadeAnimation x:Name="testInProgressAnimation" Target="{x:Reference testInProgress}" Trigger="{Binding TestStarted}" />
+             x:DataType="vm:DriveTestViewModel"
+             IsVisible="{Binding TestStarted}" 
+             x:Name="testInProgress"><!-- IsVisible must be set to False is FadeAnimation is used-->
+    <!--<anim:VisibilityFadeAnimation x:Name="testInProgressAnimation" Target="{x:Reference testInProgress}" Trigger="{Binding TestStarted}" />-->
     <StackLayout Orientation="Horizontal" IsVisible="{Binding TestStarted}" Style="{StaticResource testRunningHeader}" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="10, 9, 10, 9">
         <Label Text="{Binding SelectedDrive}" HorizontalOptions="Start" VerticalOptions="Center" LineBreakMode="MiddleTruncation" />
         <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm}'}" Style="{x:StaticResource Key=AccentedSuperSmallLabel}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />

@@ -16,7 +16,7 @@ namespace Saplin.CPDT.Mac
 
             var rect = new CoreGraphics.CGRect(200, 1000, 800, 650);
             _window = new NSWindow(rect, style, NSBackingStore.Buffered, false);
-            _window.Title = "CP Disk Test";
+            _window.Title = "CPDT";
             _window.TitleVisibility = NSWindowTitleVisibility.Hidden;
             _window.TitlebarAppearsTransparent = true;
             _window.StandardWindowButton(NSWindowButton.CloseButton).Hidden = true;
@@ -33,7 +33,7 @@ namespace Saplin.CPDT.Mac
         public override void DidFinishLaunching(NSNotification notification)
         {
             Forms.Init();
-            var app = new App();
+            var app = new App(true);
             LoadApplication(app);
             base.DidFinishLaunching(notification);
         }

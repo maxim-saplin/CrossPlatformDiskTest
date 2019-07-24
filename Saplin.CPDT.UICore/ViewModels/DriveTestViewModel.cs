@@ -444,7 +444,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                 totalMem: diService == null ? -1 : (long)(diService.GetRamSizeGb()*1024*1024*1024),
                                 flusher: flushService == null ? null : 
                                     new WriteBufferFlusher(flushService.OpenFile, flushService.Flush, flushService.Close),
-                                mockFileStream: false
+                                mockFileStream: true
                             );
 
                              TotalTests = testSuite.TotalTests;
