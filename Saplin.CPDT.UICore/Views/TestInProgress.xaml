@@ -24,6 +24,6 @@
     <Label Text="{Binding FileName}" LineBreakMode="MiddleTruncation" Style="{x:StaticResource Key=SmallLabel}" />
     <Label Text="{Binding Options}" Style="{x:StaticResource Key=SmallLabel}" />
     <StackLayout x:Name="testResultsPlaceholder">
-       <local:TestResultsNarrow ShowFooterIfEmptyItems="True" ItemsSource="{Binding TestResults}" />
+       <!--<local:TestResultsNarrow ShowFooterIfEmptyItems="True" ItemsSource="{Binding TestResults}" />-->
     </StackLayout>
 </StackLayout>

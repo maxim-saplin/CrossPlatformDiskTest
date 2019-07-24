@@ -32,18 +32,11 @@ namespace Saplin.CPDT.UICore.Controls
 
             if (queuePointer < 0) queuePointer = queueMaxSize - 1;
 
-//#if DEBUG
-//            System.Diagnostics.Debug.WriteLine("GetKey: " + keys[pointer]);
-//#endif
-
             return keys[pointer];
         }
 
         public static void AddBlinkKey(char key, SysKeys? sysKey)
         {
-//#if DEBUG
-//            System.Diagnostics.Debug.WriteLine("AddBlinkKey: " + key);
-//#endif
             queueSize++;
             queuePointer++;
 
