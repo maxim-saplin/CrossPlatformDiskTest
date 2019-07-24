@@ -107,14 +107,14 @@
         <Setter Property="BackgroundColor">
             <Setter.Value>
                 <OnPlatform x:TypeArguments="Color">
-                    <On Platform="Android" Value="#99FFFFFF" />
+                    <On Platform="Android, iOS" Value="#99FFFFFF" />
                 </OnPlatform>
             </Setter.Value>
         </Setter>
         <Setter Property="Padding">
             <Setter.Value>
                 <OnPlatform x:TypeArguments="Thickness">
-                    <On Platform="Android" Value="10, 10, 10, 10" />
+                    <On Platform="Android, iOS" Value="10, 10, 10, 10" />
                     <On Platform="macOS, WPF" Value="60, 60, 60, 60" />
                 </OnPlatform>
             </Setter.Value>
@@ -125,14 +125,14 @@
                 <Setter Property="BackgroundColor">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="Color">
-                            <On Platform="Android" Value="#99FFFFFF" />
+                            <On Platform="Android, iOS" Value="#99FFFFFF" />
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>                
                 <Setter Property="Padding">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="Thickness">
-                            <On Platform="Android" Value="10, 10, 10, 10" />
+                            <On Platform="Android, iOS" Value="10, 10, 10, 10" />
                             <On Platform="macOS, WPF" Value="20, 20, 20, 20" />
                         </OnPlatform>
                     </Setter.Value>
@@ -143,14 +143,14 @@
                 <Setter Property="BackgroundColor">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="Color">
-                            <On Platform="Android" Value="#99FFFFFF" />
+                            <On Platform="Android, iOS" Value="#99FFFFFF" />
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>                
                 <Setter Property="Padding">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="Thickness">
-                            <On Platform="Android" Value="50, 20, 50, 20" />
+                            <On Platform="Android, iOS" Value="50, 20, 50, 20" />
                             <On Platform="macOS, WPF" Value="60, 60, 60, 60" />
                         </OnPlatform>
                     </Setter.Value>
@@ -161,14 +161,14 @@
         <Setter Property="BackgroundColor">
             <Setter.Value>
                 <OnPlatform x:TypeArguments="Color">
-                    <On Platform="Android" Value="#99FFFFFF" />
+                    <On Platform="Android, iOS" Value="#99FFFFFF" />
                 </OnPlatform>
             </Setter.Value>
         </Setter>
         <Setter Property="Padding">
             <Setter.Value>
                 <OnPlatform x:TypeArguments="Thickness">
-                    <On Platform="Android" Value="0, 0, 0, 0" />
+                    <On Platform="Android, iOS" Value="0, 0, 0, 0" />
                     <On Platform="macOS, WPF" Value="0, 0, 0, 0" />
                 </OnPlatform>
             </Setter.Value>

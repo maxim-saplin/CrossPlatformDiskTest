@@ -13,7 +13,7 @@
         <OnPlatform x:TypeArguments="GridLength">
             <On Platform="WPF" Value="36"/>  
             <On Platform="macOS" Value="48"/> 
-            <On Platform="Android" Value="44"/>
+            <On Platform="Android, iOS" Value="44"/>
         </OnPlatform>
     </Grid.RowHeight>
     <Grid.ColumnDefinitions>
@@ -21,7 +21,7 @@
             <ColumnDefinition.Width>
                 <OnPlatform x:TypeArguments="GridLength">
                     <On Platform="WPF, macOS" Value="Auto"/>  
-                    <On Platform="Android" Value="22"/>
+                    <On Platform="Android, iOS" Value="22"/>
                 </OnPlatform>
             </ColumnDefinition.Width>
         </ColumnDefinition>
@@ -29,7 +29,7 @@
             <ColumnDefinition.Width>
                 <OnPlatform x:TypeArguments="GridLength">
                     <On Platform="WPF, macOS" Value="Auto"/>  
-                    <On Platform="Android" Value="102"/>
+                    <On Platform="Android, iOS" Value="102"/>
                 </OnPlatform>
             </ColumnDefinition.Width>
         </ColumnDefinition>
@@ -37,7 +37,7 @@
             <ColumnDefinition.Width>
                 <OnPlatform x:TypeArguments="GridLength">
                     <On Platform="WPF, macOS" Value="Auto"/>  
-                    <On Platform="Android" Value="68"/>
+                    <On Platform="Android, iOS" Value="68"/>
                 </OnPlatform>
             </ColumnDefinition.Width>
         </ColumnDefinition>
@@ -45,7 +45,7 @@
             <ColumnDefinition.Width>
                 <OnPlatform x:TypeArguments="GridLength">
                     <On Platform="WPF, macOS" Value="Auto"/>  
-                    <On Platform="Android" Value="24"/>
+                    <On Platform="Android, iOS" Value="24"/>
                 </OnPlatform>
             </ColumnDefinition.Width>
         </ColumnDefinition>
@@ -82,7 +82,7 @@
                     <Label.WidthRequest>
                         <OnPlatform x:TypeArguments="x:Double">
                             <On Platform="macOS, WPF" Value="60"/> 
-                            <On Platform="Android" Value="55"/>
+                            <On Platform="Android, iOS" Value="55"/>
                         </OnPlatform>
                     </Label.WidthRequest>
                 </Label>
@@ -92,7 +92,7 @@
                     <ctrl2:TimeSeriesGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="4, 2, 4, 2"/> 
-                            <On Platform="Android" Value="4, 3, 4, 4"/>
+                            <On Platform="Android, iOS" Value="4, 3, 4, 4"/>
                         </OnPlatform>
                     </ctrl2:TimeSeriesGraph.Margin>
                 </ctrl2:TimeSeriesGraph>
@@ -103,7 +103,7 @@
                     <ctrl2:HistogramGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="4, 2, 4, 2"/> 
-                            <On Platform="Android" Value="4, 3, 4, 4"/>
+                            <On Platform="Android, iOS" Value="4, 3, 4, 4"/>
                         </OnPlatform>
                     </ctrl2:HistogramGraph.Margin>
                 </ctrl2:HistogramGraph>
@@ -152,13 +152,13 @@
                     <Label.WidthRequest>
                         <OnPlatform x:TypeArguments="x:Double">
                             <On Platform="macOS, WPF" Value="32"/> 
-                            <On Platform="Android" Value="20"/>
+                            <On Platform="Android, iOS" Value="20"/>
                         </OnPlatform>
                     </Label.WidthRequest>
                     <Label.MinimumWidthRequest>
                         <OnPlatform x:TypeArguments="x:Double">
                             <On Platform="macOS, WPF" Value="32"/> 
-                            <On Platform="Android" Value="20"/>
+                            <On Platform="Android, iOS" Value="20"/>
                         </OnPlatform>
                     </Label.MinimumWidthRequest>
                 </Label>
@@ -194,7 +194,7 @@
                     <Label.WidthRequest>
                         <OnPlatform x:TypeArguments="x:Double">
                             <On Platform="macOS, WPF" Value="60"/> 
-                            <On Platform="Android" Value="55"/>
+                            <On Platform="Android, iOS" Value="55"/>
                         </OnPlatform>
                     </Label.WidthRequest>
                 </Label>
@@ -205,7 +205,7 @@
                     <ctrl2:TimeSeriesGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="4, 2, 4, 2"/> 
-                            <On Platform="Android" Value="4, 3, 4, 4"/>
+                            <On Platform="Android, iOS" Value="4, 3, 4, 4"/>
                         </OnPlatform>
                     </ctrl2:TimeSeriesGraph.Margin>
                 </ctrl2:TimeSeriesGraph>
@@ -215,7 +215,7 @@
                     <ctrl2:HistogramGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="4, 2, 4, 2"/> 
-                            <On Platform="Android" Value="4, 3, 4, 4"/>
+                            <On Platform="Android, iOS" Value="4, 3, 4, 4"/>
                         </OnPlatform>
                     </ctrl2:HistogramGraph.Margin>
                 </ctrl2:HistogramGraph>

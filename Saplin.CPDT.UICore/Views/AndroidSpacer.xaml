@@ -2,7 +2,7 @@
 <Label xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Saplin.CPDT.UICore.AndroidSpacer" Text=" " FontSize="Large">
     <Label.IsVisible>
         <OnPlatform x:TypeArguments="x:Boolean">
-            <On Platform="Android" Value="True" />
+            <On Platform="Android, iOS" Value="True" />
             <On Platform="macOS, WPF" Value="False" />
         </OnPlatform>
     </Label.IsVisible>

@@ -6,7 +6,7 @@
     <ctrl2:ExtendedLabel x:Name="quitButton" ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=Quit}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" VerticalOptions="Start" Style="{x:StaticResource Key=AccentedLabel}" ChangeCursorOnMouseHover="True" Clicked="OnQuit">
         <ctrl2:ExtendedLabel.IsVisible>
             <OnPlatform x:TypeArguments="x:Boolean">
-                <On Platform="Android" Value="False" />
+                <On Platform="Android, iOS" Value="False" />
                 <On Platform="macOS, WPF" Value="True" />
             </OnPlatform>
         </ctrl2:ExtendedLabel.IsVisible>

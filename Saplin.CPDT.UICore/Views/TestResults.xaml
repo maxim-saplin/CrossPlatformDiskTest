@@ -13,7 +13,7 @@
         <OnPlatform x:TypeArguments="GridLength">
             <On Platform="WPF" Value="36"/>  
             <On Platform="macOS" Value="48"/> 
-            <On Platform="Android" Value="44"/>
+            <On Platform="Android, iOS" Value="44"/>
         </OnPlatform>
     </Grid.RowHeight>
     <Grid.ColumnDefinitions>
@@ -59,7 +59,7 @@
                     <ctrl2:TimeSeriesGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="8, 2, 24, 2"/> 
-                            <On Platform="Android" Value="4, 3, 4, 4"/>
+                            <On Platform="Android, iOS" Value="4, 3, 4, 4"/>
                         </OnPlatform>
                     </ctrl2:TimeSeriesGraph.Margin>
                 </ctrl2:TimeSeriesGraph>
@@ -70,7 +70,7 @@
                     <ctrl2:HistogramGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="8, 2, 24, 2"/> 
-                            <On Platform="Android" Value="4, 3, 4, 4"/>
+                            <On Platform="Android, iOS" Value="4, 3, 4, 4"/>
                         </OnPlatform>
                     </ctrl2:HistogramGraph.Margin>
                </ctrl2:HistogramGraph>
@@ -172,7 +172,7 @@
                     <ctrl2:TimeSeriesGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="8, 2, 24, 2"/> 
-                            <On Platform="Android" Value="4, 3, 4, 4"/>
+                            <On Platform="Android, iOS" Value="4, 3, 4, 4"/>
                         </OnPlatform>
                     </ctrl2:TimeSeriesGraph.Margin>
                 </ctrl2:TimeSeriesGraph>
@@ -183,7 +183,7 @@
                     <ctrl2:HistogramGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="8, 2, 24, 2"/> 
-                            <On Platform="Android" Value="4, 3, 4, 4"/>
+                            <On Platform="Android, iOS" Value="4, 3, 4, 4"/>
                         </OnPlatform>
                     </ctrl2:HistogramGraph.Margin>    
                 </ctrl2:HistogramGraph>

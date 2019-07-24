@@ -22,7 +22,7 @@
                             <ctrl2:ExtendedLabel Text="{Binding SelectedNodeText}" MinimumWidthRequest="40" ChangeCursorOnMouseHover="True" VerticalOptions="Center" ctrl:MasterDetail.ToggleDetailOnClicked="True" LineBreakMode="CharacterWrap">
                                 <ctrl2:ExtendedLabel.Style>
                                     <OnPlatform x:TypeArguments="Style">
-                                        <On Platform="Android" Value="{StaticResource AccentedLabel}" />
+                                        <On Platform="Android, iOS" Value="{StaticResource AccentedLabel}" />
                                     </OnPlatform>
                                 </ctrl2:ExtendedLabel.Style>
                             </ctrl2:ExtendedLabel>
@@ -48,7 +48,7 @@
                                             LineBreakMode="MiddleTruncation">
                                     <ctrl2:ExtendedLabel.IsVisible>
                                                 <OnPlatform x:TypeArguments="BindingBase">
-                                                    <On Platform="Android" Value="{Binding Selected}"/>
+                                                    <On Platform="Android, iOS" Value="{Binding Selected}"/>
                                                     <On Platform="macOS, WPF" Value="{Binding HideShare}" />
                                                 </OnPlatform>
                                             </ctrl2:ExtendedLabel.IsVisible>

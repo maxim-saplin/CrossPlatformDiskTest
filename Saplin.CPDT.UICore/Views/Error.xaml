@@ -14,7 +14,7 @@
         <ColumnDefinition>
             <ColumnDefinition.Width>
                 <OnPlatform x:TypeArguments="GridLength">
-                    <On Platform="Android" Value="*" />
+                    <On Platform="Android, iOS" Value="*" />
                     <On Platform="WPF, macOS" Value="250" />
                 </OnPlatform>
              </ColumnDefinition.Width>
@@ -22,7 +22,7 @@
         <ColumnDefinition>
             <ColumnDefinition.Width>
                 <OnPlatform x:TypeArguments="GridLength">
-                    <On Platform="Android" Value="120" />
+                    <On Platform="Android, iOS" Value="120" />
                     <On Platform="WPF, macOS" Value="130" />
                 </OnPlatform>
              </ColumnDefinition.Width>

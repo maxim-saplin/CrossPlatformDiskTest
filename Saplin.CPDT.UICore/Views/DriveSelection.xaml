@@ -33,12 +33,12 @@
                         <ctrl2:ExtendedLabel ctrl:KeyPress.CommandText="{Binding IndexAndName}" Command="{Binding Source={x:Static vm:ViewModelContainer.DriveTestViewModel}, Path=TestDrive}" CommandParameter="{Binding Name}" ChangeCursorOnMouseHover="{Binding AvailableForTest}" IsEnabled="{Binding AvailableForTest}" LineBreakMode="MiddleTruncation">
                             <ctrl2:ExtendedLabel.Style>
                                 <OnPlatform x:TypeArguments="Style">
-                                    <On Platform="Android" Value="{StaticResource AccentedLabel}" />
+                                    <On Platform="Android, iOS" Value="{StaticResource AccentedLabel}" />
                                 </OnPlatform>
                             </ctrl2:ExtendedLabel.Style>
                             <Label.HeightRequest>
                                 <OnPlatform x:TypeArguments="x:Double">
-                                    <On Platform="Android" Value="28" />
+                                    <On Platform="Android, iOS" Value="28" />
                                     <On Platform="macOS, WPF" Value="-1" />
                                 </OnPlatform>
                             </Label.HeightRequest>
