@@ -38,12 +38,12 @@ namespace Saplin.CPDT.UICore
                 title = new Title();
                 title.QuitClicked += OnQuit;
 
-                if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
-                {
-                    simpleUI = new SimpleUI();
-                    simpleUI.AdjustToWidth(Width);
-                }
-                else
+                //if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
+                //{
+                //    simpleUI = new SimpleUI();
+                //    simpleUI.AdjustToWidth(Width);
+                //}
+                //else
                 {
                     advancedUI = new AdvancedUI();
                     status = new Status();
@@ -70,89 +70,89 @@ namespace Saplin.CPDT.UICore
 
                     stackLayout.Children.Add(title);
 
-                    if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
-                    {
-                        absoluteLayout.Children.Add(simpleUI);
-                    }
-                    else
+                    //if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
+                    //{
+                    //    absoluteLayout.Children.Add(simpleUI);
+                    //}
+                    //else
                     {
                         stackLayout.Children.Add(advancedUI);
                         stackLayout.Children.Add(status);
                     }
 
-                    Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
-                            {
-                                simpleUIHeader = new SimpleUI();
+                    //Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
+                    //        {
+                    //            simpleUIHeader = new SimpleUI();
 
-                                simpleUIHeader.SetBinding(IsVisibleProperty, new Binding("IsSimpleUIHeaderVisible", source: ViewModelContainer.NavigationViewModel));
-                                AbsoluteLayout.SetLayoutFlags(simpleUIHeader, AbsoluteLayoutFlags.None);
-                                simpleUIHeader.HorizontalOptions = LayoutOptions.CenterAndExpand;
-                                //simpleUIHeader.Padding = new Thickness(20,16,0,16);
+                    //            simpleUIHeader.SetBinding(IsVisibleProperty, new Binding("IsSimpleUIHeaderVisible", source: ViewModelContainer.NavigationViewModel));
+                    //            AbsoluteLayout.SetLayoutFlags(simpleUIHeader, AbsoluteLayoutFlags.None);
+                    //            simpleUIHeader.HorizontalOptions = LayoutOptions.CenterAndExpand;
+                    //            //simpleUIHeader.Padding = new Thickness(20,16,0,16);
                                                                 
-                                testInProgress = new TestInProgress();
-                                testCompletion = new TestCompletion();
-                                testSessionsPlaceholder = new TestSessionsPlaceholder();
-                                popups = new Popups();
-                                onlineDb = new OnlineDb();
+                    //            testInProgress = new TestInProgress();
+                    //            testCompletion = new TestCompletion();
+                    //            testSessionsPlaceholder = new TestSessionsPlaceholder();
+                    //            popups = new Popups();
+                    //            onlineDb = new OnlineDb();
 
-                                if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
-                                {
-                                    advancedUI = new AdvancedUI();
-                                    status = new Status();
+                    //            if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
+                    //            {
+                    //                advancedUI = new AdvancedUI();
+                    //                status = new Status();
 
-                                    AdaptLayoytToScreenWidth();
+                    //                AdaptLayoytToScreenWidth();
 
-                                    Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
-                                    {
-                                        stackLayout.Children.Add(simpleUIHeader);
-                                        stackLayout.Children.Add(advancedUI);
-                                        stackLayout.Children.Add(testInProgress);
-                                        stackLayout.Children.Add(testSessionsPlaceholder);
-                                        stackLayout.Children.Add(status);
-                                        absoluteLayout.Children.Add(popups);
-                                        absoluteLayout.Children.Add(testCompletion);
+                    //                Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
+                    //                {
+                    //                    stackLayout.Children.Add(simpleUIHeader);
+                    //                    stackLayout.Children.Add(advancedUI);
+                    //                    stackLayout.Children.Add(testInProgress);
+                    //                    stackLayout.Children.Add(testSessionsPlaceholder);
+                    //                    stackLayout.Children.Add(status);
+                    //                    absoluteLayout.Children.Add(popups);
+                    //                    absoluteLayout.Children.Add(testCompletion);
 
-                                        foreach (var c in onlineDb.Children.ToArray())
-                                        {
-                                            absoluteLayout.Children.Add(c);
-                                        }
+                    //                    foreach (var c in onlineDb.Children.ToArray())
+                    //                    {
+                    //                        absoluteLayout.Children.Add(c);
+                    //                    }
 
-                                        AdaptLayoytToScreenWidth();
-                                        return false;
+                    //                    AdaptLayoytToScreenWidth();
+                    //                    return false;
 
-                                    });
-                                }
-                                else
-                                {
-                                    simpleUI = new SimpleUI();
+                    //                });
+                    //            }
+                    //            else
+                    //            {
+                    //                simpleUI = new SimpleUI();
 
-                                    AdaptLayoytToScreenWidth();
+                    //                AdaptLayoytToScreenWidth();
 
-                                    Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
-                                    {
+                    //                Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
+                    //                {
 
-                                        stackLayout.Children.Remove(status);
-                                        stackLayout.Children.Add(simpleUIHeader);
-                                        stackLayout.Children.Add(testInProgress);
-                                        stackLayout.Children.Add(testSessionsPlaceholder);
-                                        absoluteLayout.Children.Add(simpleUI);
-                                        stackLayout.Children.Add(status);
-                                        absoluteLayout.Children.Add(popups);
-                                        absoluteLayout.Children.Add(testCompletion);
+                    //                    stackLayout.Children.Remove(status);
+                    //                    stackLayout.Children.Add(simpleUIHeader);
+                    //                    stackLayout.Children.Add(testInProgress);
+                    //                    stackLayout.Children.Add(testSessionsPlaceholder);
+                    //                    absoluteLayout.Children.Add(simpleUI);
+                    //                    stackLayout.Children.Add(status);
+                    //                    absoluteLayout.Children.Add(popups);
+                    //                    absoluteLayout.Children.Add(testCompletion);
 
-                                        foreach (var c in onlineDb.Children.ToArray())
-                                        {
-                                            absoluteLayout.Children.Add(c);
-                                        }
+                    //                    foreach (var c in onlineDb.Children.ToArray())
+                    //                    {
+                    //                        absoluteLayout.Children.Add(c);
+                    //                    }
 
-                                        AdaptLayoytToScreenWidth();
-                                        return false;
+                    //                    AdaptLayoytToScreenWidth();
+                    //                    return false;
 
-                                    });
-                                }
-                                return false;
-                            }
-                        );
+                    //                });
+                    //            }
+                    //            return false;
+                    //        }
+                    //    );
                 }
             };
         }
