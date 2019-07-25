@@ -125,9 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Fonts\IBMPlexMono-Italic.ttf" />
-    <BundleResource Include="Resources\Fonts\IBMPlexMono-Medium.ttf" />
     <BundleResource Include="Resources\Fonts\IBMPlexMono-Regular.ttf" />
     <BundleResource Include="Resources\splas.png" />
+    <BundleResource Include="Resources\Fonts\IBMPlexMono-SemiBold.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Fonts\" />

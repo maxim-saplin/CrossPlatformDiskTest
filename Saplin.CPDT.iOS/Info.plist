@@ -38,7 +38,7 @@
 	<array>
 		<string>Fonts/IBMPlexMono-Italic.ttf</string>
 		<string>Fonts/IBMPlexMono-Regular.ttf</string>
-		<string>Fonts/IBMPlexMono-Medium.ttf</string>
+		<string>Fonts/IBMPlexMono-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>

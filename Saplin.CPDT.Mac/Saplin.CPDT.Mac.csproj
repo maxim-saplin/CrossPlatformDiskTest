@@ -137,10 +137,10 @@
     <BundleResource Include="Resources\Fonts\IBMPlexMono-Medium.ttf" />
     <BundleResource Include="Resources\Fonts\IBMPlexMono-MediumItalic.ttf" />
     <BundleResource Include="Resources\Fonts\IBMPlexMono-Regular.ttf" />
-    <BundleResource Include="Resources\Fonts\IBMPlexMono-SemiBold.ttf" />
     <BundleResource Include="Resources\Fonts\IBMPlexMono-SemiBoldItalic.ttf" />
     <BundleResource Include="Resources\Fonts\IBMPlexMono-Thin.ttf" />
     <BundleResource Include="Resources\Fonts\IBMPlexMono-ThinItalic.ttf" />
+    <BundleResource Include="Resources\Fonts\IBMPlexMono-SemiBold.ttf" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
