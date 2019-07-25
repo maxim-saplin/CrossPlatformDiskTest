@@ -104,7 +104,7 @@
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="Color">
                             <On Platform="Android, macOS" Value="Transparent" />
-                            <On Platform="WPF, GTK" Value="Black" />
+                            <On Platform="WPF" Value="Black" />
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
@@ -162,7 +162,7 @@
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Double">
                             <On Platform="Android, iOS" Value="125" />
-                            <On Platform="macOS, WPF, GTK" Value="125" />
+                            <On Platform="macOS, WPF" Value="125" />
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
@@ -170,7 +170,7 @@
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Double">
                             <On Platform="Android, iOS" Value="35" />
-                            <On Platform="macOS, WPF, GTK" Value="27" />
+                            <On Platform="macOS, WPF" Value="27" />
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
@@ -191,7 +191,7 @@
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Double">
                             <On Platform="Android, iOS" Value="100" />
-                            <On Platform="macOS, WPF, GTK" Value="100" />
+                            <On Platform="macOS, WPF" Value="100" />
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>  
@@ -199,7 +199,7 @@
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Double">
                             <On Platform="Android, iOS" Value="30" />
-                            <On Platform="macOS, WPF, GTK" Value="27" />
+                            <On Platform="macOS, WPF" Value="27" />
                         </OnPlatform>
                     </Setter.Value>     
                 </Setter> 
@@ -235,7 +235,7 @@
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="Android, iOS" Value="10, 10, 10, 10" />
-                            <On Platform="macOS, WPF, GTK" Value="60, 60, 60, 60" />
+                            <On Platform="macOS, WPF" Value="60, 60, 60, 60" />
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
@@ -253,7 +253,7 @@
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="Android, iOS" Value="10, 10, 10, 10" />
-                            <On Platform="macOS, WPF, GTK" Value="20, 20, 20, 20" />
+                            <On Platform="macOS, WPF" Value="20, 20, 20, 20" />
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
@@ -271,7 +271,7 @@
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="Android, iOS" Value="50, 20, 50, 20" />
-                            <On Platform="macOS, WPF, GTK" Value="60, 60, 60, 60" />
+                            <On Platform="macOS, WPF" Value="60, 60, 60, 60" />
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
@@ -289,7 +289,7 @@
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="Android, iOS" Value="0, 0, 0, 0" />
-                            <On Platform="macOS, WPF, GTK" Value="0, 0, 0, 0" />
+                            <On Platform="macOS, WPF" Value="0, 0, 0, 0" />
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
