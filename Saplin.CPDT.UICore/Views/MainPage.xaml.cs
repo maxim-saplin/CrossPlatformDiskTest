@@ -25,13 +25,13 @@ namespace Saplin.CPDT.UICore
         Popups popups;
         OnlineDb onlineDb;
 
-        private Task task;
+        private Task createMinimalUiTask, createRestOfUiTask;
 
         public MainPage()
         {
             //ASYNC AND DEFFERED creation of controls for better start-up time
 
-            task = Task.Run(() =>
+            createMinimalUiTask = Task.Run(() =>
             {
                 ApplyTheme();
 
@@ -53,6 +53,44 @@ namespace Saplin.CPDT.UICore
             InitializeComponent();
             On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
 
+            createMinimalUiTask.Wait();
+
+            createRestOfUiTask = Task.Run(() =>
+            {
+                simpleUIHeader = new SimpleUI();
+
+                simpleUIHeader.SetBinding(IsVisibleProperty, new Binding("IsSimpleUIHeaderVisible", source: ViewModelContainer.NavigationViewModel));
+                AbsoluteLayout.SetLayoutFlags(simpleUIHeader, AbsoluteLayoutFlags.None);
+                simpleUIHeader.HorizontalOptions = LayoutOptions.CenterAndExpand;
+
+                testInProgress = new TestInProgress();
+                testCompletion = new TestCompletion();
+                testSessionsPlaceholder = new TestSessionsPlaceholder();
+                popups = new Popups();
+                onlineDb = new OnlineDb();
+
+                if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
+                {
+                    advancedUI = new AdvancedUI();
+                    status = new Status();
+                }
+                else
+                {
+                    simpleUI = new SimpleUI();
+                }
+            });
+
+            stackLayout.Children.Add(title);
+            if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
+            {
+                absoluteLayout.Children.Add(simpleUI);
+            }
+            else
+            {
+                stackLayout.Children.Add(advancedUI);
+                stackLayout.Children.Add(status);
+            }
+
             // DISPLAYING CONTROLS HERE
             SizeChanged += (s, e) =>
             {
@@ -61,98 +99,61 @@ namespace Saplin.CPDT.UICore
                 else
                 {
                     this.BackgroundColor = backgroundColor;
-
                     alreadyShown = true;
 
-                    task.Wait();
 
-                    //AdaptLayoytToScreenWidth();
-
-                    stackLayout.Children.Add(title);
+                    createRestOfUiTask.Wait();
+                    AdaptLayoytToScreenWidth();
 
                     if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
                     {
-                        absoluteLayout.Children.Add(simpleUI);
+                        Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
+                        {
+                            stackLayout.Children.Add(simpleUIHeader);
+                            stackLayout.Children.Add(advancedUI);
+                            stackLayout.Children.Add(testInProgress);
+                            stackLayout.Children.Add(testSessionsPlaceholder);
+                            stackLayout.Children.Add(status);
+                            absoluteLayout.Children.Add(popups);
+                            absoluteLayout.Children.Add(testCompletion);
+
+                            foreach (var c in onlineDb.Children.ToArray())
+                            {
+                                absoluteLayout.Children.Add(c);
+                            }
+
+                            //AdaptLayoytToScreenWidth();
+                            return false;
+
+                        });
                     }
                     else
                     {
-                        stackLayout.Children.Add(advancedUI);
-                        stackLayout.Children.Add(status);
+                        simpleUI = new SimpleUI();
+
+                        Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
+                        {
+
+                            stackLayout.Children.Remove(status);
+                            stackLayout.Children.Add(simpleUIHeader);
+                            stackLayout.Children.Add(testInProgress);
+                            stackLayout.Children.Add(testSessionsPlaceholder);
+                            absoluteLayout.Children.Add(simpleUI);
+                            stackLayout.Children.Add(status);
+                            absoluteLayout.Children.Add(popups);
+                            absoluteLayout.Children.Add(testCompletion);
+
+                            foreach (var c in onlineDb.Children.ToArray())
+                            {
+                                absoluteLayout.Children.Add(c);
+                            }
+
+                            //AdaptLayoytToScreenWidth();
+                            return false;
+
+                        });
                     }
 
-                    Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
-                            {
-                                simpleUIHeader = new SimpleUI();
-
-                                simpleUIHeader.SetBinding(IsVisibleProperty, new Binding("IsSimpleUIHeaderVisible", source: ViewModelContainer.NavigationViewModel));
-                                AbsoluteLayout.SetLayoutFlags(simpleUIHeader, AbsoluteLayoutFlags.None);
-                                simpleUIHeader.HorizontalOptions = LayoutOptions.CenterAndExpand;
-                                //simpleUIHeader.Padding = new Thickness(20,16,0,16);
-                                                                
-                                testInProgress = new TestInProgress();
-                                testCompletion = new TestCompletion();
-                                testSessionsPlaceholder = new TestSessionsPlaceholder();
-                                popups = new Popups();
-                                onlineDb = new OnlineDb();
-
-                                if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
-                                {
-                                    advancedUI = new AdvancedUI();
-                                    status = new Status();
-
-                                    AdaptLayoytToScreenWidth();
-
-                                    Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
-                                    {
-                                        stackLayout.Children.Add(simpleUIHeader);
-                                        stackLayout.Children.Add(advancedUI);
-                                        stackLayout.Children.Add(testInProgress);
-                                        stackLayout.Children.Add(testSessionsPlaceholder);
-                                        stackLayout.Children.Add(status);
-                                        absoluteLayout.Children.Add(popups);
-                                        absoluteLayout.Children.Add(testCompletion);
-
-                                        foreach (var c in onlineDb.Children.ToArray())
-                                        {
-                                            absoluteLayout.Children.Add(c);
-                                        }
-
-                                        AdaptLayoytToScreenWidth();
-                                        return false;
-
-                                    });
-                                }
-                                else
-                                {
-                                    simpleUI = new SimpleUI();
-
-                                    AdaptLayoytToScreenWidth();
-
-                                    Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
-                                    {
-
-                                        stackLayout.Children.Remove(status);
-                                        stackLayout.Children.Add(simpleUIHeader);
-                                        stackLayout.Children.Add(testInProgress);
-                                        stackLayout.Children.Add(testSessionsPlaceholder);
-                                        absoluteLayout.Children.Add(simpleUI);
-                                        stackLayout.Children.Add(status);
-                                        absoluteLayout.Children.Add(popups);
-                                        absoluteLayout.Children.Add(testCompletion);
-
-                                        foreach (var c in onlineDb.Children.ToArray())
-                                        {
-                                            absoluteLayout.Children.Add(c);
-                                        }
-
-                                        AdaptLayoytToScreenWidth();
-                                        return false;
-
-                                    });
-                                }
-                                return false;
-                            }
-                        );
                 }
             };
         }
