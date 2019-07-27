@@ -27,153 +27,10 @@ namespace Saplin.CPDT.UICore
         OnlineDb onlineDb;
 
         private Task createMinimalUiTask, createRestOfUiTask;
-        Stopwatch sw = new Stopwatch();
-
-        #region OldConstructor
-        //public MainPage()
-        //{
-        //    //ASYNC AND DEFFERED creation of controls for better start-up time
-        //    Debug.WriteLine("Creating controls... ");
-        //    sw.Start();
-
-        //    createMinimalUiTask = Task.Run(() =>
-        //    {
-        //        ApplyTheme();
-
-        //        title = new Title();
-        //        title.QuitClicked += OnQuit;
-
-        //        if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
-        //        {
-        //            simpleUI = new SimpleUI();
-        //            simpleUI.AdjustToWidth(Width);
-        //        }
-        //        else
-        //        {
-        //            advancedUI = new AdvancedUI();
-        //            status = new Status();
-        //        }
-        //    });
-
-        //    InitializeComponent();
-
-        //    // DISPLAYING CONTROLS HERE
-        //    SizeChanged += (s, e) =>
-        //    {
-        //        if (alreadyShown)
-        //            AdaptLayoytToScreenWidth();
-        //        else
-        //        {
-        //            this.BackgroundColor = backgroundColor;
-
-        //            alreadyShown = true;
-
-        //            createMinimalUiTask.Wait();
-
-        //            //AdaptLayoytToScreenWidth();
-
-        //            stackLayout.Children.Add(title);
-
-        //            if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
-        //            {
-        //                absoluteLayout.Children.Add(simpleUI);
-        //            }
-        //            else
-        //            {
-        //                stackLayout.Children.Add(advancedUI);
-        //                stackLayout.Children.Add(status);
-        //            }
-
-        //            Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
-        //            {
-        //                simpleUIHeader = new SimpleUI();
-
-        //                simpleUIHeader.SetBinding(IsVisibleProperty, new Binding("IsSimpleUIHeaderVisible", source: ViewModelContainer.NavigationViewModel));
-        //                AbsoluteLayout.SetLayoutFlags(simpleUIHeader, AbsoluteLayoutFlags.None);
-        //                simpleUIHeader.HorizontalOptions = LayoutOptions.CenterAndExpand;
-        //                //simpleUIHeader.Padding = new Thickness(20,16,0,16);
-
-        //                testInProgress = new TestInProgress();
-        //                testCompletion = new TestCompletion();
-        //                testSessionsPlaceholder = new TestSessionsPlaceholder();
-        //                popups = new Popups();
-        //                onlineDb = new OnlineDb();
-
-        //                if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
-        //                {
-        //                    advancedUI = new AdvancedUI();
-        //                    status = new Status();
-
-        //                    AdaptLayoytToScreenWidth();
-
-        //                    Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
-        //                    {
-        //                        stackLayout.Children.Add(simpleUIHeader);
-        //                        stackLayout.Children.Add(advancedUI);
-        //                        stackLayout.Children.Add(testInProgress);
-        //                        stackLayout.Children.Add(testSessionsPlaceholder);
-        //                        stackLayout.Children.Add(status);
-        //                        absoluteLayout.Children.Add(popups);
-        //                        absoluteLayout.Children.Add(testCompletion);
-
-        //                        foreach (var c in onlineDb.Children.ToArray())
-        //                        {
-        //                            absoluteLayout.Children.Add(c);
-        //                        }
-
-        //                        AdaptLayoytToScreenWidth();
-
-        //                        sw.Stop();
-        //                        Debug.WriteLine("Controls created and added. Times(ms):" + sw.ElapsedMilliseconds);
-        //                        return false;
-
-        //                    });
-        //                }
-        //                else
-        //                {
-        //                    simpleUI = new SimpleUI();
-
-        //                    AdaptLayoytToScreenWidth();
-
-        //                    Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
-        //                    {
-
-        //                        stackLayout.Children.Remove(status);
-        //                        stackLayout.Children.Add(simpleUIHeader);
-        //                        stackLayout.Children.Add(testInProgress);
-        //                        stackLayout.Children.Add(testSessionsPlaceholder);
-        //                        absoluteLayout.Children.Add(simpleUI);
-        //                        stackLayout.Children.Add(status);
-        //                        absoluteLayout.Children.Add(popups);
-        //                        absoluteLayout.Children.Add(testCompletion);
-
-        //                        foreach (var c in onlineDb.Children.ToArray())
-        //                        {
-        //                            absoluteLayout.Children.Add(c);
-        //                        }
-
-        //                        AdaptLayoytToScreenWidth();
-
-        //                        sw.Stop();
-        //                        Debug.WriteLine("Controls created and added. Times(ms):" + sw.ElapsedMilliseconds);
-        //                        return false;
-
-        //                    });
-        //                }
-        //                return false;
-        //            }
-        //                );
-        //        }
-        //    };
-        //}
-        #endregion
 
         public MainPage()
         {
             //ASYNC AND DEFFERED creation of controls for better start-up time
-
-            Debug.WriteLine("Creating controls... ");
-            sw.Start();
 
             createMinimalUiTask = Task.Run(() =>
             {
@@ -275,9 +132,6 @@ namespace Saplin.CPDT.UICore
                         {
                             absoluteLayout.Children.Add(c);
                         }
-
-                        sw.Stop();
-                        Debug.WriteLine("Controls created and added. Times(ms):" + sw.ElapsedMilliseconds);
                     });
 
                 }
@@ -307,6 +161,9 @@ namespace Saplin.CPDT.UICore
 
         private void AdaptLayoytToScreenWidth()
         {
+            simpleUI.AdjustToWidth(Width); // this control has different narrow threashold
+            simpleUIHeader.AdjustToWidth(Width);
+
             var narrow = Width < narrowWidth;
 
             if (alreadyNarrow.HasValue)
