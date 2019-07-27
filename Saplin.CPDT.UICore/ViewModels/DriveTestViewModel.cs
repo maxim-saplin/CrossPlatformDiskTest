@@ -96,17 +96,17 @@ namespace Saplin.CPDT.UICore.ViewModels
                 var i = 0;
                 firstAvailableDrive = null;
 
-                if (Device.RuntimePlatform == Device.Android)
+                if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS)
                 {
 
-                    androidDrives = DependencyService.Get<IAndroidDrives>()?.GetDrives();
+                    PlatformDrives = DependencyService.Get<IPlatformDrives>()?.GetDrives();
 
                     string prevDrive = "";
 
                     const string d1 = "/data/user";
                     const string d2 = "/storage/emulated/0";
 
-                    foreach (var ad in androidDrives)
+                    foreach (var ad in PlatformDrives)
                     {
                         setEnoughSpaceAndIndex(ad, i);
 
@@ -181,7 +181,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             RaisePropertyChanged(nameof(Drives));
         }
 
-        private IEnumerable<AndroidDrive> androidDrives = null;
+        private IEnumerable<PlatformDrive> PlatformDrives = null;
         private IEnumerable<DriveDetailed> posixDrives = null;
         private int availbleDrivesCount = 0;
 
@@ -189,11 +189,11 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             get
             {
-                if (Device.RuntimePlatform == Device.Android)
+                if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS)
                 {
-                    if (androidDrives == null) InitDrives();
+                    if (PlatformDrives == null) InitDrives();
 
-                    return androidDrives;
+                    return PlatformDrives;
                 }
                 else
                 {
@@ -405,16 +405,17 @@ namespace Saplin.CPDT.UICore.ViewModels
 
                              var memCache = optionsVm.MemCacheBool
                                 ? MemCacheOptions.Enabled
-                                : Device.RuntimePlatform == Device.Android ? MemCacheOptions.DisabledEmulation : MemCacheOptions.Disabled;
+                                : Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS
+                                    ? MemCacheOptions.DisabledEmulation : MemCacheOptions.Disabled;
 
                              long freeSpace = 0;
                              long totalSpace = 0;
 
                              string androidCachePurgeFile = null;
 
-                             if (Device.RuntimePlatform == Device.Android)
+                             if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS)
                              {
-                                 foreach (var ad in androidDrives)
+                                 foreach (var ad in PlatformDrives)
                                      if (ad.Name == driveNameToUse)
                                      {
                                          driveNameToUse = ad.AppFolderPath;
@@ -422,7 +423,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                          totalSpace = ad.TotalBytes;
                                      }
 
-                                 androidCachePurgeFile = Path.Combine(androidDrives.First<AndroidDrive>().AppFolderPath, "CPDT_CachePurging.dat");
+                                 androidCachePurgeFile = Path.Combine(PlatformDrives.First<PlatformDrive>().AppFolderPath, "CPDT_CachePurging.dat");
                              }
                              else {
                                  var dd = posixDrives.Where(d => d.Name == driveNameToUse).First();
@@ -444,6 +445,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                 totalMem: diService == null ? -1 : (long)(diService.GetRamSizeGb()*1024*1024*1024),
                                 flusher: flushService == null ? null : 
                                     new WriteBufferFlusher(flushService.OpenFile, flushService.Flush, flushService.Close),
+                                disableMacStream: Device.RuntimePlatform == Device.iOS,
                                 mockFileStream: false
                             );
 

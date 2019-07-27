@@ -2,7 +2,7 @@
 
 namespace Saplin.CPDT.UICore
 {
-    public class AndroidDrive : DriveDetailed
+    public class PlatformDrive : DriveDetailed
     {
         public string AppFolderPath { get; set; }
     }
