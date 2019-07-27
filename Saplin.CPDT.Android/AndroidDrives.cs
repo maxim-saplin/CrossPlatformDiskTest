@@ -4,16 +4,16 @@ using Android.OS;
 using Saplin.CPDT.UICore;
 using Xamarin.Forms;
 
-[assembly: Dependency(typeof(Saplin.CPDT.Droid.AndroidDrives))]
+[assembly: Dependency(typeof(Saplin.CPDT.Droid.PlatformDrives))]
 namespace Saplin.CPDT.Droid
 {
-    public class AndroidDrives  : IAndroidDrives
+    public class PlatformDrives  : IPlatformDrives
     {
-        public IEnumerable<AndroidDrive> GetDrives()
+        public IEnumerable<PlatformDrive> GetDrives()
         {
-            var drives = new List<AndroidDrive>();
+            var drives = new List<PlatformDrive>();
 
-            var drive = new AndroidDrive();
+            var drive = new PlatformDrive();
 
             try
             {
@@ -30,7 +30,7 @@ namespace Saplin.CPDT.Droid
             {
                  if (e == null) continue;
 
-                drive = new AndroidDrive();
+                drive = new PlatformDrive();
 
                 try
                 {
@@ -46,7 +46,7 @@ namespace Saplin.CPDT.Droid
             return drives;
         }
 
-        private static void InitDrive(AndroidDrive drive, int dashesIncludeInName)
+        private static void InitDrive(PlatformDrive drive, int dashesIncludeInName)
         {
             drive.Name = drive.AppFolderPath;
             var c = 0;

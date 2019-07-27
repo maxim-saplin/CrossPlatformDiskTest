@@ -14,7 +14,7 @@
     <Button x:Name="refreshButton" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RefreshButton}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding Refresh}" ctrl:KeyPress.CommandOnKeyPress="True">
         <Button.IsVisible>
             <OnPlatform x:TypeArguments="x:Boolean">
-                <On Platform="Android" Value="False" />
+                <On Platform="Android, iOS" Value="False" />
                 <On Platform="macOS, WPF" Value="True" />
             </OnPlatform>
         </Button.IsVisible>

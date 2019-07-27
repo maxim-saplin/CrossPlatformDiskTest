@@ -152,7 +152,7 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             get
             {
-                if (Device.RuntimePlatform == Device.Android && IsSimpleUI) return false;
+                if ((Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS) && IsSimpleUI) return false;
 
                 return true;
             }

@@ -74,7 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.1.0.581479</Version>
+      <Version>4.1.0.618606</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.BlurView">
       <Version>1.4.0</Version>

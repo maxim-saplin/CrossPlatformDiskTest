@@ -15,7 +15,7 @@
         <Grid.Padding>
             <OnPlatform x:TypeArguments="Thickness">
                 <On Platform="WPF, macOS" Value="25, 15, 25, 10"/>
-                <On Platform="Android" Value="10, 5, 10, 5"/>
+                <On Platform="Android, iOS" Value="10, 5, 10, 5"/>
             </OnPlatform>
         </Grid.Padding>
         <Grid.ColumnDefinitions>
@@ -51,13 +51,13 @@
         <Image Source="{Binding AboutImage}" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Aspect="AspectFit" HorizontalOptions="Center">
             <Image.WidthRequest>                
                 <OnPlatform x:TypeArguments="x:Double">
-                    <On Platform="Android" Value="280" />
+                    <On Platform="Android, iOS" Value="280" />
                     <On Platform="WPF, macOS" Value="400" />
                 </OnPlatform>
             </Image.WidthRequest>
             <Image.HeightRequest>                
                 <OnPlatform x:TypeArguments="x:Double">
-                    <On Platform="Android" Value="280" />
+                    <On Platform="Android, iOS" Value="280" />
                     <On Platform="WPF, macOS" Value="340" />
                 </OnPlatform>
             </Image.HeightRequest>

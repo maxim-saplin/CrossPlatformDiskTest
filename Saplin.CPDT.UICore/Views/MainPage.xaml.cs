@@ -2,10 +2,12 @@
 using Saplin.CPDT.UICore.Controls;
 using Saplin.CPDT.UICore.ViewModels;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace Saplin.CPDT.UICore
 {
@@ -24,15 +26,159 @@ namespace Saplin.CPDT.UICore
         Popups popups;
         OnlineDb onlineDb;
 
-        private Task task;
+        private Task createMinimalUiTask, createRestOfUiTask;
+        Stopwatch sw = new Stopwatch();
+
+        #region OldConstructor
+        //public MainPage()
+        //{
+        //    //ASYNC AND DEFFERED creation of controls for better start-up time
+        //    Debug.WriteLine("Creating controls... ");
+        //    sw.Start();
+
+        //    createMinimalUiTask = Task.Run(() =>
+        //    {
+        //        ApplyTheme();
+
+        //        title = new Title();
+        //        title.QuitClicked += OnQuit;
+
+        //        if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
+        //        {
+        //            simpleUI = new SimpleUI();
+        //            simpleUI.AdjustToWidth(Width);
+        //        }
+        //        else
+        //        {
+        //            advancedUI = new AdvancedUI();
+        //            status = new Status();
+        //        }
+        //    });
+
+        //    InitializeComponent();
+
+        //    // DISPLAYING CONTROLS HERE
+        //    SizeChanged += (s, e) =>
+        //    {
+        //        if (alreadyShown)
+        //            AdaptLayoytToScreenWidth();
+        //        else
+        //        {
+        //            this.BackgroundColor = backgroundColor;
+
+        //            alreadyShown = true;
+
+        //            createMinimalUiTask.Wait();
+
+        //            //AdaptLayoytToScreenWidth();
+
+        //            stackLayout.Children.Add(title);
+
+        //            if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
+        //            {
+        //                absoluteLayout.Children.Add(simpleUI);
+        //            }
+        //            else
+        //            {
+        //                stackLayout.Children.Add(advancedUI);
+        //                stackLayout.Children.Add(status);
+        //            }
+
+        //            Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
+        //            {
+        //                simpleUIHeader = new SimpleUI();
+
+        //                simpleUIHeader.SetBinding(IsVisibleProperty, new Binding("IsSimpleUIHeaderVisible", source: ViewModelContainer.NavigationViewModel));
+        //                AbsoluteLayout.SetLayoutFlags(simpleUIHeader, AbsoluteLayoutFlags.None);
+        //                simpleUIHeader.HorizontalOptions = LayoutOptions.CenterAndExpand;
+        //                //simpleUIHeader.Padding = new Thickness(20,16,0,16);
+
+        //                testInProgress = new TestInProgress();
+        //                testCompletion = new TestCompletion();
+        //                testSessionsPlaceholder = new TestSessionsPlaceholder();
+        //                popups = new Popups();
+        //                onlineDb = new OnlineDb();
+
+        //                if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
+        //                {
+        //                    advancedUI = new AdvancedUI();
+        //                    status = new Status();
+
+        //                    AdaptLayoytToScreenWidth();
+
+        //                    Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
+        //                    {
+        //                        stackLayout.Children.Add(simpleUIHeader);
+        //                        stackLayout.Children.Add(advancedUI);
+        //                        stackLayout.Children.Add(testInProgress);
+        //                        stackLayout.Children.Add(testSessionsPlaceholder);
+        //                        stackLayout.Children.Add(status);
+        //                        absoluteLayout.Children.Add(popups);
+        //                        absoluteLayout.Children.Add(testCompletion);
+
+        //                        foreach (var c in onlineDb.Children.ToArray())
+        //                        {
+        //                            absoluteLayout.Children.Add(c);
+        //                        }
+
+        //                        AdaptLayoytToScreenWidth();
+
+        //                        sw.Stop();
+        //                        Debug.WriteLine("Controls created and added. Times(ms):" + sw.ElapsedMilliseconds);
+        //                        return false;
+
+        //                    });
+        //                }
+        //                else
+        //                {
+        //                    simpleUI = new SimpleUI();
+
+        //                    AdaptLayoytToScreenWidth();
+
+        //                    Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
+        //                    {
+
+        //                        stackLayout.Children.Remove(status);
+        //                        stackLayout.Children.Add(simpleUIHeader);
+        //                        stackLayout.Children.Add(testInProgress);
+        //                        stackLayout.Children.Add(testSessionsPlaceholder);
+        //                        absoluteLayout.Children.Add(simpleUI);
+        //                        stackLayout.Children.Add(status);
+        //                        absoluteLayout.Children.Add(popups);
+        //                        absoluteLayout.Children.Add(testCompletion);
+
+        //                        foreach (var c in onlineDb.Children.ToArray())
+        //                        {
+        //                            absoluteLayout.Children.Add(c);
+        //                        }
+
+        //                        AdaptLayoytToScreenWidth();
+
+        //                        sw.Stop();
+        //                        Debug.WriteLine("Controls created and added. Times(ms):" + sw.ElapsedMilliseconds);
+        //                        return false;
+
+        //                    });
+        //                }
+        //                return false;
+        //            }
+        //                );
+        //        }
+        //    };
+        //}
+        #endregion
 
         public MainPage()
         {
             //ASYNC AND DEFFERED creation of controls for better start-up time
 
-            task = Task.Run(() =>
+            Debug.WriteLine("Creating controls... ");
+            sw.Start();
+
+            createMinimalUiTask = Task.Run(() =>
             {
                 ApplyTheme();
+                this.BackgroundColor = backgroundColor;
 
                 title = new Title();
                 title.QuitClicked += OnQuit;
@@ -51,6 +197,48 @@ namespace Saplin.CPDT.UICore
 
             InitializeComponent();
 
+            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
+
+            createMinimalUiTask.Wait();
+
+            createRestOfUiTask = Task.Run(() =>
+            {
+                simpleUIHeader = new SimpleUI();
+
+                simpleUIHeader.SetBinding(IsVisibleProperty, new Binding("IsSimpleUIHeaderVisible", source: ViewModelContainer.NavigationViewModel));
+                AbsoluteLayout.SetLayoutFlags(simpleUIHeader, AbsoluteLayoutFlags.None);
+                simpleUIHeader.HorizontalOptions = LayoutOptions.CenterAndExpand;
+
+                testInProgress = new TestInProgress();
+                testCompletion = new TestCompletion();
+                testSessionsPlaceholder = new TestSessionsPlaceholder();
+                popups = new Popups();
+                onlineDb = new OnlineDb();
+
+                if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
+                {
+                    advancedUI = new AdvancedUI();
+                    status = new Status();
+                }
+                else
+                {
+                    simpleUI = new SimpleUI();
+                }
+
+                AdaptLayoytToScreenWidth();
+            });
+
+            stackLayout.Children.Add(title);
+            if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
+            {
+                absoluteLayout.Children.Add(simpleUI);
+            }
+            else
+            {
+                stackLayout.Children.Add(advancedUI);
+                stackLayout.Children.Add(status);
+            }
+
             // DISPLAYING CONTROLS HERE
             SizeChanged += (s, e) =>
             {
@@ -58,99 +246,40 @@ namespace Saplin.CPDT.UICore
                     AdaptLayoytToScreenWidth();
                 else
                 {
-                    this.BackgroundColor = backgroundColor;
 
                     alreadyShown = true;
 
-                    task.Wait();
+                    createRestOfUiTask.Wait();
 
-                    //AdaptLayoytToScreenWidth();
-
-                    stackLayout.Children.Add(title);
-
-                    if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
+                    Device.BeginInvokeOnMainThread(() =>
                     {
-                        absoluteLayout.Children.Add(simpleUI);
-                    }
-                    else
-                    {
-                        stackLayout.Children.Add(advancedUI);
+                        if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
+                        {
+                            stackLayout.Children.Add(simpleUIHeader);
+                            stackLayout.Children.Add(advancedUI);
+                        }
+                        else
+                        {
+                            absoluteLayout.Children.Add(simpleUI);
+                            stackLayout.Children.Remove(status);
+                            stackLayout.Children.Add(simpleUIHeader);
+                        }
+
+                        stackLayout.Children.Add(testInProgress);
+                        stackLayout.Children.Add(testSessionsPlaceholder);
                         stackLayout.Children.Add(status);
-                    }
+                        absoluteLayout.Children.Add(popups);
+                        absoluteLayout.Children.Add(testCompletion);
 
-                    Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
-                            {
-                                simpleUIHeader = new SimpleUI();
+                        foreach (var c in onlineDb.Children.ToArray())
+                        {
+                            absoluteLayout.Children.Add(c);
+                        }
 
-                                simpleUIHeader.SetBinding(IsVisibleProperty, new Binding("IsSimpleUIHeaderVisible", source: ViewModelContainer.NavigationViewModel));
-                                AbsoluteLayout.SetLayoutFlags(simpleUIHeader, AbsoluteLayoutFlags.None);
-                                simpleUIHeader.HorizontalOptions = LayoutOptions.CenterAndExpand;
-                                //simpleUIHeader.Padding = new Thickness(20,16,0,16);
-                                                                
-                                testInProgress = new TestInProgress();
-                                testCompletion = new TestCompletion();
-                                testSessionsPlaceholder = new TestSessionsPlaceholder();
-                                popups = new Popups();
-                                onlineDb = new OnlineDb();
+                        sw.Stop();
+                        Debug.WriteLine("Controls created and added. Times(ms):" + sw.ElapsedMilliseconds);
+                    });
 
-                                if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
-                                {
-                                    advancedUI = new AdvancedUI();
-                                    status = new Status();
-
-                                    AdaptLayoytToScreenWidth();
-
-                                    Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
-                                    {
-                                        stackLayout.Children.Add(simpleUIHeader);
-                                        stackLayout.Children.Add(advancedUI);
-                                        stackLayout.Children.Add(testInProgress);
-                                        stackLayout.Children.Add(testSessionsPlaceholder);
-                                        stackLayout.Children.Add(status);
-                                        absoluteLayout.Children.Add(popups);
-                                        absoluteLayout.Children.Add(testCompletion);
-
-                                        foreach (var c in onlineDb.Children.ToArray())
-                                        {
-                                            absoluteLayout.Children.Add(c);
-                                        }
-
-                                        AdaptLayoytToScreenWidth();
-                                        return false;
-
-                                    });
-                                }
-                                else
-                                {
-                                    simpleUI = new SimpleUI();
-
-                                    AdaptLayoytToScreenWidth();
-
-                                    Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
-                                    {
-
-                                        stackLayout.Children.Remove(status);
-                                        stackLayout.Children.Add(simpleUIHeader);
-                                        stackLayout.Children.Add(testInProgress);
-                                        stackLayout.Children.Add(testSessionsPlaceholder);
-                                        absoluteLayout.Children.Add(simpleUI);
-                                        stackLayout.Children.Add(status);
-                                        absoluteLayout.Children.Add(popups);
-                                        absoluteLayout.Children.Add(testCompletion);
-
-                                        foreach (var c in onlineDb.Children.ToArray())
-                                        {
-                                            absoluteLayout.Children.Add(c);
-                                        }
-
-                                        AdaptLayoytToScreenWidth();
-                                        return false;
-
-                                    });
-                                }
-                                return false;
-                            }
-                        );
                 }
             };
         }
@@ -159,14 +288,14 @@ namespace Saplin.CPDT.UICore
 
         private void ApplyTheme()
         {
-            if ((Application.Current as App).WhiteTheme)
+            if ((Xamarin.Forms.Application.Current as App).WhiteTheme)
             {
                 var whiteTheme = new WhiteTheme();
 
                 foreach (var key in whiteTheme.Keys)
                 {
-                    if (Application.Current.Resources.ContainsKey(key))
-                        Application.Current.Resources[key] = whiteTheme[key];
+                    if (Xamarin.Forms.Application.Current.Resources.ContainsKey(key))
+                        Xamarin.Forms.Application.Current.Resources[key] = whiteTheme[key];
                 }
 
                 backgroundColor = Color.White;
@@ -209,9 +338,9 @@ namespace Saplin.CPDT.UICore
             //< On Platform = "Android" Value = "10, 10, 10, 10" />     
             //< On Platform = "macOS, WPF" Value = "60, 60, 60, 60" />
             //</ OnPlatform >
-            Application.Current.Resources["popUpContainer"] = narrow ?
-                Application.Current.Resources["popUpContainerNarrow"]
-                : Application.Current.Resources["popUpContainerWide"];
+            Xamarin.Forms.Application.Current.Resources["popUpContainer"] = narrow ?
+                Xamarin.Forms.Application.Current.Resources["popUpContainerNarrow"]
+                : Xamarin.Forms.Application.Current.Resources["popUpContainerWide"];
         }
 
         public void OnQuit(Object sender, EventArgs e)
@@ -237,13 +366,13 @@ namespace Saplin.CPDT.UICore
                 ).ContinueWith((t) =>
                     {
                         Thread.Sleep(1500);  // if there's any animation in-progress, give it time to complete
-                        Device.BeginInvokeOnMainThread(() => { Application.Current.Quit(); }); ;
+                        Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.Quit(); }); ;
                     }
                 );
             }
             else
             {
-                Application.Current.Quit();
+                Xamarin.Forms.Application.Current.Quit();
             }
         }
 
