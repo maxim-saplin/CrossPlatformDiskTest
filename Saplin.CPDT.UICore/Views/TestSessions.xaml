@@ -60,7 +60,7 @@
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=SequentialWriteTestShortNB, StringFormat='{0}:'}" Style="{StaticResource Key=GrayedSpan}"/>
                                                 <Span Text="{Binding SeqWrite, Converter={StaticResource MbPerSecondToAuto}, StringFormat='&#xA;{0}'}}" />
-                                                <Span Text="{Binding SeqWrite, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}" Style="{StaticResource Key=GrayedSpan}"/>
+                                                <Span Text="{Binding SeqWrite, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}" />
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
@@ -69,7 +69,7 @@
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=SequentialReadTestShortNB, StringFormat='{0}:'}" Style="{StaticResource Key=GrayedSpan}"/>
                                                 <Span Text="{Binding SeqRead, Converter={StaticResource MbPerSecondToAuto}, StringFormat='&#xA;{0}'}}" />
-                                                <Span Text="{Binding SeqRead, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}}" Style="{StaticResource Key=GrayedSpan}"/>
+                                                <Span Text="{Binding SeqRead, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}}" />
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
@@ -78,7 +78,7 @@
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RandomWriteTestShortNB, StringFormat='{0}:'}" Style="{StaticResource Key=GrayedSpan}"/>
                                                 <Span Text="{Binding RandWrite, Converter={StaticResource MbPerSecondToAuto}, StringFormat='&#xA;{0}'}}" />
-                                                <Span Text="{Binding RandWrite, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}}" Style="{StaticResource Key=GrayedSpan}"/>
+                                                <Span Text="{Binding RandWrite, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}}"/>
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
@@ -87,7 +87,7 @@
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RandomReadTestShortNB, StringFormat='{0}:'}" Style="{StaticResource Key=GrayedSpan}"/>
                                                 <Span Text="{Binding RandRead, Converter={StaticResource MbPerSecondToAuto}, StringFormat='&#xA;{0}'}}" />
-                                                <Span Text="{Binding RandRead, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}}" Style="{StaticResource Key=GrayedSpan}"/>
+                                                <Span Text="{Binding RandRead, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}}"/>
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
@@ -96,7 +96,7 @@
                                             <FormattedString>
                                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=MemCopyTestShortNB, StringFormat='{0}:'}" Style="{StaticResource Key=GrayedSpan}"/>
                                                 <Span Text="{Binding MemCopy, Converter={StaticResource MbPerSecondToAuto}, StringFormat='&#xA;{0}'}}" />
-                                                <Span Text="{Binding MemCopy, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}}" Style="{StaticResource Key=GrayedSpan}"/>
+                                                <Span Text="{Binding MemCopy, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='{0}'}}"/>
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
@@ -108,8 +108,8 @@
                 <ctrl:MasterDetail.DetailTemplate>
                     <DataTemplate>
                         <StackLayout Margin="-10, 0, -10, 0" Padding="10, 0, 10, 10">
-                            <Label Text="{Binding FileName}" Style="{x:StaticResource Key=SmallLabel}" />
-                            <Label Text="{Binding Options}" Style="{x:StaticResource Key=SmallLabel}" />
+                            <Label Text="{Binding FileName}" Style="{x:StaticResource Key=SmallLabel}" LineBreakMode="MiddleTruncation" />
+                            <Label Text="{Binding Options}" Style="{x:StaticResource Key=SmallLabel}" LineBreakMode="MiddleTruncation" />
                             <ctrl2:ExtendedLabel Text="{Binding CsvFileName}" ChangeCursorOnMouseHover="True" Command="{Binding OpenCsvFolder}" IsVisible="{Binding CsvFileName, Converter={StaticResource StringNotEmpty}}" Style="{x:StaticResource Key=AccentedSmallLabel}" />
                             <local:TestResults IsFooterVisible="False" BindingContext="{Binding Results}" />
                         </StackLayout>

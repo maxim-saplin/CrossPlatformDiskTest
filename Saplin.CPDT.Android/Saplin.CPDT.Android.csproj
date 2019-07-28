@@ -17,7 +17,7 @@
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <ReleaseVersion>2.2.1</ReleaseVersion>
+    <ReleaseVersion>2.2.6</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
     <AndroidLinkMode>Full</AndroidLinkMode>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>

@@ -79,6 +79,10 @@
         <Setter Property="TextColor" Value="Black" />
         <Setter Property="Font" Value="{StaticResource FontBold}" />
     </Style>
+    <Style x:Key="AccentedItalicSpan" TargetType="Span">
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="Font" Value="{StaticResource FontItalic}" />
+    </Style>
     <Style x:Key="SpanStyle" TargetType="Span">
         <Setter Property="TextColor" Value="#FF202020" />
         <Setter Property="Font" Value="{StaticResource FontNormal}" />

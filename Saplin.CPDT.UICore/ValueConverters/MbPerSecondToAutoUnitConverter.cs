@@ -12,7 +12,7 @@ namespace Saplin.CPDT.UICore
             var v = System.Convert.ToDouble(value);
 
             if (v < 1) return ViewModelContainer.L11n.kbps;
-            else if (v < 1024) return ViewModelContainer.L11n.mbps;
+            else if (v < 1000) return ViewModelContainer.L11n.mbps;
             else return ViewModelContainer.L11n.gbps;
 
         }

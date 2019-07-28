@@ -81,8 +81,6 @@ namespace Saplin.CPDT.UICore
                 {
                     simpleUI = new SimpleUI();
                 }
-
-                AdaptLayoytToScreenWidth();
             });
 
             stackLayout.Children.Add(title);
@@ -103,7 +101,7 @@ namespace Saplin.CPDT.UICore
                     AdaptLayoytToScreenWidth();
                 else
                 {
-
+                    AdaptLayoytToScreenWidth();
                     alreadyShown = true;
 
                     createRestOfUiTask.Wait();
@@ -162,7 +160,7 @@ namespace Saplin.CPDT.UICore
         private void AdaptLayoytToScreenWidth()
         {
             simpleUI.AdjustToWidth(Width); // this control has different narrow threashold
-            simpleUIHeader.AdjustToWidth(Width);
+            simpleUIHeader.AdjustToWidth(Width); //iOS and Android always have -1 in page constructor (rather than actual size as in Mac/?WPF)
 
             var narrow = Width < narrowWidth;
 

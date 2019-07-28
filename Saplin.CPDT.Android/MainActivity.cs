@@ -26,20 +26,24 @@ namespace Saplin.CPDT.Droid
 
             LoadApplication(app);
 
-            if (app.WhiteTheme)
+            try // JIC, in Vitals there was an Exception in here, White Theme shouldn't break app launch
             {
-                Window.ClearFlags(WindowManagerFlags.TranslucentStatus);
-                Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
-                if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Lollipop)
+                if (app.WhiteTheme)
                 {
-                    Window.SetStatusBarColor(Android.Graphics.Color.White);
-                    Window.SetNavigationBarColor(Android.Graphics.Color.White);
+                    Window.ClearFlags(WindowManagerFlags.TranslucentStatus);
+                    Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
+                    if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Lollipop)
+                    {
+                        Window.SetStatusBarColor(Android.Graphics.Color.White);
+                        Window.SetNavigationBarColor(Android.Graphics.Color.White);
+                    }
+                    var ui = (int)Window.DecorView.SystemUiVisibility;
+                    ui |= (int)Android.Views.SystemUiFlags.LightStatusBar;
+                    ui |= (int)Android.Views.SystemUiFlags.LightNavigationBar;
+                    Window.DecorView.SystemUiVisibility = (Android.Views.StatusBarVisibility)ui;
                 }
-                var ui = (int)Window.DecorView.SystemUiVisibility;
-                ui |= (int)Android.Views.SystemUiFlags.LightStatusBar;
-                ui |= (int)Android.Views.SystemUiFlags.LightNavigationBar;
-                Window.DecorView.SystemUiVisibility = (Android.Views.StatusBarVisibility)ui;
             }
+            catch { };
         }
 
         protected override void AttachBaseContext(Context @base)

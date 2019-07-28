@@ -262,7 +262,7 @@
     <value>Об[н]овить</value>
   </data>
   <data name="SequentialReadTest" xml:space="preserve">
-    <value>Последовательное чтение</value>
+    <value>Последоват. чтение</value>
   </data>
   <data name="SequentialReadTestShort" xml:space="preserve">
     <value>Посл.
@@ -272,7 +272,7 @@
     <value>Посл. чтение</value>
   </data>
   <data name="SequentialWriteTest" xml:space="preserve">
-    <value>Последовательная запись</value>
+    <value>Последоват. запись</value>
   </data>
   <data name="SequentialWriteTestShort" xml:space="preserve">
     <value>Посл.

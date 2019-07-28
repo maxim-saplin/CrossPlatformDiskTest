@@ -18,21 +18,15 @@
     </Grid.RowHeight>
     <Grid.ColumnDefinitions>
         <ColumnDefinition>
+
             <ColumnDefinition.Width>
                 <OnPlatform x:TypeArguments="GridLength">
                     <On Platform="WPF, macOS" Value="Auto"/>  
-                    <On Platform="Android, iOS" Value="22"/>
+                    <On Platform="Android, iOS" Value="124"/>
                 </OnPlatform>
             </ColumnDefinition.Width>
         </ColumnDefinition>
-        <ColumnDefinition>
-            <ColumnDefinition.Width>
-                <OnPlatform x:TypeArguments="GridLength">
-                    <On Platform="WPF, macOS" Value="Auto"/>  
-                    <On Platform="Android, iOS" Value="102"/>
-                </OnPlatform>
-            </ColumnDefinition.Width>
-        </ColumnDefinition>
+
         <ColumnDefinition>
             <ColumnDefinition.Width>
                 <OnPlatform x:TypeArguments="GridLength">
@@ -41,42 +35,27 @@
                 </OnPlatform>
             </ColumnDefinition.Width>
         </ColumnDefinition>
-        <ColumnDefinition>
-            <ColumnDefinition.Width>
-                <OnPlatform x:TypeArguments="GridLength">
-                    <On Platform="WPF, macOS" Value="Auto"/>  
-                    <On Platform="Android, iOS" Value="24"/>
-                </OnPlatform>
-            </ColumnDefinition.Width>
-        </ColumnDefinition>
+
         <ColumnDefinition Width="*" />
+
     </Grid.ColumnDefinitions>
     <ctrl:GridRepeater.ItemTemplate>
         <DataTemplate x:DataType="vm:TestResultsDetailed">
             <ctrl:GridItem>
                 <!-- col 0-->
-                <Label Text="{Binding BulletPoint, StringFormat='{0}.'}" LineBreakMode="NoWrap" WidthRequest="20" VerticalOptions="CenterAndExpand">
-                </Label>
-                <!-- col 1-->
-                <Label Style="{StaticResource SmallLabel}" VerticalOptions="CenterAndExpand">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="{Binding Result.TestName, Converter={StaticResource KeyToL11nShort}}" Style="{StaticResource SpanStyle}" />
-                            <Span Text="{Binding Result.BlockSizeBytes, StringFormat='({0}', Converter={StaticResource BytesToAutoShort}}"/>
-                            <Span Text="{Binding Result.BlockSizeBytes, StringFormat=' {0})', Converter={StaticResource BytesToAutoUnit}}"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <!-- col 2-4-->
-                <Label Grid.Column="2" Grid.ColumnSpan="3" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, TestNotEnoughMemory}" 
+                <Label Text="{Binding Result.TestName, Converter={StaticResource KeyToL11n}}" LineBreakMode="WordWrap"
+                       VerticalOptions="CenterAndExpand" />
+
+                <!-- col 1-2-->
+                <Label Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, TestNotEnoughMemory}" 
                         LineBreakMode="TailTruncation" IsVisible="{Binding NotEnoughMemory}" VerticalOptions="CenterAndExpand">
                 </Label>
-                <!-- col 2-->
-                <Label Grid.Column="2" Style="{StaticResource AccentedLabel}" IsVisible="{Binding NotEnoughMemory, Converter={StaticResource BoolNot}}" VerticalOptions="CenterAndExpand">
+                <!-- col 1-->
+                <Label Grid.Column="1" Style="{StaticResource AccentedLabel}" IsVisible="{Binding NotEnoughMemory, Converter={StaticResource BoolNot}}" VerticalOptions="CenterAndExpand">
                     <Label.FormattedText >
                         <FormattedString>
                             <Span Text="{Binding Result.AvgThroughput, Converter={StaticResource MbPerSecondToAuto}}" />
-                            <Span Text="{Binding Result.AvgThroughput, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#10;{0}'}" Style="{StaticResource GrayedSpan}"  />
+                            <Span Text="{Binding Result.AvgThroughput, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#10;{0}'}" Style="{StaticResource AccentedItalicSpan}"  />
                         </FormattedString>
                     </Label.FormattedText>
                     <Label.WidthRequest>
@@ -86,9 +65,9 @@
                         </OnPlatform>
                     </Label.WidthRequest>
                 </Label>
-                <!-- col 3-4-->
+                <!-- col 2-->
                 <ctrl2:TimeSeriesGraph VerticalOptions="CenterAndExpand" Results="{Binding Result, Mode=OneTime}" Trigger="{Binding Result}" IsVisible="{Binding ShowTimeSeries}" Smoothing="{Binding SmoothTimeSeries}"
-                         Clip="True" Color="{StaticResource DefaultColor}" Grid.Column="3" Grid.ColumnSpan="2" HeightRequest="38">
+                         Clip="True" Color="{StaticResource DefaultColor}" Grid.Column="2" HeightRequest="38">
                     <ctrl2:TimeSeriesGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="4, 2, 4, 2"/> 
@@ -99,7 +78,7 @@
 
                 <ctrl2:HistogramGraph VerticalOptions="CenterAndExpand" Results="{Binding Result, Mode=OneTime}" Trigger="{Binding Result}" BinsNumber="12" IsVisible="{Binding ShowHistogram}" 
                                      MinH="{Binding MinAdjusted}" MaxH="{Binding MaxAdjusted}" ModeH="{Binding ModeH}" ModeHPercent="{Binding ModeHPercent}"
-                                     Color="{StaticResource DefaultColor}" Grid.Column="3" Grid.ColumnSpan="2" HeightRequest="38">
+                                     Color="{StaticResource DefaultColor}" Grid.Column="2" HeightRequest="38">
                     <ctrl2:HistogramGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="4, 2, 4, 2"/> 
@@ -107,8 +86,8 @@
                         </OnPlatform>
                     </ctrl2:HistogramGraph.Margin>
                 </ctrl2:HistogramGraph>
-                <!-- col 3-->
-                <StackLayout Grid.Column="3" Grid.ColumnSpan="2" Opacity="0" IsEnabled="false" IsVisible="{Binding ShowMin}" Margin="6, 0, 0, 0"
+                <!-- col 2-->
+                <StackLayout Grid.Column="2" Opacity="0" IsEnabled="false" IsVisible="{Binding ShowMin}" Margin="6, 0, 0, 0"
                              Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
                     <Label Style="{StaticResource SmallLabel}" HorizontalOptions="Start" >
                         <Label.FormattedText>
@@ -147,35 +126,12 @@
         <DataTemplate>
             <ctrl:GridItem>
                 <!-- col 0-->
-                <Label Text="{Binding ProgressPercent, StringFormat='{0:0}&#10;%'}" HorizontalTextAlignment="Start" 
-                       VerticalOptions="CenterAndExpand" Style="{StaticResource SmallLabel}">
-                    <Label.WidthRequest>
-                        <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="macOS, WPF" Value="32"/> 
-                            <On Platform="Android, iOS" Value="20"/>
-                        </OnPlatform>
-                    </Label.WidthRequest>
-                    <Label.MinimumWidthRequest>
-                        <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="macOS, WPF" Value="32"/> 
-                            <On Platform="Android, iOS" Value="20"/>
-                        </OnPlatform>
-                    </Label.MinimumWidthRequest>
-                </Label>
-                <!-- col 1-->
-                <Label Style="{StaticResource SmallLabel}" VerticalOptions="CenterAndExpand"> 
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="{Binding CurrentTest, Mode=OneWay, Converter={StaticResource KeyToL11nShort}}" Style="{StaticResource SpanStyle}" />
-                            <Span Text="{Binding BlockSizeBytes, Mode=OneWay, StringFormat='({0}', Converter={StaticResource BytesToAutoShort}}"/>
-                            <Span Text="{Binding BlockSizeBytes, Mode=OneWay, StringFormat=' {0})', Converter={StaticResource BytesToAutoUnit}}"/>
-                            <Span Text=" " />
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <!-- col 2-4-->
+                <Label Text="{Binding CurrentTest, Converter={StaticResource KeyToL11n}}" LineBreakMode="WordWrap"
+                       VerticalOptions="CenterAndExpand" />
+
+                <!-- col 1-2-->
                 <Label Text="{Binding TestStatusMessage}" IsVisible="{Binding ShowTestStatusMessage}" Style="{StaticResource GrayedLabel}"
-                       HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Start" Grid.Column="2" Grid.ColumnSpan="3">
+                       HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Start" Grid.Column="1" Grid.ColumnSpan="2">
                     <Label.HeightRequest>
                         <OnPlatform x:TypeArguments="x:Double">
                             <On Platform="macOS" Value="24"/> <!-- macOS hack to avoid aligning percent to the bottom, VerticalOptions not working -->
@@ -183,12 +139,12 @@
                         </OnPlatform>
                     </Label.HeightRequest>
                 </Label>
-                <!-- col 2-->
-                <Label IsVisible="{Binding ShowCurrentSpeed}" Style="{StaticResource AccentedLabel}" VerticalOptions="CenterAndExpand" Grid.Column="2">
+                <!-- col 1-->
+                <Label IsVisible="{Binding ShowCurrentSpeed}" Style="{StaticResource AccentedLabel}" VerticalOptions="CenterAndExpand" Grid.Column="1">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="{Binding RecentResultMbps, Converter={StaticResource MbPerSecondToAuto}" />
-                            <Span Text="{Binding RecentResultMbps, Mode=OneTime, Converter={StaticResource MbPerSecondToAutoUnit} , StringFormat='&#10;{0}'}}" Style="{StaticResource GrayedSpan}" /> 
+                            <Span Text="{Binding RecentResultMbps, Mode=OneTime, Converter={StaticResource MbPerSecondToAutoUnit} , StringFormat='&#10;{0}'}}" Style="{StaticResource AccentedItalicSpan}" /> 
                         </FormattedString>
                     </Label.FormattedText>
                     <Label.WidthRequest>
@@ -199,9 +155,9 @@
                     </Label.WidthRequest>
                 </Label>
                 
-                <!-- col 3-4 -->
+                <!-- col 2 -->
                 <ctrl2:TimeSeriesGraph VerticalOptions="CenterAndExpand" Results="{Binding RecentResults}" Trigger="{Binding ProgressPercent}" IsVisible="{Binding ShowTimeSeries}" Color="{StaticResource DefaultColor}"
-                                      TotalPoints="{Binding SeqTotalBlocks}" Clip="True" Smoothing="{Binding SmoothTimeSeries}" Grid.Column="3" Grid.ColumnSpan="2" HeightRequest="38">
+                                      TotalPoints="{Binding SeqTotalBlocks}" Clip="True" Smoothing="{Binding SmoothTimeSeries}" Grid.Column="2" HeightRequest="38">
                     <ctrl2:TimeSeriesGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="4, 2, 4, 2"/> 
@@ -211,7 +167,7 @@
                 </ctrl2:TimeSeriesGraph>
 
                 <ctrl2:HistogramGraph VerticalOptions="CenterAndExpand" Results="{Binding RecentResults}" Trigger="{Binding ProgressPercent}" BinsNumber="12" IsVisible="{Binding ShowTimeSeries, Converter={StaticResource BoolNot}}" 
-                                     Color="{StaticResource DefaultColor}" Grid.Column="3" Grid.ColumnSpan="2" HeightRequest="38">
+                                     Color="{StaticResource DefaultColor}" Grid.Column="2" HeightRequest="38">
                     <ctrl2:HistogramGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="4, 2, 4, 2"/> 
