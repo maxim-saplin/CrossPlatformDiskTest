@@ -19,6 +19,8 @@ namespace Saplin.CPDT.UICore.ViewModels
 
         public bool ShowHistogram { get; }
 
+        public int? HistogramCacheId { get; set; }
+
         public bool ShowMin { get; }
 
         public bool ShowMax { get; }

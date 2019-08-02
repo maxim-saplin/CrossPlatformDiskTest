@@ -76,7 +76,7 @@
                     </ctrl2:TimeSeriesGraph.Margin>
                 </ctrl2:TimeSeriesGraph>
 
-                <ctrl2:HistogramGraph VerticalOptions="CenterAndExpand" Results="{Binding Result, Mode=OneTime}" Trigger="{Binding Result}" BinsNumber="12" IsVisible="{Binding ShowHistogram}" 
+                <ctrl2:HistogramGraph VerticalOptions="CenterAndExpand"  BinsNumber="12" IsVisible="{Binding ShowHistogram}" UseCachedResults="true" CacheId="{Binding HistogramCacheId}" 
                                      MinH="{Binding MinAdjusted}" MaxH="{Binding MaxAdjusted}" ModeH="{Binding ModeH}" ModeHPercent="{Binding ModeHPercent}"
                                      Color="{StaticResource DefaultColor}" Grid.Column="2" HeightRequest="38">
                     <ctrl2:HistogramGraph.Margin>
@@ -144,7 +144,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="{Binding RecentResultMbps, Converter={StaticResource MbPerSecondToAuto}" />
-                            <Span Text="{Binding RecentResultMbps, Mode=OneTime, Converter={StaticResource MbPerSecondToAutoUnit} , StringFormat='&#10;{0}'}}" Style="{StaticResource AccentedItalicSpan}" /> 
+                            <Span Text="{Binding RecentResultMbps, Mode=OneWay, Converter={StaticResource MbPerSecondToAutoUnit} , StringFormat='&#10;{0}'}}" Style="{StaticResource AccentedItalicSpan}" /> 
                         </FormattedString>
                     </Label.FormattedText>
                     <Label.WidthRequest>
@@ -167,7 +167,7 @@
                 </ctrl2:TimeSeriesGraph>
 
                 <ctrl2:HistogramGraph VerticalOptions="CenterAndExpand" Results="{Binding RecentResults}" Trigger="{Binding ProgressPercent}" BinsNumber="12" IsVisible="{Binding ShowTimeSeries, Converter={StaticResource BoolNot}}" 
-                                     Color="{StaticResource DefaultColor}" Grid.Column="2" HeightRequest="38">
+                                     Color="{StaticResource DefaultColor}" Grid.Column="2" HeightRequest="38" CacheId="{Binding RandTestCounterForHistogramCache}">
                     <ctrl2:HistogramGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="4, 2, 4, 2"/> 

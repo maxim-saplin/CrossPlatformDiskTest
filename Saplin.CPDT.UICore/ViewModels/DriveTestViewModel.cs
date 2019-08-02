@@ -28,6 +28,8 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
+        public int RandTestCounterForHistogramCache { get; private set; } = 1;
+
         public DriveTestViewModel()
         {
             TestResults = new ObservableCollection<TestResultsDetailed>();
@@ -527,7 +529,14 @@ namespace Saplin.CPDT.UICore.ViewModels
                                                  if (!(e.Results.BlockSizeBytes != TestSession.randBlockToShowInSum && sender is RandomTest))
                                                      bullet = (testNumber++).ToString();
 
-                                                 TestResults.Add(new TestResultsDetailed(e.Results) { BulletPoint = bullet });
+                                                 var res = new TestResultsDetailed(e.Results) { BulletPoint = bullet };
+
+                                                 if (sender is RandomTest)
+                                                 {
+                                                     res.HistogramCacheId = RandTestCounterForHistogramCache++;  
+                                                 }
+
+                                                 TestResults.Add(res);
 
                                              }
 
