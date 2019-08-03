@@ -22,7 +22,7 @@
                             <ctrl2:ExtendedLabel Text="{Binding SelectedNodeText}" MinimumWidthRequest="40" ChangeCursorOnMouseHover="True" VerticalOptions="Center" ctrl:MasterDetail.ToggleDetailOnClicked="True" LineBreakMode="CharacterWrap">
                                 <ctrl2:ExtendedLabel.Style>
                                     <OnPlatform x:TypeArguments="Style">
-                                        <On Platform="Android, iOS" Value="{StaticResource AccentedLabel}" />
+                                        <On Platform="Android, iOS" Value="{StaticResource AccentedLabelEx}" />
                                     </OnPlatform>
                                 </ctrl2:ExtendedLabel.Style>
                             </ctrl2:ExtendedLabel>
@@ -33,12 +33,11 @@
                                     <Label Text="{Binding OrderNumber, StringFormat='#{0}:', Mode=OneTime}" LineBreakMode="NoWrap"/>
                                     <Label Text="{Binding DriveName}" LineBreakMode="TailTruncation" />
                                     <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm:ss} {0:d.MM.yyyy}'}" Style="{StaticResource Key=SmallLabel}" VerticalOptions="Start" />
-                                    <ctrl2:ExtendedLabel     Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Compare}" 
+                                    <ctrl2:ExtendedLabel    Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Compare}" 
                                                             Command="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=Compare}" 
                                                             CommandParameter="{Binding .}" 
                                                             IsEnabled="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Mode=OneWay, Path=IsEnabled}" 
-                                                            ChangeCursorOnMouseHover="True" 
-                                                            VerticalOptions="Start" 
+                                                            ChangeCursorOnMouseHover="True"                                               
                                                             HorizontalOptions="EndAndExpand"
                                                             LineBreakMode="MiddleTruncation"
                                                             IsVisible="{Binding Selected}"/>

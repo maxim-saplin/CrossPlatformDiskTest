@@ -64,8 +64,7 @@
                     </ctrl2:TimeSeriesGraph.Margin>
                 </ctrl2:TimeSeriesGraph>
 
-                <ctrl2:HistogramGraph Results="{Binding Result}" Trigger="{Binding Result}" IsVisible="{Binding ShowHistogram}"
-                                     MinH="{Binding MinAdjusted}" MaxH="{Binding MaxAdjusted}" ModeH="{Binding ModeH}" ModeHPercent="{Binding ModeHPercent}"
+                <ctrl2:HistogramGraph BinsNumber="21" IsVisible="{Binding ShowHistogram}" UseCachedResults="true" CacheId="{Binding HistogramCacheId}" 
                                      Grid.Column="4" Color="{StaticResource DefaultColor}" >
                     <ctrl2:HistogramGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
@@ -177,9 +176,9 @@
                     </ctrl2:TimeSeriesGraph.Margin>
                 </ctrl2:TimeSeriesGraph>
 
-                <ctrl2:HistogramGraph Results="{Binding RecentResults}" Trigger="{Binding ProgressPercent}" 
+                <ctrl2:HistogramGraph BinsNumber="21" Results="{Binding RecentResults}" Trigger="{Binding ProgressPercent}" 
                                      IsVisible="{Binding ShowTimeSeries, Converter={StaticResource BoolNot}}" Color="{StaticResource DefaultColor}"
-                                     Grid.Column="4">
+                                     Grid.Column="4" CacheId="{Binding RandTestCounterForHistogramCache}">
                     <ctrl2:HistogramGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="8, 2, 24, 2"/> 

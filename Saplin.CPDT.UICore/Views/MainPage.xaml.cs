@@ -101,10 +101,10 @@ namespace Saplin.CPDT.UICore
                     AdaptLayoytToScreenWidth();
                 else
                 {
-                    AdaptLayoytToScreenWidth();
                     alreadyShown = true;
 
                     createRestOfUiTask.Wait();
+                    AdaptLayoytToScreenWidth();
 
                     Device.BeginInvokeOnMainThread(() =>
                     {

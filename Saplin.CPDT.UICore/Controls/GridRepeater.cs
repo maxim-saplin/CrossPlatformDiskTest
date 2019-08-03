@@ -357,6 +357,7 @@ namespace Saplin.CPDT.UICore.Controls
             {
                 foreach (var c in Rows[FooterRow])
                 {
+                    c.BindingContext = null;
                     Children.Remove(c);
                 }
                 Rows.RemoveAt(FooterRow);
@@ -380,5 +381,15 @@ namespace Saplin.CPDT.UICore.Controls
         public GridLength RowHeight { get; set; }
 
         public int MaxRows { get; set; } = -1; // hack to deal with hiding 6th line in 5 tests' result view
+
+        public void ClearBindnings()
+        {
+            //UnapplyBindings();
+
+            foreach (var c in Children)
+                c.BindingContext = null;
+
+            BindingContext = null;
+        }
     }
 }

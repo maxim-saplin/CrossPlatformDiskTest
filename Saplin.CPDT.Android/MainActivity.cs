@@ -19,7 +19,7 @@ namespace Saplin.CPDT.Droid
 
             Instance = this;
 
-            var t = typeof(BluredStackLayoutRenderer);//load CPDT.Extra.Android to have renderers in place
+            //var t = typeof(BluredStackLayoutRenderer);//load CPDT.Extra.Android to have renderers in place
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             var app = new Saplin.CPDT.UICore.App();

@@ -7,20 +7,32 @@
         <Setter Property="Padding" Value="0, 8, 0, 8" />
     </Style>
     <!-- LABELS-->
-    <Style x:Key="LabelStyle" TargetType="Label">
+    <Style x:Key="NormalLabel" TargetType="Label">
         <Setter Property="TextColor" Value="#FF202020" />
         <Setter Property="Font" Value="{StaticResource FontNormal}" />
     </Style>
-    <Style TargetType="Label" BasedOn="{StaticResource LabelStyle}" />
-    <Style TargetType="ctrl2:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
+    <Style x:Key="NormalLabelEx" TargetType="ctrl2:ExtendedLabel">
+        <Setter Property="TextColor" Value="#FF202020" />
+        <Setter Property="Font" Value="{StaticResource FontNormal}" />
+    </Style>
+            <Style x:Key="NormalBlinker" TargetType="ctrl:BlinkingCursor">
+                <Setter Property="TextColor" Value="#FF202020" />
+                <Setter Property="Font" Value="{StaticResource FontNormal}" />
+            </Style>
+            <Style x:Key="NormalRollingSelector" TargetType="ctrl:RollingSelector">
+                <Setter Property="TextColor" Value="#FF202020" />
+                <Setter Property="Font" Value="{StaticResource FontNormal}" />
+            </Style>
+    <Style TargetType="Label" BasedOn="{StaticResource NormalLabel}" />
+    <Style TargetType="ctrl2:ExtendedLabel" BasedOn="{StaticResource NormalLabelEx}">
         <Style.Triggers>
             <Trigger TargetType="ctrl2:ExtendedLabel" Property="IsEnabled" Value="False">
                 <Setter Property="TextColor" Value="Gray" />
             </Trigger>
         </Style.Triggers>
     </Style>
-    <Style TargetType="ctrl:BlinkingCursor" BasedOn="{StaticResource LabelStyle}" />
-    <Style TargetType="ctrl:RollingSelector" BasedOn="{StaticResource LabelStyle}" />
+    <Style TargetType="ctrl:BlinkingCursor" BasedOn="{StaticResource NormalBlinker}" />
+    <Style TargetType="ctrl:RollingSelector" BasedOn="{StaticResource NormalRollingSelector}" />
     <Style x:Key="AccentedSmallLabel" TargetType="Label">
         <Setter Property="TextColor" Value="#FF202020" />
         <Setter Property="Font" Value="{StaticResource FontItalicSmall}" />
@@ -37,10 +49,14 @@
         <Setter Property="TextColor" Value="#FF202020" />
         <Setter Property="Font" Value="{StaticResource FontSuperSmall}" />
     </Style>
-    <Style x:Key="AccentedLabel" TargetType="ctrl2:ExtendedLabel" BasedOn="{StaticResource LabelStyle}">
+    <Style x:Key="AccentedLabel" TargetType="Label" BasedOn="{StaticResource NormalLabel}">
         <Setter Property="TextColor" Value="Black" />
         <Setter Property="Font" Value="{StaticResource FontBold}" />
     </Style>
+            <Style x:Key="AccentedLabelEx" TargetType="ctrl2:ExtendedLabel">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Font" Value="{StaticResource FontBold}" />
+            </Style>
     <Style x:Key="CloseWebViewLabel" TargetType="ctrl2:ExtendedLabel">
         <Setter Property="TextColor" Value="Black" />
         <Setter Property="Font" Value="{StaticResource FontBold}" />

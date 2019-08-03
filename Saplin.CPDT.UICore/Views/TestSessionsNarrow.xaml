@@ -21,7 +21,7 @@
                             <ctrl2:ExtendedLabel Text="{Binding SelectedNodeText, Mode=OneWay}" MinimumWidthRequest="40" ChangeCursorOnMouseHover="True" VerticalOptions="Center" ctrl:MasterDetail.ToggleDetailOnClicked="True" LineBreakMode="CharacterWrap">
                                 <ctrl2:ExtendedLabel.Style>
                                     <OnPlatform x:TypeArguments="Style">
-                                        <On Platform="Android, iOS" Value="{StaticResource AccentedLabel}" />
+                                        <On Platform="Android, iOS" Value="{StaticResource AccentedLabelEx}" />
                                     </OnPlatform>
                                 </ctrl2:ExtendedLabel.Style>
                             </ctrl2:ExtendedLabel>
@@ -30,8 +30,8 @@
                             <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                     <Label Text="{Binding OrderNumber, StringFormat='#{0}', Mode=OneTime}" LineBreakMode="NoWrap" />
-                                    <Label Text="{Binding DriveName, Mode=OneTime}" LineBreakMode="TailTruncation" IsVisible="{Binding Selected, Converter={StaticResource BoolNot}}" />
-                                    <Label Text="{Binding DriveName, Mode=OneTime}" WidthRequest="100" LineBreakMode="TailTruncation" IsVisible="{Binding Selected}" />
+                                    <Label Text="{Binding DriveName}" LineBreakMode="TailTruncation" IsVisible="{Binding Selected, Converter={StaticResource BoolNot}}" />
+                                    <Label Text="{Binding DriveName}" LineBreakMode="TailTruncation" WidthRequest="100" IsVisible="{Binding Selected}" />
                                     <ctrl2:ExtendedLabel    Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Compare}" 
                                                             Command="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=Compare}" 
                                                             CommandParameter="{Binding .}" 

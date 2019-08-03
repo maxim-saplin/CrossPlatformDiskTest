@@ -77,7 +77,6 @@
                 </ctrl2:TimeSeriesGraph>
 
                 <ctrl2:HistogramGraph VerticalOptions="CenterAndExpand"  BinsNumber="12" IsVisible="{Binding ShowHistogram}" UseCachedResults="true" CacheId="{Binding HistogramCacheId}" 
-                                     MinH="{Binding MinAdjusted}" MaxH="{Binding MaxAdjusted}" ModeH="{Binding ModeH}" ModeHPercent="{Binding ModeHPercent}"
                                      Color="{StaticResource DefaultColor}" Grid.Column="2" HeightRequest="38">
                     <ctrl2:HistogramGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">

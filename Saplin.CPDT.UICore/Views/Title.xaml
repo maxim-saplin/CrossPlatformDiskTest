@@ -3,7 +3,7 @@
              IsVisible="{Binding Source={Static vm:ViewModelContainer.NavigationViewModel}, IsTitleVisible}" >
     <Label x:Name="cpdt" Text="Cross Platform Disk Test" HorizontalOptions="Start" VerticalOptions="Start" Style="{x:StaticResource Key=AccentedLabel}" LineBreakMode="TailTruncation" />
     <Label x:Name="bitSystem" HorizontalOptions="Start" VerticalOptions="Start" Style="{x:StaticResource Key=SmallLabel}" LineBreakMode="TailTruncation" />
-    <ctrl2:ExtendedLabel x:Name="quitButton" ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=Quit}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" VerticalOptions="Start" Style="{x:StaticResource Key=AccentedLabel}" ChangeCursorOnMouseHover="True" Clicked="OnQuit">
+    <ctrl2:ExtendedLabel x:Name="quitButton" ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=Quit}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" VerticalOptions="Start" Style="{x:StaticResource Key=AccentedLabelEx}" ChangeCursorOnMouseHover="True" Clicked="OnQuit">
         <ctrl2:ExtendedLabel.IsVisible>
             <OnPlatform x:TypeArguments="x:Boolean">
                 <On Platform="Android, iOS" Value="False" />

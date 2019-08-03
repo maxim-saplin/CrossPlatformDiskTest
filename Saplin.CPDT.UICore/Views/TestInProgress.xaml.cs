@@ -19,6 +19,7 @@ namespace Saplin.CPDT.UICore
         {
             if (narrow && (!testResultsNarrow.HasValue || !testResultsNarrow.Value))
             {
+                ClearBindings();
                 testResultsNarrow = true;
 
                 var tr = new TestResultsNarrow()
@@ -36,6 +37,7 @@ namespace Saplin.CPDT.UICore
             }
             else if (!narrow && (!testResultsNarrow.HasValue || testResultsNarrow.Value))
             {
+                ClearBindings();
                 testResultsNarrow = false;
 
                 var tr = new TestResults()
@@ -50,6 +52,15 @@ namespace Saplin.CPDT.UICore
                 testResultsPlaceholder.Children.Clear();
                 testResultsPlaceholder.Children.Add(tr);
 
+            }
+        }
+
+        //Bindings subsribe to PropertChanegd event of the parent and events keep getting triggered
+        private void ClearBindings()
+        {
+            if (testResultsPlaceholder.Children.Count > 0)
+            {
+                if (testResultsPlaceholder.Children[0] is GridRepeater) (testResultsPlaceholder.Children[0] as GridRepeater).ClearBindnings();
             }
         }
     }

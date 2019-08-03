@@ -7,5 +7,5 @@
              xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" 
              IsVisible="True" Margin="-10, 0, -10, 0" Padding="10, 0, 10, 0"
              x:Name="testSessionsPlaceholder">
-    <local:TestSessionsNarrow/>
+    <!--<local:TestSessionsNarrow/>-->
 </StackLayout>

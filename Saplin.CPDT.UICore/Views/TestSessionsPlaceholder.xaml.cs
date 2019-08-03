@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Saplin.CPDT.UICore.Controls;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Saplin.CPDT.UICore
@@ -6,7 +7,7 @@ namespace Saplin.CPDT.UICore
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TestSessionsPlaceholder : StackLayout
     {
-        private bool testSessionsNarrow = true;
+        private bool? testSessionsNarrow;
 
         public TestSessionsPlaceholder()
         {
@@ -15,23 +16,37 @@ namespace Saplin.CPDT.UICore
 
         public void AdaptLayoytToScreenWidth(bool narrow)
         {
-            if (narrow && !testSessionsNarrow)
-            {
+            if (narrow && (!testSessionsNarrow.HasValue || !testSessionsNarrow.Value))
+            { 
+                ClearBindings();
                 testSessionsNarrow = true;
 
                 var ts = new TestSessionsNarrow();
 
-                this.Children.Clear();
-                this.Children.Add(ts);
+                Children.Clear();
+                Children.Add(ts);
             }
-            else if (!narrow && testSessionsNarrow)
+            else if (!narrow && (!testSessionsNarrow.HasValue || testSessionsNarrow.Value))
             {
+                ClearBindings();
                 testSessionsNarrow = false;
 
                 var ts = new TestSessions();
 
-                this.Children.Clear();
-                this.Children.Add(ts);
+                Children.Clear();
+                Children.Add(ts);
+            }
+        }
+
+        private void ClearBindings()
+        {
+            if (Children.Count > 0)
+            {
+                var c = Children[0] as StackRepeater;
+                c.ClearBindnings();
+                c.ItemsSource = null;
+                c.IsVisible = false;
+                c.Refresh = null;
             }
         }
     }

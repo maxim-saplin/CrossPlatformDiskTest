@@ -166,5 +166,15 @@ namespace Saplin.CPDT.UICore.Controls
         {
             ItemsChanged(bindable, null, (bindable as StackRepeater).ItemsSource);
         }
+
+        public void ClearBindnings()
+        {
+            //UnapplyBindings();
+
+            foreach (var c in Children)
+                if (c is MasterDetail) (c as MasterDetail).ClearBindnings();
+
+            BindingContext = null;
+        }
     }
 }

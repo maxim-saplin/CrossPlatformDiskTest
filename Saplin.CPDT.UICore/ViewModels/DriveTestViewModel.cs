@@ -1,10 +1,12 @@
-﻿using Saplin.CPDT.UICore.Misc;
+﻿using Saplin.CPDT.UICore.Controls;
+using Saplin.CPDT.UICore.Misc;
 using Saplin.StorageSpeedMeter;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -372,6 +374,8 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
+        ManualResetEventSlim resultsReceived = new ManualResetEventSlim(false);
+
         private ICommand testDrive;
 
         public ICommand TestDrive
@@ -485,6 +489,8 @@ namespace Saplin.CPDT.UICore.ViewModels
                                      switch (e.Status)
                                      {
                                          case TestStatus.Started:
+                                             resultsReceived.Reset();
+
                                              ShowTestStatusMessage = true;
                                              ShowCurrentSpeed = false;
 
@@ -537,7 +543,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                                  }
 
                                                  TestResults.Add(res);
-
+                                                 resultsReceived.Set(); // let know parallel task resultas are ready and histogram cache can be pre-generated
                                              }
 
                                              break;
@@ -553,11 +559,6 @@ namespace Saplin.CPDT.UICore.ViewModels
                                      using (testSuite)
                                      {
                                          testSuite.Execute();
-
-                                         if (optionsVm.CsvBool && !breakingTest)
-                                         {
-                                             testSession.CsvFileName = testSuite.ExportToCsv(Path.Combine(testSuite.FileFolderPath, testResultsFolder), true, testSession.TestStartedTime)[0];
-                                         }
                                      }
 
                                      testStartedInternal = false;
@@ -579,6 +580,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                                     StatusMessage = nameof(l11n.StatusTestCsvCompleted);
                                                 }
                                                 else StatusMessage = nameof(l11n.StatusTestCompleted);
+
                                             }
                                             else
                                             {
@@ -589,6 +591,27 @@ namespace Saplin.CPDT.UICore.ViewModels
                                             DependencyService.Get<IKeepScreenOn>()?.Disable();
                                         }
                                     );
+
+                                     if (!breakingTest)
+                                     {
+                                         if (optionsVm.CsvBool)
+                                         {
+                                             testSession.CsvFileName = testSuite.ExportToCsv(Path.Combine(testSuite.FileFolderPath, testResultsFolder), true, testSession.TestStartedTime)[0];
+                                         }
+
+                                         resultsReceived.Wait();
+
+                                         foreach (var r in TestResults)
+                                         {
+                                             //It is important to generate cach for the BinsNumers used in TestResults controls in both narrow and default versions
+                                             if (r.HistogramCacheId > 0)
+                                             {
+                                                 HistogramGraph.GenerateCacheForIdAndBinsNumber(r.Result, r.HistogramCacheId, 12);
+                                                 HistogramGraph.GenerateCacheForIdAndBinsNumber(r.Result, r.HistogramCacheId, 21);
+                                                 r.Result.ClearCollection(); //preserve some memory on random tests by clearing datapoints
+                                             }
+                                         }
+                                     }
                                  }
                              );
                          },

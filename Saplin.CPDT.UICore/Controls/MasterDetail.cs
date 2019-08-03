@@ -470,5 +470,15 @@ namespace Saplin.CPDT.UICore.Controls
                 }
             }
         }
+
+        public void ClearBindnings()
+        {
+            //UnapplyBindings();
+
+            foreach (var c in Children)
+                c.BindingContext = null;
+
+            BindingContext = null;
+        }
     }
 }

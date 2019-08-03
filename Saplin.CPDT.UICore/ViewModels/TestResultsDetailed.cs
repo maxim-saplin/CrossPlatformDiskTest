@@ -19,7 +19,7 @@ namespace Saplin.CPDT.UICore.ViewModels
 
         public bool ShowHistogram { get; }
 
-        public int? HistogramCacheId { get; set; }
+        public int HistogramCacheId { get; set; } // 0 is empty value
 
         public bool ShowMin { get; }
 
