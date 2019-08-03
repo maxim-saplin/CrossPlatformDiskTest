@@ -23,7 +23,7 @@ namespace Saplin.CPDT.UICore
                     }
                 };
 
-                Animate();
+                Device.StartTimer(TimeSpan.FromMilliseconds(500), () => { Animate(); return false; });
             }
         }
 

@@ -173,6 +173,8 @@ namespace Saplin.CPDT.UICore.Controls
 
         private static void CommandTextPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
+            //if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS) return; // no key shortcuts on android
+
             if (bindable is Button || bindable is ExtendedLabel)
             {
                 if (KeyPress.GetCommandOnKeyPress(bindable)) throw new InvalidOperationException("Can't simultaneously set KeyPress.CommandOnKeyPress and KeyPress.CommandText attached properties");

@@ -206,7 +206,7 @@ namespace Saplin.CPDT.UICore
         public void CloseAplication()
         {
             title.QuitButton.IsVisible = false;
-            title.QuitingButton.IsVisible = true;
+            title.QuitingMessage.IsVisible = true;
             ViewModelContainer.DriveTestViewModel.BreakTest.Execute(null);
             AnimationBase.DisposeAllAnimations(); // dispose off all animation controls in order to avoid unhandled exception on app close in WPF (if any animation is running on close) 
             if (ViewModelContainer.DriveTestViewModel.TestStarted)

@@ -11,5 +11,5 @@
             </OnPlatform>
         </ctrl2:ExtendedLabel.IsVisible>
     </ctrl2:ExtendedLabel>
-    <ctrl2:ExtendedLabel x:Name="quitingButton" IsVisible="false" Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=Quiting}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" VerticalOptions="Start" />
+    <Label x:Name="quitingMessage" IsVisible="false" Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=Quiting}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" VerticalOptions="Start" />
 </StackLayout>

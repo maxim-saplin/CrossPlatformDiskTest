@@ -18,10 +18,15 @@ namespace Saplin.CPDT.UICore
             var di = DependencyService.Get<IDeviceInfo>();
 
             if (di != null) bitSystem.Text += di.IsChromeOs ? " ChromeOS" : "";
+
+            if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS)
+            {
+                KeyPress.SetCommandText(quitButton, ""); // due to some reasons on Android there's a null reference Java exception when chaging locale and setting command text in the binding eval loop
+            }
         }
 
         public ExtendedLabel QuitButton { get { return quitButton; } }
-        public ExtendedLabel QuitingButton { get { return quitingButton; } }
+        public Label QuitingMessage { get { return quitingMessage; } }
 
         public event EventHandler QuitClicked;
 

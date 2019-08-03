@@ -452,7 +452,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                 flusher: flushService == null ? null : 
                                     new WriteBufferFlusher(flushService.OpenFile, flushService.Flush, flushService.Close),
                                 disableMacStream: Device.RuntimePlatform == Device.iOS,
-                                mockFileStream: true
+                                mockFileStream: false
                             );
 
                              TotalTests = testSuite.TotalTests;
@@ -565,8 +565,6 @@ namespace Saplin.CPDT.UICore.ViewModels
 
                                      Device.BeginInvokeOnMainThread(() =>
                                         {
-                                            TestStarted = false;
-
                                             if (!breakingTest)
                                             {
                                                 Options = "";
@@ -589,8 +587,8 @@ namespace Saplin.CPDT.UICore.ViewModels
                                             }
                                             
                                             DependencyService.Get<IKeepScreenOn>()?.Disable();
-                                        }
-                                    );
+                                            TestStarted = false;
+                                        });
 
                                      if (!breakingTest)
                                      {

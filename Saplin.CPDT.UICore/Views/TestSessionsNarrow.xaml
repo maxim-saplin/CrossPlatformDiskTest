@@ -18,7 +18,7 @@
                 <ctrl:MasterDetail.MasterTemplate>
                     <DataTemplate x:DataType="vm:TestSession">
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="10, 4, 10, 0">
-                            <ctrl2:ExtendedLabel Text="{Binding SelectedNodeText, Mode=OneWay}" MinimumWidthRequest="40" ChangeCursorOnMouseHover="True" VerticalOptions="Center" ctrl:MasterDetail.ToggleDetailOnClicked="True" LineBreakMode="CharacterWrap">
+                            <ctrl2:ExtendedLabel Text="{Binding SelectedNodeText, Mode=OneWay}" MinimumWidthRequest="40" ChangeCursorOnMouseHover="True" VerticalOptions="Center" LineBreakMode="CharacterWrap">
                                 <ctrl2:ExtendedLabel.Style>
                                     <OnPlatform x:TypeArguments="Style">
                                         <On Platform="Android, iOS" Value="{StaticResource AccentedLabelEx}" />
