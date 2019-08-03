@@ -489,6 +489,8 @@ namespace Saplin.CPDT.UICore.ViewModels
                                      switch (e.Status)
                                      {
                                          case TestStatus.Started:
+                                             ProgressPercent = 0;
+                                             CurrentTestNumber++;
                                              resultsReceived.Reset();
 
                                              ShowTestStatusMessage = true;
@@ -525,7 +527,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                              break;
                                          case TestStatus.Completed:
                                              RecentResults = null;
-                                             ProgressPercent = 0;
+                                             ProgressPercent = 100;
 
                                              ShowTimeSeries = false;
 
@@ -551,6 +553,8 @@ namespace Saplin.CPDT.UICore.ViewModels
                                  }
                                 );
                              };
+
+                             CurrentTestNumber = 0;
 
                              var t = Task.Run(() =>
                                  {
@@ -829,10 +833,7 @@ namespace Saplin.CPDT.UICore.ViewModels
 
         public int CurrentTestNumber
         {
-            get
-            {
-                return Math.Min(TestResults.Count + 1,TotalTests);
-            }
+            get; protected set;
         }
 
         public int TotalTests

@@ -41,18 +41,19 @@ namespace Saplin.CPDT.UICore
                                 if (curAnimIndex > animationSeq.Length - 1) curAnimIndex = 0;
                                 animationLabel.Text = animationSeq[curAnimIndex];
 
+                                var progress = ViewModelContainer.DriveTestViewModel.ProgressPercent;
                                 var curTest = ViewModelContainer.DriveTestViewModel.CurrentTestNumber;
                                 var totalTests = ViewModelContainer.DriveTestViewModel.TotalTests;
-                                var progress = ViewModelContainer.DriveTestViewModel.ProgressPercent;
 
                                 testNumberLabel.Text = string.Format(ViewModelContainer.L11n.TestOf,
                                     curTest,
                                     totalTests);
 
                                 var curPercent = ((float)(curTest - 1) / totalTests) * 100 + (float)progress / totalTests;
-                                if (accumPercent < curPercent && --spiner < 0) accumPercent = curPercent;
+                                //if (curTest == totalTests) curTest = 100;
+                                //if (accumPercent < curPercent && --spiner < 0) accumPercent = curPercent;
 
-                                totalPercentLabel.Text = string.Format(ViewModelContainer.L11n.TestTotal, accumPercent);
+                                totalPercentLabel.Text = string.Format(ViewModelContainer.L11n.TestTotal, curPercent);
 
                                 return true;
                             }
