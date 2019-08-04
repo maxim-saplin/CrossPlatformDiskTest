@@ -30,13 +30,14 @@ in order to remove SDK assembnlies from AOT and do AOT only on Xamarin and user 
  Full AOT: 22.8MB ~2s launch time
 
 
-Experiments with stripping out more AOT libs:
+Experiments #1 with stripping out more AOT libs:
  2.2.3, x86: 18.2/37.4MB ~680ms launch time
  2.2.4, x86: 16.7/30.7MB ~760ms launch time (AOT for Xamarin.Forms and CPDT code, no Xamarin.Forms.Core.dll and Xamarin.Forms.Platform.Android.dll, no Support Libs)
  2.2.4, x86: 16.3/28.9MB ~770ms launch time (no AOT)
  2.2.4, x86: 17.7/34.6MB ~680ms launch time (AOT for Xamarin.Forms and CPDT code, Xamarin.Forms.Core.dll and Xamarin.Forms.Platform.Android.dll, no Support Libs)
  ->2.2.4, x86: 17.3/33.1MB ~720ms launch time (AOT for Xamarin.Forms and CPDT code, Xamarin.Forms.Core.dll, no Xamarin.Forms.Platform.Android.dll, no Support Libs)
  2.2.4, x86: 17.1/32.2MB ~740ms launch time (AOT for Xamarin.Forms and CPDT code, Xamarin.Forms.Platform.Android.dll, no Xamarin.Forms.Core.dll, no Support Libs)
+
 
   <Message Text="@(_ResolvedUserAssemblies)"/>
   <ItemGroup>
@@ -80,6 +81,26 @@ Experiments with stripping out more AOT libs:
     <Output TaskParameter="OutputNativeLibraries" PropertyName="_BundleResultNativeLibraries" />
   </MakeBundleNativeCodeExternal>
   
+
+
+Experiments #2 (time/size not comparable to #1) with stripping out more AOT libs:
+2.2.6, x86, LLVM: 17.4/47.99MB    ~2880ms, no Xamarin.Forms.Platform.Android.dll, no Support Libs
+2.2.6, x86, no LLVM: 17.2/46.11MB ~2880ms, no Xamarin.Forms.Platform.Android.dll, no Support Libs
+2.2.6, x86, no LLVM: 17.6/48.8MB  ~2690ms, no Support Libs
+2.2.6, x86, no LLVM: 16.6/42.0MB  ~3400ms, no SL, no Xamarin.Forms.Platform.Android.dll, no Xamarin.Forms.Core.dll
+2.2.6, x86, no LLVM: 17.1/46.25MB ~3020ms, no SL, WITH Mono.Android.dll, no Xamarin.Forms.Platform.Android.dll, no Xamarin.Forms.Core.dll
+2.2.6, x86, no LLVM: 17.9/50.87MB ~2580ms, no SL, WITH mscorlib.dll, no Xamarin.Forms.Platform.Android.dll, no Xamarin.Forms.Core.dll
+2.2.6, x86, no LLVM: 17.1/45.45MB ~3340ms, no SL, WITH System.dll, no Xamarin.Forms.Platform.Android.dll, no Xamarin.Forms.Core.dll
+2.2.6, x86, no LLVM: 18.5/54.98MB ~2070ms, no SL, WITH mscorlib.dll, no Xamarin.Forms.Platform.Android.dll
+2.2.6, x86, no LLVM: 18.3/52.9MB  ~2250ms, no SL, WITH mscorlib.dll, no Xamarin.Forms.Platform.Android.dll, no Saplin.CPDT.UICore.dll
+-> 2.2.6, x86, no LLVM: 18.1/51.66MB ~2300ms, ONLY mscorlib.dll, Xamarin.Forms.Core.dll <- Nokia N1 and Firebase didn't show that much of improvement
+2.2.6, x86, no LLVM: 17.4/47.56MB ~2780ms, ONLY Xamarin.Forms.Core.dll, Xamarin.Forms.Platform.Android.dll, Saplin.CPDT.UICore.dll <- Nokia N1 showed much beter result than the previous one
+
+-> <ItemGroup>
+      <_ResolvedUserAssemblies2 Include="Tmp/android/assets/Xamarin.Forms.Core.dll;Tmp/android/assets/shrunk/mscorlib.dll;" />
+--> <ItemGroup>
+       <_ResolvedUserAssemblies2 Include="Tmp/android/assets/Xamarin.Forms.Core.dll;Tmp/android/assets/Saplin.CPDT.UICore.dll;Tmp/android/assets/Xamarin.Forms.Platform.Android.dll;" />
+
   
 
 Experiments with lib pre-load on 2.2.4 (AndroidEnablePreloadAssemblies):
