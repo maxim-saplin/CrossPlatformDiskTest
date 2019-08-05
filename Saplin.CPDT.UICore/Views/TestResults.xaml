@@ -16,11 +16,10 @@
             <On Platform="Android, iOS" Value="44"/>
         </OnPlatform>
     </Grid.RowHeight>
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="Auto" />
-        <ColumnDefinition Width="Auto" />
-        <ColumnDefinition Width="Auto" />
-        <ColumnDefinition Width="Auto" />
+    <Grid.ColumnDefinitions> <!-- WPF OK -->
+        <ColumnDefinition Width="20" />
+        <ColumnDefinition Width="200" />
+        <ColumnDefinition Width="94" />
         <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
     <ctrl:GridRepeater.ItemTemplate>
@@ -40,10 +39,10 @@
                     </Label.FormattedText>
                 </Label>
                 
-                <Label Grid.Column="3" Grid.ColumnSpan="2" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, TestNotEnoughMemory}" 
+                <Label Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, TestNotEnoughMemory}" 
                        LineBreakMode="TailTruncation" IsVisible="{Binding NotEnoughMemory}" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand"/>
 
-                <Label Grid.Column="3" Style="{StaticResource AccentedLabel}" 
+                <Label Grid.Column="2" Style="{StaticResource AccentedLabel}" 
                        IsVisible="{Binding ShowAvg}">
                     <Label.FormattedText >
                         <FormattedString>
@@ -55,7 +54,7 @@
                 </Label>
               
                 <ctrl2:TimeSeriesGraph Results="{Binding Result}" Trigger="{Binding Result}" IsVisible="{Binding ShowTimeSeries}" Smoothing="{Binding SmoothTimeSeries}"
-                                      Grid.Column="4" Clip="True" Color="{StaticResource DefaultColor}">
+                                      Grid.Column="3" Clip="True" Color="{StaticResource DefaultColor}">
                     <ctrl2:TimeSeriesGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="8, 2, 24, 2"/> 
@@ -65,7 +64,7 @@
                 </ctrl2:TimeSeriesGraph>
 
                 <ctrl2:HistogramGraph BinsNumber="21" IsVisible="{Binding ShowHistogram}" UseCachedResults="true" CacheId="{Binding HistogramCacheId}" 
-                                     Grid.Column="4" Color="{StaticResource DefaultColor}" >
+                                     Grid.Column="3" Color="{StaticResource DefaultColor}" >
                     <ctrl2:HistogramGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="8, 2, 24, 2"/> 
@@ -74,7 +73,7 @@
                     </ctrl2:HistogramGraph.Margin>
                </ctrl2:HistogramGraph>
                 
-                <StackLayout Grid.Column="4" Opacity="0" IsEnabled="false" IsVisible="{Binding ShowMin}" Margin="8, 0, 0, 0"
+                <StackLayout Grid.Column="3" Opacity="0" IsEnabled="false" IsVisible="{Binding ShowMin}" Margin="8, 0, 0, 0"
                              Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand"> <!-- TODO, check on Android, macOS-->
                     <Label Style="{StaticResource SmallLabel}" HorizontalOptions="Start" >
                         <Label.FormattedText>
@@ -106,20 +105,6 @@
                     </Label>
                 </StackLayout>
 
-                <!--<Label Style="{StaticResource SmallLabel}" Opacity="0.0" Grid.Column="4" LineBreakMode="TailTruncation" IsEnabled="false"
-                       IsVisible="{Binding NotEnoughMemory, Converter={StaticResource BoolNot}}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">  
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Min, StringFormat=' {0}: '}"/>
-                            <Span Text="{Binding MinAdjusted, Converter={StaticResource MbPerSecondToAuto}}" Style="{StaticResource SpanStyle}" />
-                            <Span Text="{Binding MinAdjusted, Converter={StaticResource MbPerSecondToAutoUnit}}" Style="{StaticResource AccentedSmallSpan}" />
-                            <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Max, StringFormat=' ÷ {0}: '}"/>
-                            <Span Text="{Binding MaxAdjusted, Converter={StaticResource MbPerSecondToAuto}}" Style="{StaticResource SpanStyle}" />
-                            <Span Text="{Binding MaxAdjusted, Converter={StaticResource MbPerSecondToAutoUnit}}" Style="{StaticResource AccentedSmallSpan}"  />
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>-->
-
             </ctrl:GridItem>
         </DataTemplate>
     </ctrl:GridRepeater.ItemTemplate>
@@ -144,10 +129,9 @@
                     </Label.FormattedText>
                 </Label>
 
-                <Label Text="↠" VerticalOptions="CenterAndExpand"/>
-
+       
                 <Label Text="{Binding TestStatusMessage}" IsVisible="{Binding ShowTestStatusMessage}" Style="{StaticResource GrayedLabel}" 
-                       HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" Grid.Column="3" Grid.ColumnSpan="2"/>
+                       HorizontalOptions="Fill" VerticalOptions="CenterAndExpand" Grid.Column="2" Grid.ColumnSpan="2"/>
 
                 <!-- 
                 There's a bug in Xamarin.Platform.WPF and LabelRenderer in case a Label is created with IsVisible=false (e.g. the bellow example in First version was created as invisible)
@@ -156,7 +140,7 @@
                 in LabelRenderer.UpdateText where heights are set to 0 to all spans within invisble labels and TextBlockExtensions.RecalculateSpanPositions loop not accounting for that case
                 -->
                 <Label IsVisible="{Binding ShowCurrentSpeed}" Style="{StaticResource AccentedLabel}" VerticalOptions="Start" 
-                       Grid.Column="3" WidthRequest="90">
+                       Grid.Column="2" WidthRequest="90">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="{Binding RecentResultMbps, Mode=OneWay, Converter={StaticResource MbPerSecondToAuto}}" />
@@ -167,7 +151,7 @@
                 </Label>
 
                 <ctrl2:TimeSeriesGraph Results="{Binding RecentResults}" Trigger="{Binding ProgressPercent}" IsVisible="{Binding ShowTimeSeries}" Color="{StaticResource DefaultColor}"
-                                      TotalPoints="{Binding SeqTotalBlocks}" Grid.Column="4" Clip="True" Smoothing="{Binding SmoothTimeSeries}">
+                                      TotalPoints="{Binding SeqTotalBlocks}" Grid.Column="3" Clip="True" Smoothing="{Binding SmoothTimeSeries}">
                     <ctrl2:TimeSeriesGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="8, 2, 24, 2"/> 
@@ -177,8 +161,8 @@
                 </ctrl2:TimeSeriesGraph>
 
                 <ctrl2:HistogramGraph BinsNumber="21" Results="{Binding RecentResults}" Trigger="{Binding ProgressPercent}" 
-                                     IsVisible="{Binding ShowTimeSeries, Converter={StaticResource BoolNot}}" Color="{StaticResource DefaultColor}"
-                                     Grid.Column="4" CacheId="{Binding RandTestCounterForHistogramCache}">
+                                     IsVisible="{Binding ShowHistogram}" Color="{StaticResource DefaultColor}"
+                                     Grid.Column="3" CacheId="{Binding RandTestCounterForHistogramCache}">
                     <ctrl2:HistogramGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="8, 2, 24, 2"/> 

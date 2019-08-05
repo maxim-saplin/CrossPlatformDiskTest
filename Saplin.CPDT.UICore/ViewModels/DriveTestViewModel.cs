@@ -497,6 +497,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                              ShowCurrentSpeed = false;
 
                                              ShowTimeSeries = sender is SequentialTest || sender is MemCopyTest;
+                                             ShowHistogram = !ShowTimeSeries;
                                              SeqTotalBlocks = sender is SequentialTest ? (int)(sender as SequentialTest).TotalBlocks :
                                                                 sender is MemCopyTest ? (int)(sender as MemCopyTest).TotalBlocks : -1;
                                              SmoothTimeSeries = sender is MemCopyTest;
@@ -648,6 +649,9 @@ namespace Saplin.CPDT.UICore.ViewModels
                                 StatusMessage = nameof(ViewModelContainer.L11n.StatusBreakingTest);
                                 ShowTestStatusMessage = true;
                                 ShowCurrentSpeed = false;
+                                ShowTimeSeries = false;
+                                ShowHistogram = false;
+
                                 TestStatusMessage = StatusMessage;
 
                                 breakingTest = true;
@@ -736,6 +740,20 @@ namespace Saplin.CPDT.UICore.ViewModels
                 if (value != showTimeSeries)
                 {
                     showTimeSeries = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        private bool showHistogram = false;
+        public bool ShowHistogram
+        {
+            get => showHistogram;
+            set
+            {
+                if (value != showHistogram)
+                {
+                    showHistogram = value;
                     RaisePropertyChanged();
                 }
             }

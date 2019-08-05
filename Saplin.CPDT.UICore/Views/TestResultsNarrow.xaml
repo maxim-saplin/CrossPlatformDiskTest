@@ -165,7 +165,7 @@
                     </ctrl2:TimeSeriesGraph.Margin>
                 </ctrl2:TimeSeriesGraph>
 
-                <ctrl2:HistogramGraph VerticalOptions="CenterAndExpand" Results="{Binding RecentResults}" Trigger="{Binding ProgressPercent}" BinsNumber="12" IsVisible="{Binding ShowTimeSeries, Converter={StaticResource BoolNot}}" 
+                <ctrl2:HistogramGraph VerticalOptions="CenterAndExpand" Results="{Binding RecentResults}" Trigger="{Binding ProgressPercent}" BinsNumber="12" IsVisible="{Binding ShowHistogram}" 
                                      Color="{StaticResource DefaultColor}" Grid.Column="2" HeightRequest="38" CacheId="{Binding RandTestCounterForHistogramCache}">
                     <ctrl2:HistogramGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
