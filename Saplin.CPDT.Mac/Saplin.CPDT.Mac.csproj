@@ -48,7 +48,7 @@
     <IncludeMonoRuntime>true</IncludeMonoRuntime>
     <UseSGen>true</UseSGen>
     <UseRefCounting>true</UseRefCounting>
-    <LinkMode>None</LinkMode>
+    <LinkMode>SdkOnly</LinkMode>
     <HttpClientHandler>HttpClientHandler</HttpClientHandler>
     <XamMacArch>x86_64</XamMacArch>
     <AOTMode>None</AOTMode>
