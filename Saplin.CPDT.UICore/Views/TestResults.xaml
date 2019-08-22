@@ -16,8 +16,8 @@
             <On Platform="Android, iOS" Value="44"/>
         </OnPlatform>
     </Grid.RowHeight>
-    <Grid.ColumnDefinitions> <!-- WPF OK -->
-        <ColumnDefinition Width="20" />
+    <Grid.ColumnDefinitions> <!-- ?WPF OK, mac OK -->
+        <ColumnDefinition Width="22" />
         <ColumnDefinition Width="200" />
         <ColumnDefinition Width="94" />
         <ColumnDefinition Width="*" />
@@ -25,7 +25,7 @@
     <ctrl:GridRepeater.ItemTemplate>
         <DataTemplate x:DataType="vm:TestResultsDetailed">
             <ctrl:GridItem>
-                <Label Text="{Binding BulletPoint, StringFormat='{0}.'}" LineBreakMode="TailTruncation" VerticalOptions="StartAndExpand" />
+                <Label Text="{Binding BulletPoint, StringFormat='{0}.'}" VerticalOptions="StartAndExpand" />
 
                 <Label VerticalOptions="Start">
                     <Label.FormattedText>
@@ -162,7 +162,7 @@
 
                 <ctrl2:HistogramGraph BinsNumber="21" Results="{Binding RecentResults}" Trigger="{Binding ProgressPercent}" 
                                      IsVisible="{Binding ShowHistogram}" Color="{StaticResource DefaultColor}"
-                                     Grid.Column="3" CacheId="{Binding RandTestCounterForHistogramCache}">
+                                     Grid.Column="3" CacheId="{Binding RandTestCounterForHistogramCache}" ModeH="{Binding ModeH, Mode=OneWayToSource}" ModeHPercent="{Binding ModeHPercent, Mode=OneWayToSource}">
                     <ctrl2:HistogramGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="8, 2, 24, 2"/> 
