@@ -542,7 +542,9 @@ namespace Saplin.CPDT.UICore.ViewModels
 
                                                  if (sender is RandomTest)
                                                  {
-                                                     res.HistogramCacheId = RandTestCounterForHistogramCache++;  
+                                                     res.HistogramCacheId = RandTestCounterForHistogramCache++;
+													 res.ModeH = ModeH;
+													 res.ModeHPercent = ModeHPercent;
                                                  }
 
                                                  TestResults.Add(res);
@@ -858,5 +860,9 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             get; private set;
         }
+
+        public double ModeH { get; set; }
+
+        public int ModeHPercent { get; set; }
     }
 }

@@ -6,15 +6,9 @@
              IsVisible="{Binding Source={Static vm:ViewModelContainer.DriveTestViewModel}, TestStarted}"
              AbsoluteLayout.LayoutBounds="0.5, 0.75" 
              AbsoluteLayout.LayoutFlags="PositionProportional"
-             HorizontalOptions="Center"
-             Orientation="Horizontal"
-             Padding="8, 4, 8, 4"
-             BackgroundColor="#33999999">
-    <Label x:Name="testNumberLabel" Text="      "
-           VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" />
-    <Label x:Name="animationLabel" Text="/"
-           VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" />
-    <Label x:Name="totalPercentLabel" Text="    "
-           VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+             Orientation="Vertical"
+             BackgroundColor="#33999999" WidthRequest="240" HeightRequest="30">
+    <Label x:Name="testProgressLabel" WidthRequest="240" Margin="0, 0, 0, -3" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" />
+    <BoxView x:Name="progressBox" Color="White" HeightRequest="2" WidthRequest="240" TranslationX="-240" HorizontalOptions="Start"/>
 
 </StackLayout>

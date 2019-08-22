@@ -9,7 +9,7 @@
                     BindingContext="{x:Static vm:ViewModelContainer.TestSessionsViewModel}"
                     x:DataType="vm:TestSessionsViewModel"
                     ItemsSource="{Binding TestSessions}" 
-                    IsVisible="{Binding Source={Static vm:ViewModelContainer.DriveTestViewModel}, TestStarted, Converter={StaticResource BoolNot}}"
+
                     Refresh="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _Locale}"
                     Margin="-10, 0, -10, 0" Padding="10, 0, 10, 0">
     <ctrl:StackRepeater.ItemTemplate>
