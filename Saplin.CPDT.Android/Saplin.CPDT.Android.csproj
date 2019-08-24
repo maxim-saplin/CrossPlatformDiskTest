@@ -48,7 +48,7 @@
     <IntermediateOutputPath>Tmp</IntermediateOutputPath>
     <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
     <AndroidDexTool>d8</AndroidDexTool>
-    <AndroidLinkTool>r8</AndroidLinkTool>   
+    <AndroidLinkTool>r8</AndroidLinkTool>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidAapt2LinkExtraArgs>--no-version-vectors -c en-rUS</AndroidAapt2LinkExtraArgs>
     <AndroidLinkSkip>Saplin.CPDT.UICore;Saplin.CPDT.UICore.resources;Saplin.StorageSpeedMeter;CPDT.Extra.Android;</AndroidLinkSkip>
@@ -64,12 +64,10 @@
       <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra.git\CPDT.Extra.Android\bin\Debug\CPDT.Extra.Android.dll</HintPath>
       <HintPath Condition="'$(Configuration)'=='Release'">..\References\CPDT.Extra.Android.dll</HintPath>
     </Reference>
-        
     <Reference Include="CPDT.Extra">
       <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra.git\CPDT.Extra\bin\Debug\netstandard2.0\CPDT.Extra.dll</HintPath>
       <HintPath Condition="'$(Configuration)'=='Release'">..\References\CPDT.Extra.dll</HintPath>
     </Reference>
-        
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +76,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AndroidHooks.cs" />
     <Compile Include="FreeMemory.cs" />
     <Compile Include="KeepScreenOn.cs" />
     <Compile Include="MainActivity.cs" />

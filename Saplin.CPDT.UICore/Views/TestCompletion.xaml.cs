@@ -13,13 +13,13 @@ namespace Saplin.CPDT.UICore
         {
             InitializeComponent();
 
-            
+            progressBox.Color = testProgressLabel.TextColor;
         }
 
         bool animationStarted = false;
         string[] animationSeq = {"/", "-", "\\", "|"};
         int curAnimIndex = 0;
-        const int progressWidth = 240;
+        const int progressWidth = 230;
 
         protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -30,6 +30,8 @@ namespace Saplin.CPDT.UICore
                 if (IsVisible)
                 {
                     animationStarted = true;
+                    testProgressLabel.Text = "     ";
+                    progressBox.WidthRequest = 0;
                     Device.StartTimer(TimeSpan.FromMilliseconds(450),
                         () =>
                         {
@@ -47,21 +49,20 @@ namespace Saplin.CPDT.UICore
                                     totalTests);
 
                                 var curPercent = ((float)(curTest - 1) / totalTests) * 100 + (float)progress / totalTests;
-                                //if (curTest == totalTests) curTest = 100;
-                                //if (accumPercent < curPercent && --spiner < 0) accumPercent = curPercent;
 
                                 var totalPercent = string.Format(ViewModelContainer.L11n.TestTotal, curPercent);
 
-                                testProgressLabel.Text = testNum + " " + animationSeq[curAnimIndex] + " " + totalPercent; 
+                                testProgressLabel.Text = testNum + " " + animationSeq[curAnimIndex] + " " + totalPercent;
 
-                                if (curAnimIndex % 3 == 0)
-                                    progressBox.TranslateTo(progressWidth*curPercent/100 - progressWidth, 0, 600);
+                                if (curAnimIndex % 3 == 0 || curPercent >=99)
+                                    new Animation(val => progressBox.WidthRequest = val, progressBox.WidthRequest, progressWidth * curPercent / 100, Easing.Linear)
+                                        .Commit(progressBox, "p", 32, 600);
 
                                 return true;
                             }
 
                             testProgressLabel.Text = "     ";
-                            progressBox.TranslationX = -progressWidth;
+                            progressBox.WidthRequest = 0;
 
                             return false;
                         }
@@ -70,8 +71,6 @@ namespace Saplin.CPDT.UICore
                 else
                 {
                     animationStarted = false;
-                    testProgressLabel.Text = "     ";
-                    progressBox.TranslationX = -progressWidth;
                 }
             }
         }

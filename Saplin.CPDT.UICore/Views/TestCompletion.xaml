@@ -7,8 +7,23 @@
              AbsoluteLayout.LayoutBounds="0.5, 0.75" 
              AbsoluteLayout.LayoutFlags="PositionProportional"
              Orientation="Vertical"
-             BackgroundColor="#33999999" WidthRequest="240" HeightRequest="30">
-    <Label x:Name="testProgressLabel" WidthRequest="240" Margin="0, 0, 0, -3" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" />
-    <BoxView x:Name="progressBox" Color="White" HeightRequest="2" WidthRequest="240" TranslationX="-240" HorizontalOptions="Start"/>
-
+             Spacing="0"
+             BackgroundColor="#33999999" WidthRequest="230" HeightRequest="30">
+    <Label x:Name="testProgressLabel" WidthRequest="230" HeightRequest="29" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+        <Label.Margin>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="WPF" Value="0, 0, 0, 0"/>
+                <On Platform="macOS" Value="0, 0, 0, 0"/>
+                <On Platform="Android, iOS" Value="0, 0, 0, 0" />
+            </OnPlatform>
+        </Label.Margin>
+    </Label>
+    <BoxView x:Name="progressBox" HeightRequest="1" WidthRequest="0" HorizontalOptions="Start" VerticalOptions="End">
+        <BoxView.Margin>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="WPF, macOS" Value="0, 0, 0, 0"/>
+                <On Platform="Android, iOS" Value="0, 0, 0, 0" />
+            </OnPlatform>
+        </BoxView.Margin>
+    </BoxView>
 </StackLayout>

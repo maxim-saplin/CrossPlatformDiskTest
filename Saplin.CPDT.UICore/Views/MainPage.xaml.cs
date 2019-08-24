@@ -231,10 +231,33 @@ namespace Saplin.CPDT.UICore
             }
         }
 
+        bool clickedfOnceBeforeMinimization = false;
+
         protected override bool OnBackButtonPressed()
         {
             if (ViewModelContainer.ResultsDbViewModel.IsVisible) ViewModelContainer.ResultsDbViewModel.IsVisible = false;
             else OnKeyPressed((char)27, SysKeys.Esc);
+
+
+            if (ViewModelContainer.NavigationViewModel.IsHomePage)
+            {
+                if (!ViewModelContainer.NavigationViewModel.IsSimpleUI)
+                {
+                    ViewModelContainer.NavigationViewModel.IsSimpleUI = true;
+                }
+                else if (!clickedfOnceBeforeMinimization)
+                {
+                    clickedfOnceBeforeMinimization = true;
+                }
+                else
+                {
+                    clickedfOnceBeforeMinimization = false;
+
+                    var ph = DependencyService.Get<IPlatformHooks>();
+
+                    try { ph?.MinimizeApp(); } catch { }
+                }
+            }
 
             return true;
         }

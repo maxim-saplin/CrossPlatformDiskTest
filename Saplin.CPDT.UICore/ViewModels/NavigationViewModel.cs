@@ -169,6 +169,26 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
+        public bool IsDbVisible
+        {
+            get
+            {
+                return ViewModelContainer.ResultsDbViewModel.IsVisible;
+            }
+        }
+
+        public bool IsHomePage
+        {
+            get
+            {
+                if (ViewModelContainer.DriveTestViewModel.TestStarted) return false;
+                if (IsAnyPopupVisible) return false;
+                if (IsDbVisible) return false;
+
+                return true;
+            }
+        }
+
         private ICommand showOptions = new Command(() => { ViewModelContainer.OptionsViewModel.DoShow(null); ViewModelContainer.ResultsDbViewModel.SendPageHit("showOptions"); });
 
         public ICommand ShowOptions

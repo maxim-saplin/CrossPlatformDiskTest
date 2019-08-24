@@ -166,7 +166,8 @@
                 </ctrl2:TimeSeriesGraph>
 
                 <ctrl2:HistogramGraph VerticalOptions="CenterAndExpand" Results="{Binding RecentResults}" Trigger="{Binding ProgressPercent}" BinsNumber="12" IsVisible="{Binding ShowHistogram}" 
-                                     Color="{StaticResource DefaultColor}" Grid.Column="2" HeightRequest="38" CacheId="{Binding RandTestCounterForHistogramCache}">
+                                     Color="{StaticResource DefaultColor}" Grid.Column="2" HeightRequest="38" CacheId="{Binding RandTestCounterForHistogramCache}"
+                                     ModeH="{Binding ModeH, Mode=OneWayToSource}" ModeHPercent="{Binding ModeHPercent, Mode=OneWayToSource}">
                     <ctrl2:HistogramGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="4, 2, 4, 2"/> 
