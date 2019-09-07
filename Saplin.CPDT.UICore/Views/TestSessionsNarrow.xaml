@@ -61,8 +61,8 @@
                                     <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="52" MinimumWidthRequest="52">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=SequentialWriteTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>
-                                                <Span Text="{Binding SeqWrite, Converter={StaticResource MbPerSecondToAutoShort}, StringFormat='&#xA;{0}'}}" />
+                                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=SequentialWriteTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}" LineHeight="0.9"/>
+                                                <Span Text="{Binding SeqWrite, Converter={StaticResource MbPerSecondToAutoShort}, StringFormat='&#xA;{0}'}" />
                                                 <Span Text="{Binding SeqWrite, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#xA;{0}'}" Style="{StaticResource Key=AccentedSmallSpan}"/>
                                             </FormattedString>
                                         </Label.FormattedText>
@@ -70,36 +70,36 @@
                                     <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="52" MinimumWidthRequest="52">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=SequentialReadTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>
-                                                <Span Text="{Binding SeqRead, Converter={StaticResource MbPerSecondToAutoShort}, StringFormat='&#xA;{0}'}}" />
-                                                <Span Text="{Binding SeqRead, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#xA;{0}'}}" Style="{StaticResource Key=AccentedSmallSpan}"/>
+                                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=SequentialReadTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}" LineHeight="0.9"/>
+                                                <Span Text="{Binding SeqRead, Converter={StaticResource MbPerSecondToAutoShort}, StringFormat='&#xA;{0}'}" />
+                                                <Span Text="{Binding SeqRead, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#xA;{0}'}" Style="{StaticResource Key=AccentedSmallSpan}"/>
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
                                     <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="52" MinimumWidthRequest="52">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RandomWriteTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>
-                                                <Span Text="{Binding RandWrite, Converter={StaticResource MbPerSecondToAutoShort}, StringFormat='&#xA;{0}'}}" />
-                                                <Span Text="{Binding RandWrite, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#xA;{0}'}}" Style="{StaticResource Key=AccentedSmallSpan}"/>
+                                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RandomWriteTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}" LineHeight="0.9"/>
+                                                <Span Text="{Binding RandWrite, Converter={StaticResource MbPerSecondToAutoShort}, StringFormat='&#xA;{0}'}" />
+                                                <Span Text="{Binding RandWrite, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#xA;{0}'}" Style="{StaticResource Key=AccentedSmallSpan}"/>
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
                                     <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="52" MinimumWidthRequest="52">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RandomReadTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>
-                                                <Span Text="{Binding RandRead, Converter={StaticResource MbPerSecondToAutoShort}, StringFormat='&#xA;{0}'}}" />
-                                                <Span Text="{Binding RandRead, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#xA;{0}'}}" Style="{StaticResource Key=AccentedSmallSpan}"/>
+                                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RandomReadTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}" LineHeight="0.9"/>
+                                                <Span Text="{Binding RandRead, Converter={StaticResource MbPerSecondToAutoShort}, StringFormat='&#xA;{0}'}" />
+                                                <Span Text="{Binding RandRead, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#xA;{0}'}" Style="{StaticResource Key=AccentedSmallSpan}"/>
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
                                     <Label LineBreakMode="WordWrap" Margin="0, 0, 2, 0" WidthRequest="52" MinimumWidthRequest="52">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=MemCopyTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}"/>
-                                                <Span Text="{Binding MemCopy, Converter={StaticResource MbPerSecondToAutoShort}, StringFormat='&#xA;{0}'}}" />
-                                                <Span Text="{Binding MemCopy, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#xA;{0}'}}" Style="{StaticResource Key=AccentedSmallSpan}"/>
+                                                <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=MemCopyTestShort, StringFormat='{0}'}" Style="{StaticResource Key=SmallSpan}" LineHeight="0.9"/>
+                                                <Span Text="{Binding MemCopy, Converter={StaticResource MbPerSecondToAutoShort}, StringFormat='&#xA;{0}'}" />
+                                                <Span Text="{Binding MemCopy, Converter={StaticResource MbPerSecondToAutoUnit}, StringFormat='&#xA;{0}'}" Style="{StaticResource Key=AccentedSmallSpan}"/>
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
@@ -111,9 +111,18 @@
                 <ctrl:MasterDetail.DetailTemplate>
                     <DataTemplate x:DataType="vm:TestSession">
                         <StackLayout Padding="0, 0, 0, 10">
-                            <Label Text="{Binding FileName}" Style="{x:StaticResource Key=SmallLabel}" LineBreakMode="MiddleTruncation" />
-                            <Label Text="{Binding ShortOptions}" Style="{x:StaticResource Key=SmallLabel}" LineBreakMode="MiddleTruncation" />
+<!--                            <Label Style="{x:StaticResource Key=SmallLabel}" LineHeight="0.9" LineBreakMode="MiddleTruncation" >
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding FileName}" />
+                                        <Span Text="{Binding ShortOptions, StringFormat='&#xA;{0}'}"/>   
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>-->
+                            <Label Text="{Binding FileName}" LineBreakMode="MiddleTruncation" Style="{x:StaticResource Key=SmallLabel}" Margin="0, 4, 0, -8" />
+                            <Label Text="{Binding ShortOptions}" LineBreakMode="MiddleTruncation" Style="{x:StaticResource Key=SmallLabel}"  />
                             <ctrl2:ExtendedLabel Text="{Binding CsvFileName}" ChangeCursorOnMouseHover="True" Command="{Binding OpenCsvFolder}" IsVisible="{Binding CsvFileName, Converter={StaticResource StringNotEmpty}}" Style="{x:StaticResource Key=AccentedSmallLabel}" />
+                            
                             <local:TestResultsNarrow IsFooterVisible="False" BindingContext="{Binding Results}" />
                         </StackLayout>
                     </DataTemplate>

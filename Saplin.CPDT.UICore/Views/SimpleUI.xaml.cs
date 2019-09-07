@@ -13,7 +13,7 @@ namespace Saplin.CPDT.UICore
 
         public void AdjustToWidth(double width)
         {
-            if (width < 410)
+            if (width < 360)
             {
                 label1.IsVisible = false;
                 label2.IsVisible = false;

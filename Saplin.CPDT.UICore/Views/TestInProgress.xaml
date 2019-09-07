@@ -21,7 +21,7 @@
         <Label Text="{Binding TestStartedTime, StringFormat='{0:HH:mm}'}" Style="{x:StaticResource Key=AccentedSuperSmallLabel}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
         <ctrl2:ExtendedLabel ctrl:KeyPress.CommandText="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=BreakTest}" ChangeCursorOnMouseHover="true" Command="{Binding BreakTest}" HorizontalOptions="End" VerticalOptions="Center" />
     </StackLayout>
-    <Label Text="{Binding FileName}" LineBreakMode="MiddleTruncation" Style="{x:StaticResource Key=SmallLabel}" />
+    <Label Text="{Binding FileName}" LineBreakMode="MiddleTruncation" Style="{x:StaticResource Key=SmallLabel}" Margin="0, 4, 0, -8"/>
     <Label Text="{Binding Options}" LineBreakMode="MiddleTruncation" Style="{x:StaticResource Key=SmallLabel}" />
     <StackLayout x:Name="testResultsPlaceholder">
        <!--<local:TestResultsNarrow ShowFooterIfEmptyItems="True" ItemsSource="{Binding TestResults}" />-->

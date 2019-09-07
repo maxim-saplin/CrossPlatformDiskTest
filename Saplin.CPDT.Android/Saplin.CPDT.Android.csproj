@@ -17,7 +17,7 @@
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <ReleaseVersion>2.2.6</ReleaseVersion>
+    <ReleaseVersion>2.2.7</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
     <AndroidLinkMode>Full</AndroidLinkMode>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
@@ -46,6 +46,7 @@
     <MandroidI18n>None</MandroidI18n>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <IntermediateOutputPath>Tmp</IntermediateOutputPath>
+<!--    <AndroidPackageFormat>aab</AndroidPackageFormat>-->
     <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
     <AndroidDexTool>d8</AndroidDexTool>
     <AndroidLinkTool>r8</AndroidLinkTool>
@@ -72,7 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.1.0.618606</Version>
+      <Version>4.2.0.709249</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

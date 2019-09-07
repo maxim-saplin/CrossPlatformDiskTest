@@ -107,9 +107,10 @@
                 <ctrl:MasterDetail.DetailTemplate>
                     <DataTemplate>
                         <StackLayout Margin="-10, 0, -10, 0" Padding="10, 0, 10, 10">
-                            <Label Text="{Binding FileName}" Style="{x:StaticResource Key=SmallLabel}" LineBreakMode="MiddleTruncation" />
+                            <Label Text="{Binding FileName}" Style="{x:StaticResource Key=SmallLabel}" LineBreakMode="MiddleTruncation" Margin="0, 4, 0, -8" />
                             <Label Text="{Binding Options}" Style="{x:StaticResource Key=SmallLabel}" LineBreakMode="MiddleTruncation" />
                             <ctrl2:ExtendedLabel Text="{Binding CsvFileName}" ChangeCursorOnMouseHover="True" Command="{Binding OpenCsvFolder}" IsVisible="{Binding CsvFileName, Converter={StaticResource StringNotEmpty}}" Style="{x:StaticResource Key=AccentedSmallLabel}" />
+                            
                             <local:TestResults IsFooterVisible="False" BindingContext="{Binding Results}" />
                         </StackLayout>
                     </DataTemplate>

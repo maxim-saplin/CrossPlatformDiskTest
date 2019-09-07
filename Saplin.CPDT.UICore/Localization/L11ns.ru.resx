@@ -342,7 +342,7 @@
     <value>⬑Отправить⬏</value>
   </data>
   <data name="ShareTitle" xml:space="preserve">
-    <value>CPDT Benchmark - Результаты теста</value>
+    <value>CPDT Benchmark:  https://play.google.com/store/apps/details?id=com.Saplin.CPDT</value>
   </data>
   <data name="About9" xml:space="preserve">
     <value>Приложения для других платформ (Windows, macOS, Android/APK) могут быть найдены по ссылке:</value>
@@ -363,7 +363,7 @@
     <value>[Т]ест</value>
   </data>
   <data name="SimpleUI_OrSee" xml:space="preserve">
-    <value>, увидеть</value>
+    <value>,увидеть</value>
   </data>
   <data name="SimpleUI_More" xml:space="preserve">
     <value>[Б]ольше</value>

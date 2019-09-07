@@ -235,10 +235,6 @@ namespace Saplin.CPDT.UICore
 
         protected override bool OnBackButtonPressed()
         {
-            if (ViewModelContainer.ResultsDbViewModel.IsVisible) ViewModelContainer.ResultsDbViewModel.IsVisible = false;
-            else OnKeyPressed((char)27, SysKeys.Esc);
-
-
             if (ViewModelContainer.NavigationViewModel.IsHomePage)
             {
                 if (!ViewModelContainer.NavigationViewModel.IsSimpleUI)
@@ -258,6 +254,9 @@ namespace Saplin.CPDT.UICore
                     try { ph?.MinimizeApp(); } catch { }
                 }
             }
+
+            if (ViewModelContainer.ResultsDbViewModel.IsVisible) ViewModelContainer.ResultsDbViewModel.IsVisible = false;
+            else OnKeyPressed((char)27, SysKeys.Esc);
 
             return true;
         }

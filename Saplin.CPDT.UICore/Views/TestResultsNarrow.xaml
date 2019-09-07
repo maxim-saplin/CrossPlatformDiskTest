@@ -101,7 +101,7 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="{Binding ModeH, Converter={StaticResource MbPerSecondToAuto}}" />
-                                <Span Text="{Binding ModeHPercent,StringFormat='÷{0}%'}" />
+                                <!--<Span Text="{Binding ModeHPercent,StringFormat='÷{0}%'}" />-->
                                 <Span Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, ModeH, StringFormat='&#10;{0}, '}" Style="{StaticResource SuperSmallSpan}"/>
                                 <Span Text="{Binding ModeH, Converter={StaticResource MbPerSecondToAutoUnit}}" Style="{StaticResource SuperSmallSpan}"/>
                             </FormattedString>
