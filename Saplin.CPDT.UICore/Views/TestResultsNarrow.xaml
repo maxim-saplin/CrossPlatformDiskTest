@@ -43,15 +43,27 @@
         <DataTemplate x:DataType="vm:TestResultsDetailed">
             <ctrl:GridItem>
                 <!-- col 0-->
-                <Label Text="{Binding Result.TestName, Converter={StaticResource KeyToL11n}}" LineBreakMode="WordWrap"
-                       VerticalOptions="CenterAndExpand" />
+                <!--<Label Text="{Binding Result.TestName, Converter={StaticResource KeyToL11n}}" LineBreakMode="WordWrap"
+                       VerticalOptions="CenterAndExpand" />-->
+                <Label LineBreakMode="WordWrap">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding Result.TestName, Converter={StaticResource KeyToL11n}}" />
+                            <Span Text="{Binding Result.BlockSizeBytes, StringFormat=' [{0}', Converter={StaticResource BytesToAutoShort}}"/>
+                            <Span Text="{Binding Result.BlockSizeBytes, StringFormat='{0}]', Converter={StaticResource BytesToAutoUnit}}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
 
                 <!-- col 1-2-->
                 <Label Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, TestNotEnoughMemory}" 
                         LineBreakMode="TailTruncation" IsVisible="{Binding NotEnoughMemory}" VerticalOptions="CenterAndExpand">
                 </Label>
                 <!-- col 1-->
-                <Label Grid.Column="1" Style="{StaticResource AccentedLabel}" IsVisible="{Binding NotEnoughMemory, Converter={StaticResource BoolNot}}" VerticalOptions="CenterAndExpand">
+                <Label Grid.Column="1" Style="{StaticResource AccentedLabel}"
+                       IsVisible="{Binding NotEnoughMemory, Converter={StaticResource BoolNot}}"
+                       VerticalOptions="CenterAndExpand"
+                       BackgroundColor="Blue">
                     <Label.FormattedText >
                         <FormattedString>
                             <Span Text="{Binding Result.AvgThroughput, Converter={StaticResource MbPerSecondToAuto}}" />
@@ -125,8 +137,17 @@
         <DataTemplate>
             <ctrl:GridItem>
                 <!-- col 0-->
-                <Label Text="{Binding CurrentTest, Converter={StaticResource KeyToL11n}}" LineBreakMode="WordWrap"
-                       VerticalOptions="CenterAndExpand" />
+                <!--<Label Text="{Binding CurrentTest, Converter={StaticResource KeyToL11n}}" LineBreakMode="WordWrap"
+                       VerticalOptions="CenterAndExpand" />-->
+                <Label LineBreakMode="WordWrap">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding CurrentTest, Converter={StaticResource KeyToL11n}}" />
+                            <Span Text="{Binding BlockSizeBytes, StringFormat=' [{0}', Converter={StaticResource BytesToAutoShort}}"/>
+                            <Span Text="{Binding BlockSizeBytes, StringFormat='{0}]', Converter={StaticResource BytesToAutoUnit}}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
 
                 <!-- col 1-2-->
                 <Label Text="{Binding TestStatusMessage}" IsVisible="{Binding ShowTestStatusMessage}" Style="{StaticResource GrayedLabel}"

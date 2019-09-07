@@ -452,7 +452,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                 flusher: flushService == null ? null : 
                                     new WriteBufferFlusher(flushService.OpenFile, flushService.Flush, flushService.Close),
                                 disableMacStream: Device.RuntimePlatform == Device.iOS,
-                                mockFileStream: false
+                                mockFileStream: true
                             );
 
                              TotalTests = testSuite.TotalTests;

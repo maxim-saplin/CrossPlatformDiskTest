@@ -3,6 +3,7 @@ using Saplin.CPDT.UICore.Localization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -46,20 +47,21 @@ namespace Saplin.CPDT.UICore.ViewModels
                     locale = value;
                     App.Current.Properties[nameof(_Locale)] = value;
                     App.Current.SavePropertiesAsync();
-                    RaisePropertyChanged();
 
                     L11nBase.Culture = new System.Globalization.CultureInfo(locale);
+                    Thread.CurrentThread.CurrentCulture = L11nBase.Culture;
+                    Thread.CurrentThread.CurrentUICulture = L11nBase.Culture;
 
                     var properties = typeof(L11nBase).GetProperties().Where(p => p.PropertyType == typeof(string));
 
-                    foreach(var p in properties)
+                    OnOff = new KeyValue[] { new KeyValue { Key = "true", Value = On }, new KeyValue { Key = "false", Value = Off} };
+
+                    RaisePropertyChanged();
+                    RaisePropertyChanged(nameof(_LocaleIcon));
+                    foreach (var p in properties)
                     {
                         RaisePropertyChanged(p.Name);
                     }
-
-                    OnOff = new KeyValue[] { new KeyValue { Key = "true", Value = On }, new KeyValue { Key = "false", Value = Off} };
-
-                    RaisePropertyChanged(nameof(_LocaleIcon));
                 }
             }
         }
