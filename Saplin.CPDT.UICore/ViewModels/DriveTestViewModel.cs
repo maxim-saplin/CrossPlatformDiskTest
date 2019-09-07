@@ -322,6 +322,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                 {
                     testStarted = value;
                     RaisePropertyChanged();
+                    RaisePropertyChanged(nameof(StatusMessageVisible));
                 }
             }
         }
@@ -452,7 +453,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                 flusher: flushService == null ? null : 
                                     new WriteBufferFlusher(flushService.OpenFile, flushService.Flush, flushService.Close),
                                 disableMacStream: Device.RuntimePlatform == Device.iOS,
-                                mockFileStream: true
+                                mockFileStream: false
                             );
 
                              TotalTests = testSuite.TotalTests;
@@ -595,6 +596,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                             
                                             DependencyService.Get<IKeepScreenOn>()?.Disable();
                                             TestStarted = false;
+                                            
                                         });
 
                                      if (!breakingTest)
@@ -648,12 +650,6 @@ namespace Saplin.CPDT.UICore.ViewModels
                         {
                             if (testStartedInternal)
                             {
-                                StatusMessage = nameof(ViewModelContainer.L11n.StatusBreakingTest);
-                                ShowTestStatusMessage = true;
-                                ShowCurrentSpeed = false;
-                                ShowTimeSeries = false;
-                                ShowHistogram = false;
-
                                 TestStatusMessage = StatusMessage;
 
                                 breakingTest = true;
@@ -663,6 +659,12 @@ namespace Saplin.CPDT.UICore.ViewModels
                                     testSuite.Break();
                                 }
                                 catch { }
+
+                                StatusMessage = nameof(ViewModelContainer.L11n.StatusBreakingTest);
+                                ShowTestStatusMessage = true;
+                                ShowCurrentSpeed = false;
+                                ShowTimeSeries = false;
+                                ShowHistogram = false;
 
                                 ViewModelContainer.ResultsDbViewModel.SendPageHit("breakTest");
                             }
