@@ -63,7 +63,7 @@
                 <Label Grid.Column="1" Style="{StaticResource AccentedLabel}"
                        IsVisible="{Binding NotEnoughMemory, Converter={StaticResource BoolNot}}"
                        VerticalOptions="CenterAndExpand"
-                       BackgroundColor="DarkGreen">
+                       BackgroundColor="DarkGreen" TextColor="White">
                     <Label.FormattedText >
                         <FormattedString>
                             <Span Text="{Binding Result.AvgThroughput, Converter={StaticResource MbPerSecondToAuto}}" />

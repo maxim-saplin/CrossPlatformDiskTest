@@ -46,8 +46,8 @@
     <MandroidI18n>None</MandroidI18n>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <IntermediateOutputPath>Tmp</IntermediateOutputPath>
-<!--    <AndroidPackageFormat>aab</AndroidPackageFormat>-->
-    <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
+    <AndroidPackageFormat>aab</AndroidPackageFormat>
+<!--    <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>-->
     <AndroidDexTool>d8</AndroidDexTool>
     <AndroidLinkTool>r8</AndroidLinkTool>
     <AndroidUseAapt2>true</AndroidUseAapt2>
