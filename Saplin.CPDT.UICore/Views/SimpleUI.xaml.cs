@@ -18,11 +18,17 @@ namespace Saplin.CPDT.UICore
                 label1.IsVisible = false;
                 label2.IsVisible = false;
             }
-            else
+            else 
             {
                 label1.IsVisible = true;
                 label2.IsVisible = true;
-            }
+                if (width > 399)
+                {
+                    label1.WidthRequest += 10;
+                    label2.WidthRequest += 10;
+                    cursor.WidthRequest += 10;
+                }
+            } 
         }
     }
 }

@@ -19,7 +19,7 @@
     <Grid.ColumnDefinitions> <!-- ?WPF OK, mac OK -->
         <ColumnDefinition Width="22" />
         <ColumnDefinition Width="200" />
-        <ColumnDefinition Width="94" />
+        <ColumnDefinition Width="100" />
         <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
     <ctrl:GridRepeater.ItemTemplate>

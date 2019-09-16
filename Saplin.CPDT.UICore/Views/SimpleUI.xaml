@@ -37,5 +37,5 @@
             Style="{x:StaticResource Key=ButtonStyle}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="81" HeightRequest="30"
             ctrl:KeyPress.CommandOnKeyPress="True"
             Command="{Binding Source={Static vm:ViewModelContainer.NavigationViewModel}, SwitchToAdvancedUI, Mode=OneTime}" CommandParameter="True"/>
-    <ctrl:BlinkingCursor BlinkCursor="True" WidthRequest="32" LineBreakMode="TailTruncation" ShowPrefix="False" VerticalOptions="Center" HorizontalOptions="Center" />
+    <ctrl:BlinkingCursor x:Name="cursor" BlinkCursor="True" WidthRequest="32" LineBreakMode="TailTruncation" ShowPrefix="False" VerticalOptions="Center" HorizontalOptions="Center" />
 </StackLayout>
