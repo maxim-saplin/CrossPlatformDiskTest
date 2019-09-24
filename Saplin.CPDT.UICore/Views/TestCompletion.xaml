@@ -12,7 +12,7 @@
     <Label x:Name="testProgressLabel" WidthRequest="230" HeightRequest="29" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
         <Label.Margin>
             <OnPlatform x:TypeArguments="Thickness">
-                <On Platform="WPF" Value="0, 0, 0, 0"/>
+                <On Platform="WPF" Value="0, 6, 0, 0"/>
                 <On Platform="macOS" Value="0, 0, 0, 0"/>
                 <On Platform="Android, iOS" Value="0, 0, 0, 0" />
             </OnPlatform>
@@ -21,7 +21,8 @@
     <BoxView x:Name="progressBox" HeightRequest="1" WidthRequest="0" HorizontalOptions="Start" VerticalOptions="End">
         <BoxView.Margin>
             <OnPlatform x:TypeArguments="Thickness">
-                <On Platform="WPF, macOS" Value="0, 0, 0, 0"/>
+                <On Platform="WPF" Value="0, -6, 0, 0"/>
+                <On Platform="macOS" Value="0, 0, 0, 0"/>
                 <On Platform="Android, iOS" Value="0, 0, 0, 0" />
             </OnPlatform>
         </BoxView.Margin>

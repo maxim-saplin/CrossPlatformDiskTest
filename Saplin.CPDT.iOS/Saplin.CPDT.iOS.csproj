@@ -126,7 +126,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.1.0.618606" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.815419" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Fonts\IBMPlexMono-Italic.ttf" />
@@ -134,9 +134,7 @@
     <BundleResource Include="Resources\splas.png" />
     <BundleResource Include="Resources\Fonts\IBMPlexMono-SemiBold.ttf" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Fonts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Saplin.CPDT.UICore\Saplin.CPDT.UICore.csproj">
       <Project>{3116756D-0111-400C-BC53-1DBBC195FBB7}</Project>

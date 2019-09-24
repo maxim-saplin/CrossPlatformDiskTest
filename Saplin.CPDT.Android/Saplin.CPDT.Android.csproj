@@ -17,7 +17,7 @@
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <ReleaseVersion>2.2.7</ReleaseVersion>
+    <ReleaseVersion>2.2.9</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
     <AndroidLinkMode>Full</AndroidLinkMode>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
@@ -46,8 +46,8 @@
     <MandroidI18n>None</MandroidI18n>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <IntermediateOutputPath>Tmp</IntermediateOutputPath>
-    <AndroidPackageFormat>aab</AndroidPackageFormat>
-<!--    <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>-->
+    <!--<AndroidPackageFormat>aab</AndroidPackageFormat>-->
+    <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
     <AndroidDexTool>d8</AndroidDexTool>
     <AndroidLinkTool>r8</AndroidLinkTool>
     <AndroidUseAapt2>true</AndroidUseAapt2>
