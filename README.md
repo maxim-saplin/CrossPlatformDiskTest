@@ -10,11 +10,11 @@ Measuring storage performance (SSD, HDD, USB Flash etc.) and RAM speed across Wi
   - https://github.com/maxim-saplin/CrossPlatformDiskTest/releases/download/2.2.7/CPDT.exe.zip
 
 - macOS 10.13+
-  - https://github.com/maxim-saplin/CrossPlatformDiskTest/releases/download/2.2.7/CPDT.app.zip
+  - https://github.com/maxim-saplin/CrossPlatformDiskTest/releases/download/2.2.9AM/CPDT.app.zip
 
 - Android 4.4+ 
   - Play Market: https://play.google.com/store/apps/details?id=com.Saplin.CPDT
-  - APK: https://github.com/maxim-saplin/CrossPlatformDiskTest/releases/download/2.2.7/com.Saplin.CPDT.apk
+  - APK: https://github.com/maxim-saplin/CrossPlatformDiskTest/releases/download/2.2.9AM/com.Saplin.CPDT.apk
 
 ## Benchmark chart
 
