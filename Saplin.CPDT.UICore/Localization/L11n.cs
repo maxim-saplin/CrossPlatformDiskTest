@@ -106,9 +106,9 @@ namespace Saplin.CPDT.UICore.ViewModels
                                 case Locales.ru:
                                     _Locale = Locales.en;
                                     break;
-                                //case Locales.fr:
-                                //    _Locale = Locales.en;
-                                //    break;
+                                case Locales.fr:
+                                    _Locale = Locales.en;
+                                    break;
                             }
                         }
                     );

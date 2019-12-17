@@ -3,7 +3,7 @@ using Android.Content;
 using Android.Content.PM;
 using Android.Content.Res;
 using Android.OS;
-using Android.Support.V7.App;
+using Android.Runtime;
 using Android.Views;
 
 namespace Saplin.CPDT.Droid
@@ -26,7 +26,7 @@ namespace Saplin.CPDT.Droid
 
             LoadApplication(app);
 
-            try // JIC, in Vitals there was an Exception in here, White Theme shouldn't break app launch
+            try // JIC, in GPlay Vitals there was an Exception in here, White Theme shouldn't break app launch
             {
                 if (app.WhiteTheme)
                 {
@@ -41,6 +41,11 @@ namespace Saplin.CPDT.Droid
                     ui |= (int)Android.Views.SystemUiFlags.LightStatusBar;
                     ui |= (int)Android.Views.SystemUiFlags.LightNavigationBar;
                     Window.DecorView.SystemUiVisibility = (Android.Views.StatusBarVisibility)ui;
+                }
+                else if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Lollipop)
+                {
+                    Window.SetStatusBarColor(Android.Graphics.Color.Black);
+                    Window.SetNavigationBarColor(Android.Graphics.Color.Black);
                 }
             }
             catch { };
@@ -66,6 +71,17 @@ namespace Saplin.CPDT.Droid
             var config = Android.App.Application.Context.CreateConfigurationContext(configuration);
 
             base.AttachBaseContext(config);
+        }
+
+        protected internal volatile bool memCritical = false;
+
+        public override void OnTrimMemory([GeneratedEnum] TrimMemory level)
+        {
+            base.OnTrimMemory(level);
+
+            System.Diagnostics.Debug.WriteLine("OnTrimMemory - " + level.ToString());
+
+            if (level == TrimMemory.RunningCritical) memCritical = true;
         }
     }
 }

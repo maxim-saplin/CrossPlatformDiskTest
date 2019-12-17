@@ -300,7 +300,7 @@ write</value>
     <value>Test has completed execution. Test file deleted</value>
   </data>
   <data name="StatusTestCsvCompleted" xml:space="preserve">
-    <value>Test execution completed. Test results exported to CVS file</value>
+    <value>Test execution completed. Test results exported to CSV file</value>
   </data>
   <data name="StatusTestError" xml:space="preserve">
     <value>Test execution interrupted due to error</value>

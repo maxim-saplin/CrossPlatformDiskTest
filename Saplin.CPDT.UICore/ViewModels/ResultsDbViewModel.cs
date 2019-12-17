@@ -305,10 +305,11 @@ namespace Saplin.CPDT.UICore.ViewModels
                 var di = DependencyService.Get<IWpfWebViewInfo>();
                 if (di != null)
                 {
-                    var v = di.GetIEVersion();
-                    if (!v.StartsWith("11"))
+                    //var v = di.GetIEVersion();
+                    //if (!v.StartsWith("11"))
                     {
-                        Device.OpenUri(new System.Uri(UrlNotInApp));
+                        //Device.OpenUri(new System.Uri(UrlNotInApp));
+                        Device.OpenUri(new System.Uri(((Xamarin.Forms.UrlWebViewSource)(webView.Source)).Url));
                         return false;
                     }
                 }

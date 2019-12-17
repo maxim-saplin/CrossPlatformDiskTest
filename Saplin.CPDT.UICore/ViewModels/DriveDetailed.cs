@@ -1,6 +1,8 @@
-﻿namespace Saplin.CPDT.UICore.ViewModels
+﻿using System.ComponentModel;
+
+namespace Saplin.CPDT.UICore.ViewModels
 {
-    public class DriveDetailed
+    public class DriveDetailed : BaseViewModel
     {
         public char DisplayIndex { get; set; }
         public bool AvailableForTest { get { return EnoughSpace && Accessible; } }
@@ -16,6 +18,17 @@
         public string IndexAndName { get { return string.Format("[{0}]   {1}", DisplayIndex, Name); } }
 
         public bool ShowDiveIsSameMessage { get; set; }
+
+        public DriveDetailed()
+        {
+            ViewModelContainer.L11n.PropertyChanged += (s, e) =>
+            {
+                if (e.PropertyName == nameof(ViewModelContainer.L11n._Locale))
+                {
+                    RaisePropertyChanged(nameof(HintText));
+                }
+            };
+        }
 
         public string HintText
         {

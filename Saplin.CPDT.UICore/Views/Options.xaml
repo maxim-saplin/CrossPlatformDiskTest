@@ -13,7 +13,7 @@
             <x:Array Type="{x:Type ctrl:KeyValue}" x:Key="LanguageKeys">
                 <ctrl:KeyValue Key="{x:Static l11n:Locales.en}" Value="(English)"/>
                 <ctrl:KeyValue Key="{x:Static l11n:Locales.ru}" Value="(Русский)"/>
-                <!--<ctrl:KeyValue Key="{x:Static l11n:Locales.fr}" Value="(Français)"/>-->
+                <ctrl:KeyValue Key="{x:Static l11n:Locales.fr}" Value="(Français)"/>
             </x:Array>
             <x:Array Type="{x:Type ctrl:KeyValue}" x:Key="FileSizeKeys">
                 <ctrl:KeyValue Key="0.5" Value="(½ GB)"/>
