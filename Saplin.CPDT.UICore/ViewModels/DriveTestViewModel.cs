@@ -86,7 +86,7 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             Action<DriveDetailed, int> setEnoughSpaceAndIndex = (DriveDetailed d, int i) =>
             {
-                const int extraSpace = 512 * 1024 * 1024;
+                const int extraSpace = 1024 * 1024 * 1024;
                 d.EnoughSpace = d.BytesFree > FileSize + extraSpace;
                 d.DisplayIndex = d.BytesFree > FileSize + extraSpace ? (i < 9 ? (i+1).ToString()[0] : '.') : ' ';
 
@@ -438,7 +438,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                  totalSpace = dd.TotalBytes;
                              }
 
-                             var freeMemService = DependencyService.Get<IFreeMemory>();
+                             var freeMemService = DependencyService.Get<IFreeMemory>(DependencyFetchTarget.NewInstance);
                              var flushService = DependencyService.Get<IFileSync>();
                              var diService = DependencyService.Get<IDeviceInfo>();
 

@@ -1,10 +1,15 @@
-﻿using Android.App;
+﻿using System;
+using System.Threading.Tasks;
+using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Content.Res;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
+using Android.Widget;
+using Saplin.CPDT.Droid.CachePurger;
+using static Android.App.ActivityManager;
 
 namespace Saplin.CPDT.Droid
 {
@@ -51,6 +56,28 @@ namespace Saplin.CPDT.Droid
             catch { };
         }
 
+        protected override void OnStart()
+        {
+            base.OnStart();
+            System.Diagnostics.Debug.WriteLine("Activity started");
+            //Toast.MakeText(Android.App.Application.Context, "Main Activity", ToastLength.Short).Show();
+            //try
+            //{
+            //    Task.Run(() =>
+            //   {
+            //       Intent intent = new Intent(this, typeof(SecondActivity));
+            //       StartActivity(intent);
+            //   });
+            //}
+            //catch(Exception ex)
+            //{
+            //    System.Diagnostics.Debug.WriteLine("Exception " + ex.Message);
+            //}
+
+            var purger = new Purger();
+            //purger.Purge();           
+        }
+
         protected override void AttachBaseContext(Context @base)
         {
             var configuration = new Configuration(@base.Resources.Configuration);
@@ -74,6 +101,7 @@ namespace Saplin.CPDT.Droid
         }
 
         protected internal volatile bool memCritical = false;
+        protected internal volatile float avaialToTotalThreshold = 0;
 
         public override void OnTrimMemory([GeneratedEnum] TrimMemory level)
         {
@@ -81,7 +109,14 @@ namespace Saplin.CPDT.Droid
 
             System.Diagnostics.Debug.WriteLine("OnTrimMemory - " + level.ToString());
 
-            if (level == TrimMemory.RunningCritical) memCritical = true;
+            if (level == TrimMemory.RunningCritical)
+            {
+                memCritical = true;
+                var activityManager = Android.App.Application.Context.GetSystemService(Context.ActivityService) as ActivityManager;
+                MemoryInfo memInfo = new MemoryInfo();
+                activityManager.GetMemoryInfo(memInfo);
+                avaialToTotalThreshold = (float)memInfo.AvailMem / memInfo.TotalMem;
+            }
         }
     }
 }

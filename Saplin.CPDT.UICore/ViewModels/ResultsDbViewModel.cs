@@ -33,6 +33,10 @@ namespace Saplin.CPDT.UICore.ViewModels
 
         public void BindWebView(WebView webView)
         {
+            // WPF webView is ActiveX and buggy. If there's no Internet Connection upon app launch WebView mail fail with OutOfMemory exception. Do not bind webView on WPF with no internet connection
+            var di = DependencyService.Get<IWpfWebViewInfo>();
+            if (di != null && !di.InternetConnected()) return;
+
             this.webView = webView;
             webView.Navigating += Navigating;
             webView.Navigated += Navigated;
@@ -265,6 +269,8 @@ namespace Saplin.CPDT.UICore.ViewModels
 
         private bool CheckUrlChanged(string url)
         {
+            if (webView == null) return false;
+
             var webViewUrl = (webView.Source as UrlWebViewSource).Url;
 
             var d = "&" + d_param;
@@ -305,8 +311,8 @@ namespace Saplin.CPDT.UICore.ViewModels
                 var di = DependencyService.Get<IWpfWebViewInfo>();
                 if (di != null)
                 {
-                    //var v = di.GetIEVersion();
-                    //if (!v.StartsWith("11"))
+                    var v = di.GetIEVersion();
+                    if (!v.StartsWith("11"))
                     {
                         //Device.OpenUri(new System.Uri(UrlNotInApp));
                         Device.OpenUri(new System.Uri(((Xamarin.Forms.UrlWebViewSource)(webView.Source)).Url));

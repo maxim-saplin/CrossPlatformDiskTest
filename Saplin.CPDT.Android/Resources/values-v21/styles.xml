@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <style name="MainTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+    <item name="windowNoTitle">true</item>
+    <item name="windowActionBar">false</item>
+    <item name="colorPrimary">#000000</item>
+    <item name="colorPrimaryDark">#000000</item>
+    <item name="colorAccent">#000000</item>
+    <item name="windowActionModeOverlay">true</item>
+    <item name="android:windowBackground">@drawable/splash_screen</item>
+    <item name="android:buttonStyle">@style/CPDTButton</item>
+  </style>
+  <style name="CPDTButton" parent="android:Widget.Button">
+  </style>
+</resources>

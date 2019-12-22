@@ -18,5 +18,10 @@ namespace Saplin.CPDT.WPF
 
             return version.ToString();
         }
+
+        public bool InternetConnected()
+        {
+            return System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
+        }
     }
 }

@@ -124,7 +124,7 @@
     <value>Les tests de lecture/écriture séquentielle mesurent la vitesse des opérations, dans lesquelles de gros blocs (mégaoctets) de données sont transmis de manière séquentielle. Ces tests représentent des opérations telles que la copie de fichiers volumineux, le codage/décodage vidéo, etc.</value>
   </data>
   <data name="About3" xml:space="preserve">
-    <value>Les tests aléatoires durent plusieurs dizaines de secondes et transmettent de petits blocs de données (4 Ko) dans des positions aléatoires dans un fichier de test. Ces tests montrent comment la performance du système de fichiers influence le temps de chargement des applications et du système d'exploitation, le processus de copie de plusieurs petits fichiers, l'exécution de requêtes de base de données, etc.</value>
+    <value>Les tests aléatoires durent plusieurs dizaines de secondes et transmettent de petits blocs de données (4 KB) dans des positions aléatoires dans un fichier de test. Ces tests montrent comment la performance du système de fichiers influence le temps de chargement des applications et du système d'exploitation, le processus de copie de plusieurs petits fichiers, l'exécution de requêtes de base de données, etc.</value>
   </data>
   <data name="About4" xml:space="preserve">
     <value>Dans la section "Options", vous trouverez les paramètres qui peuvent affecter les résultats du test:</value>
@@ -187,10 +187,10 @@
     <value>Pour lancer un test cliquez sur un des disques ou sur la touche avec son numéro</value>
   </data>
   <data name="kb" xml:space="preserve">
-    <value>Ko</value>
+    <value>KB</value>
   </data>
   <data name="kbps" xml:space="preserve">
-    <value>Ko/s</value>
+    <value>KB/s</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>[L]angue:</value>
@@ -233,7 +233,7 @@ mémoire</value>
     <value>- Sélectionnez l'un des disques ci-dessus pour lancer un test</value>
   </data>
   <data name="Quit" xml:space="preserve">
-    <value>[Q, Q]itter</value>
+    <value>[Q]itter</value>
   </data>
   <data name="Quiting" xml:space="preserve">
     <value>Quitter</value>
