@@ -31,8 +31,14 @@ namespace Saplin.CPDT.Droid.CachePurger
 
             switch (messageType)
             {
-                case PurgeService.purgeMemCode:
+                case PurgeService.purgeMemAction:
                     Service?.PurgeMem();
+                    break;
+                case PurgeService.resetAction:
+                    Service?.Reset();
+                    break;
+                case PurgeService.breakAction:
+                    Service?.Break();
                     break;
                 default:
                     base.HandleMessage(msg);

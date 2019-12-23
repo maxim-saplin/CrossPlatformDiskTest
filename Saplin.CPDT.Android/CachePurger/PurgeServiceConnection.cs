@@ -1,6 +1,7 @@
-﻿using Android.Util;
-using Android.OS;
+﻿using Android.OS;
 using Android.Content;
+using Android.App;
+using Android.Widget;
 
 namespace Saplin.CPDT.Droid.CachePurger
 {
@@ -12,12 +13,10 @@ namespace Saplin.CPDT.Droid.CachePurger
         public PurgeServiceConnection(MainActivity activity)
         {
             IsConnected = false;
-            //Binder = null;
             mainActivity = activity;
         }
 
         public bool IsConnected { get; private set; }
-        //public PurgerServiceBinder Binder { get; private set; }
         public Messenger Messenger { get; private set; }
 
         public void OnServiceConnected(ComponentName name, IBinder service)
@@ -30,7 +29,6 @@ namespace Saplin.CPDT.Droid.CachePurger
 
             string message = "onServiceConnected - ";
 
-            //Log.Debug(TAG, $"OnServiceConnected {name.ClassName}");
             System.Diagnostics.Debug.WriteLine($"OnServiceConnected {name.ClassName}");
 
             if (IsConnected)
@@ -42,46 +40,16 @@ namespace Saplin.CPDT.Droid.CachePurger
                 message = message + " not bound to service " + name.ClassName;
             }
 
-            //Log.Info(TAG, message);
             System.Diagnostics.Debug.WriteLine(message);
-
-            //var msg = Message.Obtain(null, PurgeService.purgeMemCode);
-            //try
-            //{
-            //    Messenger.Send(msg);
-            //}
-            //catch (RemoteException ex)
-            //{
-            //    System.Diagnostics.Debug.WriteLine("Purger - Error sending message to PurgeService: " + ex.Message);
-            //}
-
         }
 
         public void OnServiceDisconnected(ComponentName name)
         {
-            //Log.Debug(TAG, $"OnServiceDisconnected {name.ClassName}");
+            Toast.MakeText(Android.App.Application.Context, "PurgeServiceConnection.OnServiceDisconnected", ToastLength.Short).Show();
             System.Diagnostics.Debug.WriteLine($"OnServiceDisconnected {name.ClassName}");
             IsConnected = false;
             Messenger = null;
-            //Binder = null;
-            //mainActivity.UpdateUiForUnboundService();
         }
-
-        //public bool PurgeMem()
-        //{
-        //    if (!IsConnected)
-        //    {
-        //        return false;
-        //    }
-
-        //    if (Messenger != null)
-        //    { 
-        //        Binder.PurgeMem();
-        //        return true;
-        //    }
-
-        //    return false;
-        //}
     }
 
 }

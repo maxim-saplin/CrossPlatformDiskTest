@@ -3,5 +3,6 @@
     public interface IPlatformHooks
     {
         void MinimizeApp();
+        void TestClick();
     }
 }

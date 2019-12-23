@@ -74,7 +74,7 @@ namespace Saplin.CPDT.Droid
             //    System.Diagnostics.Debug.WriteLine("Exception " + ex.Message);
             //}
 
-            var purger = new Purger();
+            //var purger = new Purger();
             //purger.Purge();           
         }
 
