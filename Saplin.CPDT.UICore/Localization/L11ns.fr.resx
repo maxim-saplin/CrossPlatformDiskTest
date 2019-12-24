@@ -372,7 +372,7 @@ séq.</value>
     <value>[T]hème ordinaire</value>
   </data>
   <data name="CantTestNotEnough" xml:space="preserve">
-    <value>Impossible de tester certaines partitions. 1.6GB d'espace libre sont exigés</value>
+    <value>Impossible de tester certaines partitions. {0}GB d'espace libre sont exigés</value>
   </data>
   <data name="TestOf" xml:space="preserve">
     <value>Test {0} de {1}</value>

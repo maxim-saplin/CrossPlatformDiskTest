@@ -43,6 +43,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                 if (e.PropertyName == nameof(OptionsViewModel.FileSizeGb))
                 {
                     RefreshDrives();
+                    RaisePropertyChanged(nameof(StatusMessage));
                 }
             };
 

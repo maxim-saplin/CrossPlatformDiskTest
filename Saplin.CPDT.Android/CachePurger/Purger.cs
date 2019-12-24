@@ -203,7 +203,7 @@ namespace Saplin.CPDT.Droid.CachePurger
             }
             System.Diagnostics.Debug.WriteLine("... Done");
 
-            Toast.MakeText(Android.App.Application.Context, "Purger.Break", ToastLength.Short).Show();
+            //Toast.MakeText(Android.App.Application.Context, "Purger.Break", ToastLength.Short).Show();
         }
 
         public void SetBreackCheckFunc(Func<bool> checkBreakCalled)

@@ -45,7 +45,7 @@ namespace Saplin.CPDT.Droid.CachePurger
 
         public void OnServiceDisconnected(ComponentName name)
         {
-            Toast.MakeText(Android.App.Application.Context, "PurgeServiceConnection.OnServiceDisconnected", ToastLength.Short).Show();
+            //Toast.MakeText(Android.App.Application.Context, "PurgeServiceConnection.OnServiceDisconnected", ToastLength.Short).Show();
             System.Diagnostics.Debug.WriteLine($"OnServiceDisconnected {name.ClassName}");
             IsConnected = false;
             Messenger = null;

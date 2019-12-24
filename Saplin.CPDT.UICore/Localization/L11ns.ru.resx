@@ -372,7 +372,7 @@
     <value>[П]ростой вид</value>
   </data>
   <data name="CantTestNotEnough" xml:space="preserve">
-    <value>Тест невозможен для некоторых разделов. Необходимо 1.6Гб места</value>
+    <value>Тест невозможен для некоторых разделов. Необходимо {0}Гб места</value>
   </data>
   <data name="TestOf" xml:space="preserve">
     <value>Тест {0} из {1}</value>

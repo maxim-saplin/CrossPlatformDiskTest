@@ -25,7 +25,7 @@ namespace Saplin.CPDT.Droid.CachePurger
             base.OnCreate();
             messenger = new Messenger(new PurheServiceHandler(this));
             Log.Debug(TAG, "OnCreate");
-            Toast.MakeText(Android.App.Application.Context, "PurgeService.OnCreate", ToastLength.Short).Show();
+            //Toast.MakeText(Android.App.Application.Context, "PurgeService.OnCreate", ToastLength.Short).Show();
         }
 
         public override IBinder OnBind(Intent intent)

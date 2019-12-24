@@ -12,7 +12,7 @@ namespace Saplin.CPDT.UICore.Localization
 
         private static global::System.Resources.ResourceManager resourceMan;
 
-        private static global::System.Globalization.CultureInfo resourceCulture;
+        protected static global::System.Globalization.CultureInfo resourceCulture;
 
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
@@ -45,14 +45,6 @@ namespace Saplin.CPDT.UICore.Localization
             set
             {
                 resourceCulture = value;
-            }
-        }
-
-        public string this[string key]
-        {
-            get
-            {
-                return ResourceManager.GetString(key, resourceCulture);
             }
         }
 
@@ -960,14 +952,6 @@ namespace Saplin.CPDT.UICore.Localization
             get
             {
                 return ResourceManager.GetString("SimpleUIOption", resourceCulture);
-            }
-        }
-
-        public string CantTestNotEnough
-        {
-            get
-            {
-                return ResourceManager.GetString("CantTestNotEnough", resourceCulture);
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿using Saplin.CPDT.UICore.Controls;
 using Saplin.CPDT.UICore.Localization;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -13,6 +14,7 @@ namespace Saplin.CPDT.UICore.ViewModels
     {
         public string locale = Locales.en;
         public bool needInit = true;
+        private readonly NumberFormatInfo nfi = new NumberFormatInfo() { NumberDecimalSeparator = "." };
 
         public L11n()
         {
@@ -31,6 +33,25 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
 
             _Locale = App.Current.Properties[nameof(_Locale)].ToString();
+
+            MinFreeSpaceInit();
+        }
+
+        private void MinFreeSpaceInit()
+        {
+            MinFreeSpaceGb = 1.5f;
+            float i;
+            if (float.TryParse(ViewModelContainer.OptionsViewModel.FileSizeGb, NumberStyles.Any, nfi, out i))
+                MinFreeSpaceGb = i + 0.5f;
+
+            ViewModelContainer.OptionsViewModel.PropertyChanged += (s, e) =>
+            {
+                if (e.PropertyName == nameof(OptionsViewModel.FileSizeGb))
+                {
+                    if (float.TryParse(((OptionsViewModel)s).FileSizeGb, NumberStyles.Any, nfi, out i))
+                        MinFreeSpaceGb = i + 0.5f;
+                }
+            };
         }
 
         public string _Locale
@@ -133,6 +154,30 @@ namespace Saplin.CPDT.UICore.ViewModels
                     RaisePropertyChanged();
                 }
             }
+        }
+
+        public string this[string key]
+        {
+            get
+            {
+                if (key == nameof(CantTestNotEnough)) return CantTestNotEnough;
+
+                return ResourceManager.GetString(key, resourceCulture);
+            }
+        }
+
+        public string CantTestNotEnough
+        {
+            get
+            {
+                return string.Format(ResourceManager.GetString("CantTestNotEnough", resourceCulture), MinFreeSpaceGb);
+            }
+        }
+
+        private float MinFreeSpaceGb
+        {
+            get;
+            set;
         }
     }
 }

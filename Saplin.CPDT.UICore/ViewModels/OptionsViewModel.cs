@@ -114,12 +114,9 @@ namespace Saplin.CPDT.UICore.ViewModels
             {
                 if (string.IsNullOrEmpty(value)) value = "1";
 
-                //float i;
-                //if (!float.TryParse(FileSizeGb, NumberStyles.Any, nfi, out i)) throw new InvalidOperationException("Cant set FileSizeGb to: " + value);
-
                 if (App.Current.Properties[nameof(FileSizeGb)] as string != value)
                 {
-                    App.Current.Properties[nameof(FileSizeGb)] = value;//i.ToString(nfi);
+                    App.Current.Properties[nameof(FileSizeGb)] = value;
 
                     App.Current.SavePropertiesAsync();
                     RaisePropertyChanged();
