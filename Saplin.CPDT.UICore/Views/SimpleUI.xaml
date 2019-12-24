@@ -12,7 +12,7 @@
              HorizontalOptions="CenterAndExpand"
              Margin="28, 16, -10, 16">
     <Label x:Name="label1" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, SimpleUI_StartA}" 
-           VerticalOptions="Center" HorizontalOptions="Center"  HorizontalTextAlignment="Center">
+           VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center">
         <Label.WidthRequest>
             <OnPlatform x:TypeArguments="x:Double">
                 <On Platform="WPF, macOS" Value="94"/>  

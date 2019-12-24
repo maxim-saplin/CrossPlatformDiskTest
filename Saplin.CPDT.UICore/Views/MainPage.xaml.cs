@@ -130,6 +130,16 @@ namespace Saplin.CPDT.UICore
                         {
                             absoluteLayout.Children.Add(c);
                         }
+
+                        var now = DateTime.Now;
+                        if ((now.Month == 12 && now.Day >= 20) || (now.Month == 1 && now.Day <= 10))
+                        {
+                            var lbl = new Label() { Text = "🎄", FontSize = 26 };
+                            lbl.SetBinding(IsVisibleProperty, new Binding("IsSimpleUIStartPageVisible", source: ViewModelContainer.NavigationViewModel));
+                            AbsoluteLayout.SetLayoutBounds(lbl, new Rectangle(0.5, 0.75, 40, 40));
+                            AbsoluteLayout.SetLayoutFlags(lbl, AbsoluteLayoutFlags.PositionProportional);
+                            absoluteLayout.Children.Add(lbl);
+                        }
                     });
 
                 }
@@ -187,12 +197,6 @@ namespace Saplin.CPDT.UICore
 
         private static void AdjustPopupsToWidth(bool narrow)
         {
-            //<Style x:Key="popUpContainer" TargetType="StackLayout">
-            // ..
-            //< OnPlatform x: TypeArguments = "Thickness" >  
-            //< On Platform = "Android" Value = "10, 10, 10, 10" />     
-            //< On Platform = "macOS, WPF" Value = "60, 60, 60, 60" />
-            //</ OnPlatform >
             Xamarin.Forms.Application.Current.Resources["popUpContainer"] = narrow ?
                 Xamarin.Forms.Application.Current.Resources["popUpContainerNarrow"]
                 : Xamarin.Forms.Application.Current.Resources["popUpContainerWide"];
