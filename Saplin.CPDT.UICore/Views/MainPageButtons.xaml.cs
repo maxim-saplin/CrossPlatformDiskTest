@@ -32,11 +32,11 @@ namespace Saplin.CPDT.UICore
             }
         }
 
-        public void OnTest(Object sender, EventArgs e)
-        {
-            var ph = DependencyService.Get<IPlatformHooks>();
-            ph?.TestClick();
-        }
+        //public void OnTest(Object sender, EventArgs e)
+        //{
+        //    var ph = DependencyService.Get<IPlatformHooks>();
+        //    ph?.TestClick();
+        //}
     }
 
 }

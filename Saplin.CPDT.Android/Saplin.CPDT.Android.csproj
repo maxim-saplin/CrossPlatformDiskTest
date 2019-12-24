@@ -54,7 +54,7 @@
     <AndroidLinkSkip>Saplin.CPDT.UICore;Saplin.CPDT.UICore.resources;Saplin.StorageSpeedMeter;CPDT.Extra.Android;Saplin.CPDT.Android;</AndroidLinkSkip>
     <AndroidStoreUncompressedFileExtensions>.png</AndroidStoreUncompressedFileExtensions>
     <AndroidTlsProvider>legacy</AndroidTlsProvider>
-   <!-- <AotAssemblies>true</AotAssemblies>-->
+    <AotAssemblies>true</AotAssemblies>
     <AndroidAotAdditionalArguments>no-write-symbols,nodebug</AndroidAotAdditionalArguments>
     <AndroidHttpClientHandlerType>System.Net.Http.HttpClientHandler</AndroidHttpClientHandlerType>
   </PropertyGroup>
@@ -90,7 +90,6 @@
     <Compile Include="FileSync.cs" />
     <Compile Include="ShareViewProxy.cs" />
     <Compile Include="CachePurger\PurgeService.cs" />
-    <Compile Include="CachePurger\PurgeServiceBinder.cs" />
     <Compile Include="CachePurger\PurgeServiceConnection.cs" />
     <Compile Include="CachePurger\PurgeServiceHandler.cs" />
     <Compile Include="CachePurger\Purger.cs" />

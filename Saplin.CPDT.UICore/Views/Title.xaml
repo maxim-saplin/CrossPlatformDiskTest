@@ -11,5 +11,8 @@
             </OnPlatform>
         </ctrl2:ExtendedLabel.IsVisible>
     </ctrl2:ExtendedLabel>
-    <Label x:Name="quitingMessage" IsVisible="false" Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=Quiting}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" VerticalOptions="Start" />
+
+    <Label x:Name="newYear" Text="🎄" IsVisible="false" HorizontalOptions="EndAndExpand"/>
+
+    <Label x:Name="quitingMessage" IsVisible="false" Text="{Binding Source={Static vm:ViewModelContainer.L11n}, Path=Quiting}" HorizontalOptions="End" HorizontalTextAlignment="End" VerticalOptions="Start" />
 </StackLayout>

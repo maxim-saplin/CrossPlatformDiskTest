@@ -86,7 +86,7 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             Action<DriveDetailed, int> setEnoughSpaceAndIndex = (DriveDetailed d, int i) =>
             {
-                const int extraSpace = 1024 * 1024 * 1024;
+                const int extraSpace = 512 * 1024 * 1024;
                 d.EnoughSpace = d.BytesFree > FileSize + extraSpace;
                 d.DisplayIndex = d.BytesFree > FileSize + extraSpace ? (i < 9 ? (i+1).ToString()[0] : '.') : ' ';
 
@@ -441,12 +441,15 @@ namespace Saplin.CPDT.UICore.ViewModels
                              var freeMemService = DependencyService.Get<IFreeMemory>(DependencyFetchTarget.NewInstance);
                              var flushService = DependencyService.Get<IFileSync>();
                              var diService = DependencyService.Get<IDeviceInfo>();
+                             var cachePurger = DependencyService.Get<ICachePurger>();
+                             if (cachePurger != null) cachePurger.SetBreackCheckFunc(() => breakingTest);
 
                              testSuite = new BigTest(
                                 driveNameToUse,
                                 optionsVm.FileSizeBytes,
                                 optionsVm.WriteBufferingBool, 
-                                memCache, 
+                                memCache,
+                                purger : cachePurger,
                                 purgingFilePath: androidCachePurgeFile,
                                 freeMem: freeMemService == null ? null : (Func<long>)(freeMemService.GetBytesFree),
                                 totalMem: diService == null ? -1 : (long)(diService.GetRamSizeGb()*1024*1024*1024),
@@ -638,7 +641,7 @@ namespace Saplin.CPDT.UICore.ViewModels
         }
 
         private volatile bool testStartedInternal;
-        private bool breakingTest = false;
+        private volatile bool breakingTest = false;
 
         private ICommand breakTest;
         public ICommand BreakTest

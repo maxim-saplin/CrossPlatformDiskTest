@@ -1,34 +1,116 @@
-﻿using Android.Content;
+﻿using System;
+using System.Diagnostics;
+using System.IO;
+using System.Threading.Tasks;
+using Android.Content;
 using Android.OS;
 using Android.Widget;
 using Java.Lang;
 using Saplin.StorageSpeedMeter;
+using Xamarin.Forms;
 
+[assembly: Dependency(typeof(Saplin.CPDT.Droid.CachePurger.Purger))]
 namespace Saplin.CPDT.Droid.CachePurger
 {
     public class Purger : ICachePurger
     {
-        private const int timeoutSeconds = 30000;
+        const int filePurgeTimeMs = 7000;
+        private const int serviceRunningTimeoutSeconds = 7000;
         private const int reconnectionTimeoutMs = 3000; // it took 2-3 secs to launch service on Nexus 5x
         private const int pollDelayMs = 100;
+        const long blocksToWrite = 32;
+        const long maxFileSize = Common.blockSize * 30;
+        private Random rand = new Random();
         private readonly Intent serviceToStart = new Intent(MainActivity.Instance, typeof(PurgeService));
         private static readonly PurgeServiceConnection serviceConnection = new PurgeServiceConnection(MainActivity.Instance);
+        private Func<bool> checkBreakCalled;
+        private string cachePurgeFile;
 
         public Purger()
         { 
             MainActivity.Instance.BindService(serviceToStart, serviceConnection, Bind.AutoCreate);
+            var appDir = MainActivity.Instance.GetExternalFilesDir(null);
+            cachePurgeFile = Path.Combine(appDir.AbsolutePath, "CPDT_CachePurging.dat");
         }
 
-        /// <summary>
-        /// !NEVER run on main thread
-        /// </summary>
         public void Purge()
         {
             System.Diagnostics.Debug.WriteLine("Purger - starting");
+            try
+            {
+                var t = Task.Run(() => SidePurgeInService());
+                WriteDummyFile();
+
+                t.Wait();
+            }
+            catch{ }
+        }
+
+        private void WriteDummyFile()
+        {
+            if (checkBreakCalled()) return;
+
+            Stream stream = null;
+
+            try
+            {
+                stream = new FileStream(cachePurgeFile, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+
+                var blocks = Common.AllocNBlocks(3);
+
+                System.Diagnostics.Debug.WriteLine("Writign fake file");
+
+                stream.Seek(0, SeekOrigin.Begin);
+                long fileExtra = 0;
+                var blockIndex = 0;
+
+                if (blocks.Count > 0)
+                {
+                    var r = (byte)rand.Next();
+                    var sw = new Stopwatch();
+                    sw.Start();
+                    for (int i = 0; i < blocksToWrite; i++)
+                    {
+                        if (checkBreakCalled() || sw.ElapsedMilliseconds > filePurgeTimeMs) { break; }
+
+                        if (fileExtra >= maxFileSize)
+                        {
+                            stream.Seek(0, SeekOrigin.Begin);
+                            fileExtra = 0;
+                        }
+
+                        if (blockIndex >= blocks.Count) blockIndex = 0;
+
+                        for (int k = 0; k < blocks[blockIndex].Length; k += 256)
+                            blocks[blockIndex][k] = r++;
+
+                        stream.Write(blocks[blockIndex], 0, blocks[blockIndex].Length);
+
+                        fileExtra += Common.blockSize;
+                        blockIndex++;
+                    }
+                    sw.Stop();
+                }
+            }
+            finally
+            {
+                if (!checkBreakCalled())
+                {
+                    if (!checkBreakCalled()) Thread.Sleep(321);
+                }
+
+                stream?.Close();
+                File.Delete(cachePurgeFile);
+            }
+        }
+
+        private void SidePurgeInService()
+        {
+            if (checkBreakCalled()) return;
 
             RestoreServiceConnection();
 
-            System.Diagnostics.Debug.WriteLine("Purger - Running allocations");
+            System.Diagnostics.Debug.WriteLine("Purger - Service - Running allocations");
             if (serviceConnection.Messenger != null)
             {
                 try
@@ -38,32 +120,67 @@ namespace Saplin.CPDT.Droid.CachePurger
                 }
                 catch (RemoteException ex)
                 {
-                    System.Diagnostics.Debug.WriteLine("Purger - Error sending message to PurgeService: " + ex.Message);
+                    System.Diagnostics.Debug.WriteLine("Purger - Service - Error sending message to PurgeService: " + ex.Message);
                 }
             }
             else
             {
-                System.Diagnostics.Debug.WriteLine("Purger - No connection to PurgeService");
+                System.Diagnostics.Debug.WriteLine("Purger - Service - No connection to PurgeService");
             }
 
-
-            var sw = new System.Diagnostics.Stopwatch();
+            var sw = new Stopwatch();
             sw.Start();
 
-            while (sw.ElapsedMilliseconds < timeoutSeconds)
+            while (sw.ElapsedMilliseconds < serviceRunningTimeoutSeconds)
             {
                 if (!serviceConnection.IsConnected)
                 {
-                    System.Diagnostics.Debug.WriteLine("Purger - Connection to PurgeService lost, elapsed ms " + sw.ElapsedMilliseconds);
+                    System.Diagnostics.Debug.WriteLine("Purger - Service - Connection to PurgeService lost, elapsed ms " + sw.ElapsedMilliseconds);
                     break;
                 }
 
+                if (checkBreakCalled())
+                {
+                    Break();
+                    return;
+                }
                 Thread.Sleep(pollDelayMs);
             }
 
+            System.Diagnostics.Debug.WriteLine("Purger - Service - done, Breaking as finalization " + sw.ElapsedMilliseconds);
+            Break();
+
             sw.Stop();
 
-            System.Diagnostics.Debug.WriteLine("Purger - done, elapsed ms " + sw.ElapsedMilliseconds);
+            System.Diagnostics.Debug.WriteLine("Purger - Service - done, elapsed ms " + sw.ElapsedMilliseconds);
+        }
+
+        private void RestoreServiceConnection()
+        {
+            var sw = new Stopwatch();
+            sw.Start();
+
+            if (!serviceConnection.IsConnected)
+            {
+                System.Diagnostics.Debug.WriteLine("Purger - Service - relaunching service, waiting for online status of the connection...");
+
+                MainActivity.Instance.BindService(serviceToStart, serviceConnection, Bind.AutoCreate);
+
+                while (sw.ElapsedMilliseconds < reconnectionTimeoutMs)
+                {
+                    if (serviceConnection.IsConnected)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Purger - Service - Connection elstblished, elapsed ms " + sw.ElapsedMilliseconds);
+                        break;
+                    }
+
+                    if (checkBreakCalled()) return;
+                    Thread.Sleep(pollDelayMs);
+                }
+
+                if (!serviceConnection.IsConnected)
+                    System.Diagnostics.Debug.WriteLine("Purger - Service - Connection NOT elstblished, elapsed ms " + sw.ElapsedMilliseconds);
+            }
         }
 
         public void Break()
@@ -89,31 +206,9 @@ namespace Saplin.CPDT.Droid.CachePurger
             Toast.MakeText(Android.App.Application.Context, "Purger.Break", ToastLength.Short).Show();
         }
 
-        private void RestoreServiceConnection()
+        public void SetBreackCheckFunc(Func<bool> checkBreakCalled)
         {
-            var sw = new System.Diagnostics.Stopwatch();
-            sw.Start();
-
-            if (!serviceConnection.IsConnected)
-            {
-                System.Diagnostics.Debug.WriteLine("Purger - relaunching service, waiting for online status of the connection...");
-
-                MainActivity.Instance.BindService(serviceToStart, serviceConnection, Bind.AutoCreate);
-
-                while (sw.ElapsedMilliseconds < reconnectionTimeoutMs)
-                {
-                    if (serviceConnection.IsConnected)
-                    {
-                        System.Diagnostics.Debug.WriteLine("Purger - Connection elstblished, elapsed ms " + sw.ElapsedMilliseconds);
-                        break;
-                    }
-
-                    Thread.Sleep(pollDelayMs);
-                }
-
-                if (!serviceConnection.IsConnected)
-                    System.Diagnostics.Debug.WriteLine("Purger - Connection NOT elstblished, elapsed ms " + sw.ElapsedMilliseconds);
-            }
+            this.checkBreakCalled = checkBreakCalled;
         }
 
         public void Release()

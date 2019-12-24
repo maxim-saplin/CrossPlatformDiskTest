@@ -9,8 +9,8 @@
     HorizontalOptions="Center" Orientation="Horizontal" Spacing="0" Padding="0,15,0,15"
     BindingContext="{x:Static vm:ViewModelContainer.NavigationViewModel}"
 >
-    <!--<Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=Database}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding ShowDb}" ctrl:KeyPress.CommandOnKeyPress="True" IsEnabled="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=IsEnabled}" />
-    <Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=OptionsButton}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding ShowOptions}" ctrl:KeyPress.CommandOnKeyPress="True" />-->
+    <Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=Database}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding ShowDb}" ctrl:KeyPress.CommandOnKeyPress="True" IsEnabled="{Binding Source={x:Static vm:ViewModelContainer.ResultsDbViewModel}, Path=IsEnabled}" />
+    <Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=OptionsButton}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding ShowOptions}" ctrl:KeyPress.CommandOnKeyPress="True" />
     <Button x:Name="refreshButton" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, Path=RefreshButton}" Style="{x:StaticResource Key=ButtonStyle}" Command="{Binding Refresh}" ctrl:KeyPress.CommandOnKeyPress="True">
         <Button.IsVisible>
             <OnPlatform x:TypeArguments="x:Boolean">
@@ -19,6 +19,6 @@
             </OnPlatform>
         </Button.IsVisible>
     </Button>
-    <!--<Button Text="[?]" Style="{x:StaticResource Key=ButtonStyle}" WidthRequest="60" Command="{Binding ShowAbout}" ctrl:KeyPress.CommandOnKeyPress="True" />-->
-    <Button Text="Test" Clicked="OnTest" />
+    <Button Text="[?]" Style="{x:StaticResource Key=ButtonStyle}" WidthRequest="60" Command="{Binding ShowAbout}" ctrl:KeyPress.CommandOnKeyPress="True" />
+    <!--<Button Text="Test" Clicked="OnTest" />-->
 </StackLayout>
