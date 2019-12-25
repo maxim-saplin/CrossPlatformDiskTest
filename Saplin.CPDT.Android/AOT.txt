@@ -106,3 +106,8 @@ Experiments #2 (time/size not comparable to #1) with stripping out more AOT libs
 Experiments with lib pre-load on 2.2.4 (AndroidEnablePreloadAssemblies):
 1) with. Pre-load, start-up time ~3100ms
 2) without. Pre-load, ~3100-3150ms
+
+
+25.12.2019
+/Library/Frameworks/Xamarin.Android.framework/Versions/10.0.6.2/lib/xamarin.android/xbuild/Xamarin/Android
+<_ResolvedUserAssemblies2 Include="Tmp/android/assets/Xamarin.Forms.Core.dll;Tmp/android/assets/Saplin.CPDT.UICore.dll;"/>

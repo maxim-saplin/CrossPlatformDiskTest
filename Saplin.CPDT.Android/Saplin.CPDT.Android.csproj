@@ -52,11 +52,12 @@
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidAapt2LinkExtraArgs>--no-version-vectors -c en-rUS</AndroidAapt2LinkExtraArgs>
     <AndroidLinkSkip>Saplin.CPDT.UICore;Saplin.CPDT.UICore.resources;Saplin.StorageSpeedMeter;CPDT.Extra.Android;Saplin.CPDT.Android;</AndroidLinkSkip>
-    <AndroidStoreUncompressedFileExtensions>.png</AndroidStoreUncompressedFileExtensions>
     <AndroidTlsProvider>legacy</AndroidTlsProvider>
     <AotAssemblies>true</AotAssemblies>
     <AndroidAotAdditionalArguments>no-write-symbols,nodebug</AndroidAotAdditionalArguments>
     <AndroidHttpClientHandlerType>System.Net.Http.HttpClientHandler</AndroidHttpClientHandlerType>
+    <AndroidLinkTool>r8</AndroidLinkTool>
+    <AndroidR8ExtraArguments>--no-tree-shaking</AndroidR8ExtraArguments> <!-- Out of process cache purging service crashes with R8 default settings as there's some Mono class which can't be found, possible the result of R8 -->
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />

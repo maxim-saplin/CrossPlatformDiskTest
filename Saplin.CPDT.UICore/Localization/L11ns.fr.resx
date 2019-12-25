@@ -211,8 +211,7 @@
     <value>Copie de la mémoire</value>
   </data>
   <data name="MemCopyTestShort" xml:space="preserve">
-    <value>Copie
-mémoire</value>
+    <value>Copie mémoire</value>
   </data>
   <data name="MemCopyTestShortNB" xml:space="preserve">
     <value>Copie mémoire</value>
@@ -239,11 +238,10 @@ mémoire</value>
     <value>Quitter</value>
   </data>
   <data name="RandomReadTest" xml:space="preserve">
-    <value>Lecture séquentiel </value>
+    <value>Lecture aléat</value>
   </data>
   <data name="RandomReadTestShort" xml:space="preserve">
-    <value>Lecture
-aléat.</value>
+    <value>Lecture aléat.</value>
   </data>
   <data name="RandomReadTestShortNB" xml:space="preserve">
     <value>Lecture aléat.</value>
@@ -252,11 +250,10 @@ aléat.</value>
     <value>Ecriture aléatoire </value>
   </data>
   <data name="RandomWriteTestShort" xml:space="preserve">
-    <value>Ecriture
-aléat.</value>
+    <value>Ecrit. aléat.</value>
   </data>
   <data name="RandomWriteTestShortNB" xml:space="preserve">
-    <value>Ecriture aléatoire</value>
+    <value>Ecrit. aléat.</value>
   </data>
   <data name="RefreshButton" xml:space="preserve">
     <value>[R]afraichir</value>
@@ -265,8 +262,7 @@ aléat.</value>
     <value>Lecture séq.</value>
   </data>
   <data name="SequentialReadTestShort" xml:space="preserve">
-    <value>Lecture
-séq.</value>
+    <value>Lecture séq.</value>
   </data>
   <data name="SequentialReadTestShortNB" xml:space="preserve">
     <value>Lecture séq.</value>
@@ -275,11 +271,10 @@ séq.</value>
     <value>Ecriture séq.</value>
   </data>
   <data name="SequentialWriteTestShort" xml:space="preserve">
-    <value>Ecriture
-séq.</value>
+    <value>Ecrit. séq.</value>
   </data>
   <data name="SequentialWriteTestShortNB" xml:space="preserve">
-    <value>Ecriture séq.</value>
+    <value>Ecrit. séq.</value>
   </data>
   <data name="StatusBreakingTest" xml:space="preserve">
     <value>RUPTURE DU TEST</value>
