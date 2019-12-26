@@ -4,7 +4,6 @@ using System.IO;
 using System.Threading.Tasks;
 using Android.Content;
 using Android.OS;
-using Android.Widget;
 using Java.Lang;
 using Saplin.StorageSpeedMeter;
 using Xamarin.Forms;
@@ -27,8 +26,10 @@ namespace Saplin.CPDT.Droid.CachePurger
         private string cachePurgeFile;
 
         public Purger()
-        { 
-            MainActivity.Instance.BindService(serviceToStart, serviceConnection, Bind.AutoCreate);
+        {
+            if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Lollipop) // smth is wrong with KitKat, don't start the service
+                MainActivity.Instance.BindService(serviceToStart, serviceConnection, Bind.AutoCreate);
+
             var appDir = MainActivity.Instance.GetExternalFilesDir(null);
             cachePurgeFile = Path.Combine(appDir.AbsolutePath, "CPDT_CachePurging.dat");
         }
@@ -38,10 +39,12 @@ namespace Saplin.CPDT.Droid.CachePurger
             System.Diagnostics.Debug.WriteLine("Purger - starting");
             try
             {
-                var t = Task.Run(() => SidePurgeInService());
+                Task t = null;
+
+                if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Lollipop) t = Task.Run(() => SidePurgeInService());
                 WriteDummyFile();
 
-                t.Wait();
+                t?.Wait();
             }
             catch{ }
         }
@@ -106,6 +109,8 @@ namespace Saplin.CPDT.Droid.CachePurger
 
         private void SidePurgeInService()
         {
+            if (Android.OS.Build.VERSION.SdkInt < Android.OS.BuildVersionCodes.Lollipop) return;
+
             if (checkBreakCalled()) return;
 
             RestoreServiceConnection();
@@ -157,6 +162,8 @@ namespace Saplin.CPDT.Droid.CachePurger
 
         private void RestoreServiceConnection()
         {
+            if (Android.OS.Build.VERSION.SdkInt < Android.OS.BuildVersionCodes.Lollipop) return;
+
             var sw = new Stopwatch();
             sw.Start();
 
@@ -185,6 +192,8 @@ namespace Saplin.CPDT.Droid.CachePurger
 
         public void Break()
         {
+            if (Android.OS.Build.VERSION.SdkInt < Android.OS.BuildVersionCodes.Lollipop) return;
+
             System.Diagnostics.Debug.Write("Purger - Breaking");
             if (serviceConnection.Messenger != null)
             {

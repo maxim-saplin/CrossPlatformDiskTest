@@ -119,7 +119,7 @@ namespace Saplin.CPDT.UICore.Controls
         }
 
         /// <summary>
-        /// Clicking in any place of Master will toggle teh Master/Detail, ToggleDetailOnClicked is an attached property which can be used to track clicks on specific chile items within Master
+        /// Clicking in any place of Master will toggle teh Master/Detail, ToggleDetailOnClicked is an attached property which can be used to track clicks on specific child items within Master
         /// </summary>
         public bool ToggleOnMasterClick { get; set; }
 
@@ -457,14 +457,6 @@ namespace Saplin.CPDT.UICore.Controls
                         {
                             CreateDetailControls(i);
                         }
-
-                        //Device.BeginInvokeOnMainThread(() =>
-                        //{
-                        //    foreach (var i in list)
-                        //    {
-                        //        AddDetailControls(i, false);
-                        //    }
-                        //});
                     });
 
                 }
