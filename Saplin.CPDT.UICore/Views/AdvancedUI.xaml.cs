@@ -15,5 +15,10 @@ namespace Saplin.CPDT.UICore
         {
             buttons.AdaptLayoytToScreenWidth(narrow);
         }
+
+        public void MakeDbButtonRedirecting()
+        {
+            buttons.MakeDbButtonRedirecting();
+        }
     }
 }

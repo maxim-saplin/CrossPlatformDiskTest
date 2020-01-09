@@ -12,7 +12,7 @@ namespace Saplin.CPDT.UICore.ViewModels
 {
     public class ResultsDbViewModel : PopupViewModel
     {
-        const string cpdt_web_url = @"https://maxim-saplin.github.io/cpdt_results/";
+        public const string cpdt_web_url = @"https://maxim-saplin.github.io/cpdt_results/";
         //const string cpdt_web_url = @"https2://maxim-saplin2.github2.io/cpdt_results/";
         //const string cpdt_web_url = @"http://localhost:3000/";
         const string white_theme_param = "theme=white";
@@ -180,6 +180,8 @@ namespace Saplin.CPDT.UICore.ViewModels
 
         public void PreLoadComparison(TestSession session)
         {
+            if (!navigatedSuccesfullyAtLeastOnce) return; // if there were previuos issues with webview and there was no a single successfull navigtation prior to comparison then don't attempt to set any webview properties
+
             var url = GetCompareUrl(session);
             if (CheckUrlChanged(url)) webView.Source = url;
         }
@@ -209,6 +211,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             //if (navigatedNotSuccesfully) return;
             IsEnabled = true;
             navigatedNotSuccesfully = false;
+            navigatedSuccesfullyAtLeastOnce = true;
             RaisePropertyChanged(nameof(NotAvailable));
 
             if (doShowAfterNavigated)
@@ -219,6 +222,7 @@ namespace Saplin.CPDT.UICore.ViewModels
         }
 
         private bool navigatedNotSuccesfully = false;
+        private bool navigatedSuccesfullyAtLeastOnce = false;
         private void NavigatedNotSuccesfully()
         {
             IsEnabled = false;

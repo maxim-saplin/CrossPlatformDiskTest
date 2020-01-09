@@ -70,8 +70,9 @@ namespace Saplin.CPDT.UICore
                 testCompletion = new TestCompletion();
                 testSessionsPlaceholder = new TestSessionsPlaceholder();
                 popups = new Popups();
-                onlineDb = new OnlineDb();
 
+                onlineDb = new OnlineDb();
+ 
                 if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
                 {
                     advancedUI = new AdvancedUI();
@@ -126,10 +127,15 @@ namespace Saplin.CPDT.UICore
                         absoluteLayout.Children.Add(popups);
                         absoluteLayout.Children.Add(testCompletion);
 
-                        foreach (var c in onlineDb.Children.ToArray())
+                        // From time to time devices don't have webview installed or properly configured, this may lead to app crash
+                        try
                         {
-                            absoluteLayout.Children.Add(c);
+                            foreach (var c in onlineDb.Children.ToArray())
+                            {
+                                absoluteLayout.Children.Add(c);
+                            }
                         }
+                        catch { advancedUI.MakeDbButtonRedirecting(); };
 
                         var now = DateTime.Now;
                         if ((now.Month == 12 && now.Day >= 20) || (now.Month == 1 && now.Day <= 10))

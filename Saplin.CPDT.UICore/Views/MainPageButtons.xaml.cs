@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Saplin.CPDT.UICore.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -30,6 +31,13 @@ namespace Saplin.CPDT.UICore
                     }
                 }
             }
+        }
+
+        public void MakeDbButtonRedirecting()//Used when there're WebView issues
+        {
+            dbButton.RemoveBinding(Button.CommandProperty);
+            dbButton.IsEnabled = true;
+            dbButton.Clicked += (s, e) => Device.OpenUri(new System.Uri(ResultsDbViewModel.cpdt_web_url));
         }
 
         //public void OnTest(Object sender, EventArgs e)
