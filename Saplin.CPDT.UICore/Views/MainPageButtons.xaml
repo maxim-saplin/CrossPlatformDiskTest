@@ -19,6 +19,7 @@
             </OnPlatform>
         </Button.IsVisible>
     </Button>
-    <Button Text="[?]" Style="{x:StaticResource Key=ButtonStyle}" WidthRequest="60" Command="{Binding ShowAbout}" ctrl:KeyPress.CommandOnKeyPress="True" />
+    <Button Text="[H]" Style="{x:StaticResource Key=ButtonStyle}" BackgroundColor="Green" WidthRequest="50" Command="{Binding ShowAbout}" ctrl:KeyPress.CommandOnKeyPress="True" />
+    <Button Text="[?]" Style="{x:StaticResource Key=ButtonStyle}" BackgroundColor="Green" WidthRequest="50" Command="{Binding ShowAbout}" ctrl:KeyPress.CommandOnKeyPress="True" />
     <!--<Button Text="Test" Clicked="OnTest" />-->
 </StackLayout>
