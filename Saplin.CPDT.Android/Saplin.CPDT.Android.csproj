@@ -49,7 +49,6 @@
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <IntermediateOutputPath>Tmp</IntermediateOutputPath>
     <!--<AndroidPackageFormat>aab</AndroidPackageFormat>-->
-    <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
     <AndroidDexTool>d8</AndroidDexTool>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidAapt2LinkExtraArgs>--no-version-vectors -c en-rUS</AndroidAapt2LinkExtraArgs>
@@ -60,6 +59,7 @@
     <AndroidHttpClientHandlerType>System.Net.Http.HttpClientHandler</AndroidHttpClientHandlerType>
     <AndroidLinkTool>r8</AndroidLinkTool>
     <AndroidR8ExtraArguments>--no-tree-shaking</AndroidR8ExtraArguments> <!-- Out of process cache purging service crashes with R8 default settings as there's some Mono class which can't be found, possible the result of R8 -->
+    <AndroidPackageFormat>aab</AndroidPackageFormat>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -78,7 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.4.0.991477</Version>
+      <Version>4.4.0.991537</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

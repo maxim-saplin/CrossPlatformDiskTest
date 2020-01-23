@@ -114,7 +114,8 @@
                 <!-- col 0-->
                 <Label x:Name="statusBadge" IsVisible="{Binding TestStarted}" TextColor="Orange" Text="🔥" 
                        Opacity="0.5"  HorizontalOptions="Center" LineBreakMode="TailTruncation" VerticalOptions="CenterAndExpand"/>
-                <anim:BounceAnimation x:Name="badgeAnimation" Target="{x:Reference statusBadge}" />
+                <!--<anim:BounceAnimation x:Name="badgeAnimation" Target="{x:Reference statusBadge}" />-->
+                <!-- Somehow there's endless loop in XF internals if animation is enabled, probably happend around XF 4 update-->
                 <!-- col 1-->
                 <Label VerticalOptions="Start" Grid.Column="1" > 
                     <Label.FormattedText>

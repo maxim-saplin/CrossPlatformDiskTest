@@ -13,6 +13,7 @@ namespace Saplin.CPDT.Droid
             var window = activity.Window;
 
             window.ClearFlags(WindowManagerFlags.KeepScreenOn);
+            activity.RequestedOrientation = Android.Content.PM.ScreenOrientation.User;
         }
 
         public void Enable()
@@ -21,6 +22,7 @@ namespace Saplin.CPDT.Droid
             var window = activity.Window;
 
             window.AddFlags(WindowManagerFlags.KeepScreenOn);
+            activity.RequestedOrientation = Android.Content.PM.ScreenOrientation.Locked;
         }
     }
 }
