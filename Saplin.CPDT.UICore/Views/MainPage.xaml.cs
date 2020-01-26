@@ -35,10 +35,6 @@ namespace Saplin.CPDT.UICore
             createMinimalUiTask = Task.Run(() =>
             {
                 ApplyTheme();
-                this.BackgroundColor = backgroundColor;
-
-                title = new Title();
-                title.QuitClicked += OnQuit;
 
                 if (ViewModelContainer.NavigationViewModel.IsSimpleUI)
                 {
@@ -53,10 +49,15 @@ namespace Saplin.CPDT.UICore
             });
 
             InitializeComponent();
+            // Do not touch this page's control until InitilizeComponent is done
+            title = new Title();
+            title.QuitClicked += OnQuit;
 
             On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
 
             createMinimalUiTask.Wait();
+
+            this.BackgroundColor = backgroundColor;
 
             createRestOfUiTask = Task.Run(() =>
             {
