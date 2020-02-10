@@ -118,73 +118,73 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About1" xml:space="preserve">
-    <value>This application uses standard OS's file API (WinAPI on Windows, POSIX on Mac and NDK on Android) to measure the speed of data transfer (in Megabytes per Second) between storage device (HDD, SSD, USB flash drive) and system memory(RAM). API calls are done through .NET Framework/Mono.</value>
+    <value>此应用程序使用标准操作系统的文件API（Windows上的WinAPI，Mac上的POSIX和Android上的NDK）测量存储设备（HDD，SSD，USB闪存驱动器）和系统内存（RAM）之间的数据传输速度（以兆字节/秒为单位）。 ）。 API调用通过.NET Framework / Mono完成。</value>
   </data>
   <data name="About2" xml:space="preserve">
-    <value>Sequential read and sequential write tests transfer large chunks of data (megabytes) between RAM and Storage. These tests are representative of such disk operations as large file copying, video recording/encoding/decoding etc.</value>
+    <value>顺序读和顺序写测试在RAM和存储之间传输大量数据（兆字节）。这些测试代表磁盘操作，例如大文件复制，视频记录/编码/解码等。</value>
   </data>
   <data name="About3" xml:space="preserve">
-    <value>Random tests run for 7 seconds each and do transfers in small chunks (4KB and 32KB) at random positions within the test file. These tests show how file system performance influence applications' load times, copying multiple small files, running database queries etc.</value>
+    <value>随机测试每次运行7秒，并在测试文件中的随机位置进行小块传输（4KB和32KB）。这些测试表明文件系统性能如何影响应用程序的加载时间，复制多个小文件，运行数据库查询等。</value>
   </data>
   <data name="About4" xml:space="preserve">
-    <value>In 'Options' section you might find settings which may influence test results:</value>
+    <value>在“选项”部分，您可能会发现可能会影响测试结果的设置：</value>
   </data>
   <data name="About5" xml:space="preserve">
-    <value>• Write buffering - influences write test. Write operations use intermediary memory buffer and postpone data commit to latter more convenient time for better performance at a cost of less resilient writes (e.g. power failure and not committing to disk write buffer contents).</value>
+    <value>•写缓冲-影响写测试。写入操作使用中间存储缓冲区，将数据推迟到后面的更方便的时间以提供更好的性能，但以较少的弹性写入为代价（例如电源故障并且不提交磁盘写入缓冲区内容）。</value>
   </data>
   <data name="About6" xml:space="preserve">
-    <value>• In-memory file cache - influences read tests. Any file operation requires from OS either transferring file data to memory or memory data to disk, OS will keep those memory pages in RAM until there's pressure for RAM from other apps. In case OS receives subsequent file read/write requests through API it will simply copy the cached memory pages from previous file operations and not utilize the actual storage device. Turning this option on is essential a test of OS's file caching subsystem and RAM speed, rather than storage device test.</value>
+    <value>•内存中文件缓存-影响读取测试。任何文件操作都需要操作系统将文件数据传输到内存或将内存数据传输到磁盘，操作系统会将这些内存页面保留在RAM中，直到其他应用程序要求RAM压力为止。如果操作系统通过API接收到后续的文件读/写请求，它将仅从先前的文件操作中复制缓存的内存页面，而不使用实际的存储设备。启用此选项对于测试OS的文件缓存子系统和RAM速度至关重要，而不是对存储设备进行测试。</value>
   </data>
   <data name="About7" xml:space="preserve">
-    <value>Operations on computers and smartphones are executed by processor (CPU) against data which is loaded in system memory (RAM). This memory is not permanent and limited in size, that's why theres always a permanent storage (SSD, HDD, SD Card - aka "disk/drive"). In many cases the performance of the system is determined not only by CPU (which are usually in the spotlight of advertising and target of numerous benchmarks) but by the performance of memory, specifically RAM and storage. Official specs (especially with smartphones) give little description of storage characteristics, beyond capacity. This application attempts to give clear performance characteristics of memory by  isolating and measuring 3 aspects: the speed of reads (transfers from DRIVE-to-RAM). writes (RAM-to-DRIVE) and system memory (copying data from one area in RAM to another).</value>
+    <value>处理器（CPU）对加载在系统内存（RAM）中的数据执行计算机和智能手机上的操作。该内存不是永久性的，而且大小不受限制，这就是为什么总会有一个永久性存储（SSD，HDD，SD卡-亦称“磁盘/驱动器”）的原因。在许多情况下，系统的性能不仅取决于CPU（通常是广告宣传和众多基准测试的目标），还取决于内存的性能，尤其是RAM和存储的性能。官方规格（尤其是智能手机）对容量以外的存储特性几乎没有描述。此应用程序试图通过隔离和测量3个方面来给出清晰的存储器性能特征：读取速度（从DRIVE到RAM的传输）。写入（RAM到驱动器）和系统内存（将数据从RAM中的一个区域复制到另一区域）。</value>
   </data>
   <data name="About8" xml:space="preserve">
-    <value>The application is open-source, you might want to check project's GitHub at:</value>
+    <value>该应用程序是开源的，您可能想在以下位置查看项目的GitHub：</value>
   </data>
   <data name="AndroidSameAliases" xml:space="preserve">
-    <value>same drive, different aliases</value>
+    <value>相同的驱动器，不同的别名</value>
   </data>
   <data name="AvailableDrives" xml:space="preserve">
-    <value>Available drives:</value>
+    <value>可用驱动器：</value>
   </data>
   <data name="b" xml:space="preserve">
-    <value>B</value>
+    <value>乙</value>
   </data>
   <data name="Block" xml:space="preserve">
-    <value>block</value>
+    <value>块</value>
   </data>
   <data name="bps" xml:space="preserve">
-    <value>B/s</value>
+    <value>每秒</value>
   </data>
   <data name="BreakTest" xml:space="preserve">
-    <value>[Esc, B]reak</value>
+    <value>[Esc, B]打断</value>
   </data>
   <data name="Close" xml:space="preserve">
-    <value>[Esc, C]lose</value>
+    <value>[Esc, C]关</value>
   </data>
   <data name="CsvOption" xml:space="preserve">
-    <value>[E]xport test results to CSV</value>
+    <value>[E]导出为CSV:</value>
   </data>
   <data name="FileSizeOption" xml:space="preserve">
-    <value>[F]ile size:</value>
+    <value>[F]文件大小:</value>
   </data>
   <data name="gb" xml:space="preserve">
     <value>GB</value>
   </data>
   <data name="GbFree" xml:space="preserve">
-    <value>GB free</value>
+    <value>不含GB</value>
   </data>
   <data name="gbps" xml:space="preserve">
     <value>GB/s</value>
   </data>
   <data name="HelpButton" xml:space="preserve">
-    <value>[?, H]elp</value>
+    <value>[?]关于</value>
   </data>
   <data name="HintAndroid" xml:space="preserve">
-    <value>To start tap on a drive in the list above</value>
+    <value>要开始点击上面列表中的驱动器</value>
   </data>
   <data name="HintMisc" xml:space="preserve">
-    <value>To start tests click on a drive in the list above or press number key</value>
+    <value>要开始测试，请单击上方列表中的驱动器，或按数字键</value>
   </data>
   <data name="kb" xml:space="preserve">
     <value>KB</value>
@@ -193,10 +193,10 @@
     <value>KB/s</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>[L]anguage:</value>
+    <value>[L]语言:</value>
   </data>
   <data name="Max" xml:space="preserve">
-    <value>Max</value>
+    <value>最高</value>
   </data>
   <data name="mb" xml:space="preserve">
     <value>MB</value>
@@ -205,194 +205,189 @@
     <value>MB/s</value>
   </data>
   <data name="MemCacheOption" xml:space="preserve">
-    <value>In-[m]emory file cache:</value>
+    <value>[M]内存缓存</value>
   </data>
   <data name="MemCopyTest" xml:space="preserve">
-    <value>Memory copy</value>
+    <value>记忆复制</value>
   </data>
   <data name="MemCopyTestShort" xml:space="preserve">
-    <value>Mem.
-copy</value>
+    <value>记忆复制</value>
   </data>
   <data name="MemCopyTestShortNB" xml:space="preserve">
-    <value>Mem. copy</value>
+    <value>记忆复制</value>
   </data>
   <data name="Compare" xml:space="preserve">
-    <value>⇆ Compare </value>
+    <value>⇆比较</value>
   </data>
   <data name="Share" xml:space="preserve">
-    <value>⬑Share⬏</value>
+    <value>⬑分享⬏</value>
   </data>
   <data name="ShareTitle" xml:space="preserve">
-    <value>CPDT Benchmark: https://play.google.com/store/apps/details?id=com.Saplin.CPDT</value>
+    <value>CPDT基准测试：https://play.google.com/store/apps/details?id=com.Saplin.CPDT</value>
   </data>
   <data name="Min" xml:space="preserve">
-    <value>Min</value>
+    <value>敏</value>
   </data>
   <data name="Off" xml:space="preserve">
-    <value>(Off)</value>
+    <value>（关）</value>
   </data>
   <data name="On" xml:space="preserve">
-    <value>(On)</value>
+    <value>（上）</value>
   </data>
   <data name="OptionsButton" xml:space="preserve">
-    <value>[O]ptions</value>
+    <value>[O]选件</value>
   </data>
   <data name="PickDrive" xml:space="preserve">
-    <value>- pick any drive to run perofrmance test against it</value>
+    <value>-选择任何驱动器对其进行性能测试</value>
   </data>
   <data name="ProjectLink" xml:space="preserve">
     <value>https://github.com/maxim-saplin/CrossPlatformDiskTest</value>
   </data>
   <data name="Quit" xml:space="preserve">
-    <value>[Q]uit</value>
+    <value>[放弃</value>
   </data>
   <data name="Quiting" xml:space="preserve">
-    <value>Terminating application...</value>
+    <value>正在终止申请...</value>
   </data>
   <data name="RandomReadTest" xml:space="preserve">
-    <value>Random read</value>
+    <value>随机读取</value>
   </data>
   <data name="RandomReadTestShort" xml:space="preserve">
-    <value>Rand.
-read</value>
+    <value>随机读取</value>
   </data>
   <data name="RandomReadTestShortNB" xml:space="preserve">
-    <value>Rand. read</value>
+    <value>随机读取</value>
   </data>
   <data name="RandomWriteTest" xml:space="preserve">
-    <value>Random write</value>
+    <value>随机写</value>
   </data>
   <data name="RandomWriteTestShort" xml:space="preserve">
-    <value>Rand.
-write</value>
+    <value>随机写</value>
   </data>
   <data name="RandomWriteTestShortNB" xml:space="preserve">
-    <value>Rand. write</value>
+    <value>随机写</value>
   </data>
   <data name="RefreshButton" xml:space="preserve">
-    <value>[R]efresh</value>
+    <value>[R]刷新</value>
   </data>
   <data name="SequentialReadTest" xml:space="preserve">
-    <value>Sequential read</value>
+    <value>顺序读取</value>
   </data>
   <data name="SequentialReadTestShort" xml:space="preserve">
-    <value>Seq.
-read</value>
+    <value>顺序读取</value>
   </data>
   <data name="SequentialReadTestShortNB" xml:space="preserve">
-    <value>Seq. read</value>
+    <value>顺序读取</value>
   </data>
   <data name="SequentialWriteTest" xml:space="preserve">
-    <value>Sequential write</value>
+    <value>顺序写入</value>
   </data>
   <data name="SequentialWriteTestShort" xml:space="preserve">
-    <value>Seq.
-write</value>
+    <value>顺序写入</value>
   </data>
   <data name="SequentialWriteTestShortNB" xml:space="preserve">
-    <value>Seq. write</value>
+    <value>顺序写入</value>
   </data>
   <data name="StatusBreakingTest" xml:space="preserve">
-    <value>BREAKING TEST</value>
+    <value>突破测试</value>
   </data>
   <data name="StatusTestCompleted" xml:space="preserve">
-    <value>Test has completed execution. Test file deleted</value>
+    <value>测试已完成执行。测试文件已删除</value>
   </data>
   <data name="StatusTestCsvCompleted" xml:space="preserve">
-    <value>Test execution completed. Test results exported to CSV file</value>
+    <value>测试执行完成。测试结果导出到CSV文件</value>
   </data>
   <data name="StatusTestError" xml:space="preserve">
-    <value>Test execution interrupted due to error</value>
+    <value>测试执行由于错误而中断</value>
   </data>
   <data name="StatusTestInterrupted" xml:space="preserve">
-    <value>Test execution interrupted. Test file deleted</value>
+    <value>测试执行中断。测试文件已删除</value>
   </data>
   <data name="TestInitMemBuffer" xml:space="preserve">
-    <value>Initializing test data in RAM...</value>
+    <value>正在初始化RAM中的测试数据...</value>
   </data>
   <data name="TestNotEnoughMemory" xml:space="preserve">
-    <value>Not enough memory</value>
+    <value>内存不足</value>
   </data>
   <data name="TestPurgingMemCache" xml:space="preserve">
-    <value>Purging memory cache...</value>
+    <value>正在清除内存缓存...</value>
   </data>
   <data name="TestRunning" xml:space="preserve">
-    <value>Running test...</value>
+    <value>正在运行测试...</value>
   </data>
   <data name="TestStarted" xml:space="preserve">
-    <value>Test started</value>
+    <value>测试开始</value>
   </data>
   <data name="TestSummaryFormatString" xml:space="preserve">
-    <value>File size: {0} GB. Free space: {1:0.0} GB. Write Buffering: {2}. In-memory file cache: {3}</value>
+    <value>档案大小：{0} GB。可用空间：{1:0.0} GB。写缓冲：{2}。内存中文件缓存：{3}</value>
   </data>
   <data name="TestSummaryShortFormatString" xml:space="preserve">
-    <value>File:{0}GB Free:{1:0.0}GB W.Buffering:{2} Cache:{3}</value>
+    <value>档案大小：{0} GB。可用空间：{1:0.0} GB。写缓冲：{2}。内存中文件缓存：{3}</value>
   </data>
   <data name="TestWarmigUp" xml:space="preserve">
-    <value>Warming up...</value>
+    <value>热身...</value>
   </data>
   <data name="WhiteTheme" xml:space="preserve">
-    <value>[W]hite theme (restart required)</value>
+    <value>[W]白色主题</value>
   </data>
   <data name="WriteBufferingOption" xml:space="preserve">
-    <value>Write [b]uffering:</value>
+    <value>[B]写缓冲</value>
   </data>
   <data name="CClose" xml:space="preserve">
-    <value>Close</value>
+    <value>关</value>
   </data>
   <data name="Database" xml:space="preserve">
-    <value>[D]atabase</value>
+    <value>[D]数据库</value>
   </data>
   <data name="DbNotAvailable" xml:space="preserve">
-    <value>Results Database isn't available. Check internet connection</value>
+    <value>结果数据库不可用。检查互联网连接</value>
   </data>
   <data name="DownloadLink" xml:space="preserve">
-    <value>https://maxim-saplin.github.io/cpdt_results/?download=&amp;lang=en&amp;app=</value>
+    <value>https://maxim-saplin.github.io/cpdt_results/?download=&amp;lang=zh-CN&amp;app=</value>
   </data>
   <data name="About9" xml:space="preserve">
-    <value>You can download the app for different platforms (Windows, macOS, Android/APK) at the following link:</value>
+    <value>您可以通过以下链接下载适用于不同平台（Windows，macOS，Android / APK）的应用程序：</value>
   </data>
   <data name="DownloadLinkShort" xml:space="preserve">
     <value>https://maxim-saplin.github.io/cpdt_results/?download=</value>
   </data>
   <data name="ModeH" xml:space="preserve">
-    <value>Mode</value>
+    <value>模式</value>
   </data>
   <data name="About10" xml:space="preserve">
-    <value>Each of the tests is accompanied by a graph. Sequential and memory copy tests show immediate throughputs (measure for a single block) plotted against blocks' positions. I.e. you can see how speed changes with the progression of the reads/writes toward end of test file. E.g. you might notice that sometimes storage shows lags at the begining of the operation (typical for Android). Random tests show histogram, where each individual's block throughput is placed into a specific bin/range, and the graph shows how read/write operations are distributed depedning on their speed. Long tails can be minimized, i.e. those throghputs on the low and on the high side (ammounting to less than 3% of total measures each) will be combined into single bins on the left and on the right of the graph. If there're vertical lines with arrows on the sides of the histogram, this means that tails have been minimized (in some cases it's not needed) and the bins between those lines with arrows account for 94% of all meaures (min and max values in this case are adjuted to tails and do not show the absolute measured minimum and maximum values). The bin outlined with 2 arrows is the Mode -  the most frequent bin's throughput value (middle point of the bin range).</value>
+    <value>每个测试都有一个图表。顺序和内存复制测试显示了针对块位置绘制的即时吞吐量（单个块的度量）。即您可以看到速度随着读写过程向测试文件末尾的方向变化。例如。您可能会注意到，有时存储在操作开始时会出现滞后现象（对于Android典型）。随机测试显示直方图，其中每个人的数据块吞吐量都放置在特定的bin /范围内，而该图则显示了读写速度如何根据其速度分布。可以将长尾巴减至最小，即，低端和高端的那些ththoththoth（每个量的总和少于总测量值的3％）将组合到图的左侧和右侧的单个bin中。如果在直方图的侧面上有带有箭头的垂直线，则表示尾巴已最小化（在某些情况下不需要），带有箭头的线之间的仓位占所有度量的94％（最小值和最大值）在这种情况下，将其拖到尾部，并且不显示绝对测得的最小值和最大值。用2个箭头概述的垃圾箱是“模式”-最频繁的垃圾箱的吞吐量值（垃圾箱范围的中点）。</value>
   </data>
   <data name="SimpleUI_StartA" xml:space="preserve">
-    <value>Start a</value>
+    <value>开始</value>
   </data>
   <data name="SimpleUI_Test" xml:space="preserve">
-    <value>[T]est</value>
+    <value>[测试</value>
   </data>
   <data name="SimpleUI_OrSee" xml:space="preserve">
-    <value>or see</value>
+    <value>看到</value>
   </data>
   <data name="SimpleUI_More" xml:space="preserve">
-    <value>[M]ore</value>
+    <value>[更多</value>
   </data>
   <data name="SimpleUIOption" xml:space="preserve">
-    <value>[S]imple UI</value>
+    <value>[S]分享</value>
   </data>
   <data name="CantTestNotEnough" xml:space="preserve">
-    <value>Cant test some drives. {0}GB free space required</value>
+    <value>无法测试某些驱动器。需要{0} GB可用空间</value>
   </data>
   <data name="TestOf" xml:space="preserve">
-    <value>Test {0} of {1}</value>
+    <value>测试{1}之{0}</value>
   </data>
   <data name="TestTotal" xml:space="preserve">
-    <value>Done {0:0}%</value>
+    <value>完成{0:0}％</value>
   </data>
   <data name="InitDrivesError" xml:space="preserve">
-    <value>An error occured while fetching a list of drives/partitions avaialable. Tests cant be executed.</value>
+    <value>提取可用驱动器/分区列表时发生错误。测试无法执行。</value>
   </data>
   <data name="NotEnoughSpaceHint" xml:space="preserve">
-    <value>not enough</value>
+    <value>不够</value>
   </data>
   <data name="NotAccessibleDriveHint" xml:space="preserve">
-    <value>not avaialble</value>
+    <value>不可用</value>
   </data>
 </root>

@@ -83,7 +83,7 @@
           <HintPath>..\packages\SkiaSharp.Views.Forms.1.60.3\lib\Xamarin.Mac20\SkiaSharp.Views.Forms.dll</HintPath>
         </Reference>
         <Reference Include="CPDT.Extra">
-            <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra.git\CPDT.Extra\bin\Debug\netstandard2.0\CPDT.Extra.dll</HintPath>
+            <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra.git\CPDT.Extra\bin\Debug\netstandard2.1\CPDT.Extra.dll</HintPath>
             <HintPath Condition="'$(Configuration)'=='Release'">..\References\CPDT.Extra.dll</HintPath>
         </Reference>
   </ItemGroup>
@@ -145,6 +145,5 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
-  <Import Project="..\packages\Xamarin.Forms.4.2.0.815419\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.4.2.0.815419\build\Xamarin.Forms.targets')" />
   <Import Project="..\packages\Xamarin.Forms.4.4.0.991537\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.4.4.0.991537\build\Xamarin.Forms.targets')" />
 </Project>

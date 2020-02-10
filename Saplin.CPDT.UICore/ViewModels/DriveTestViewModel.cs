@@ -464,6 +464,7 @@ namespace Saplin.CPDT.UICore.ViewModels
 
                              FileNameAndTime = testSuite.FilePath+", "+string.Format("{0:HH:mm:ss} {0:d.MM.yyyy}", TestStartedTime);
                              FileName = testSuite.FilePath;
+
                              Options = string.Format(
                                  ViewModelContainer.NavigationViewModel.IsNarrowView ? l11n.TestSummaryShortFormatString : l11n.TestSummaryFormatString,
                                  optionsVm.FileSizeGb,

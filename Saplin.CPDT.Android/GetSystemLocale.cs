@@ -14,6 +14,7 @@ namespace Saplin.CPDT.Droid
 
             if (l.StartsWith("ru", System.StringComparison.InvariantCultureIgnoreCase)) return Locales.ru;
             else if (l.StartsWith("fr", System.StringComparison.InvariantCultureIgnoreCase)) return Locales.fr;
+            else if (l.StartsWith("zh", System.StringComparison.InvariantCultureIgnoreCase)) return Locales.zh;
 
             return Locales.en;
         }

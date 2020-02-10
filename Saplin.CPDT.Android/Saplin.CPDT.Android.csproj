@@ -33,12 +33,14 @@
     <IntermediateOutputPath>Tmp</IntermediateOutputPath>
     <AndroidLinkSkip>Saplin.CPDT.UICore;Saplin.CPDT.UICore.resources;Saplin.StorageSpeedMeter;Xamarin.Forms.Xaml</AndroidLinkSkip>
     <AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
-    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
     <AndroidLinkMode>None</AndroidLinkMode>
     <AndroidTlsProvider>legacy</AndroidTlsProvider>
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType></DebugType>
+    <DebugType>
+    </DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
@@ -54,12 +56,12 @@
     <AndroidAapt2LinkExtraArgs>--no-version-vectors -c en-rUS</AndroidAapt2LinkExtraArgs>
     <AndroidLinkSkip>Saplin.CPDT.UICore;Saplin.CPDT.UICore.resources;Saplin.StorageSpeedMeter;CPDT.Extra.Android;Saplin.CPDT.Android;</AndroidLinkSkip>
     <AndroidTlsProvider>legacy</AndroidTlsProvider>
-    <AotAssemblies>true</AotAssemblies>
     <AndroidAotAdditionalArguments>no-write-symbols,nodebug</AndroidAotAdditionalArguments>
     <AndroidHttpClientHandlerType>System.Net.Http.HttpClientHandler</AndroidHttpClientHandlerType>
     <AndroidLinkTool>r8</AndroidLinkTool>
-    <AndroidR8ExtraArguments>--no-tree-shaking</AndroidR8ExtraArguments> <!-- Out of process cache purging service crashes with R8 default settings as there's some Mono class which can't be found, possible the result of R8 -->
-    <AndroidPackageFormat>aab</AndroidPackageFormat>
+    <AndroidR8ExtraArguments>--no-tree-shaking</AndroidR8ExtraArguments>
+    <!-- Out of process cache purging service crashes with R8 default settings as there's some Mono class which can't be found, possible the result of R8 -->
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -68,17 +70,17 @@
       <HintPath Condition="'$(Configuration)'=='Release'">..\References\CPDT.Extra.Android.dll</HintPath>
     </Reference>
     <Reference Include="CPDT.Extra">
-      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra.git\CPDT.Extra\bin\Debug\netstandard2.0\CPDT.Extra.dll</HintPath>
+      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra.git\CPDT.Extra\bin\Debug\netstandard2.1\CPDT.Extra.dll</HintPath>
       <HintPath Condition="'$(Configuration)'=='Release'">..\References\CPDT.Extra.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="Saplin.StorageSpeedMeter">
-      <HintPath>..\..\NetCoreStorageSpeedTest.git\Saplin.StorageSpeedMeter\bin\Debug\netstandard2.0\Saplin.StorageSpeedMeter.dll</HintPath>
+      <HintPath>..\..\NetCoreStorageSpeedTest.git\Saplin.StorageSpeedMeter\bin\Debug\netstandard2.1\Saplin.StorageSpeedMeter.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.4.0.991537</Version>
+      <Version>4.4.0.991640</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -111,12 +113,16 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\values-v21\colors.xml">
-      <SubType></SubType>
-      <Generator></Generator>
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\values-v21\styles.xml">
-      <SubType></SubType>
-      <Generator></Generator>
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
@@ -154,8 +160,6 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\splash.png" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Folder Include="CachePurger\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

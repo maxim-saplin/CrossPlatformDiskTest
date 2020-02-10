@@ -15,7 +15,8 @@
     Refresh="{Binding Source={x:Static vm:ViewModelContainer.L11n}, _Locale}">
     <ctrl:StackRepeater.ItemTemplate>
         <DataTemplate x:DataType="vm:TestSession">
-            <ctrl:MasterDetail SelectionGroup="testSessions" IsDetailVisible="{Binding Selected}" Margin="-10, 0, -10, 0" Padding="10, 0, 10, 0" ToggleOnMasterClick="True">
+            <ctrl:MasterDetail SelectionGroup="testSessions" IsDetailVisible="{Binding Selected}" Margin="-10, 0, -10, 0" Padding="10, 0, 10, 0">
+
                 <ctrl:MasterDetail.MasterTemplate>
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="-10, 0, -10, 0" Padding="10, 4, 10, 0">

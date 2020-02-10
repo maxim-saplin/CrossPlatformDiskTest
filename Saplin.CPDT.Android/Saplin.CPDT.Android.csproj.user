@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
     <AndroidDesignerPreferredTheme>Theme.Material</AndroidDesignerPreferredTheme>
-    <SelectedDevice>Meizu 16th</SelectedDevice>
+    <SelectedDevice>Samsung SM-G930F</SelectedDevice>
     <DefaultDevice>Android_Accelerated_x86_Oreo</DefaultDevice>
   </PropertyGroup>
 </Project>

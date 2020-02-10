@@ -1,16 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
     <DebugType>pdbonly</DebugType>
-    <ReleaseVersion>2.3.1</ReleaseVersion>
-    <Version>2.3.1</Version>
-    <AssemblyVersion>2.3.1.0</AssemblyVersion>
-    <FileVersion>2.3.1.0</FileVersion>
+    <ReleaseVersion>2.3.2</ReleaseVersion>
+    <Version>2.3.2</Version>
+    <AssemblyVersion>2.3.2.0</AssemblyVersion>
+    <FileVersion>2.3.2.0</FileVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -52,6 +52,9 @@
     <None Remove="Img\ruAboutBlackTheme.png" />
     <None Remove="Img\ruAboutWhiteTheme.png" />
     <None Remove=".DS_Store" />
+    <None Remove="Img\zh.png" />
+    <None Remove="Img\zhAboutBlackTheme.png" />
+    <None Remove="Img\zhAboutWhiteTheme.png" />
     <None Remove="Views\MainPage.xaml" />
   </ItemGroup>
   <ItemGroup>
@@ -64,17 +67,20 @@
     <EmbeddedResource Include="Img\frAboutWhiteTheme.png" />
     <EmbeddedResource Include="Img\ruAboutBlackTheme.png" />
     <EmbeddedResource Include="Img\ruAboutWhiteTheme.png" />
+    <EmbeddedResource Include="Img\zh.png" />
+    <EmbeddedResource Include="Img\zhAboutBlackTheme.png" />
+    <EmbeddedResource Include="Img\zhAboutWhiteTheme.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CPDT.Extra">
-      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra.git\CPDT.Extra\bin\Debug\netstandard2.0\CPDT.Extra.dll</HintPath>
+      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra.git\CPDT.Extra\bin\Debug\netstandard2.1\CPDT.Extra.dll</HintPath>
       <HintPath Condition="'$(Configuration)'=='Release'">..\References\CPDT.Extra.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Posix.NETStandard">
       <HintPath>..\References\Mono.Posix.NETStandard.dll</HintPath>
     </Reference>
     <Reference Include="Saplin.StorageSpeedMeter">
-      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\NetCoreStorageSpeedTest.git\Saplin.StorageSpeedMeter\bin\Debug\netstandard2.0\Saplin.StorageSpeedMeter.dll</HintPath>
+      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\NetCoreStorageSpeedTest.git\Saplin.StorageSpeedMeter\bin\Debug\netstandard2.1\Saplin.StorageSpeedMeter.dll</HintPath>
       <HintPath Condition="'$(Configuration)'=='Release'">..\References\Saplin.StorageSpeedMeter.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -191,7 +197,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991537" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.3" />
   </ItemGroup>
 </Project>
