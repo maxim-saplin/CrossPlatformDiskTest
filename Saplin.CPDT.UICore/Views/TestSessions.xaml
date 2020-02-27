@@ -28,7 +28,7 @@
                                 </ctrl2:ExtendedLabel.Style>
                             </ctrl2:ExtendedLabel>
                             <BoxView Style="{StaticResource VerticalLine}" IsVisible="{Binding Selected}" Margin="0, 0, 4, 0" />
-                            <BoxView Style="{StaticResource VerticalLineGray}" IsVisible="{Binding Selected, Converter={StaticResource BoolNot}" Margin="0, 0, 4, 0" />
+                            <BoxView Style="{StaticResource VerticalLineGray}" IsVisible="{Binding Selected, Converter={StaticResource BoolNot}}" Margin="0, 0, 4, 0" />
                             <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                     <Label Text="{Binding OrderNumber, StringFormat='#{0}:', Mode=OneTime}" LineBreakMode="NoWrap"/>

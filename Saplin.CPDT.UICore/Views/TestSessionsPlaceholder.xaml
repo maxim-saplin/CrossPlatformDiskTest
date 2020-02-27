@@ -5,7 +5,7 @@
              xmlns:ctrl="clr-namespace:Saplin.CPDT.UICore.Controls" 
              xmlns:local="clr-namespace:Saplin.CPDT.UICore" 
              xmlns:vm="clr-namespace:Saplin.CPDT.UICore.ViewModels" 
-             IsVisible="{Binding Source={Static vm:ViewModelContainer.DriveTestViewModel}, TestStarted, Converter={StaticResource BoolNot}"
+             IsVisible="{Binding Source={Static vm:ViewModelContainer.DriveTestViewModel}, TestStarted, Converter={StaticResource BoolNot}}"
              Margin="-10, 0, -10, 0" Padding="10, 0, 10, 0"
              x:Name="testSessionsPlaceholder">
     <!--<local:TestSessionsNarrow/>-->

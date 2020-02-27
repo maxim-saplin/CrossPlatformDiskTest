@@ -163,7 +163,7 @@
                 <Label IsVisible="{Binding ShowCurrentSpeed}" Style="{StaticResource AccentedLabel}" VerticalOptions="CenterAndExpand" Grid.Column="1">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="{Binding RecentResultMbps, Converter={StaticResource MbPerSecondToAuto}" />
+                            <Span Text="{Binding RecentResultMbps, Converter={StaticResource MbPerSecondToAuto}}" />
                             <Span Text="{Binding RecentResultMbps, Mode=OneWay, Converter={StaticResource MbPerSecondToAutoUnit} , StringFormat='&#10;{0}'}}" Style="{StaticResource AccentedItalicSpan}" /> 
                         </FormattedString>
                     </Label.FormattedText>
