@@ -181,14 +181,19 @@ namespace Saplin.CPDT.UICore.Controls
 
                 var text = newValue as string;
 
-                if (!string.IsNullOrEmpty(oldValue as string) && (newValue as string == null))
+                // JIC if async load creates troubles with crashes that are registered in GPlay
+                lock (attachedControls)
                 {
-                    DeleteControl(bindable);
-                }
-                else if (!string.IsNullOrEmpty(text))
-                {
-                    if (bindable is Button) (bindable as Button).Text = text; else (bindable as ExtendedLabel).Text = text;
-                    ReRegisterControl(bindable);
+
+                    if (!string.IsNullOrEmpty(oldValue as string) && (newValue as string == null))
+                    {
+                        DeleteControl(bindable);
+                    }
+                    else if (!string.IsNullOrEmpty(text))
+                    {
+                        if (bindable is Button) (bindable as Button).Text = text; else (bindable as ExtendedLabel).Text = text;
+                        ReRegisterControl(bindable);
+                    }
                 }
             }
         }
@@ -218,21 +223,26 @@ namespace Saplin.CPDT.UICore.Controls
             {
                 if (!string.IsNullOrEmpty(KeyPress.GetCommandText(bindable))) throw new InvalidOperationException("Can't simultaneously set KeyPress.CommandOnKeyPress and KeyPress.CommandText attached properties");
 
-                if (((bool)oldValue == true) && ((bool)newValue == false))
+                // JIC if async load creates troubles with crashes that are registered in GPlay
+                lock (attachedControls)
                 {
-                    DeleteControl(bindable);
-                }
-                else if ((bool)newValue)
-                {
-                    ReRegisterControl(bindable);
 
-                    bindable.PropertyChanged += (s, e) =>
+                    if (((bool)oldValue == true) && ((bool)newValue == false))
                     {
-                        if (e.PropertyName == "Text")
+                        DeleteControl(bindable);
+                    }
+                    else if ((bool)newValue)
+                    {
+                        ReRegisterControl(bindable);
+
+                        bindable.PropertyChanged += (s, e) =>
                         {
-                            ReRegisterControl(bindable);
-                        }
-                    };
+                            if (e.PropertyName == "Text")
+                            {
+                                ReRegisterControl(bindable);
+                            }
+                        };
+                    }
                 }
             }
         }
@@ -283,20 +293,23 @@ namespace Saplin.CPDT.UICore.Controls
 
         private static void ReAddControl(BindableObject bindable, string[] texts)
         {
-            DeleteControl(bindable);
-            attachedControls.Add(
-                new ExtendedBindable
-                {
-                    bindable = bindable,
-                    keys = texts,
-                    parents = null
-                }
-            );
+
+                DeleteControl(bindable);
+
+                attachedControls.Add(
+                    new ExtendedBindable
+                    {
+                        bindable = bindable,
+                        keys = texts,
+                        parents = null
+                    }
+                );
+  
         }
 
         private static void DeleteControl(BindableObject bindable)
         {
-            if (attachedControls.Count == 0) return;
+            if (attachedControls == null || attachedControls.Count == 0) return;
 
             int i;
 
