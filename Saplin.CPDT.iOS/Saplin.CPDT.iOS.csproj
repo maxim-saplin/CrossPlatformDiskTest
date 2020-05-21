@@ -126,7 +126,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.2.0.815419" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.800" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Fonts\IBMPlexMono-Italic.ttf" />
