@@ -79,7 +79,7 @@
                 </Label>
                 <!-- col 2-->
                 <ctrl2:TimeSeriesGraph VerticalOptions="CenterAndExpand" Results="{Binding Result, Mode=OneTime}" Trigger="{Binding Result}" IsVisible="{Binding ShowTimeSeries}" Smoothing="{Binding SmoothTimeSeries}"
-                         Clip="True" Color="{StaticResource DefaultColor}" Grid.Column="2" HeightRequest="38">
+                         ClipMax="True" Color="{StaticResource DefaultColor}" Grid.Column="2" HeightRequest="38">
                     <ctrl2:TimeSeriesGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="4, 2, 4, 2"/> 
@@ -177,7 +177,7 @@
                 
                 <!-- col 2 -->
                 <ctrl2:TimeSeriesGraph VerticalOptions="CenterAndExpand" Results="{Binding RecentResults}" Trigger="{Binding ProgressPercent}" IsVisible="{Binding ShowTimeSeries}" Color="{StaticResource DefaultColor}"
-                                      TotalPoints="{Binding SeqTotalBlocks}" Clip="True" Smoothing="{Binding SmoothTimeSeries}" Grid.Column="2" HeightRequest="38">
+                                      TotalPoints="{Binding SeqTotalBlocks}" ClipMax="True" Smoothing="{Binding SmoothTimeSeries}" Grid.Column="2" HeightRequest="38">
                     <ctrl2:TimeSeriesGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="4, 2, 4, 2"/> 

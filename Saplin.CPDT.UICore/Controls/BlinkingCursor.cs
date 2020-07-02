@@ -83,24 +83,27 @@ namespace Saplin.CPDT.UICore.Controls
             textWithoutPrefixWithoutCursor = text;
             textWithoutPrefixWithCursor = text + cursor;
 
-            foreach (var c in controls)
+            for (var i = 0; i < controls.Count; i++) // not using foreach since controls collection can change in another thread
             {
+                var c = controls[i];
                 c.Text = c.ShowPrefix ? textWithPrefixWithoutCursor : textWithoutPrefixWithoutCursor;
             }
         }
 
         private static void ShowTextWithCursor()
         {
-            foreach (var c in controls)
+            for (var i = 0; i < controls.Count; i++) // not using foreach since controls collection can change in another thread
             {
+                var c = controls[i];
                 c.Text = c.ShowPrefix ? textWithPrefixWithCursor : textWithoutPrefixWithCursor;
             }
         }
 
         private static void ShowTextWithoutCursor()
         {
-            foreach (var c in controls)
+            for (var i = 0; i < controls.Count; i++) // not using foreach since controls collection can change in another thread
             {
+                var c = controls[i];
                 c.Text = c.ShowPrefix ? textWithPrefixWithoutCursor : textWithoutPrefixWithoutCursor;
             }
         }

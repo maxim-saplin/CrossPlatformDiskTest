@@ -54,7 +54,7 @@
                 </Label>
               
                 <ctrl2:TimeSeriesGraph Results="{Binding Result}" Trigger="{Binding Result}" IsVisible="{Binding ShowTimeSeries}" Smoothing="{Binding SmoothTimeSeries}"
-                                      Grid.Column="3" Clip="True" Color="{StaticResource DefaultColor}">
+                                      Grid.Column="3" ClipMax="True" Color="{StaticResource DefaultColor}">
                     <ctrl2:TimeSeriesGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="8, 2, 24, 2"/> 
@@ -152,7 +152,7 @@
                 </Label>
 
                 <ctrl2:TimeSeriesGraph Results="{Binding RecentResults}" Trigger="{Binding ProgressPercent}" IsVisible="{Binding ShowTimeSeries}" Color="{StaticResource DefaultColor}"
-                                      TotalPoints="{Binding SeqTotalBlocks}" Grid.Column="3" Clip="True" Smoothing="{Binding SmoothTimeSeries}">
+                                      TotalPoints="{Binding SeqTotalBlocks}" Grid.Column="3" ClipMax="True" Smoothing="{Binding SmoothTimeSeries}">
                     <ctrl2:TimeSeriesGraph.Margin>
                         <OnPlatform x:TypeArguments="Thickness">
                             <On Platform="macOS, WPF" Value="8, 2, 24, 2"/> 
