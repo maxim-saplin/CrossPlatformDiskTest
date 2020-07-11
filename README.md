@@ -7,7 +7,7 @@ Measuring storage performance (SSD, HDD, USB Flash etc.) and RAM speed across Wi
 ## Download & Try
 
 - Windows (x86 and x64) and .NET Framework 4.8
-  - https://github.com/maxim-saplin/CrossPlatformDiskTest/releases/download/2.2.3WPF/CPDT.zip
+  - https://github.com/maxim-saplin/CrossPlatformDiskTest/releases/download/2.3.3WPF/CPDT.zip
 
 - macOS 10.13+
   - https://github.com/maxim-saplin/CrossPlatformDiskTest/releases/download/2.3.3/CPDT.app.zip
