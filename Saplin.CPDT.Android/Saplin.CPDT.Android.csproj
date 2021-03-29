@@ -14,10 +14,9 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <ReleaseVersion>2.3.4</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
     <AndroidLinkMode>Full</AndroidLinkMode>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
@@ -33,13 +32,15 @@
     <IntermediateOutputPath>Tmp</IntermediateOutputPath>
     <AndroidLinkSkip>Saplin.CPDT.UICore;Saplin.CPDT.UICore.resources;Saplin.StorageSpeedMeter;Xamarin.Forms.Xaml</AndroidLinkSkip>
     <AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
-    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidLinkMode>None</AndroidLinkMode>
     <AndroidTlsProvider>legacy</AndroidTlsProvider>
     <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
     <AndroidHttpClientHandlerType>System.Net.Http.HttpClientHandler</AndroidHttpClientHandlerType>
+<LangVersion>latestmajor</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
     <Optimize>true</Optimize>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
@@ -61,8 +62,9 @@
     <AndroidLinkTool>r8</AndroidLinkTool>
     <AndroidR8ExtraArguments>--no-tree-shaking</AndroidR8ExtraArguments>
     <!-- Out of process cache purging service crashes with R8 default settings as there's some Mono class which can't be found, possible the result of R8 -->
-    <AndroidPackageFormat>aab</AndroidPackageFormat>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+<LangVersion>latestmajor</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -81,7 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.7.0.968</Version>
+      <Version>5.0.0.2012</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +103,7 @@
     <Compile Include="CachePurger\Purger.cs" />
     <Compile Include="CachePurger\Common.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="ShareFilesProxy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -125,6 +128,10 @@
       </SubType>
       <Generator>
       </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\xml\provider_paths.xml">
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
@@ -163,5 +170,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\xml\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -64,5 +64,10 @@ namespace Saplin.CPDT.Droid
             drive.BytesFree = stats.AvailableBlocksLong * stats.BlockSizeLong;
             drive.TotalBytes = stats.BlockCountLong * stats.BlockSizeLong;
         }
+
+        public string GetExternalAppFolder()
+        {
+            return MainActivity.Instance.GetExternalFilesDir(Environment.DirectoryDocuments).AbsolutePath;
+        }
     }
 }

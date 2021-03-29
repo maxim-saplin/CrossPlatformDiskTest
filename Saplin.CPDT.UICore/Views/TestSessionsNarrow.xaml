@@ -121,7 +121,7 @@
                             </Label>-->
                             <Label Text="{Binding FileName}" LineBreakMode="MiddleTruncation" Style="{x:StaticResource Key=SmallLabel}" Margin="0, 4, 0, -8" />
                             <Label Text="{Binding ShortOptions}" LineBreakMode="MiddleTruncation" Style="{x:StaticResource Key=SmallLabel}"  />
-                            <ctrl2:ExtendedLabel Text="{Binding CsvFileName}" ChangeCursorOnMouseHover="True" Command="{Binding OpenCsvFolder}" IsVisible="{Binding CsvFileName, Converter={StaticResource StringNotEmpty}}" Style="{x:StaticResource Key=AccentedSmallLabel}" />
+                            <ctrl2:ExtendedLabel Text="{Binding CsvFileName}" ChangeCursorOnMouseHover="True" Command="{Binding OpenCsvFolderOrShareFiles}" IsVisible="{Binding CsvFileName, Converter={StaticResource StringNotEmpty}}" Style="{x:StaticResource Key=AccentedSmallLabel}" />
                             
                             <local:TestResultsNarrow IsFooterVisible="False" BindingContext="{Binding Results}" />
                         </StackLayout>

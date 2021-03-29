@@ -13,6 +13,7 @@
             <x:Array Type="{x:Type ctrl:KeyValue}" x:Key="LanguageKeys">
                 <ctrl:KeyValue Key="{x:Static l11n:Locales.en}" Value="(English)"/>
                 <ctrl:KeyValue Key="{x:Static l11n:Locales.ru}" Value="(Русский)"/>
+                <ctrl:KeyValue Key="{x:Static l11n:Locales.pl}" Value="(Polski)"/>
                 <ctrl:KeyValue Key="{x:Static l11n:Locales.fr}" Value="(Français)"/>
                 <ctrl:KeyValue Key="{x:Static l11n:Locales.zh}" Value="(简化字)"/>
             </x:Array>

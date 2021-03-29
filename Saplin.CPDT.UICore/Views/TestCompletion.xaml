@@ -8,8 +8,8 @@
              AbsoluteLayout.LayoutFlags="PositionProportional"
              Orientation="Vertical"
              Spacing="0"
-             BackgroundColor="#33999999" WidthRequest="230" HeightRequest="30">
-    <Label x:Name="testProgressLabel" WidthRequest="230" HeightRequest="29" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+             BackgroundColor="#33999999" WidthRequest="250" HeightRequest="30">
+    <Label x:Name="testProgressLabel" WidthRequest="250" HeightRequest="29" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
         <Label.Margin>
             <OnPlatform x:TypeArguments="Thickness">
                 <On Platform="WPF" Value="0, 6, 0, 0"/>

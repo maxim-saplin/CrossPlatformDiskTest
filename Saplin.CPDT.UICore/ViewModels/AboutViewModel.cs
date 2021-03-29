@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Windows.Input;
+using Saplin.CPDT.UICore.Localization;
 using Xamarin.Forms;
 
 namespace Saplin.CPDT.UICore.ViewModels
@@ -22,7 +23,10 @@ namespace Saplin.CPDT.UICore.ViewModels
         {
             get
             {
-                var resourceId = string.Format("Saplin.CPDT.UICore.Img.{0}About{1}.png", ViewModelContainer.L11n._Locale, ViewModelContainer.OptionsViewModel.WhiteThemeBool ? "WhiteTheme" : "BlackTheme");
+                var locale = ViewModelContainer.L11n._Locale;
+                // There're only En and Ru versions of the diagram in About
+                if (locale != Locales.ru || locale != Locales.en) locale = Locales.en;
+                var resourceId = string.Format("Saplin.CPDT.UICore.Img.{0}About{1}.png", locale, ViewModelContainer.OptionsViewModel.WhiteThemeBool ? "WhiteTheme" : "BlackTheme");
                 ImageSource imageSource = null;
 
                 if (Device.RuntimePlatform == Device.WPF)

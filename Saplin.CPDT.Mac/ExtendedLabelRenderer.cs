@@ -1,7 +1,6 @@
 ﻿using Saplin.CPDT.UICore.Controls;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.MacOS;
-using System;
 using AppKit;
 using Foundation;
 using System.ComponentModel;

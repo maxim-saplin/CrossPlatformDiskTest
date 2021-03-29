@@ -7,10 +7,10 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
     <DebugType>pdbonly</DebugType>
-    <ReleaseVersion>2.3.7</ReleaseVersion>
-    <Version>2.3.7</Version>
-    <AssemblyVersion>2.3.7.0</AssemblyVersion>
-    <FileVersion>2.3.7.0</FileVersion>
+    <ReleaseVersion>2.3.8</ReleaseVersion>
+    <Version>2.3.8</Version>
+    <AssemblyVersion>2.3.8.0</AssemblyVersion>
+    <FileVersion>2.3.8.0</FileVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -47,15 +47,12 @@
     <None Remove="Img\AboutEnWhiteTheme.png" />
     <None Remove="Img\enAboutBlackTheme.png" />
     <None Remove="Img\enAboutWhiteTheme.png" />
-    <None Remove="Img\frAboutBlackTheme.png" />
-    <None Remove="Img\frAboutWhiteTheme.png" />
     <None Remove="Img\ruAboutBlackTheme.png" />
     <None Remove="Img\ruAboutWhiteTheme.png" />
     <None Remove=".DS_Store" />
     <None Remove="Img\zh.png" />
-    <None Remove="Img\zhAboutBlackTheme.png" />
-    <None Remove="Img\zhAboutWhiteTheme.png" />
     <None Remove="Views\MainPage.xaml" />
+    <None Remove="Img\pl.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Img\en.png" />
@@ -63,13 +60,10 @@
     <EmbeddedResource Include="Img\ru.png" />
     <EmbeddedResource Include="Img\enAboutBlackTheme.png" />
     <EmbeddedResource Include="Img\enAboutWhiteTheme.png" />
-    <EmbeddedResource Include="Img\frAboutBlackTheme.png" />
-    <EmbeddedResource Include="Img\frAboutWhiteTheme.png" />
     <EmbeddedResource Include="Img\ruAboutBlackTheme.png" />
     <EmbeddedResource Include="Img\ruAboutWhiteTheme.png" />
     <EmbeddedResource Include="Img\zh.png" />
-    <EmbeddedResource Include="Img\zhAboutBlackTheme.png" />
-    <EmbeddedResource Include="Img\zhAboutWhiteTheme.png" />
+    <EmbeddedResource Include="Img\pl.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CPDT.Extra">
@@ -197,7 +191,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.7.0.968" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.3" />
   </ItemGroup>
 </Project>

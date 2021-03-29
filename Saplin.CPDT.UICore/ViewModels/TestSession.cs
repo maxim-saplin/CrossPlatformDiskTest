@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Input;
-using Saplin.StorageSpeedMeter;
 using Xamarin.Forms;
 
 namespace Saplin.CPDT.UICore.ViewModels
@@ -11,7 +10,26 @@ namespace Saplin.CPDT.UICore.ViewModels
         public string FileNameAndTime { get; set; }
         public string FileName { get; set; }
         public string DriveName { get; set; }
-        public string CsvFileName { get; set; }
+
+        public string CsvFileName {
+            get => CsvFileNames != null && CsvFileNames.Length > 0 ? CsvFileNames[0] : null;
+        }
+
+        private string[] csvFileNames;
+        public string[] CsvFileNames
+        {
+            get => csvFileNames;
+            set
+            {
+                if (value != csvFileNames)
+                {
+                    csvFileNames = value;
+                    RaisePropertyChanged(nameof(CsvFileNames));
+                    RaisePropertyChanged(nameof(CsvFileName));
+                }
+            }
+        }
+
         public bool MemCache { get; set; }
         public bool WriteBuffering { get; set; }
         public long FileSizeBytes { get; set; }
@@ -111,20 +129,28 @@ namespace Saplin.CPDT.UICore.ViewModels
             }
         }
 
-        private Command openCsvFolder;
+        private Command openCsvFolderOrShareFiles;
 
-        public ICommand OpenCsvFolder
+        public ICommand OpenCsvFolderOrShareFiles
         {
             get
             {
                 return 
-                    openCsvFolder ?? 
-                    (openCsvFolder = 
+                    openCsvFolderOrShareFiles ?? 
+                    (openCsvFolderOrShareFiles = 
                         new Command(
                             () =>
                             {
-                                var srv = DependencyService.Get<IShellOpenFileFolder>() as IShellOpenFileFolder;
-                                srv?.OpenContainingFolder(CsvFileName);
+                                if (Device.RuntimePlatform == Device.Android)
+                                {
+                                    var srv = DependencyService.Get<IShareFiles>() as IShareFiles;
+                                    srv?.Share(CsvFileNames, "text/csv", "CPDT CSV Results " + TestStartedTime.ToLongDateString());
+                                }
+                                else
+                                {
+                                    var srv = DependencyService.Get<IShellOpenFileFolder>() as IShellOpenFileFolder;
+                                    srv?.OpenContainingFolder(CsvFileName);
+                                }
                             })
                      );
             }

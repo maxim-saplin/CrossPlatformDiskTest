@@ -104,14 +104,14 @@ namespace Saplin.CPDT.UICore.ViewModels
                 if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS)
                 {
 
-                    PlatformDrives = DependencyService.Get<IPlatformDrives>()?.GetDrives();
+                    platformDrives = DependencyService.Get<IPlatformDrives>()?.GetDrives();
 
                     string prevDrive = "";
 
                     const string d1 = "/data/user";
                     const string d2 = "/storage/emulated/0";
 
-                    foreach (var ad in PlatformDrives)
+                    foreach (var ad in platformDrives)
                     {
                         setEnoughSpaceAndIndex(ad, i);
 
@@ -186,7 +186,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             RaisePropertyChanged(nameof(Drives));
         }
 
-        private IEnumerable<PlatformDrive> PlatformDrives = null;
+        private IEnumerable<PlatformDrive> platformDrives = null;
         private IEnumerable<DriveDetailed> posixDrives = null;
         private int availbleDrivesCount = 0;
 
@@ -196,9 +196,9 @@ namespace Saplin.CPDT.UICore.ViewModels
             {
                 if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS)
                 {
-                    if (PlatformDrives == null) InitDrives();
+                    if (platformDrives == null) InitDrives();
 
-                    return PlatformDrives;
+                    return platformDrives;
                 }
                 else
                 {
@@ -423,7 +423,7 @@ namespace Saplin.CPDT.UICore.ViewModels
 
                              if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS)
                              {
-                                 foreach (var ad in PlatformDrives)
+                                 foreach (var ad in platformDrives)
                                      if (ad.Name == driveNameToUse)
                                      {
                                          driveNameToUse = ad.AppFolderPath;
@@ -431,7 +431,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                                          totalSpace = ad.TotalBytes;
                                      }
 
-                                 androidCachePurgeFile = Path.Combine(PlatformDrives.First<PlatformDrive>().AppFolderPath, "CPDT_CachePurging.dat");
+                                 androidCachePurgeFile = Path.Combine(platformDrives.First<PlatformDrive>().AppFolderPath, "CPDT_CachePurging.dat");
                              }
                              else {
                                  var dd = posixDrives.Where(d => d.Name == driveNameToUse).First();
@@ -608,7 +608,16 @@ namespace Saplin.CPDT.UICore.ViewModels
                                      {
                                          if (optionsVm.CsvBool)
                                          {
-                                             testSession.CsvFileName = testSuite.ExportToCsv(Path.Combine(testSuite.FileFolderPath, testResultsFolder), true, testSession.TestStartedTime)[0];
+                                             var folder = Path.Combine(testSuite.FileFolderPath, testResultsFolder);
+                                             if (Device.RuntimePlatform == Device.Android)
+                                             {
+                                                 var path = DependencyService.Get<IPlatformDrives>()?.GetExternalAppFolder();
+                                                 if (!string.IsNullOrEmpty(path))
+                                                 {
+                                                     folder = Path.Combine(path, testResultsFolder);
+                                                 }
+                                             }
+                                             testSession.CsvFileNames = testSuite.ExportToCsv(folder, true, testSession.TestStartedTime);
                                          }
 
                                          resultsReceived.Wait();
