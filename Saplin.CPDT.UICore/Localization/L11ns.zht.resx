@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About1" xml:space="preserve">
+    <value>本應用通過呼叫作業系統的標準檔案 API（Windows 上的 WinAPI、Mac 上的 POSIX、Android 上的 NDK）來測試儲存裝置（機械硬碟、固態硬碟、USB 快閃記憶體驅動器）和記憶體（RAM）之間的資料傳輸速度（單位為 MB/s）。 API 呼叫通過 .NET Framework 與 Mono 完成。</value>
+  </data>
+  <data name="About2" xml:space="preserve">
+    <value>順序讀取與順序寫入測試通過在儲存裝置和 RAM 之間傳輸大塊資料（MB 級別）來測試複製大檔案、視訊錄製、編碼、解碼等日常應用環境中的儲存效能。</value>
+  </data>
+  <data name="About3" xml:space="preserve">
+    <value>隨機讀取與隨機寫入通過讀寫測試檔案中的隨機位置的小塊資料（4KB 和 32KB）來測試檔案系統效能對應用載入、小檔案複製、資料庫查詢能力的影響。此測試的執行時間為 7 秒。</value>
+  </data>
+  <data name="About4" xml:space="preserve">
+    <value>在“選項”中，以下設定會對測試結果產生影響：</value>
+  </data>
+  <data name="About5" xml:space="preserve">
+    <value>• 寫入快取 — 影響寫入測試。通過在寫入操作中使用中間緩衝區，將寫入資料進行排序，以在最佳的寫入時機寫入資料來提升資料寫入能力。其代價是較低的彈性寫入能力（例如發生電源故障導致緩衝區內的資料丟失，或是寫入那些無法使用緩衝區的資料）。</value>
+  </data>
+  <data name="About6" xml:space="preserve">
+    <value>• 記憶體快取 — 影響讀取測試。在記憶體充足的情況下，任何向作業系統發出的檔案操作請求，不論是將儲存中的資料讀入記憶體，還是將記憶體中的資料寫入儲存，作業系統都會將那些記憶體頁保留在記憶體中待用。後續如果作業系統通過 API 收到的檔案讀取/寫入請求，作業系統將會直接呼叫之前保留在記憶體中的記憶體頁，而不是實際的儲存裝置。啟用此選項時，測試結果所反映的是作業系統的記憶體快取效能以及記憶體本身的效能，而非儲存裝置的效能。</value>
+  </data>
+  <data name="About7" xml:space="preserve">
+    <value>無論是家用計算機還是智慧手機，處理器（CPU）的操作都依賴於載入在系統記憶體（RAM）中的資料。因為記憶體具有易失性且容量有限，這也是為什麼我們需要外部儲存裝置（固態硬碟、機械硬碟、SD 卡等，它們也被稱作“磁碟”或“驅動器”）。在很多情況下，系統的整體效能不光取決於 CPU（雖然 CPU 的權重的確很高，而且往往是產品營銷和跑分軟體中的頭牌），還取決於儲存——具體來說是內部儲存（RAM）和外部儲存。官方參數（特別是智慧手機）往往對儲存方面的效能語焉不詳。本程式致力於通過獨立且合理的3個維度，即：讀取速度（從儲存裝置到記憶體）、寫入速度（從記憶體到儲存裝置）、記憶體複製（從記憶體的一個區域到另一個區域）來全面評價系統的儲存效能。</value>
+  </data>
+  <data name="About8" xml:space="preserve">
+    <value>本程式是開源的，您可以通過以下連結檢視項目的 GitHub：</value>
+  </data>
+  <data name="AndroidSameAliases" xml:space="preserve">
+    <value>這倆驅動器是一樣的，只是名稱/路徑不同而已</value>
+  </data>
+  <data name="AvailableDrives" xml:space="preserve">
+    <value>可用的驅動器：</value>
+  </data>
+  <data name="b" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="Block" xml:space="preserve">
+    <value>塊</value>
+  </data>
+  <data name="bps" xml:space="preserve">
+    <value>B/s</value>
+  </data>
+  <data name="BreakTest" xml:space="preserve">
+    <value>[Esc, B]中斷</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>[Esc, C]關閉</value>
+  </data>
+  <data name="CsvOption" xml:space="preserve">
+    <value>[E]將結果匯出到CSV表格中</value>
+  </data>
+  <data name="FileSizeOption" xml:space="preserve">
+    <value>[F]測試檔案大小</value>
+  </data>
+  <data name="gb" xml:space="preserve">
+    <value>GB</value>
+  </data>
+  <data name="GbFree" xml:space="preserve">
+    <value>GB 可用</value>
+  </data>
+  <data name="gbps" xml:space="preserve">
+    <value>GB/s</value>
+  </data>
+  <data name="HelpButton" xml:space="preserve">
+    <value>[?, H]幫助</value>
+  </data>
+  <data name="HintAndroid" xml:space="preserve">
+    <value>請單擊選擇驅動器以開始測試</value>
+  </data>
+  <data name="HintMisc" xml:space="preserve">
+    <value>請單擊選擇驅動器或按下列表中的數字鍵以開始測試</value>
+  </data>
+  <data name="kb" xml:space="preserve">
+    <value>KB</value>
+  </data>
+  <data name="kbps" xml:space="preserve">
+    <value>KB/s</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>[L]語言:</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>最高值</value>
+  </data>
+  <data name="mb" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="mbps" xml:space="preserve">
+    <value>MB/s</value>
+  </data>
+  <data name="MemCacheOption" xml:space="preserve">
+    <value>[M]記憶體快取</value>
+  </data>
+  <data name="MemCopyTest" xml:space="preserve">
+    <value>記憶體複製</value>
+  </data>
+  <data name="MemCopyTestShort" xml:space="preserve">
+    <value>記憶體
+複製</value>
+  </data>
+  <data name="MemCopyTestShortNB" xml:space="preserve">
+    <value>記憶體複製</value>
+  </data>
+  <data name="Compare" xml:space="preserve">
+    <value>⇆ 比較</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>⬑分享⬏</value>
+  </data>
+  <data name="ShareTitle" xml:space="preserve">
+    <value>歡迎下載安卓版跨平臺硬碟測試：https://play.google.com/store/apps/details?id=com.Saplin.CPDT</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>最低值</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>（關）</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>（開）</value>
+  </data>
+  <data name="OptionsButton" xml:space="preserve">
+    <value>[O]選項</value>
+  </data>
+  <data name="PickDrive" xml:space="preserve">
+    <value>- 選擇一個驅動器並對其進行效能測試</value>
+  </data>
+  <data name="ProjectLink" xml:space="preserve">
+    <value>https://github.com/maxim-saplin/CrossPlatformDiskTest</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>[Q]退出</value>
+  </data>
+  <data name="Quiting" xml:space="preserve">
+    <value>正在終止此項操作...</value>
+  </data>
+  <data name="RandomReadTest" xml:space="preserve">
+    <value>隨機讀取</value>
+  </data>
+  <data name="RandomReadTestShort" xml:space="preserve">
+    <value>隨機
+讀取</value>
+  </data>
+  <data name="RandomReadTestShortNB" xml:space="preserve">
+    <value>隨機讀取</value>
+  </data>
+  <data name="RandomWriteTest" xml:space="preserve">
+    <value>隨機寫入</value>
+  </data>
+  <data name="RandomWriteTestShort" xml:space="preserve">
+    <value>隨機
+寫入</value>
+  </data>
+  <data name="RandomWriteTestShortNB" xml:space="preserve">
+    <value>隨機寫入</value>
+  </data>
+  <data name="RefreshButton" xml:space="preserve">
+    <value>[R]重新整理</value>
+  </data>
+  <data name="SequentialReadTest" xml:space="preserve">
+    <value>順序讀取</value>
+  </data>
+  <data name="SequentialReadTestShort" xml:space="preserve">
+    <value>順序
+讀取</value>
+  </data>
+  <data name="SequentialReadTestShortNB" xml:space="preserve">
+    <value>順序讀取</value>
+  </data>
+  <data name="SequentialWriteTest" xml:space="preserve">
+    <value>順序寫入</value>
+  </data>
+  <data name="SequentialWriteTestShort" xml:space="preserve">
+    <value>順序
+寫入</value>
+  </data>
+  <data name="SequentialWriteTestShortNB" xml:space="preserve">
+    <value>順序寫入</value>
+  </data>
+  <data name="StatusBreakingTest" xml:space="preserve">
+    <value>突破測試</value>
+  </data>
+  <data name="StatusTestCompleted" xml:space="preserve">
+    <value>測試成功完成，測試檔案已刪除。</value>
+  </data>
+  <data name="StatusTestCsvCompleted" xml:space="preserve">
+    <value>測試成功完成，已將測試結果匯出到CSV表格。</value>
+  </data>
+  <data name="StatusTestError" xml:space="preserve">
+    <value>測試過程由於錯誤而中斷</value>
+  </data>
+  <data name="StatusTestInterrupted" xml:space="preserve">
+    <value>測試過程被中斷。測試檔案已刪除</value>
+  </data>
+  <data name="TestInitMemBuffer" xml:space="preserve">
+    <value>正在初始化記憶體中的測試資料...</value>
+  </data>
+  <data name="TestNotEnoughMemory" xml:space="preserve">
+    <value>記憶體不足</value>
+  </data>
+  <data name="TestPurgingMemCache" xml:space="preserve">
+    <value>正在清除記憶體快取...</value>
+  </data>
+  <data name="TestRunning" xml:space="preserve">
+    <value>正在執行測試...</value>
+  </data>
+  <data name="TestStarted" xml:space="preserve">
+    <value>測試開始</value>
+  </data>
+  <data name="TestSummaryFormatString" xml:space="preserve">
+    <value>檔案大小：{0}GB、可用空間：{1:0.0}GB、寫入快取：{2}、記憶體快取：{3}</value>
+  </data>
+  <data name="TestSummaryShortFormatString" xml:space="preserve">
+    <value>大小：{0}GB、空間：{1:0.0}GB、寫入快取：{2}、快取：{3}</value>
+  </data>
+  <data name="TestWarmigUp" xml:space="preserve">
+    <value>測試準備中...</value>
+  </data>
+  <data name="WhiteTheme" xml:space="preserve">
+    <value>[W]白色主題（重啟程式生效）</value>
+  </data>
+  <data name="WriteBufferingOption" xml:space="preserve">
+    <value>[B]寫入快取：</value>
+  </data>
+  <data name="CClose" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>[D]排行榜</value>
+  </data>
+  <data name="DbNotAvailable" xml:space="preserve">
+    <value>測試成績排行榜不可用，請檢查網際網路連線。</value>
+  </data>
+  <data name="DownloadLink" xml:space="preserve">
+    <value>https://maxim-saplin.github.io/cpdt_results/?download=&amp;lang=zh&amp;app=</value>
+  </data>
+  <data name="About9" xml:space="preserve">
+    <value>您可以通過以下連結下載適用於不同平臺（Windows，macOS，Android/APK）的應用程式：</value>
+  </data>
+  <data name="DownloadLinkShort" xml:space="preserve">
+    <value>https://maxim-saplin.github.io/cpdt_results/?download=&amp;lang=zh</value>
+  </data>
+  <data name="ModeH" xml:space="preserve">
+    <value>眾數</value>
+  </data>
+  <data name="About10" xml:space="preserve">
+    <value>每次測試的結果都由一個圖表來呈現。順序測試和記憶體測試採用針對塊（儲存單位）繪製的實時速度曲線圖（刻度為 1 個塊），隨著測試的進行，您可以清晰的看到整個讀寫過程的變化。有時您可能會注意到，在某些測試操作下，讀寫裝置會表現出延遲的現象，不必擔心這是正常的（Android 裝置上較為常見）。隨機測試採用基於測試塊在整個測試檔案中分佈位置的直方圖，此圖清晰的展示了隨機讀寫速度是如何依照測試塊位置分佈的。為了將直方圖顯示的更加完整清晰，對於那些取自測試檔案頭部和尾部的測試資料（我們稱之為“尾巴”，通常佔比不到總資料的 3％，對速度分佈規律幾乎沒有影響）將直接合並至直方圖最左側和最右側的單個直方中。如果你在直方圖中觀察到了帶有箭頭的豎線，說明尾巴已被最小化（有時也會出現不需要最小化尾巴的情況）。那些夾在箭頭和豎線中間的直方包括了 94% 的測試資料（此時最大值和最小值並不包括在其中，而被當作“尾巴”處理，且測試結果所顯示最大值與最小值並非測試過程中的真實值）。那些夾在兩個箭頭中的直方即為“眾數” —— 是指一組資料中出現次數最多的那個資料，代表資料的一般水平，一組資料可以有多個眾數，也可以沒有眾數。</value>
+  </data>
+  <data name="SimpleUI_StartA" xml:space="preserve">
+    <value>開始一次</value>
+  </data>
+  <data name="SimpleUI_Test" xml:space="preserve">
+    <value>[T]測試</value>
+  </data>
+  <data name="SimpleUI_OrSee" xml:space="preserve">
+    <value>或檢視</value>
+  </data>
+  <data name="SimpleUI_More" xml:space="preserve">
+    <value>[M]更多</value>
+  </data>
+  <data name="SimpleUIOption" xml:space="preserve">
+    <value>[S]簡化UI</value>
+  </data>
+  <data name="CantTestNotEnough" xml:space="preserve">
+    <value>無法測試某些驅動器，需要至少 {0}GB 可用空間</value>
+  </data>
+  <data name="TestOf" xml:space="preserve">
+    <value>正測試第 {0} 項，共 {1} 項</value>
+  </data>
+  <data name="TestTotal" xml:space="preserve">
+    <value>已完成 {0:0}％</value>
+  </data>
+  <data name="InitDrivesError" xml:space="preserve">
+    <value>讀取可用驅動器/分區時發生錯誤，測試無法執行。</value>
+  </data>
+  <data name="NotEnoughSpaceHint" xml:space="preserve">
+    <value>空間不足</value>
+  </data>
+  <data name="NotAccessibleDriveHint" xml:space="preserve">
+    <value>不可用</value>
+  </data>
+</root>
