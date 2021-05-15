@@ -17,7 +17,8 @@
             //    <ctrl:KeyValue Key = "{x:Static l11n:Locales.en}" Value="(English)"/>
             //    <ctrl:KeyValue Key = "{x:Static l11n:Locales.ru}" Value="(Русский)"/>
             //    <ctrl:KeyValue Key = "{x:Static l11n:Locales.fr}" Value="(Français)"/>
-            //    <ctrl:KeyValue Key = "{x:Static l11n:Locales.zh}" Value="(简化字)"/>
+            //    <ctrl:KeyValue Key = "{x:Static l11n:Locales.zh}" Value="(简体中文)"/>
+            //    <ctrl:KeyValue Key = "{x:Static l11n:Locales.zht}" Value="(繁體中文)"/>
             //</x:Array>
         public static bool IsValid(string locale)
         {
