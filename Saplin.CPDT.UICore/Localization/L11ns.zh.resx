@@ -195,7 +195,7 @@
     <value>[L]语言:</value>
   </data>
   <data name="Max" xml:space="preserve">
-    <value>最高值</value>
+    <value>最高</value>
   </data>
   <data name="mb" xml:space="preserve">
     <value>MB</value>
@@ -226,7 +226,7 @@
     <value>欢迎下载安卓版跨平台硬盘测试：https://play.google.com/store/apps/details?id=com.Saplin.CPDT</value>
   </data>
   <data name="Min" xml:space="preserve">
-    <value>最低值</value>
+    <value>最低</value>
   </data>
   <data name="Off" xml:space="preserve">
     <value>（关）</value>
