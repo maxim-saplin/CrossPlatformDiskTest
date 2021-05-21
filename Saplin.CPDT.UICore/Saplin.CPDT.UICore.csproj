@@ -53,6 +53,11 @@
     <None Remove="Img\zh.png" />
     <None Remove="Views\MainPage.xaml" />
     <None Remove="Img\pl.png" />
+    <None Remove="Img\zht.png" />
+    <None Remove="Img\zhAboutBlackTheme.png" />
+    <None Remove="Img\zhAboutWhiteTheme.png" />
+    <None Remove="Img\zhtAboutBlackTheme.png" />
+    <None Remove="Img\zhtAboutWhiteTheme.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Img\en.png" />
@@ -64,6 +69,11 @@
     <EmbeddedResource Include="Img\ruAboutWhiteTheme.png" />
     <EmbeddedResource Include="Img\zh.png" />
     <EmbeddedResource Include="Img\pl.png" />
+    <EmbeddedResource Include="Img\zht.png" />
+    <EmbeddedResource Include="Img\zhAboutWhiteTheme.png" />
+    <EmbeddedResource Include="Img\zhAboutBlackTheme.png" />
+    <EmbeddedResource Include="Img\zhtAboutWhiteTheme.png" />
+    <EmbeddedResource Include="Img\zhtAboutBlackTheme.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CPDT.Extra">

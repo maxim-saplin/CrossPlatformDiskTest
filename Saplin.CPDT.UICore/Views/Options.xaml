@@ -15,7 +15,8 @@
                 <ctrl:KeyValue Key="{x:Static l11n:Locales.ru}" Value="(Русский)"/>
                 <ctrl:KeyValue Key="{x:Static l11n:Locales.pl}" Value="(Polski)"/>
                 <ctrl:KeyValue Key="{x:Static l11n:Locales.fr}" Value="(Français)"/>
-                <ctrl:KeyValue Key="{x:Static l11n:Locales.zh}" Value="(简化字)"/>
+                <ctrl:KeyValue Key="{x:Static l11n:Locales.zh}" Value="(简体中文)"/>
+                <ctrl:KeyValue Key="{x:Static l11n:Locales.zht}" Value="(繁體中文)"/>
             </x:Array>
             <x:Array Type="{x:Type ctrl:KeyValue}" x:Key="FileSizeKeys">
                 <ctrl:KeyValue Key="0.5" Value="(½ GB)"/>

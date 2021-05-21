@@ -25,7 +25,7 @@ namespace Saplin.CPDT.UICore.ViewModels
             {
                 var locale = ViewModelContainer.L11n._Locale;
                 // There're only En and Ru versions of the diagram in About
-                if (locale != Locales.ru || locale != Locales.en) locale = Locales.en;
+                if (locale == Locales.fr || locale == Locales.pl) locale = Locales.en;
                 var resourceId = string.Format("Saplin.CPDT.UICore.Img.{0}About{1}.png", locale, ViewModelContainer.OptionsViewModel.WhiteThemeBool ? "WhiteTheme" : "BlackTheme");
                 ImageSource imageSource = null;
 

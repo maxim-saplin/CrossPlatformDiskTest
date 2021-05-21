@@ -1,6 +1,7 @@
 ﻿using Saplin.CPDT.UICore.Controls;
 using Saplin.CPDT.UICore.Localization;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
@@ -69,7 +70,7 @@ namespace Saplin.CPDT.UICore.ViewModels
                     App.Current.Properties[nameof(_Locale)] = value;
                     App.Current.SavePropertiesAsync();
 
-                    L11nBase.Culture = new System.Globalization.CultureInfo(locale);
+                    L11nBase.Culture = new System.Globalization.CultureInfo(locale == "zht" ? "zh-TW" : locale);
                     Thread.CurrentThread.CurrentCulture = L11nBase.Culture;
                     Thread.CurrentThread.CurrentUICulture = L11nBase.Culture;
 
@@ -131,6 +132,9 @@ namespace Saplin.CPDT.UICore.ViewModels
                                     _Locale = Locales.fr;
                                     break;
                                 case Locales.fr:
+                                    _Locale = Locales.zht;
+                                    break;
+                                case Locales.zht:
                                     _Locale = Locales.zh;
                                     break;
                                 case Locales.zh:
