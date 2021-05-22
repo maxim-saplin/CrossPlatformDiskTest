@@ -383,7 +383,7 @@
     <value>正測試第 {0} 項，共 {1} 項</value>
   </data>
   <data name="TestTotal" xml:space="preserve">
-    <value>已完成 {0:0}％</value>
+    <value>{0:0}％</value>
   </data>
   <data name="InitDrivesError" xml:space="preserve">
     <value>讀取可用驅動器/分區時發生錯誤，測試無法執行。</value>

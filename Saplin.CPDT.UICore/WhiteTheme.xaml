@@ -96,7 +96,7 @@
         <Setter Property="Font" Value="{StaticResource FontBold}" />
     </Style>
     <Style x:Key="AccentedItalicSpan" TargetType="Span">
-        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="TextColor" Value="White" />
         <Setter Property="Font" Value="{StaticResource FontItalic}" />
     </Style>
     <Style x:Key="SpanStyle" TargetType="Span">

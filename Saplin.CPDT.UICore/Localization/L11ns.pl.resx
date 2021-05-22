@@ -362,13 +362,15 @@ zapis</value>
     <value>Dla każdego testu dostępny jest wykres. Testy sekwencyjne i test kopii pamięci są reprezentowane przez wykres liniowy prędkości chwilowej - tj. prędkości zmierzone dla każdego z bloków są reprezentowane przez współrzędną X, a pozycje tych bloków w pliku są reprezentowane przez współrzędną Y. możesz zobaczyć, jak zmienia się prędkość urządzenia, gdy zbliżamy się do końca pliku testowego. Na przykład w niektórych przypadkach na początku testu można zaobserwować obniżoną wydajność (najbardziej typową dla Androi). Arbitralne testy są reprezentowane przez histogram, w którym prędkości zmierzone dla bloków są rozłożone na zakresy, a słupki pokazują częstotliwość określonego zakresu. Jeśli na krawędziach histogramu znajdują się pionowe linie ze strzałkami, lewy i prawy słupek wyświetlają wszystkie najmniejsze i wszystkie największe pomiary, których częstotliwość jest mniejsza niż 3 procent. Innymi słowy, „długie” ogony histogramu są łączone w osobne słupki, a słupki w środku wyświetlą dane dla 94% wszystkich pomiarów. Wartości minimalne i maksymalne w tym przypadku nie są podane dla wszystkich pomiarów, ale tylko dla wartości średnich. Słupek oznaczony dwoma strzałkami to tryb, środkowa wartość to zakres o najwyższej częstotliwości.</value>
   </data>
   <data name="SimpleUI_StartA" xml:space="preserve">
-    <value>Rozpocznij</value>
+    <!--<value>Rozpocznij</value>  - too long-->
+    <value></value>
   </data>
   <data name="SimpleUI_Test" xml:space="preserve">
     <value>[T]est</value>
   </data>
   <data name="SimpleUI_OrSee" xml:space="preserve">
-    <value>lub zobacz</value>
+    <!--<value>lub zobacz</value> - too long-->
+    <value></value>
   </data>
   <data name="SimpleUI_More" xml:space="preserve">
     <value>[W]ięcej</value>

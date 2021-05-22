@@ -9,32 +9,16 @@
              AbsoluteLayout.LayoutBounds="0.5, 0.5, 1.0, 0.5" 
              AbsoluteLayout.LayoutFlags="All"
              Orientation="Horizontal"
-             Margin="28, 16, -10, 16">
-    <Label x:Name="label1" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, SimpleUI_StartA}" HeightRequest="24"
-            HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="EndAndExpand">
-        <Label.WidthRequest>
-            <OnPlatform x:TypeArguments="x:Double">
-                <On Platform="WPF, macOS" Value="94"/>  
-                <On Platform="Android, iOS" Value="65"/>
-            </OnPlatform>
-        </Label.WidthRequest>
-    </Label>
+             Margin="16, 16, 0, 16">
     <Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, SimpleUI_Test}"
-            Style="{x:StaticResource Key=ButtonStyle}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="81" HeightRequest="30"
+            Style="{x:StaticResource Key=ButtonStyle}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" WidthRequest="90" HeightRequest="30"
             ctrl:KeyPress.CommandOnKeyPress="True" 
             Command="{Binding Source={Static vm:ViewModelContainer.DriveTestViewModel}, QuickTestDrive, Mode=OneTime}" />
-    <Label x:Name="label2" Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, SimpleUI_OrSee}" HeightRequest="24"
-           VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="120" HorizontalTextAlignment="Center">
-         <Label.WidthRequest>
-            <OnPlatform x:TypeArguments="x:Double">
-                <On Platform="WPF, macOS" Value="120"/>  
-                <On Platform="Android, iOS" Value="73"/>
-            </OnPlatform>
-        </Label.WidthRequest>
-    </Label>
+    <Label x:Name="label2" Text=" " HeightRequest="24"
+           VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="6" HorizontalTextAlignment="Center"/>
     <Button Text="{Binding Source={x:Static vm:ViewModelContainer.L11n}, SimpleUI_More}" 
-            Style="{x:StaticResource Key=ButtonStyle}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="81" HeightRequest="30"
+            Style="{x:StaticResource Key=ButtonStyle}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="90" HeightRequest="30"
             ctrl:KeyPress.CommandOnKeyPress="True"
             Command="{Binding Source={Static vm:ViewModelContainer.NavigationViewModel}, SwitchToAdvancedUI, Mode=OneTime}" CommandParameter="True"/>
-    <ctrl:BlinkingCursor x:Name="cursor" BlinkCursor="True" WidthRequest="32" LineBreakMode="TailTruncation" ShowPrefix="False" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+    <ctrl:BlinkingCursor x:Name="cursor" BlinkCursor="True" WidthRequest="16" LineBreakMode="TailTruncation" ShowPrefix="False" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
 </StackLayout>
