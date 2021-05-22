@@ -7,10 +7,10 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
     <DebugType>pdbonly</DebugType>
-    <ReleaseVersion>2.3.8</ReleaseVersion>
+    <ReleaseVersion>2.3.9</ReleaseVersion>
     <Version>2.3.8</Version>
-    <AssemblyVersion>2.3.8.0</AssemblyVersion>
-    <FileVersion>2.3.8.0</FileVersion>
+    <AssemblyVersion>2.3.9.0</AssemblyVersion>
+    <FileVersion>2.3.9.0</FileVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -50,30 +50,31 @@
     <None Remove="Img\ruAboutBlackTheme.png" />
     <None Remove="Img\ruAboutWhiteTheme.png" />
     <None Remove=".DS_Store" />
-    <None Remove="Img\zh.png" />
     <None Remove="Views\MainPage.xaml" />
     <None Remove="Img\pl.png" />
     <None Remove="Img\zht.png" />
     <None Remove="Img\zhAboutBlackTheme.png" />
     <None Remove="Img\zhAboutWhiteTheme.png" />
     <None Remove="Img\zhtAboutBlackTheme.png" />
+    <None Remove="Img\ru.png" />
+    <None Remove="Img\zh.png" />
     <None Remove="Img\zhtAboutWhiteTheme.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Img\en.png" />
     <EmbeddedResource Include="Img\fr.png" />
-    <EmbeddedResource Include="Img\ru.png" />
     <EmbeddedResource Include="Img\enAboutBlackTheme.png" />
     <EmbeddedResource Include="Img\enAboutWhiteTheme.png" />
     <EmbeddedResource Include="Img\ruAboutBlackTheme.png" />
     <EmbeddedResource Include="Img\ruAboutWhiteTheme.png" />
-    <EmbeddedResource Include="Img\zh.png" />
     <EmbeddedResource Include="Img\pl.png" />
     <EmbeddedResource Include="Img\zht.png" />
     <EmbeddedResource Include="Img\zhAboutWhiteTheme.png" />
     <EmbeddedResource Include="Img\zhAboutBlackTheme.png" />
-    <EmbeddedResource Include="Img\zhtAboutWhiteTheme.png" />
     <EmbeddedResource Include="Img\zhtAboutBlackTheme.png" />
+    <EmbeddedResource Include="Img\ru.png" />
+    <EmbeddedResource Include="Img\zh.png" />
+    <EmbeddedResource Include="Img\zhtAboutWhiteTheme.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CPDT.Extra">
