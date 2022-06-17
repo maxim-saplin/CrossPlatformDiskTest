@@ -78,14 +78,14 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CPDT.Extra">
-      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra.git\CPDT.Extra\bin\Debug\netstandard2.0\CPDT.Extra.dll</HintPath>
+      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra\CPDT.Extra\bin\Debug\netstandard2.0\CPDT.Extra.dll</HintPath>
       <HintPath Condition="'$(Configuration)'=='Release'">..\References\CPDT.Extra.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Posix.NETStandard">
       <HintPath>..\References\Mono.Posix.NETStandard.dll</HintPath>
     </Reference>
     <Reference Include="Saplin.StorageSpeedMeter">
-      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\NetCoreStorageSpeedTest.git\Saplin.StorageSpeedMeter\bin\Debug\netstandard2.0\Saplin.StorageSpeedMeter.dll</HintPath>
+      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\NetCoreStorageSpeedTest\Saplin.StorageSpeedMeter\bin\Debug\netstandard2.0\Saplin.StorageSpeedMeter.dll</HintPath>
       <HintPath Condition="'$(Configuration)'=='Release'">..\References\Saplin.StorageSpeedMeter.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -202,7 +202,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2478" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.3" />
   </ItemGroup>
 </Project>

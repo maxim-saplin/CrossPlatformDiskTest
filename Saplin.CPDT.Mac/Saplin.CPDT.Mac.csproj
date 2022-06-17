@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.props')" />
+  <Import Project="..\packages\Xamarin.Forms.5.0.0.2478\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.5.0.0.2478\build\Xamarin.Forms.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -60,13 +60,13 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.Forms.Core">
-      <HintPath>..\packages\Xamarin.Forms.5.0.0.2012\lib\Xamarin.Mac\Xamarin.Forms.Core.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.5.0.0.2478\lib\Xamarin.Mac\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform">
-      <HintPath>..\packages\Xamarin.Forms.5.0.0.2012\lib\Xamarin.Mac\Xamarin.Forms.Platform.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.5.0.0.2478\lib\Xamarin.Mac\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
-      <HintPath>..\packages\Xamarin.Forms.5.0.0.2012\lib\Xamarin.Mac\Xamarin.Forms.Xaml.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.5.0.0.2478\lib\Xamarin.Mac\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
         <Reference Include="SkiaSharp">
           <HintPath>..\packages\SkiaSharp.1.60.3\lib\Xamarin.Mac20\SkiaSharp.dll</HintPath>
@@ -78,11 +78,11 @@
           <HintPath>..\packages\SkiaSharp.Views.Forms.1.60.3\lib\Xamarin.Mac20\SkiaSharp.Views.Forms.dll</HintPath>
         </Reference>
         <Reference Include="CPDT.Extra">
-            <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra.git\CPDT.Extra\bin\Debug\netstandard2.0\CPDT.Extra.dll</HintPath>
+            <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra\CPDT.Extra\bin\Debug\netstandard2.0\CPDT.Extra.dll</HintPath>
             <HintPath Condition="'$(Configuration)'=='Release'">..\References\CPDT.Extra.dll</HintPath>
         </Reference>
         <Reference Include="Xamarin.Forms.Platform.macOS">
-          <HintPath>..\packages\Xamarin.Forms.5.0.0.2012\lib\Xamarin.Mac\Xamarin.Forms.Platform.macOS.dll</HintPath>
+          <HintPath>..\packages\Xamarin.Forms.5.0.0.2478\lib\Xamarin.Mac\Xamarin.Forms.Platform.macOS.dll</HintPath>
         </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -143,5 +143,5 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
-  <Import Project="..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.5.0.0.2012\build\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.5.0.0.2478\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.5.0.0.2478\build\Xamarin.Forms.targets')" />
 </Project>

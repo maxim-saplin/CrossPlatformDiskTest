@@ -14,7 +14,7 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v12.1</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <SynchReleaseVersion>false</SynchReleaseVersion>
@@ -69,21 +69,21 @@
   <ItemGroup>
     <Reference Include="Mono.Android" />
     <Reference Include="CPDT.Extra.Android">
-      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra.git\CPDT.Extra.Android\bin\Debug\CPDT.Extra.Android.dll</HintPath>
+      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra\CPDT.Extra.Android\bin\Debug\CPDT.Extra.Android.dll</HintPath>
       <HintPath Condition="'$(Configuration)'=='Release'">..\References\CPDT.Extra.Android.dll</HintPath>
     </Reference>
     <Reference Include="CPDT.Extra">
-      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra.git\CPDT.Extra\bin\Debug\netstandard2.0\CPDT.Extra.dll</HintPath>
+      <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra\CPDT.Extra\bin\Debug\netstandard2.0\CPDT.Extra.dll</HintPath>
       <HintPath Condition="'$(Configuration)'=='Release'">..\References\CPDT.Extra.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="Saplin.StorageSpeedMeter">
-      <HintPath>..\..\NetCoreStorageSpeedTest.git\Saplin.StorageSpeedMeter\bin\Debug\netstandard2.0\Saplin.StorageSpeedMeter.dll</HintPath>
+      <HintPath>..\..\NetCoreStorageSpeedTest\Saplin.StorageSpeedMeter\bin\Debug\netstandard2.0\Saplin.StorageSpeedMeter.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms">
-      <Version>5.0.0.2012</Version>
+      <Version>5.0.0.2478</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
