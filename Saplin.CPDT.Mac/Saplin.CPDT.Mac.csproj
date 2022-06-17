@@ -32,7 +32,7 @@
     <UseRefCounting>true</UseRefCounting>
     <HttpClientHandler>HttpClientHandler</HttpClientHandler>
     <LinkMode>None</LinkMode>
-    <XamMacArch>x86_64</XamMacArch>
+    <XamMacArch>x86_64,ARM64</XamMacArch>
     <AOTMode>None</AOTMode>
     <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
   </PropertyGroup>
@@ -50,7 +50,7 @@
     <UseRefCounting>true</UseRefCounting>
     <LinkMode>SdkOnly</LinkMode>
     <HttpClientHandler>HttpClientHandler</HttpClientHandler>
-    <XamMacArch>x86_64</XamMacArch>
+    <XamMacArch>x86_64,ARM64</XamMacArch>
     <AOTMode>None</AOTMode>
     <CodeSigningKey>Mac Developer</CodeSigningKey>
     <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
@@ -69,13 +69,13 @@
       <HintPath>..\packages\Xamarin.Forms.5.0.0.2478\lib\Xamarin.Mac\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
         <Reference Include="SkiaSharp">
-          <HintPath>..\packages\SkiaSharp.1.60.3\lib\Xamarin.Mac20\SkiaSharp.dll</HintPath>
+          <HintPath>..\packages\SkiaSharp.2.88.0\lib\xamarinmac2.0\SkiaSharp.dll</HintPath>
         </Reference>
         <Reference Include="SkiaSharp.Views.Mac">
-          <HintPath>..\packages\SkiaSharp.Views.1.60.3\lib\Xamarin.Mac20\SkiaSharp.Views.Mac.dll</HintPath>
+          <HintPath>..\packages\SkiaSharp.Views.2.88.0\lib\xamarinmac2.0\SkiaSharp.Views.Mac.dll</HintPath>
         </Reference>
         <Reference Include="SkiaSharp.Views.Forms">
-          <HintPath>..\packages\SkiaSharp.Views.Forms.1.60.3\lib\Xamarin.Mac20\SkiaSharp.Views.Forms.dll</HintPath>
+          <HintPath>..\packages\SkiaSharp.Views.Forms.2.88.0\lib\xamarinmac2.0\SkiaSharp.Views.Forms.dll</HintPath>
         </Reference>
         <Reference Include="CPDT.Extra">
             <HintPath Condition="'$(Configuration)'=='Debug'">..\..\CPDT.Extra\CPDT.Extra\bin\Debug\netstandard2.0\CPDT.Extra.dll</HintPath>
@@ -144,4 +144,5 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
   <Import Project="..\packages\Xamarin.Forms.5.0.0.2478\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.5.0.0.2478\build\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\SkiaSharp.NativeAssets.macOS.2.88.0\build\xamarinmac2.0\SkiaSharp.NativeAssets.macOS.targets" Condition="Exists('..\packages\SkiaSharp.NativeAssets.macOS.2.88.0\build\xamarinmac2.0\SkiaSharp.NativeAssets.macOS.targets')" />
 </Project>

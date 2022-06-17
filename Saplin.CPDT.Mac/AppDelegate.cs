@@ -14,11 +14,12 @@ namespace Saplin.CPDT.Mac
         {
             var style = NSWindowStyle.Resizable | NSWindowStyle.Titled | NSWindowStyle.FullSizeContentView;
 
-            var rect = new CoreGraphics.CGRect(200, 1000, 800, 650);
+            var rect = new CoreGraphics.CGRect(0, 0, 800, 650);
             _window = new NSWindow(rect, style, NSBackingStore.Buffered, false);
-            _window.Title = "CPDT";
+            //_window.Title = "CPDT";
             _window.TitleVisibility = NSWindowTitleVisibility.Hidden;
             _window.TitlebarAppearsTransparent = true;
+            //_window.title
             _window.StandardWindowButton(NSWindowButton.CloseButton).Hidden = true;
             _window.StandardWindowButton(NSWindowButton.ZoomButton).Hidden = true;
             _window.StandardWindowButton(NSWindowButton.MiniaturizeButton).Hidden = true;
