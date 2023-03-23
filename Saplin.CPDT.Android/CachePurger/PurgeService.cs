@@ -23,7 +23,7 @@ namespace Saplin.CPDT.Droid.CachePurger
         public override void OnCreate()
         {
             base.OnCreate();
-            messenger = new Messenger(new PurheServiceHandler(this));
+            messenger = new Messenger(new PurgeServiceHandler(this));
             Log.Debug(TAG, "OnCreate");
             //Toast.MakeText(Android.App.Application.Context, "PurgeService.OnCreate", ToastLength.Short).Show();
         }

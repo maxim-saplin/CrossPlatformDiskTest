@@ -14,7 +14,7 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <TargetFrameworkVersion>v12.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v13.0</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <SynchReleaseVersion>false</SynchReleaseVersion>
@@ -36,7 +36,6 @@
     <AndroidLinkMode>None</AndroidLinkMode>
     <AndroidTlsProvider>legacy</AndroidTlsProvider>
     <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
-    <AndroidHttpClientHandlerType>System.Net.Http.HttpClientHandler</AndroidHttpClientHandlerType>
 <LangVersion>latestmajor</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -58,7 +57,6 @@
     <AndroidLinkSkip>Saplin.CPDT.UICore;Saplin.CPDT.UICore.resources;Saplin.StorageSpeedMeter;CPDT.Extra.Android;Saplin.CPDT.Android;</AndroidLinkSkip>
     <AndroidTlsProvider>legacy</AndroidTlsProvider>
     <AndroidAotAdditionalArguments>no-write-symbols,nodebug</AndroidAotAdditionalArguments>
-    <AndroidHttpClientHandlerType>System.Net.Http.HttpClientHandler</AndroidHttpClientHandlerType>
     <AndroidLinkTool>r8</AndroidLinkTool>
     <AndroidR8ExtraArguments>--no-tree-shaking</AndroidR8ExtraArguments>
     <!-- Out of process cache purging service crashes with R8 default settings as there's some Mono class which can't be found, possible the result of R8 -->
@@ -83,7 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms">
-      <Version>5.0.0.2478</Version>
+      <Version>5.0.0.2578</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

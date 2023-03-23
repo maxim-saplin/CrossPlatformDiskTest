@@ -3,11 +3,11 @@ using Android.OS;
 
 namespace Saplin.CPDT.Droid.CachePurger
 {
-    public class PurheServiceHandler : Android.OS.Handler
+    public class PurgeServiceHandler : Android.OS.Handler
     {
         WeakReference<PurgeService> serviceRef;
 
-        public PurheServiceHandler(PurgeService service)
+        public PurgeServiceHandler(PurgeService service) : base(Looper.MainLooper)
         {
             serviceRef = new WeakReference<PurgeService>(service);
         }

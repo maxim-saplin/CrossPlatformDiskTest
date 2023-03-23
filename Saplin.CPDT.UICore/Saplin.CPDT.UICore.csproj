@@ -7,10 +7,10 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
     <DebugType>pdbonly</DebugType>
-    <ReleaseVersion>2.3.9</ReleaseVersion>
-    <Version>2.3.8</Version>
-    <AssemblyVersion>2.3.9.0</AssemblyVersion>
-    <FileVersion>2.3.9.0</FileVersion>
+    <ReleaseVersion>2.4.0</ReleaseVersion>
+    <Version>2.4.0</Version>
+    <AssemblyVersion>2.4.0.0</AssemblyVersion>
+    <FileVersion>2.4.0.0</FileVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -202,7 +202,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2478" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.0" />
   </ItemGroup>
 </Project>

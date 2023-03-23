@@ -1,14 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Content.Res;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
-using Android.Widget;
-using Saplin.CPDT.Droid.CachePurger;
 using static Android.App.ActivityManager;
 
 namespace Saplin.CPDT.Droid
