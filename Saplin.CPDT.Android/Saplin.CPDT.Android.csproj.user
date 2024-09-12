@@ -3,7 +3,9 @@
   <PropertyGroup>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
     <AndroidDesignerPreferredTheme>Theme.Material</AndroidDesignerPreferredTheme>
-    <SelectedDevice>Samsung SM-G930F</SelectedDevice>
-    <DefaultDevice>Android_Accelerated_x86_Oreo</DefaultDevice>
+    <SelectedDevice>pixel_6_-_api_34</SelectedDevice>
+    <DefaultDevice>pixel_6_-_api_34</DefaultDevice>
+    <SelectedPlatformGroup>Emulator</SelectedPlatformGroup>
+    <ActiveDebugProfile>Pixel 6 - API 34 %28Android 14.0 - API 34%29</ActiveDebugProfile>
   </PropertyGroup>
 </Project>
